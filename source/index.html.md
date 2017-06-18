@@ -1,189 +1,72 @@
 ---
 title: API Reference
 
-language_tabs:
-  - shell
-  - ruby
-  - python
-  - javascript
-
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - <a href='https://twistapp.com/integrations/create'>Create your oAuth2 app</a>
 
 includes:
   - errors
+  - authentication
+  - batch
+  - users
+  - workspaces
+  - channels
+  - attachments
+  - groups
+  - threads
+  - comments
+  - reactions
+  - inbox
+  - search
+  - notification_settings
+  - url_join
+  - loop_in
+  - integration_types
+  - integration_ws
+  - integration_configure_url
+  - integration_automatic_reports
 
 search: true
 ---
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+This is the official Twist API documentation.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+## Goals of the system
 
-# Authentication
+The Twist API is designed with the following principles:
 
-> To authorize, use this code:
+* Most of the data is fetched online
+* Offline support only for user data, workspaces and channels (since they don’t change a lot and don’t grow a lot)
+* Very limited offline support for threads and comments
+* Non-blocking add and updating of data (the user should not wait for the server to complete a request)
+* Aggressive pre-fetching to make loads fast
 
-```ruby
-require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+## Authentication
 
-```python
-import kittn
+Login and signup are done via `/api/v1/users/login` and `/api/v1/users/register`. For public integrations you must use our oAuth 2 authentication.
 
-api = kittn.authorize('meowmeowmeow')
-```
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
+## Temporary ids
 
-```javascript
-const kittn = require('kittn');
+Temporary ids are negative and can be used when adding, updating or deleting items.
 
-let api = kittn.authorize('meowmeowmeow');
-```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+## Return results and error handling
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+A response is always a JSON object which can be following:
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+- On successful return: JSON data
+- On an error return, HTTP error code followed by: `{ “error”: [error_code, error_string], **kwargs }`
 
-`Authorization: meowmeowmeow`
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
+## Dates
+For dates we use ISO 8601. The formatting we can have inside the system:
+- Date time: `%Y-%m-%d %H:%M:%S`
+- Date only: `%Y-%m-%d`
+- With timezone info: `%Y-%m-%d %H:%M:%S +00:00`
 
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
+The current API should only return `%Y-%m-%d %H:%M:%S`, where the time zone is implicit set to `UTC`.

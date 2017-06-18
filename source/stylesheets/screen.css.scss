@@ -625,3 +625,29 @@ html, body {
 .highlight, .highlight .w {
   background-color: $code-bg;
 }
+
+/*
+Twist stylesheet
+*/
+html, body {
+    background-color: #393939;
+}
+
+.tocify-wrapper > img {
+    width: 200px;
+    margin: 15px auto;
+}
+
+.content a {
+    color: #3f82ef;
+    text-decoration: none;
+}
+
+.content blockquote {
+    padding-bottom: 0px;
+}
+
+.content code  {
+    word-break: normal;
+    hyphens: manual;
+}
