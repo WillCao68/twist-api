@@ -8,6 +8,8 @@ Your webhooks handler can respond to add data back to Twist.
 
 The outgoing hooks can work with any language or framework — as long as they support HTTPS and JSON.
 
+Please note that outgoing webhooks are not the same as [REST Hooks](#integrations-rest-hooks), which Twist also implements. Rest hooks are harder to setup but much more powerful. Rest hooks are used by oAuth2 integrations while outgoing webhooks are used by Slash command, Thread and Channel integrations. 
+
 
 ## Example implementation
 

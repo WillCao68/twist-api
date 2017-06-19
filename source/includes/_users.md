@@ -65,7 +65,7 @@ A user represents a real person who collaborates with other users.
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/getone \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=10073
 ```
 
@@ -164,7 +164,7 @@ The user object.
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/update \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d name=User
 ```
 
@@ -203,7 +203,7 @@ The updated user object is returned.
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/update_password \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d current_password=secret \
   -d new_password=newsecret
 ```
@@ -255,7 +255,7 @@ The updated user object is returned.
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/invalidate_token \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
 ```
 
 `POST /api/v1/users/invalidate_token`
@@ -273,7 +273,7 @@ The user object is returned, which also includes the new token.
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/validate_token \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
 ```
 
 `POST /api/v1/users/validate_token`
@@ -295,7 +295,7 @@ Validates the user token.
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/heartbeat \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d workspace_id=5517 \
   -d platform=api
 ```
@@ -326,7 +326,7 @@ Marks user as active on workspace.
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/reset_presense \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d workspace_id=5517
 ```
 
@@ -457,7 +457,7 @@ The user object.
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/connect_with_google \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d access_token=ya29.AHES6ZRKeUQwH2xhirksSUDSyjg9oPuRMMal05Ty0cfFIT_uRfESHw
 ```
 
@@ -486,7 +486,7 @@ Connects user's account to a Google account.
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/is_connected_to_google \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
 ```
 
 `GET /api/v1/users/is_connected_to_google`
@@ -508,7 +508,7 @@ Checks whether user's account is connected to a Google account.
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/disconnect_google \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
 ```
 
 `POST /api/v1/users/disconnect_google`

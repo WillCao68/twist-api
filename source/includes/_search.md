@@ -8,7 +8,7 @@ The search query allows for finding threads and conversations matching some text
 
 ```shell
 curl https://api.twistapp.com/api/v1/search/query \
-  -d token=0123456789abcdef0123456789abcdef01234567 \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d query=texts
 ```
 
@@ -90,7 +90,7 @@ Searches for a string.
 
 ```shell
 curl "https://api.twistapp.com/api/v1/search/comments?query=texts&workspace_id=201&thread_id=401" \
-  -d token=0123456789abcdef0123456789abcdef01234567
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
 ```
 
 `GET /api/v1/search/comments`
@@ -155,7 +155,7 @@ Here we get more details about a thread and its comments.
 
 ```shell
 curl "https://api.twistapp.com/api/v1/search/expand_comment_range?idx_end=3&thread_id=401&workspace_id=201&idx_start=0" \
-  -d token=0123456789abcdef0123456789abcdef01234567
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
 ```
 
 `GET /api/v1/search/expand_comment_range`
@@ -203,7 +203,7 @@ The thread is expanded, that is more comments are returned.
 
 ```shell
 curl "https://api.twistapp.com/api/v1/search/messages?query=hello&workspace_id=201&aggregate_id=123-345-678-9" \
-  -d token=0123456789abcdef0123456789abcdef01234567
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
 ```
 
 `GET /api/v1/search/messages`
@@ -299,7 +299,7 @@ Here we get more details about a conversation and its messages.
 
 ```shell
 curl "https://api.twistapp.com/api/v1/search/expand_conversation_message_range?conversation_id=601&idx_end=5&workspace_id=201&idx_start=0&direction=top" \
-  -d token=0123456789abcdef0123456789abcdef01234567
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
 ```
 
 `GET /api/v1/search/expand_conversation_message_range`

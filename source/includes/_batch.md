@@ -4,7 +4,7 @@
 
 ```shell
 $ curl https://api.twistapp.com/api/v1/batch \
-  -d token=0123456789abcdef0123456789abcdef01234567 \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d requests='[{"method": "GET", "url": "https://api.twistapp.com/api/v1/workspaces/get?token=..."},
                 {"method": "GET", "url": "https://api.twistapp.com/api/v1/workspaces/getone?token=...&id=201"}]'
 ```

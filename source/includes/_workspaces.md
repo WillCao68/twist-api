@@ -156,7 +156,7 @@ A workspace is a shared place between different users. In the Twist UI they are 
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/getone \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
 ```
 
@@ -181,7 +181,7 @@ A workspace object is returned.
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/get_default \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
 ```
 
 `GET /api/v1/workspaces/get_default`
@@ -199,7 +199,7 @@ A workspace object is returned.
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/get \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
 ```
 
 `GET /api/v1/workspaces/get`
@@ -217,7 +217,7 @@ A list of workspace objects is returned.
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/add \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d name=Workspace1
 ```
 
@@ -244,7 +244,7 @@ A workspace object is returned.
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/update \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d name=Workspace1
 ```
 
@@ -272,7 +272,7 @@ The updated workspace object is returned.
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/remove \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d current_password=secret
 ```
@@ -302,7 +302,7 @@ Removes a workspace and all its data \(not recoverable\).
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/add_user \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d email=user2@example.com
 ```
@@ -329,7 +329,7 @@ A workspace user object is returned.
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/resend_invite \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d email=user2@example.com
 ```
@@ -358,7 +358,7 @@ Adds a person to a workspace.
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/update_user \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d email=user2@example.com
   -d user_type=USER
@@ -387,7 +387,7 @@ The updated workspace user object is returned.
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/update_user \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d email=user2@example.com
 ```
@@ -418,7 +418,7 @@ Removes a person from a workspace.
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/get_user_by_email \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d email=user2@example.com
 ```
@@ -445,7 +445,7 @@ A workspace user object is returned.
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/get_user_by_id \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d user_id=10073
 ```
@@ -472,7 +472,7 @@ A workspace user object is returned.
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/get_user_info \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d user_id=10073
 ```
@@ -495,7 +495,7 @@ Gets user's info in the context of the workspace.
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/get_user_local_time \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d user_id=10073
 ```
@@ -524,7 +524,7 @@ Gets user's local time.
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/get_public_channels \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
 ```
 

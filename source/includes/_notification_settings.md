@@ -69,7 +69,7 @@ The user's notification settings allow to setup email and push settings.
 
 ```shell
 curl https://api.twistapp.com/api/v1/notifications_settings/v2/get \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d workspace_id=5517
 ```
 
@@ -94,7 +94,7 @@ A notifications settings object is returned.
 
 ```shell
 curl https://api.twistapp.com/api/v1/notifications_settings/v2/update \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d workspace_id=5517 \
   -d setting=desktop_conversations \
   -d value=true
@@ -127,7 +127,7 @@ Updates user notifications settings.
 
 ```shell
 curl https://api.twistapp.com/api/v1/notifications_settings/v2/update_many \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d workspace_id=5517
   -d mapping='{"desktop_conversations":true,"email_comments":false}'
 ```

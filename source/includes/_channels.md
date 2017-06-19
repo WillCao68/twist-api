@@ -45,7 +45,7 @@ A channel is a topic of discussion between a number of users.
 
 ```shell
 curl https://api.twistapp.com/api/v1/channels/getone \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+ \
   -d id=6984
 ```
 
@@ -70,7 +70,7 @@ A channel object is returned.
 
 ```shell
 curl https://api.twistapp.com/api/v1/channels/get \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d workspace_id=5517
 ```
 
@@ -96,7 +96,7 @@ A list of channel objects is returned.
 
 ```shell
 curl https://api.twistapp.com/api/v1/channels/add \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d workspace_id=5517 \
   -d name=Channel1
 ```
@@ -127,7 +127,7 @@ A channel object is returned.
 
 ```shell
 curl https://api.twistapp.com/api/v1/channels/update \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=6984 \
   -d name=Channel1
 ```
@@ -157,7 +157,7 @@ The updated channel object is returned.
 
 ```shell
 curl https://api.twistapp.com/api/v1/channels/remove \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=6984
 ```
 
@@ -185,7 +185,7 @@ Removes a channel. Requires for the channel to be archived first.
 
 ```shell
 curl https://api.twistapp.com/api/v1/channels/archive \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=6984
 ```
 
@@ -215,7 +215,7 @@ Archives a channel.
 
 ```shell
 curl https://api.twistapp.com/api/v1/channels/unarchive \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=6984
 ```
 
@@ -244,7 +244,7 @@ Unarchives a channel.
 
 ```shell
 curl https://api.twistapp.com/api/v1/channels/add_user \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=6984 \
   -d user_id=10076
 ```
@@ -275,7 +275,7 @@ Adds a person to a channel.
 
 ```shell
 curl https://api.twistapp.com/api/v1/channels/add_users \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=6984 \
   -d user_ids='[10076]'
 ```
@@ -307,7 +307,7 @@ Adds several persons to a channel.
 
 ```shell
 curl https://api.twistapp.com/api/v1/channels/remove_user \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=6984 \
   -d user_id=10076
 ```
@@ -338,7 +338,7 @@ Removes a person from a channel.
 
 ```shell
 curl https://api.twistapp.com/api/v1/channels/remove_users \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=6984 \
   -d user_ids='[10076]'
 ```

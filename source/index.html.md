@@ -11,6 +11,7 @@ includes:
   - users
   - workspaces
   - channels
+  - conversations
   - attachments
   - groups
   - threads
@@ -22,6 +23,7 @@ includes:
   - url_join
   - loop_in
   - integration_types
+  - integration_rest_hooks
   - integration_ws
   - integration_configure_url
   - integration_automatic_reports
