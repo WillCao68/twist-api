@@ -64,3 +64,35 @@ On a successful unsubscribe, we return a `200 OK`.
 
 
 ## Supported hook events
+
+These are the events you can subscribe to:
+
+
+| Event type | Description |
+| ---------- | ----------- |
+| workspace_added | Triggers when a workspace is added |
+| workspace_updated | Triggers when a workspace is updated |
+| workspace_deleted | Triggers when a workspace is deleted |
+| workspace_user_added | Triggers when a user is added to a workspace | 
+| workspace_user_updated | Triggers when a user is updated inside a workspace | 
+| workspace_user_removed | Triggers when a user is removed from a workspace | 
+| channel_added | Triggers when a channel is added |
+| channel_updated | Triggers when a channel is updated |
+| channel_deleted | Triggers when a channel is deleted |
+| channel_user_added | Triggers when a user is added to a channel | 
+| channel_user_updated | Triggers when a user is updated inside a channel | 
+| channel_user_removed | Triggers when a user is removed from a channel | 
+| thread_added | Triggers when a thread is added |
+| thread_updated | Triggers when a thread is updated |
+| thread_deleted | Triggers when a thread is deleted |
+| comment_added | Triggers when a comment is added |
+| comment_updated | Triggers when a comment is updated |
+| comment_deleted | Triggers when a comment is deleted |
+| message_added | Triggers when a message is added |
+| message_updated | Triggers when a message is updated |
+| message_deleted | Triggers when a message is deleted |
+| group_added | Triggers when a group is added |
+| group_updated | Triggers when a group is updated |
+| group_deleted | Triggers when a group is deleted |
+| group_user_added | Triggers when a user is added to a group | 
+| group_user_removed | Triggers when a user is removed from a group | 
