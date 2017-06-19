@@ -30,7 +30,7 @@ A group is a number of users grouped together under some name, a team.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/groups/getone \
+curl https://api.twistapp.com/api/v1/groups/getone \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=498
 ```
@@ -55,7 +55,7 @@ A group object is returned.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/groups/get \
+curl https://api.twistapp.com/api/v1/groups/get \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d workspace_id=5517
 ```
@@ -81,7 +81,7 @@ A list of group objects is returned.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/groups/add \
+curl https://api.twistapp.com/api/v1/groups/add \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d workspace_id=5571 \
   -d name=Group1 \
@@ -109,7 +109,7 @@ A group object is returned.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/groups/update \
+curl https://api.twistapp.com/api/v1/groups/update \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=498 \
   -d name=Group1
@@ -136,7 +136,7 @@ The updated group object is returned.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/groups/remove \
+curl https://api.twistapp.com/api/v1/groups/remove \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=498
 ```
@@ -165,7 +165,7 @@ Removes a group.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/groups/add_user \
+curl https://api.twistapp.com/api/v1/groups/add_user \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=498 \
   -d user_id=10076
@@ -196,7 +196,7 @@ Adds a person to a group.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/groups/add_users \
+curl https://api.twistapp.com/api/v1/groups/add_users \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=498 \
   -d user_ids='[10073,10076]'
@@ -227,7 +227,7 @@ Adds several persons to a group.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/groups/remove_user \
+curl https://api.twistapp.com/api/v1/groups/remove_user \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=498 \
   -d user_id=10076
@@ -258,7 +258,7 @@ Removes a person from a group.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/groups/remove_users \
+curl https://api.twistapp.com/api/v1/groups/remove_users \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=498 \
   -d user_ids='[10073,10076]'

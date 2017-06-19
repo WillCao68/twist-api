@@ -64,7 +64,7 @@ A user represents a real person who collaborates with other users.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/users/getone \
+curl https://api.twistapp.com/api/v1/users/getone \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=10073
 ```
@@ -88,7 +88,7 @@ The user object.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/users/login \
+curl https://api.twistapp.com/api/v1/users/login \
   -d email=user@example.com \
   -d password=secret
 ```
@@ -115,7 +115,7 @@ The user object.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/users/logout
+curl https://api.twistapp.com/api/v1/users/logout
 ```
 
 `POST /api/v1/users/logout`
@@ -136,7 +136,7 @@ Logs out user, and resets the session.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/users/register \
+curl https://api.twistapp.com/api/v1/users/register \
   -d name=User \
   -d email=user@example.com \
   -d password=secret
@@ -163,7 +163,7 @@ The user object.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/users/update \
+curl https://api.twistapp.com/api/v1/users/update \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d name=User
 ```
@@ -202,7 +202,7 @@ The updated user object is returned.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/users/update_password \
+curl https://api.twistapp.com/api/v1/users/update_password \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d current_password=secret \
   -d new_password=newsecret
@@ -229,7 +229,7 @@ The user object is returned.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/users/update_avatar \
+curl https://api.twistapp.com/api/v1/users/update_avatar \
   -F token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -F image=@avatar.jpg
 ```
@@ -254,7 +254,7 @@ The updated user object is returned.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/users/invalidate_token \
+curl https://api.twistapp.com/api/v1/users/invalidate_token \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
 ```
 
@@ -272,7 +272,7 @@ The user object is returned, which also includes the new token.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/users/validate_token \
+curl https://api.twistapp.com/api/v1/users/validate_token \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf
 ```
 
@@ -294,7 +294,7 @@ Validates the user token.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/users/heartbeat \
+curl https://api.twistapp.com/api/v1/users/heartbeat \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d workspace_id=5517 \
   -d platform=api
@@ -325,7 +325,7 @@ Marks user as active on workspace.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/users/reset_presense \
+curl https://api.twistapp.com/api/v1/users/reset_presense \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d workspace_id=5517
 ```
@@ -353,7 +353,7 @@ Marks user as inactive on workspace.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/users/reset_password \
+curl https://api.twistapp.com/api/v1/users/reset_password \
   -d email=user@example.com
 ```
 
@@ -381,7 +381,7 @@ Sends an email to reset the user's password.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/users/set_password \
+curl https://api.twistapp.com/api/v1/users/set_password \
   -d reset_code=12345abcef
   -d new_password=newsecret
 ```
@@ -407,7 +407,7 @@ The updated user object is returned.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/users/login_with_google \
+curl https://api.twistapp.com/api/v1/users/login_with_google \
   -d access_token=ya29.AHES6ZRKeUQwH2xhirksSUDSyjg9oPuRMMal05Ty0cfFIT_uRfESHw
 ```
 
@@ -432,7 +432,7 @@ The user object is returned.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/users/register_with_google \
+curl https://api.twistapp.com/api/v1/users/register_with_google \
   -d access_token=ya29.AHES6ZRKeUQwH2xhirksSUDSyjg9oPuRMMal05Ty0cfFIT_uRfESHw
 ```
 
@@ -456,7 +456,7 @@ The user object.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/users/connect_with_google \
+curl https://api.twistapp.com/api/v1/users/connect_with_google \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d access_token=ya29.AHES6ZRKeUQwH2xhirksSUDSyjg9oPuRMMal05Ty0cfFIT_uRfESHw
 ```
@@ -485,7 +485,7 @@ Connects user's account to a Google account.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/users/is_connected_to_google \
+curl https://api.twistapp.com/api/v1/users/is_connected_to_google \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf
 ```
 
@@ -507,7 +507,7 @@ Checks whether user's account is connected to a Google account.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/users/disconnect_google \
+curl https://api.twistapp.com/api/v1/users/disconnect_google \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf
 ```
 

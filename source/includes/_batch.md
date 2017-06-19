@@ -3,10 +3,10 @@
 > Example
 
 ```shell
-$ curl https://twistapp.com/api/v1/batch \
+$ curl https://api.twistapp.com/api/v1/batch \
   -d token=0123456789abcdef0123456789abcdef01234567 \
-  -d requests='[{"method": "GET", "url": "https://twistapp.com/api/v1/workspaces/get?token=..."},
-                {"method": "GET", "url": "https://twistapp.com/api/v1/workspaces/getone?token=...&id=201"}]'
+  -d requests='[{"method": "GET", "url": "https://api.twistapp.com/api/v1/workspaces/get?token=..."},
+                {"method": "GET", "url": "https://api.twistapp.com/api/v1/workspaces/getone?token=...&id=201"}]'
 ```
 
 `POST /api/v1/batch`

@@ -44,7 +44,7 @@ A channel is a topic of discussion between a number of users.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/channels/getone \
+curl https://api.twistapp.com/api/v1/channels/getone \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=6984
 ```
@@ -69,7 +69,7 @@ A channel object is returned.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/channels/get \
+curl https://api.twistapp.com/api/v1/channels/get \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d workspace_id=5517
 ```
@@ -95,7 +95,7 @@ A list of channel objects is returned.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/channels/add \
+curl https://api.twistapp.com/api/v1/channels/add \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d workspace_id=5517 \
   -d name=Channel1
@@ -126,7 +126,7 @@ A channel object is returned.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/channels/update \
+curl https://api.twistapp.com/api/v1/channels/update \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=6984 \
   -d name=Channel1
@@ -156,7 +156,7 @@ The updated channel object is returned.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/channels/remove \
+curl https://api.twistapp.com/api/v1/channels/remove \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=6984
 ```
@@ -184,7 +184,7 @@ Removes a channel. Requires for the channel to be archived first.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/channels/archive \
+curl https://api.twistapp.com/api/v1/channels/archive \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=6984
 ```
@@ -214,7 +214,7 @@ Archives a channel.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/channels/unarchive \
+curl https://api.twistapp.com/api/v1/channels/unarchive \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=6984
 ```
@@ -243,7 +243,7 @@ Unarchives a channel.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/channels/add_user \
+curl https://api.twistapp.com/api/v1/channels/add_user \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=6984 \
   -d user_id=10076
@@ -274,7 +274,7 @@ Adds a person to a channel.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/channels/add_users \
+curl https://api.twistapp.com/api/v1/channels/add_users \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=6984 \
   -d user_ids='[10076]'
@@ -306,7 +306,7 @@ Adds several persons to a channel.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/channels/remove_user \
+curl https://api.twistapp.com/api/v1/channels/remove_user \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=6984 \
   -d user_id=10076
@@ -337,7 +337,7 @@ Removes a person from a channel.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/channels/remove_users \
+curl https://api.twistapp.com/api/v1/channels/remove_users \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=6984 \
   -d user_ids='[10076]'

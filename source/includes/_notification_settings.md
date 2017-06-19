@@ -68,7 +68,7 @@ The user's notification settings allow to setup email and push settings.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/notifications_settings/v2/get \
+curl https://api.twistapp.com/api/v1/notifications_settings/v2/get \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d workspace_id=5517
 ```
@@ -93,7 +93,7 @@ A notifications settings object is returned.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/notifications_settings/v2/update \
+curl https://api.twistapp.com/api/v1/notifications_settings/v2/update \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf
   -d workspace_id=5517 \
   -d setting=desktop_conversations \
@@ -126,7 +126,7 @@ Updates user notifications settings.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/notifications_settings/v2/update_many \
+curl https://api.twistapp.com/api/v1/notifications_settings/v2/update_many \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf
   -d workspace_id=5517
   -d mapping='{"desktop_conversations":true,"email_comments":false}'

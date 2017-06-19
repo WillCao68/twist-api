@@ -155,7 +155,7 @@ A workspace is a shared place between different users. In the Twist UI they are 
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/workspaces/getone \
+curl https://api.twistapp.com/api/v1/workspaces/getone \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=5517
 ```
@@ -180,7 +180,7 @@ A workspace object is returned.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/workspaces/get_default \
+curl https://api.twistapp.com/api/v1/workspaces/get_default \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
 ```
 
@@ -198,7 +198,7 @@ A workspace object is returned.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/workspaces/get \
+curl https://api.twistapp.com/api/v1/workspaces/get \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
 ```
 
@@ -216,7 +216,7 @@ A list of workspace objects is returned.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/workspaces/add \
+curl https://api.twistapp.com/api/v1/workspaces/add \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d name=Workspace1
 ```
@@ -243,7 +243,7 @@ A workspace object is returned.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/workspaces/update \
+curl https://api.twistapp.com/api/v1/workspaces/update \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d name=Workspace1
 ```
@@ -271,7 +271,7 @@ The updated workspace object is returned.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/workspaces/remove \
+curl https://api.twistapp.com/api/v1/workspaces/remove \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=5517
   -d current_password=secret
@@ -301,7 +301,7 @@ Removes a workspace and all its data \(not recoverable\).
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/workspaces/add_user \
+curl https://api.twistapp.com/api/v1/workspaces/add_user \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=5517
   -d email=user2@example.com
@@ -328,7 +328,7 @@ A workspace user object is returned.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/workspaces/resend_invite \
+curl https://api.twistapp.com/api/v1/workspaces/resend_invite \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=5517
   -d email=user2@example.com
@@ -357,7 +357,7 @@ Adds a person to a workspace.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/workspaces/update_user \
+curl https://api.twistapp.com/api/v1/workspaces/update_user \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=5517
   -d email=user2@example.com
@@ -386,7 +386,7 @@ The updated workspace user object is returned.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/workspaces/update_user \
+curl https://api.twistapp.com/api/v1/workspaces/update_user \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=5517
   -d email=user2@example.com
@@ -417,7 +417,7 @@ Removes a person from a workspace.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/workspaces/get_user_by_email \
+curl https://api.twistapp.com/api/v1/workspaces/get_user_by_email \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=5517
   -d email=user2@example.com
@@ -444,7 +444,7 @@ A workspace user object is returned.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/workspaces/get_user_by_id \
+curl https://api.twistapp.com/api/v1/workspaces/get_user_by_id \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=5517
   -d user_id=10073
@@ -471,7 +471,7 @@ A workspace user object is returned.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/workspaces/get_user_info \
+curl https://api.twistapp.com/api/v1/workspaces/get_user_info \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=5517
   -d user_id=10073
@@ -494,7 +494,7 @@ Gets user's info in the context of the workspace.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/workspaces/get_user_local_time \
+curl https://api.twistapp.com/api/v1/workspaces/get_user_local_time \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=5517
   -d user_id=10073
@@ -523,7 +523,7 @@ Gets user's local time.
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/workspaces/get_public_channels \
+curl https://api.twistapp.com/api/v1/workspaces/get_public_channels \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d id=5517
 ```

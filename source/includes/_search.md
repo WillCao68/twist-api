@@ -7,7 +7,7 @@ The search query allows for finding threads and conversations matching some text
 > Example
 
 ```shell
-curl https://twistapp.com/api/v1/search/query \
+curl https://api.twistapp.com/api/v1/search/query \
   -d token=0123456789abcdef0123456789abcdef01234567 \
   -d query=texts
 ```
@@ -89,7 +89,7 @@ Searches for a string.
 > Example
 
 ```shell
-curl "https://twistapp.com/api/v1/search/comments?query=texts&workspace_id=201&thread_id=401" \
+curl "https://api.twistapp.com/api/v1/search/comments?query=texts&workspace_id=201&thread_id=401" \
   -d token=0123456789abcdef0123456789abcdef01234567
 ```
 
@@ -154,7 +154,7 @@ Here we get more details about a thread and its comments.
 > Example
 
 ```shell
-curl "https://twistapp.com/api/v1/search/expand_comment_range?idx_end=3&thread_id=401&workspace_id=201&idx_start=0" \
+curl "https://api.twistapp.com/api/v1/search/expand_comment_range?idx_end=3&thread_id=401&workspace_id=201&idx_start=0" \
   -d token=0123456789abcdef0123456789abcdef01234567
 ```
 
@@ -202,7 +202,7 @@ The thread is expanded, that is more comments are returned.
 > Example
 
 ```shell
-curl "https://twistapp.com/api/v1/search/messages?query=hello&workspace_id=201&aggregate_id=123-345-678-9" \
+curl "https://api.twistapp.com/api/v1/search/messages?query=hello&workspace_id=201&aggregate_id=123-345-678-9" \
   -d token=0123456789abcdef0123456789abcdef01234567
 ```
 
@@ -298,7 +298,7 @@ Here we get more details about a conversation and its messages.
 > Example
 
 ```shell
-curl "https://twistapp.com/api/v1/search/expand_conversation_message_range?conversation_id=601&idx_end=5&workspace_id=201&idx_start=0&direction=top" \
+curl "https://api.twistapp.com/api/v1/search/expand_conversation_message_range?conversation_id=601&idx_end=5&workspace_id=201&idx_start=0&direction=top" \
   -d token=0123456789abcdef0123456789abcdef01234567
 ```
 
