@@ -38,7 +38,7 @@ A thread is a discussion.
 
 | Name | Type | Description |
 | ---- | --- | --- |
-| id | Number | The id of the channel |
+| id | Number | The id of the thread |
 | title | String | The title of the thread |
 | content | String | The content of the thread |
 | is_starred | Number | Whether the thread is starred |
@@ -124,7 +124,7 @@ A list of thread objects is returned.
 curl https://api.twistapp.com/api/v1/threads/add \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d channel_id=6984 \
-  -d name="Thread1"
+  -d name=Thread1
 ```
 
 `POST /api/v1/threads/add`
@@ -156,8 +156,8 @@ A thread object is returned.
 curl https://api.twistapp.com/api/v1/threads/update \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=32038 \
-  -d name="Thread1"
-```
+  -d name=Thread1
+``
 
 `POST /api/v1/threads/update`
 
