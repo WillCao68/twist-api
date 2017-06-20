@@ -45,7 +45,7 @@ A channel is a topic of discussion between a number of users.
 
 ```shell
 curl https://api.twistapp.com/api/v1/channels/getone \
- \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=6984
 ```
 
