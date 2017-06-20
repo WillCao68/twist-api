@@ -2,7 +2,7 @@
 
 A user represents a real person who collaborates with other users.
 
-> User object
+> User object:
 
 ```json
 {
@@ -61,7 +61,7 @@ A user represents a real person who collaborates with other users.
 
 ## Get one
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/getone \
@@ -85,7 +85,7 @@ The user object.
 
 ## Login
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/login \
@@ -112,7 +112,7 @@ The user object.
 
 ## Log out
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/logout
@@ -120,7 +120,7 @@ curl https://api.twistapp.com/api/v1/users/logout
 
 `POST /api/v1/users/logout`
 
-> Return value
+> Return value:
 
 ```json
 {
@@ -133,7 +133,7 @@ Logs out user, and resets the session.
 
 ## Register
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/register \
@@ -160,7 +160,7 @@ The user object.
 
 ## Update
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/update \
@@ -199,7 +199,7 @@ The updated user object is returned.
 
 ## Update password
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/update_password \
@@ -226,7 +226,7 @@ The user object is returned.
 
 ## Update avatar
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/update_avatar \
@@ -251,7 +251,7 @@ The updated user object is returned.
 
 ## Invalidate token
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/invalidate_token \
@@ -269,7 +269,7 @@ The user object is returned, which also includes the new token.
 
 ## Validate token
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/validate_token \
@@ -278,7 +278,7 @@ curl https://api.twistapp.com/api/v1/users/validate_token \
 
 `POST /api/v1/users/validate_token`
 
-> Return value
+> Return value:
 
 ```json
 {
@@ -291,7 +291,7 @@ Validates the user token.
 
 ## Set presence
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/heartbeat \
@@ -302,7 +302,7 @@ curl https://api.twistapp.com/api/v1/users/heartbeat \
 
 `POST /api/v1/users/heartbeat`
 
-> Return value
+> Return value:
 
 ```json
 {
@@ -322,7 +322,7 @@ Marks user as active on workspace.
 
 ## Reset presence
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/reset_presense \
@@ -332,7 +332,7 @@ curl https://api.twistapp.com/api/v1/users/reset_presense \
 
 `POST /api/v1/users/reset_presense`
 
-> Return value
+> Return value:
 
 ```json
 {
@@ -350,7 +350,7 @@ Marks user as inactive on workspace.
 
 ## Reset password
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/reset_password \
@@ -359,7 +359,7 @@ curl https://api.twistapp.com/api/v1/users/reset_password \
 
 `POST /api/v1/users/reset_password`
 
-> Return value
+> Return value:
 
 ```json
 {
@@ -378,7 +378,7 @@ Sends an email to reset the user's password.
 
 ## Set password based on reset code
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/set_password \
@@ -404,7 +404,7 @@ The updated user object is returned.
 
 ## Login with Google
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/login_with_google \
@@ -429,7 +429,7 @@ The user object is returned.
 
 ## Register with Google
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/register_with_google \
@@ -453,7 +453,7 @@ The user object.
 
 ## Connect with Google
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/connect_with_google \
@@ -463,7 +463,7 @@ curl https://api.twistapp.com/api/v1/users/connect_with_google \
 
 `POST /api/v1/users/connect_with_google`
 
-> Return value
+> Return value:
 
 ```json
 {
@@ -482,7 +482,7 @@ Connects user's account to a Google account.
 
 ## Check Google connection
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/is_connected_to_google \
@@ -491,7 +491,7 @@ curl https://api.twistapp.com/api/v1/users/is_connected_to_google \
 
 `GET /api/v1/users/is_connected_to_google`
 
-> Return value
+> Return value:
 
 ```json
 {
@@ -504,7 +504,7 @@ Checks whether user's account is connected to a Google account.
 
 ## Disconnect from Google
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/users/disconnect_google \
@@ -513,7 +513,7 @@ curl https://api.twistapp.com/api/v1/users/disconnect_google \
 
 `POST /api/v1/users/disconnect_google`
 
-> Return value
+> Return value:
 
 ```json
 {

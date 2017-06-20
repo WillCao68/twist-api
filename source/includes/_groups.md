@@ -2,7 +2,7 @@
 
 A group is a number of users grouped together under some name, a team.
 
-### Group object
+> Group object:
 
 ```json
 {
@@ -27,7 +27,7 @@ A group is a number of users grouped together under some name, a team.
 
 ## Get group
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/groups/getone \
@@ -52,7 +52,7 @@ A group object is returned.
 
 ## Get all groups
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/groups/get \
@@ -78,7 +78,7 @@ A list of group objects is returned.
 
 ## Add group
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/groups/add \
@@ -106,7 +106,7 @@ A group object is returned.
 
 ## Update group
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/groups/update \
@@ -133,7 +133,7 @@ The updated group object is returned.
 
 ## Remove group
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/groups/remove \
@@ -143,7 +143,7 @@ curl https://api.twistapp.com/api/v1/groups/remove \
 
 `POST /api/v1/groups/remove`
 
-> Return value
+> Return value:
 
 ```json
 {
@@ -162,7 +162,7 @@ Removes a group.
 
 ## Add user
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/groups/add_user \
@@ -173,7 +173,7 @@ curl https://api.twistapp.com/api/v1/groups/add_user \
 
 `POST /api/v1/groups/add_user`
 
-> Return value
+> Return value:
 
 ```json
 {
@@ -193,7 +193,7 @@ Adds a person to a group.
 
 ## Add users
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/groups/add_users \
@@ -204,7 +204,7 @@ curl https://api.twistapp.com/api/v1/groups/add_users \
 
 `POST /api/v1/groups/add_users`
 
-> Return value
+> Return value:
 
 ```json
 {
@@ -224,7 +224,7 @@ Adds several persons to a group.
 
 ## Remove user
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/groups/remove_user \
@@ -235,7 +235,7 @@ curl https://api.twistapp.com/api/v1/groups/remove_user \
 
 `POST /api/v1/groups/remove_user`
 
-> Return value
+> Return value:
 
 ```json
 {
@@ -255,7 +255,7 @@ Removes a person from a group.
 
 ## Remove users
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/groups/remove_users \
@@ -266,7 +266,7 @@ curl https://api.twistapp.com/api/v1/groups/remove_users \
 
 `POST /api/v1/groups/remove_users`
 
-> Return value
+> Return value:
 
 ```json
 {

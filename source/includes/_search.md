@@ -4,7 +4,7 @@ The search query allows for finding threads and conversations matching some text
 
 ## Search for query
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/search/query \
@@ -14,7 +14,7 @@ curl https://api.twistapp.com/api/v1/search/query \
 
 `GET /api/v1/search/query`
 
-> Return object
+> Return object::
 
 ```json
 {
@@ -86,7 +86,7 @@ Searches for a string.
 
 ## Get more details about comments
 
-> Example
+> Example:
 
 ```shell
 curl "https://api.twistapp.com/api/v1/search/comments?query=texts&workspace_id=201&thread_id=401" \
@@ -95,7 +95,7 @@ curl "https://api.twistapp.com/api/v1/search/comments?query=texts&workspace_id=2
 
 `GET /api/v1/search/comments`
 
-> Return object
+> Return object:
 
 ```json
 {
@@ -151,7 +151,7 @@ Here we get more details about a thread and its comments.
 
 ## Expand comment range
 
-> Example
+> Example:
 
 ```shell
 curl "https://api.twistapp.com/api/v1/search/expand_comment_range?idx_end=3&thread_id=401&workspace_id=201&idx_start=0" \
@@ -160,7 +160,7 @@ curl "https://api.twistapp.com/api/v1/search/expand_comment_range?idx_end=3&thre
 
 `GET /api/v1/search/expand_comment_range`
 
-> Return object
+> Return object:
 
 ```json
 {
@@ -199,7 +199,7 @@ The thread is expanded, that is more comments are returned.
 
 ## Get more details about messages
 
-> Example
+> Example:
 
 ```shell
 curl "https://api.twistapp.com/api/v1/search/messages?query=hello&workspace_id=201&aggregate_id=123-345-678-9" \
@@ -208,7 +208,7 @@ curl "https://api.twistapp.com/api/v1/search/messages?query=hello&workspace_id=2
 
 `GET /api/v1/search/messages`
 
-> Return object
+> Return object:
 
 ```json
 {
@@ -295,7 +295,7 @@ Here we get more details about a conversation and its messages.
 
 ## Expand conversation message range
 
-> Example
+> Example:
 
 ```shell
 curl "https://api.twistapp.com/api/v1/search/expand_conversation_message_range?conversation_id=601&idx_end=5&workspace_id=201&idx_start=0&direction=top" \
@@ -304,7 +304,7 @@ curl "https://api.twistapp.com/api/v1/search/expand_conversation_message_range?c
 
 `GET /api/v1/search/expand_conversation_message_range`
 
-> Return object
+> Return object:
 
 ```json
 {

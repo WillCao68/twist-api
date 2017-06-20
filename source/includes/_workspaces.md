@@ -2,7 +2,7 @@
 
 A workspace is a shared place between different users. In the Twist UI they are usually called teams.
 
-> Workspace object
+> Workspace object:
 
 ```json
 {
@@ -76,7 +76,7 @@ A workspace is a shared place between different users. In the Twist UI they are 
 | users | Array of Objects | The users that belong to the workspace |
 
 
-> Workspace user object
+> Workspace user object:
 
 ```json
 "user" : {
@@ -113,7 +113,7 @@ A workspace is a shared place between different users. In the Twist UI they are 
 | last_active | String | The date and time when the user was last active |
 
 
-> Workspace user activity object
+> Workspace user activity object:
 
 ```json
 {
@@ -152,7 +152,7 @@ A workspace is a shared place between different users. In the Twist UI they are 
 
 ## Get workspace
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/getone \
@@ -177,7 +177,7 @@ A workspace object is returned.
 
 ## Get default workspace
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/get_default \
@@ -195,7 +195,7 @@ A workspace object is returned.
 
 ## Get all workspaces
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/get \
@@ -213,7 +213,7 @@ A list of workspace objects is returned.
 
 ## Add workspace
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/add \
@@ -240,7 +240,7 @@ A workspace object is returned.
 
 ## Update workspace
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/update \
@@ -268,7 +268,7 @@ The updated workspace object is returned.
 
 ## Remove workspace
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/remove \
@@ -279,7 +279,7 @@ curl https://api.twistapp.com/api/v1/workspaces/remove \
 
 `POST /api/v1/workspaces/remove`
 
-> Return value
+> Return value:
 
 ```json
 {
@@ -298,7 +298,7 @@ Removes a workspace and all its data \(not recoverable\).
 
 ## Add user
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/add_user \
@@ -325,7 +325,7 @@ A workspace user object is returned.
 
 ## Resend invite 
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/resend_invite \
@@ -336,7 +336,7 @@ curl https://api.twistapp.com/api/v1/workspaces/resend_invite \
 
 `POST /api/v1/workspaces/resend_invite`
 
-> Return value
+> Return value:
 
 ```json
 {"status": "ok"}
@@ -354,7 +354,7 @@ Adds a person to a workspace.
 
 ## Update user
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/update_user \
@@ -383,7 +383,7 @@ The updated workspace user object is returned.
 
 ## Remove user
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/update_user \
@@ -394,7 +394,7 @@ curl https://api.twistapp.com/api/v1/workspaces/update_user \
 
 `POST /api/v1/workspaces/remove_user`
 
-> Return value
+> Return value:
 
 ```json
 {
@@ -414,7 +414,7 @@ Removes a person from a workspace.
 
 ## Get user by email
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/get_user_by_email \
@@ -441,7 +441,7 @@ A workspace user object is returned.
 
 ## Get user by id
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/get_user_by_id \
@@ -468,7 +468,7 @@ A workspace user object is returned.
 
 ## Get user info
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/get_user_info \
@@ -491,7 +491,7 @@ Gets user's info in the context of the workspace.
 
 ## Get local time of user
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/get_user_local_time \
@@ -502,7 +502,7 @@ curl https://api.twistapp.com/api/v1/workspaces/get_user_local_time \
 
 `GET /api/v1/workspaces/get_user_local_time`
 
-> Return value
+> Return value:
 
 ```json
 "2017-05-10 07:55:40"
@@ -520,7 +520,7 @@ Gets user's local time.
 
 ## Get public channels
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/workspaces/get_public_channels \

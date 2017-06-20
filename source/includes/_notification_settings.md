@@ -2,7 +2,7 @@
 
 The user's notification settings allow to setup email and push settings.
 
-### Notifications settings object
+> Notifications settings object:
 
 ```json
 {
@@ -65,7 +65,7 @@ The user's notification settings allow to setup email and push settings.
 
 ## Get notification settings
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/notifications_settings/v2/get \
@@ -90,7 +90,7 @@ A notifications settings object is returned.
 
 ## Update notifications settings
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/notifications_settings/v2/update \
@@ -102,7 +102,7 @@ curl https://api.twistapp.com/api/v1/notifications_settings/v2/update \
 
 `POST /api/v1/notifications_settings/v2/update`
 
-> Return value
+> Return value:
 
 ```json
 {
@@ -123,7 +123,7 @@ Updates user notifications settings.
 
 ## Update many notifications settings
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/notifications_settings/v2/update_many \
@@ -134,7 +134,7 @@ curl https://api.twistapp.com/api/v1/notifications_settings/v2/update_many \
 
 `POST /api/v1/notifications_settings/v2/update_many`
 
-> Return value
+> Return value:
 
 ```json
 {

@@ -2,7 +2,7 @@
 
 A channel is a topic of discussion between a number of users.
 
-### Channel object
+> Channel object:
 
 ```json
 {
@@ -41,7 +41,7 @@ A channel is a topic of discussion between a number of users.
 
 ## Get channel
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/channels/getone \
@@ -66,7 +66,7 @@ A channel object is returned.
 
 ## Get all channels
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/channels/get \
@@ -92,7 +92,7 @@ A list of channel objects is returned.
 
 ## Add channel
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/channels/add \
@@ -123,7 +123,7 @@ A channel object is returned.
 
 ## Update channel
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/channels/update \
@@ -153,7 +153,7 @@ The updated channel object is returned.
 
 ## Remove channel
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/channels/remove \
@@ -181,7 +181,7 @@ Removes a channel. Requires for the channel to be archived first.
 
 ## Archive channel
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/channels/archive \
@@ -191,7 +191,7 @@ curl https://api.twistapp.com/api/v1/channels/archive \
 
 `POST /api/v1/channels/archive`
 
-> Return value
+> Return value:
 
 ```json
 {
@@ -211,7 +211,7 @@ Archives a channel.
 
 ## Unarchive channel
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/channels/unarchive \
@@ -221,7 +221,7 @@ curl https://api.twistapp.com/api/v1/channels/unarchive \
 
 `POST /api/v1/channels/unarchive`
 
-> Return value
+> Return value:
 
 ```json
 {
@@ -240,7 +240,7 @@ Unarchives a channel.
 
 ## Add user
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/channels/add_user \
@@ -251,7 +251,7 @@ curl https://api.twistapp.com/api/v1/channels/add_user \
 
 `POST /api/v1/channels/add_user`
 
-> Return value
+> Return value:
 
 ```json
 {
@@ -271,7 +271,7 @@ Adds a person to a channel.
 
 ## Add users
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/channels/add_users \
@@ -282,7 +282,7 @@ curl https://api.twistapp.com/api/v1/channels/add_users \
 
 `POST /api/v1/channels/add_users`
 
-> Return value
+> Return value:
 
 ```json
 {
@@ -303,7 +303,7 @@ Adds several persons to a channel.
 
 ## Remove user
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/channels/remove_user \
@@ -314,7 +314,7 @@ curl https://api.twistapp.com/api/v1/channels/remove_user \
 
 `POST /api/v1/channels/remove_user`
 
-> Return value
+> Return value:
 
 ```json
 {
@@ -334,7 +334,7 @@ Removes a person from a channel.
 
 ## Remove users
 
-> Example
+> Example:
 
 ```shell
 curl https://api.twistapp.com/api/v1/channels/remove_users \
@@ -345,7 +345,7 @@ curl https://api.twistapp.com/api/v1/channels/remove_users \
 
 `POST /api/v1/channels/remove_users`
 
-> Return value
+> Return value:
 
 ```json
 {
