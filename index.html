@@ -4325,7 +4325,7 @@
 <tr>
 <td>id</td>
 <td>Number</td>
-<td>The id of the channel</td>
+<td>The id of the thread</td>
 </tr>
 <tr>
 <td>title</td>
@@ -4538,7 +4538,7 @@
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/add <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">channel_id</span><span class="o">=</span>6984 <span class="se">\</span>
-  -d <span class="nv">name</span><span class="o">=</span><span class="s2">"Thread1"</span>
+  -d <span class="nv">name</span><span class="o">=</span>Thread1
 </code></pre>
 <p><code class="prettyprint">POST /api/v1/threads/add</code></p>
 
@@ -4610,58 +4610,33 @@
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/update <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>32038 <span class="se">\</span>
-  -d <span class="nv">name</span><span class="o">=</span><span class="s2">"Thread1"</span>
-</code></pre>
-<p><code class="prettyprint">POST /api/v1/threads/update</code></p>
+  -d <span class="nv">name</span><span class="o">=</span>Thread1
+<span class="sb">``</span>
 
-<p>Updates an existing thread.</p>
+<span class="sb">`</span>POST /api/v1/threads/update<span class="sb">`</span>
 
-<h3 id="parameters">Parameters</h3>
+Updates an existing thread.
 
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the thread</td>
-</tr>
-<tr>
-<td>title</td>
-<td>String</td>
-<td>No</td>
-<td>The title of the thread</td>
-</tr>
-<tr>
-<td>content</td>
-<td>String</td>
-<td>No</td>
-<td>The content of the thread</td>
-</tr>
-<tr>
-<td>attachments</td>
-<td>Array of Objects</td>
-<td>No</td>
-<td>Files to attach to comment</td>
-</tr>
-</tbody></table>
+<span class="c">### Parameters</span>
 
-<h3 id="return-value">Return value</h3>
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| id | Number | Yes | The id of the thread |
+| title | String | No | The title of the thread |
+| content | String | No | The content of the thread |
+| attachments | Array of Objects | No | Files to attach to comment |
 
-<p>The updated thread object is returned.</p>
+<span class="c">### Return value</span>
 
-<h2 id="remove-thread">Remove thread</h2>
+The updated thread object is returned.
 
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
+
+<span class="c">## Remove thread</span>
+
+<span class="gp">&gt; </span>Example:
+
+<span class="sb">```</span>shell
+curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>32038
 </code></pre>
@@ -5100,8 +5075,117 @@
 
 <p>A comment is a message in a thread.</p>
 
+<blockquote>
+<p>Comment object:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">206113</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"content"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"OK!"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"creator"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10076</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"thread_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">32038</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"channel_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">6984</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"workspace_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5517</span><span class="w">
+   </span><span class="s2">"obj_index"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"attachments"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+   </span><span class="s2">"recipients"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">10073</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="s2">"groups"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+   </span><span class="s2">"reactions"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"👍"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+         </span><span class="mi">10076</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"is_deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"system_message"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"posted_ts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1494489787</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h4 id="properties-of-comment-object">Properties of comment object</h4>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>The id of the comment</td>
+</tr>
+<tr>
+<td>content</td>
+<td>String</td>
+<td>The content of the new comment</td>
+</tr>
+<tr>
+<td>creator</td>
+<td>Number</td>
+<td>The user that added the comment</td>
+</tr>
+<tr>
+<td>thread_id</td>
+<td>Number</td>
+<td>The id of the thread</td>
+</tr>
+<tr>
+<td>channel_id</td>
+<td>Number</td>
+<td>The id of the channel</td>
+</tr>
+<tr>
+<td>workspace_id</td>
+<td>Number</td>
+<td>The id of the workspace</td>
+</tr>
+<tr>
+<td>attachments</td>
+<td>Array of Objects</td>
+<td>Files to attach to comment</td>
+</tr>
+<tr>
+<td>recipients</td>
+<td>Array of Numbers or String</td>
+<td>The users that will be notified, or <code class="prettyprint">EVERYONE</code> or <code class="prettyprint">EVERYONE_IN_THREAD</code></td>
+</tr>
+<tr>
+<td>groups</td>
+<td>Array of Numbers</td>
+<td>The groups that will be notified</td>
+</tr>
+<tr>
+<td>reactions</td>
+<td>Object</td>
+<td>Reactions to the thread, where keys are the reactions and values the users that had that reaction</td>
+</tr>
+<tr>
+<td>is_deleted</td>
+<td>Number</td>
+<td>Whether the thread is deleted</td>
+</tr>
+<tr>
+<td>system_message</td>
+<td>String</td>
+<td>A system message</td>
+</tr>
+<tr>
+<td>posted_ts</td>
+<td>Number</td>
+<td>The Unix time when the thread was created</td>
+</tr>
+</tbody></table>
+
 <h2 id="get-comment">Get comment</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/comments/getone <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>206113
+</code></pre>
 <p><code class="prettyprint">GET /api/v1/comments/getone</code></p>
 
 <p>Gets a single comment object by id.</p>
@@ -5124,8 +5208,19 @@
 </tr>
 </tbody></table>
 
+<h3 id="return-value">Return value</h3>
+
+<p>A comment object is returned.</p>
+
 <h2 id="get-all-comments">Get all comments</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/comments/get <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">thread_id</span><span class="o">=</span>32038
+</code></pre>
 <p><code class="prettyprint">GET /api/v1/comments/get</code></p>
 
 <p>Gets all comments in a channel.</p>
@@ -5190,8 +5285,20 @@
 </tr>
 </tbody></table>
 
+<h3 id="return-value">Return value</h3>
+
+<p>A list of comment objects is returned.</p>
+
 <h2 id="add-comment">Add comment</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/comments/add <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">thread_id</span><span class="o">=</span>32038 <span class="se">\</span>
+  -d <span class="nv">content</span><span class="o">=</span><span class="s2">"OK!"</span>
+</code></pre>
 <p><code class="prettyprint">POST /api/v1/comments/add</code></p>
 
 <p>Adds a new comment to a thread.</p>
@@ -5250,8 +5357,20 @@
 </tr>
 </tbody></table>
 
+<h3 id="return-value">Return value</h3>
+
+<p>A comment object is returned.</p>
+
 <h2 id="update-comment">Update comment</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/comments/update <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>206113 <span class="se">\</span>
+  -d <span class="nv">content</span><span class="o">=</span><span class="s2">"OK!"</span>
+</code></pre>
 <p><code class="prettyprint">POST /api/v1/comments/update</code></p>
 
 <p>Updates an existing comment.</p>
@@ -5286,8 +5405,19 @@
 </tr>
 </tbody></table>
 
+<h3 id="return-value">Return value</h3>
+
+<p>A comment object is returned.</p>
+
 <h2 id="remove-comment">Remove comment</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/comments/remove <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>206113
+</code></pre>
 <p><code class="prettyprint">POST /api/v1/comments/remove</code></p>
 
 <p>Removes a comment (only user&rsquo;s own comments can be removed).</p>
@@ -5310,8 +5440,23 @@
 </tr>
 </tbody></table>
 
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <h2 id="mark-position">Mark position</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/comments/mark_position <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">thread_id</span><span class="o">=</span>32038 <span class="se">\</span>
+    -d <span class="nv">comment_id</span><span class="o">=</span>206113
+</code></pre>
 <p><code class="prettyprint">POST /api/v1/comments/mark_position</code></p>
 
 <p>Marks the position of a thread.</p>
@@ -5340,6 +5485,13 @@
 </tr>
 </tbody></table>
 
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
           <h1 id="reactions">Reactions</h1>
 
 <p>Reactions can be added to threads, comments or conversation messages.</p>
