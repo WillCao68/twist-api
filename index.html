@@ -794,7 +794,7 @@
 <p>A user represents a real person who collaborates with other users.</p>
 
 <blockquote>
-<p>User object</p>
+<p>User object:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10073</span><span class="p">,</span><span class="w">
@@ -949,7 +949,7 @@
 <h2 id="get-one">Get one</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/getone <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -984,7 +984,7 @@
 <h2 id="login">Login</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/login <span class="se">\</span>
   -d <span class="nv">email</span><span class="o">=</span>user@example.com <span class="se">\</span>
@@ -1031,14 +1031,14 @@
 <h2 id="log-out">Log out</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/logout
 </code></pre>
 <p><code class="prettyprint">POST /api/v1/users/logout</code></p>
 
 <blockquote>
-<p>Return value</p>
+<p>Return value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
@@ -1049,7 +1049,7 @@
 <h2 id="register">Register</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/register <span class="se">\</span>
   -d <span class="nv">name</span><span class="o">=</span>User <span class="se">\</span>
@@ -1097,7 +1097,7 @@
 <h2 id="update">Update</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/update <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -1216,7 +1216,7 @@
 <h2 id="update-password">Update password</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/update_password <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -1258,7 +1258,7 @@
 <h2 id="update-avatar">Update avatar</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/update_avatar <span class="se">\</span>
   -F <span class="nv">token</span><span class="o">=</span>9b1bf97783c1ad5593dee12f3019079dbd3042cf <span class="se">\</span>
@@ -1293,7 +1293,7 @@
 <h2 id="invalidate-token">Invalidate token</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/invalidate_token <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -1309,7 +1309,7 @@
 <h2 id="validate-token">Validate token</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/validate_token <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -1317,7 +1317,7 @@
 <p><code class="prettyprint">POST /api/v1/users/validate_token</code></p>
 
 <blockquote>
-<p>Return value</p>
+<p>Return value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
@@ -1328,7 +1328,7 @@
 <h2 id="set-presence">Set presence</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/heartbeat <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -1338,7 +1338,7 @@
 <p><code class="prettyprint">POST /api/v1/users/heartbeat</code></p>
 
 <blockquote>
-<p>Return value</p>
+<p>Return value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
@@ -1373,7 +1373,7 @@
 <h2 id="reset-presence">Reset presence</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/reset_presense <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -1382,7 +1382,7 @@
 <p><code class="prettyprint">POST /api/v1/users/reset_presense</code></p>
 
 <blockquote>
-<p>Return value</p>
+<p>Return value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
@@ -1411,7 +1411,7 @@
 <h2 id="reset-password">Reset password</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/reset_password <span class="se">\</span>
   -d <span class="nv">email</span><span class="o">=</span>user@example.com
@@ -1419,7 +1419,7 @@
 <p><code class="prettyprint">POST /api/v1/users/reset_password</code></p>
 
 <blockquote>
-<p>Return value</p>
+<p>Return value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
@@ -1448,7 +1448,7 @@
 <h2 id="set-password-based-on-reset-code">Set password based on reset code</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/set_password <span class="se">\</span>
   -d <span class="nv">reset_code</span><span class="o">=</span>12345abcef
@@ -1489,7 +1489,7 @@
 <h2 id="login-with-google">Login with Google</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/login_with_google <span class="se">\</span>
   -d <span class="nv">access_token</span><span class="o">=</span>ya29.AHES6ZRKeUQwH2xhirksSUDSyjg9oPuRMMal05Ty0cfFIT_uRfESHw
@@ -1529,7 +1529,7 @@
 <h2 id="register-with-google">Register with Google</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/register_with_google <span class="se">\</span>
   -d <span class="nv">access_token</span><span class="o">=</span>ya29.AHES6ZRKeUQwH2xhirksSUDSyjg9oPuRMMal05Ty0cfFIT_uRfESHw
@@ -1569,7 +1569,7 @@
 <h2 id="connect-with-google">Connect with Google</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/connect_with_google <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -1578,7 +1578,7 @@
 <p><code class="prettyprint">POST /api/v1/users/connect_with_google</code></p>
 
 <blockquote>
-<p>Return value</p>
+<p>Return value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
@@ -1613,7 +1613,7 @@
 <h2 id="check-google-connection">Check Google connection</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/is_connected_to_google <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -1621,7 +1621,7 @@
 <p><code class="prettyprint">GET /api/v1/users/is_connected_to_google</code></p>
 
 <blockquote>
-<p>Return value</p>
+<p>Return value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"google_connection"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -1632,7 +1632,7 @@
 <h2 id="disconnect-from-google">Disconnect from Google</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/disconnect_google <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -1640,7 +1640,7 @@
 <p><code class="prettyprint">POST /api/v1/users/disconnect_google</code></p>
 
 <blockquote>
-<p>Return value</p>
+<p>Return value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
@@ -1653,7 +1653,7 @@
 <p>A workspace is a shared place between different users. In the Twist UI they are usually called teams.</p>
 
 <blockquote>
-<p>Workspace object</p>
+<p>Workspace object:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5517</span><span class="p">,</span><span class="w">
@@ -1763,7 +1763,7 @@
 </tbody></table>
 
 <blockquote>
-<p>Workspace user object</p>
+<p>Workspace user object:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="s2">"user"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
    </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10073</span><span class="w">
@@ -1820,7 +1820,7 @@
 </tbody></table>
 
 <blockquote>
-<p>Workspace user activity object</p>
+<p>Workspace user activity object:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"is_active"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -1907,7 +1907,7 @@
 <h2 id="get-workspace">Get workspace</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/getone <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -1942,7 +1942,7 @@
 <h2 id="get-default-workspace">Get default workspace</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/get_default <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -1958,7 +1958,7 @@
 <h2 id="get-all-workspaces">Get all workspaces</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/get <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -1974,7 +1974,7 @@
 <h2 id="add-workspace">Add workspace</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/add <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -2021,7 +2021,7 @@
 <h2 id="update-workspace">Update workspace</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/update <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -2068,7 +2068,7 @@
 <h2 id="remove-workspace">Remove workspace</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/remove <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -2078,7 +2078,7 @@
 <p><code class="prettyprint">POST /api/v1/workspaces/remove</code></p>
 
 <blockquote>
-<p>Return value</p>
+<p>Return value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
@@ -2113,7 +2113,7 @@
 <h2 id="add-user">Add user</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/add_user <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -2155,7 +2155,7 @@
 <h2 id="resend-invite">Resend invite</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/resend_invite <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -2165,7 +2165,7 @@
 <p><code class="prettyprint">POST /api/v1/workspaces/resend_invite</code></p>
 
 <blockquote>
-<p>Return value</p>
+<p>Return value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2198,7 +2198,7 @@
 <h2 id="update-user">Update user</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/update_user <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -2247,7 +2247,7 @@
 <h2 id="remove-user">Remove user</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/update_user <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -2257,7 +2257,7 @@
 <p><code class="prettyprint">POST /api/v1/workspaces/remove_user</code></p>
 
 <blockquote>
-<p>Return value</p>
+<p>Return value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
@@ -2292,7 +2292,7 @@
 <h2 id="get-user-by-email">Get user by email</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/get_user_by_email <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -2334,7 +2334,7 @@
 <h2 id="get-user-by-id">Get user by id</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/get_user_by_id <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -2376,7 +2376,7 @@
 <h2 id="get-user-info">Get user info</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/get_user_info <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -2414,7 +2414,7 @@
 <h2 id="get-local-time-of-user">Get local time of user</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/get_user_local_time <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -2424,7 +2424,7 @@
 <p><code class="prettyprint">GET /api/v1/workspaces/get_user_local_time</code></p>
 
 <blockquote>
-<p>Return value</p>
+<p>Return value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="s2">"2017-05-10 07:55:40"</span><span class="w">
 </span></code></pre>
@@ -2457,7 +2457,7 @@
 <h2 id="get-public-channels">Get public channels</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/get_public_channels <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -2493,7 +2493,9 @@
 
 <p>A channel is a topic of discussion between a number of users.</p>
 
-<h3 id="channel-object">Channel object</h3>
+<blockquote>
+<p>Channel object:</p>
+</blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
      </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">6984</span><span class="p">,</span><span class="w">
      </span><span class="s2">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Channel1"</span><span class="p">,</span><span class="w">
@@ -2575,7 +2577,7 @@
 <h2 id="get-channel">Get channel</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/channels/getone <span class="se">\</span>
  <span class="se">\</span>
@@ -2610,7 +2612,7 @@
 <h2 id="get-all-channels">Get all channels</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/channels/get <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -2651,7 +2653,7 @@
 <h2 id="add-channel">Add channel</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/channels/add <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -2723,7 +2725,7 @@
 <h2 id="update-channel">Update channel</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/channels/update <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -2783,7 +2785,7 @@
 <h2 id="remove-channel">Remove channel</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/channels/remove <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -2819,7 +2821,7 @@
 <h2 id="archive-channel">Archive channel</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/channels/archive <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -2828,7 +2830,7 @@
 <p><code class="prettyprint">POST /api/v1/channels/archive</code></p>
 
 <blockquote>
-<p>Return value</p>
+<p>Return value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
@@ -2857,7 +2859,7 @@
 <h2 id="unarchive-channel">Unarchive channel</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/channels/unarchive <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -2866,7 +2868,7 @@
 <p><code class="prettyprint">POST /api/v1/channels/unarchive</code></p>
 
 <blockquote>
-<p>Return value</p>
+<p>Return value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
@@ -2895,7 +2897,7 @@
 <h2 id="add-user">Add user</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/channels/add_user <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -2905,7 +2907,7 @@
 <p><code class="prettyprint">POST /api/v1/channels/add_user</code></p>
 
 <blockquote>
-<p>Return value</p>
+<p>Return value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
@@ -2940,7 +2942,7 @@
 <h2 id="add-users">Add users</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/channels/add_users <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -2950,7 +2952,7 @@
 <p><code class="prettyprint">POST /api/v1/channels/add_users</code></p>
 
 <blockquote>
-<p>Return value</p>
+<p>Return value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
@@ -2985,7 +2987,7 @@
 <h2 id="remove-user">Remove user</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/channels/remove_user <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -2995,7 +2997,7 @@
 <p><code class="prettyprint">POST /api/v1/channels/remove_user</code></p>
 
 <blockquote>
-<p>Return value</p>
+<p>Return value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
@@ -3030,7 +3032,7 @@
 <h2 id="remove-users">Remove users</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/channels/remove_users <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -3040,7 +3042,7 @@
 <p><code class="prettyprint">POST /api/v1/channels/remove_users</code></p>
 
 <blockquote>
-<p>Return value</p>
+<p>Return value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
@@ -3850,7 +3852,9 @@
 
 <p>A group is a number of users grouped together under some name, a team.</p>
 
-<h3 id="group-object">Group object</h3>
+<blockquote>
+<p>Group object:</p>
+</blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">498</span><span class="p">,</span><span class="w">
    </span><span class="s2">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Group1"</span><span class="w">
@@ -3898,7 +3902,7 @@
 <h2 id="get-group">Get group</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/getone <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -3933,7 +3937,7 @@
 <h2 id="get-all-groups">Get all groups</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/get <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -3968,7 +3972,7 @@
 <h2 id="add-group">Add group</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/add <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -4017,7 +4021,7 @@
 <h2 id="update-group">Update group</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/update <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -4059,7 +4063,7 @@
 <h2 id="remove-group">Remove group</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/remove <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -4068,7 +4072,7 @@
 <p><code class="prettyprint">POST /api/v1/groups/remove</code></p>
 
 <blockquote>
-<p>Return value</p>
+<p>Return value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
@@ -4097,7 +4101,7 @@
 <h2 id="add-user">Add user</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/add_user <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -4107,7 +4111,7 @@
 <p><code class="prettyprint">POST /api/v1/groups/add_user</code></p>
 
 <blockquote>
-<p>Return value</p>
+<p>Return value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
@@ -4142,7 +4146,7 @@
 <h2 id="add-users">Add users</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/add_users <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -4152,7 +4156,7 @@
 <p><code class="prettyprint">POST /api/v1/groups/add_users</code></p>
 
 <blockquote>
-<p>Return value</p>
+<p>Return value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
@@ -4187,7 +4191,7 @@
 <h2 id="remove-user">Remove user</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/remove_user <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -4197,7 +4201,7 @@
 <p><code class="prettyprint">POST /api/v1/groups/remove_user</code></p>
 
 <blockquote>
-<p>Return value</p>
+<p>Return value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
@@ -4232,7 +4236,7 @@
 <h2 id="remove-users">Remove users</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/remove_users <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -4242,7 +4246,7 @@
 <p><code class="prettyprint">POST /api/v1/groups/remove_users</code></p>
 
 <blockquote>
-<p>Return value</p>
+<p>Return value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
@@ -5171,7 +5175,7 @@
 <h2 id="search-for-query">Search for query</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/search/query <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -5180,7 +5184,7 @@
 <p><code class="prettyprint">GET /api/v1/search/query</code></p>
 
 <blockquote>
-<p>Return object</p>
+<p>Return object::</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="err">hits</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
@@ -5344,7 +5348,7 @@
 <h2 id="get-more-details-about-comments">Get more details about comments</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.twistapp.com/api/v1/search/comments?query=texts&amp;workspace_id=201&amp;thread_id=401"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -5352,7 +5356,7 @@
 <p><code class="prettyprint">GET /api/v1/search/comments</code></p>
 
 <blockquote>
-<p>Return object</p>
+<p>Return object:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"terms"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -5406,7 +5410,7 @@
 <h2 id="expand-comment-range">Expand comment range</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.twistapp.com/api/v1/search/expand_comment_range?idx_end=3&amp;thread_id=401&amp;workspace_id=201&amp;idx_start=0"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -5414,7 +5418,7 @@
 <p><code class="prettyprint">GET /api/v1/search/expand_comment_range</code></p>
 
 <blockquote>
-<p>Return object</p>
+<p>Return object:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"terms"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
@@ -5451,7 +5455,7 @@
 <h2 id="get-more-details-about-messages">Get more details about messages</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.twistapp.com/api/v1/search/messages?query=hello&amp;workspace_id=201&amp;aggregate_id=123-345-678-9"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -5459,7 +5463,7 @@
 <p><code class="prettyprint">GET /api/v1/search/messages</code></p>
 
 <blockquote>
-<p>Return object</p>
+<p>Return object:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"terms"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -5544,7 +5548,7 @@
 <h2 id="expand-conversation-message-range">Expand conversation message range</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.twistapp.com/api/v1/search/expand_conversation_message_range?conversation_id=601&amp;idx_end=5&amp;workspace_id=201&amp;idx_start=0&amp;direction=top"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -5552,7 +5556,7 @@
 <p><code class="prettyprint">GET /api/v1/search/expand_conversation_message_range</code></p>
 
 <blockquote>
-<p>Return object</p>
+<p>Return object:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"terms"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
@@ -5584,7 +5588,9 @@
 
 <p>The user&rsquo;s notification settings allow to setup email and push settings.</p>
 
-<h3 id="notifications-settings-object">Notifications settings object</h3>
+<blockquote>
+<p>Notifications settings object:</p>
+</blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"desktop_added_to_ch"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
    </span><span class="s2">"desktop_added_to_ws"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -5746,7 +5752,7 @@
 <h2 id="get-notification-settings">Get notification settings</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/notifications_settings/v2/get <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -5781,7 +5787,7 @@
 <h2 id="update-notifications-settings">Update notifications settings</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/notifications_settings/v2/update <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -5792,7 +5798,7 @@
 <p><code class="prettyprint">POST /api/v1/notifications_settings/v2/update</code></p>
 
 <blockquote>
-<p>Return value</p>
+<p>Return value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
@@ -5833,7 +5839,7 @@
 <h2 id="update-many-notifications-settings">Update many notifications settings</h2>
 
 <blockquote>
-<p>Example</p>
+<p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/notifications_settings/v2/update_many <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
@@ -5843,7 +5849,7 @@
 <p><code class="prettyprint">POST /api/v1/notifications_settings/v2/update_many</code></p>
 
 <blockquote>
-<p>Return value</p>
+<p>Return value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
