@@ -4282,9 +4282,158 @@
 
 <p>A thread is a discussion.</p>
 
+<blockquote>
+<p>Thread object:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+     </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">32038</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"title"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Thread1"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"content"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Let's discuss the Twist API..."</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"is_starred"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+     </span><span class="s2">"creator"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10073</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"channel_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">6984</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"workspace_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5517</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"attachments"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+     </span><span class="s2">"participants"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="mi">10073</span><span class="p">,</span><span class="w">
+            </span><span class="mi">10076</span><span class="w">
+     </span><span class="p">],</span><span class="w">
+     </span><span class="s2">"recipients"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="mi">10076</span><span class="w">
+     </span><span class="p">],</span><span class="w">
+     </span><span class="s2">"groups"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+     </span><span class="s2">"reactions"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+     </span><span class="s2">"comment_count"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"last_obj_index"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"snippet"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"OK!"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"snippet_creator"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10073</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"last_updated"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-11 11:05:13"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"last_updated_ts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1494500713</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"system_message"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"posted_ts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1494488709</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h4 id="properties-of-thread-object">Properties of thread object</h4>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>The id of the channel</td>
+</tr>
+<tr>
+<td>title</td>
+<td>String</td>
+<td>The title of the thread</td>
+</tr>
+<tr>
+<td>content</td>
+<td>String</td>
+<td>The content of the thread</td>
+</tr>
+<tr>
+<td>is_starred</td>
+<td>Number</td>
+<td>Whether the thread is starred</td>
+</tr>
+<tr>
+<td>creator</td>
+<td>Number</td>
+<td>The user that created the thread</td>
+</tr>
+<tr>
+<td>channel_id</td>
+<td>Number</td>
+<td>The id of the channel</td>
+</tr>
+<tr>
+<td>workspace_id</td>
+<td>Number</td>
+<td>The id of the workspace</td>
+</tr>
+<tr>
+<td>attachments</td>
+<td>Array of Objects</td>
+<td>Files attached to the comment</td>
+</tr>
+<tr>
+<td>participants</td>
+<td>Array of Numbers</td>
+<td>The users that are participating in the thread, or <code class="prettyprint">EVERYONE</code></td>
+</tr>
+<tr>
+<td>recipients</td>
+<td>Array of Numbers or String</td>
+<td>The users that are participating in the thread, or <code class="prettyprint">EVERYONE</code></td>
+</tr>
+<tr>
+<td>groups</td>
+<td>Array of Numbers</td>
+<td>The groups that will be notified</td>
+</tr>
+<tr>
+<td>reactions</td>
+<td>Object</td>
+<td>Reactions to the thread, where keys are the reactions and values the users that had that reaction</td>
+</tr>
+<tr>
+<td>comment_count</td>
+<td>Number</td>
+<td>The number of comments</td>
+</tr>
+<tr>
+<td>last_obj_index</td>
+<td>Number</td>
+<td>The last comment&rsquo;s index</td>
+</tr>
+<tr>
+<td>snippet</td>
+<td>String</td>
+<td>A part of the last comment</td>
+</tr>
+<tr>
+<td>snippet_creator</td>
+<td>Number</td>
+<td>The user of the last comment</td>
+</tr>
+<tr>
+<td>last_updated</td>
+<td>String</td>
+<td>The date and time when the thread was last updated</td>
+</tr>
+<tr>
+<td>last_updated_ts</td>
+<td>Number</td>
+<td>The Unix time when the thread was last updated</td>
+</tr>
+<tr>
+<td>system_message</td>
+<td>String</td>
+<td>A system message</td>
+</tr>
+<tr>
+<td>posted_ts</td>
+<td>Number</td>
+<td>The Unix time when the thread was created</td>
+</tr>
+</tbody></table>
+
 <h2 id="get-thread">Get thread</h2>
 
-<p><code class="prettyprint">GET /api/v1/threads/getone</code> </p>
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/getone <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>32038
+</code></pre>
+<p><code class="prettyprint">GET /api/v1/threads/getone</code></p>
 
 <p>Gets a thread object by id.</p>
 
@@ -4306,8 +4455,19 @@
 </tr>
 </tbody></table>
 
+<h3 id="return-value">Return value</h3>
+
+<p>A thread object is returned.</p>
+
 <h2 id="get-all-threads">Get all threads</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/get <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">channel_id</span><span class="o">=</span>6984
+</code></pre>
 <p><code class="prettyprint">GET /api/v1/threads/get</code></p>
 
 <p>Gets all threads in a channel.</p>
@@ -4366,8 +4526,20 @@
 </tr>
 </tbody></table>
 
+<h3 id="return-value">Return value</h3>
+
+<p>A list of thread objects is returned.</p>
+
 <h2 id="add-thread">Add thread</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/add <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">channel_id</span><span class="o">=</span>6984 <span class="se">\</span>
+  -d <span class="nv">name</span><span class="o">=</span><span class="s2">"Thread1"</span>
+</code></pre>
 <p><code class="prettyprint">POST /api/v1/threads/add</code></p>
 
 <p>Adds a new thread to a channel.</p>
@@ -4426,8 +4598,20 @@
 </tr>
 </tbody></table>
 
+<h3 id="return-value">Return value</h3>
+
+<p>A thread object is returned.</p>
+
 <h2 id="update-thread">Update thread</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/update <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>32038 <span class="se">\</span>
+  -d <span class="nv">name</span><span class="o">=</span><span class="s2">"Thread1"</span>
+</code></pre>
 <p><code class="prettyprint">POST /api/v1/threads/update</code></p>
 
 <p>Updates an existing thread.</p>
@@ -4468,8 +4652,19 @@
 </tr>
 </tbody></table>
 
+<h3 id="return-value">Return value</h3>
+
+<p>The updated thread object is returned.</p>
+
 <h2 id="remove-thread">Remove thread</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>32038
+</code></pre>
 <p><code class="prettyprint">POST /api/v1/threads/remove</code></p>
 
 <p>Removes a thread.</p>
@@ -4492,8 +4687,20 @@
 </tr>
 </tbody></table>
 
+<h3 id="return-value">Return value</h3>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <h2 id="star-thread">Star thread</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/star <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>32038
+</code></pre>
 <p><code class="prettyprint">POST /api/v1/threads/star</code></p>
 
 <p>Stars a thread.</p>
@@ -4516,8 +4723,22 @@
 </tr>
 </tbody></table>
 
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <h2 id="unstar-thread">Unstar thread</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/unstar <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>32038
+</code></pre>
 <p><code class="prettyprint">POST /api/v1/threads/unstar</code></p>
 
 <p>Unstars a thread.</p>
@@ -4540,8 +4761,23 @@
 </tr>
 </tbody></table>
 
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <h2 id="move-thread">Move thread</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/move_to_channel <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>6984 <span class="se">\</span>
+  -d <span class="nv">to_channel</span><span class="o">=</span>6984
+</code></pre>
 <p><code class="prettyprint">POST /api/v1/threads/move_to_channel</code></p>
 
 <p>Moves thread to a different channel.</p>
@@ -4570,8 +4806,22 @@
 </tr>
 </tbody></table>
 
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <h2 id="follow-thread">Follow thread</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/follow <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>32038
+</code></pre>
 <p><code class="prettyprint">POST /api/v1/threads/follow</code></p>
 
 <p>Follows thread.</p>
@@ -4594,8 +4844,22 @@
 </tr>
 </tbody></table>
 
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <h2 id="unfollow-thread">Unfollow thread</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/unfollow <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>32038
+</code></pre>
 <p><code class="prettyprint">POST /api/v1/threads/unfollow</code></p>
 
 <p>Unfollows thread.</p>
@@ -4618,8 +4882,22 @@
 </tr>
 </tbody></table>
 
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <h2 id="get-unread-threads">Get unread threads</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/get_unread <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">workspace_id</span><span class="o">=</span>5517
+</code></pre>
 <p><code class="prettyprint">GET /api/v1/threads/get_unread</code></p>
 
 <p>Gets unread threads in a workspace.</p>
@@ -4642,8 +4920,20 @@
 </tr>
 </tbody></table>
 
+<h3 id="return-value">Return value</h3>
+
+<p>A list of thread objects is returned.</p>
+
 <h2 id="mark-thread-as-read">Mark thread as read</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/mark_read <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>32038 <span class="se">\</span>
+  -d <span class="nv">obj_index</span><span class="o">=</span>2
+</code></pre>
 <p><code class="prettyprint">POST /api/v1/threads/mark_read</code></p>
 
 <p>Marks thread as read.</p>
@@ -4672,8 +4962,23 @@
 </tr>
 </tbody></table>
 
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <h2 id="mark-thread-as-unread">Mark thread as unread</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/mark_unread <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>32038 <span class="se">\</span>
+  -d <span class="nv">obj_index</span><span class="o">=</span>2
+</code></pre>
 <p><code class="prettyprint">POST /api/v1/threads/mark_unread</code></p>
 
 <p>Marks thread as unread.</p>
@@ -4702,8 +5007,22 @@
 </tr>
 </tbody></table>
 
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <h2 id="mark-all-threads-as-read">Mark all threads as read</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/mark_all_read <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">channel_id</span><span class="o">=</span>6984
+</code></pre>
 <p><code class="prettyprint">POST /api/v1/threads/mark_all_read</code></p>
 
 <p>Marks all thread in workspace or channel as read.</p>
@@ -4732,8 +5051,22 @@
 </tr>
 </tbody></table>
 
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <h2 id="clear-unread-threads">Clear unread threads</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/clear_unread <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">workspace_id</span><span class="o">=</span>5517
+</code></pre>
 <p><code class="prettyprint">POST /api/v1/threads/clear_unread</code></p>
 
 <p>Clears unread threads in workspace.</p>
@@ -4756,6 +5089,13 @@
 </tr>
 </tbody></table>
 
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
           <h1 id="comments">Comments</h1>
 
 <p>A comment is a message in a thread.</p>
