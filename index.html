@@ -6048,6 +6048,8 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 </span></code></pre>
 <h3 id="properties-of-reaction-object">Properties of reaction object</h3>
 
+<p>The reaction object is either <code class="prettyprint">null</code> or has one or more key-value pairs.</p>
+
 <table><thead>
 <tr>
 <th>Name</th>
@@ -6230,10 +6232,32 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 </span></code></pre>
           <h1 id="inbox">Inbox</h1>
 
+<blockquote>
+<p>Inbox object:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+   </span><span class="p">{</span><span class="w">    </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">38677</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">    </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">32038</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span><span class="w">
+   </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
 <p>The inbox unifies the start page view on all platforms.</p>
+
+<h3 id="description-of-the-inbox-object">Description of the inbox object</h3>
+
+<p>The inbox is a actually a list of thread objects.  It doesn&rsquo;t contain
+all threads, but the most recent threads.  Tthreads that are unread appear before
+those that are read.</p>
 
 <h2 id="get-inbox">Get inbox</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/inbox/get <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+  -d <span class="nv">workspace_id</span><span class="o">=</span>5517
+</code></pre>
 <p><code class="prettyprint">GET /api/v1/inbox/get</code></p>
 
 <h3 id="parameters">Parameters</h3>
@@ -6271,6 +6295,10 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <td>Limits threads to those older whan the specified Unix time</td>
 </tr>
 </tbody></table>
+
+<h3 id="return-value">Return value</h3>
+
+<p>A list of of thread objects is returned.</p>
 
           <h1 id="search">Search</h1>
 
