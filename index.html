@@ -1261,7 +1261,7 @@
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/update_avatar <span class="se">\</span>
-  -F <span class="nv">token</span><span class="o">=</span>9b1bf97783c1ad5593dee12f3019079dbd3042cf <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -F <span class="nv">image</span><span class="o">=</span>@avatar.jpg
 </code></pre>
 <p><code class="prettyprint">POST /api/v1/users/update_avatar</code></p>
@@ -5842,6 +5842,23 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 
 <p>Files can be attached to threads, comments, or conversation messages.</p>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"attachment_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"c8f962d3-491b-4a43-92c2-43f7ac076408"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"title"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"image.png"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"https://xxx.cloudfront.net/xxx/as/image.png"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"url_type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"image"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"file_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"image.png"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"file_size"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">21601</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"underlying_type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"image"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"https://xxx.cloudfront.net/xxx/as/image.png"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"image_height"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"image_width"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"upload_state"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"uploaded"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <h3 id="properties">Properties</h3>
 
 <table><thead>
@@ -5887,11 +5904,6 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <td>The file&rsquo;s media or content type (MIME)</td>
 </tr>
 <tr>
-<td>description</td>
-<td>String</td>
-<td>The description of the attachment</td>
-</tr>
-<tr>
 <td>image</td>
 <td>String</td>
 <td>If file is an image, the URL to the image file</td>
@@ -5920,6 +5932,14 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 
 <h2 id="upload-an-attachment">Upload an attachment</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/attachments/upload <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+    -F <span class="nv">attachment_id</span><span class="o">=</span>c8f962d3-491b-4a43-92c2-43f7ac076408 <span class="se">\</span>
+    -F <span class="nv">file_name</span><span class="o">=</span>@image.png
+</code></pre>
 <p><code class="prettyprint">POST /api/v1/attachments/upload</code></p>
 
 <p>Uploads a file.</p>
@@ -5935,6 +5955,12 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 </tr>
 </thead><tbody>
 <tr>
+<td>attachment_id</td>
+<td>String</td>
+<td>Yes</td>
+<td>A UUID that will be the id of the attachment</td>
+</tr>
+<tr>
 <td>file_name</td>
 <td>String</td>
 <td>Yes</td>
@@ -5942,8 +5968,20 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 </tr>
 </tbody></table>
 
+<h3 id="return-value">Return value</h3>
+
+<p>An attachment object is returned.</p>
+
 <h2 id="remove-an-attachment">Remove an attachment</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/attachments/upload <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+    -d <span class="nv">attachment_id</span><span class="o">=</span>c8f962d3-491b-4a43-92c2-43f7ac076408 <span class="se">\</span>
+  -d <span class="nv">comment_id</span><span class="o">=</span>241432
+</code></pre>
 <p><code class="prettyprint">POST /api/v1/attachments/remove</code></p>
 
 <p>Removes attachment from thread, comment or conversation message.</p>
@@ -5971,7 +6009,7 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <td>The id of the thread</td>
 </tr>
 <tr>
-<td>comment</td>
+<td>comment_id</td>
 <td>Number</td>
 <td>Yes, this or <code class="prettyprint">thread_id</code> or <code class="prettyprint">message_id</code></td>
 <td>The id of the comment</td>
@@ -5984,6 +6022,13 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 </tr>
 </tbody></table>
 
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
           <h1 id="reactions">Reactions</h1>
 
 <p>Reactions can be added to threads, comments or conversation messages.</p>
