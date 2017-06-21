@@ -2489,6 +2489,436 @@
 
 <p>A list of channel objects is returned.</p>
 
+          <h1 id="groups">Groups</h1>
+
+<p>A group is a number of users grouped together under some name, a team.</p>
+
+<blockquote>
+<p>Group object:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">498</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Group1"</span><span class="w">
+   </span><span class="s2">"description"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"user_ids"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+   </span><span class="s2">"workspace_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5517</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="properties-of-group-object">Properties of group object</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>The id of the group</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>The name of the group</td>
+</tr>
+<tr>
+<td>description</td>
+<td>String</td>
+<td>The description of the group</td>
+</tr>
+<tr>
+<td>user_ids</td>
+<td>Array of Numbers</td>
+<td>The users that are part of the group</td>
+</tr>
+<tr>
+<td>workspace_id</td>
+<td>Number</td>
+<td>The id of the workspace</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-group">Get group</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/getone <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+  -d <span class="nv">id</span><span class="o">=</span>498
+</code></pre>
+<p><code class="prettyprint">GET /api/v1/groups/getone</code></p>
+
+<p>Gets a single group object.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the group</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-value">Return value</h3>
+
+<p>A group object is returned.</p>
+
+<h2 id="get-all-groups">Get all groups</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/get <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+  -d <span class="nv">workspace_id</span><span class="o">=</span>5517
+</code></pre>
+<p><code class="prettyprint">GET /api/v1/groups/get</code></p>
+
+<p>Gets all groups in a workspace.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>workspace_id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the workspace</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-value">Return value</h3>
+
+<p>A list of group objects is returned.</p>
+
+<h2 id="add-group">Add group</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/add <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+  -d <span class="nv">workspace_id</span><span class="o">=</span>5571 <span class="se">\</span>
+  -d <span class="nv">name</span><span class="o">=</span>Group1 <span class="se">\</span>
+  -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10073]'</span>
+</code></pre>
+<p><code class="prettyprint">POST /api/v1/groups/add</code></p>
+
+<p>Adds a new group to a workspace.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>workspace_id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the workspace</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Yes</td>
+<td>The name of the new group</td>
+</tr>
+<tr>
+<td>user_ids</td>
+<td>Array of Numbers</td>
+<td>No</td>
+<td>The users that will comprise the group</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-value">Return value</h3>
+
+<p>A group object is returned.</p>
+
+<h2 id="update-group">Update group</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/update <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+  -d <span class="nv">id</span><span class="o">=</span>498 <span class="se">\</span>
+  -d <span class="nv">name</span><span class="o">=</span>Group1
+</code></pre>
+<p><code class="prettyprint">POST /api/v1/groups/update</code></p>
+
+<p>Updates an existing group.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the group</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Yes</td>
+<td>The name of the group</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-value">Return value</h3>
+
+<p>The updated group object is returned.</p>
+
+<h2 id="remove-group">Remove group</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/remove <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+  -d <span class="nv">id</span><span class="o">=</span>498
+</code></pre>
+<p><code class="prettyprint">POST /api/v1/groups/remove</code></p>
+
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Removes a group.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the group</td>
+</tr>
+</tbody></table>
+
+<h2 id="add-user">Add user</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/add_user <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+  -d <span class="nv">id</span><span class="o">=</span>498 <span class="se">\</span>
+  -d <span class="nv">user_id</span><span class="o">=</span>10076
+</code></pre>
+<p><code class="prettyprint">POST /api/v1/groups/add_user</code></p>
+
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Adds a person to a group.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the group</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The user&rsquo;s id</td>
+</tr>
+</tbody></table>
+
+<h2 id="add-users">Add users</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/add_users <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+  -d <span class="nv">id</span><span class="o">=</span>498 <span class="se">\</span>
+  -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10073,10076]'</span>
+</code></pre>
+<p><code class="prettyprint">POST /api/v1/groups/add_users</code></p>
+
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Adds several persons to a group.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the group</td>
+</tr>
+<tr>
+<td>user_ids</td>
+<td>Array of Numbers</td>
+<td>Yes</td>
+<td>The ids of the users</td>
+</tr>
+</tbody></table>
+
+<h2 id="remove-user">Remove user</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/remove_user <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+  -d <span class="nv">id</span><span class="o">=</span>498 <span class="se">\</span>
+  -d <span class="nv">user_id</span><span class="o">=</span>10076
+</code></pre>
+<p><code class="prettyprint">POST /api/v1/groups/remove_user</code></p>
+
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Removes a person from a group.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the group</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The user&rsquo;s id</td>
+</tr>
+</tbody></table>
+
+<h2 id="remove-users">Remove users</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/remove_users <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+  -d <span class="nv">id</span><span class="o">=</span>498 <span class="se">\</span>
+  -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10073,10076]'</span>
+</code></pre>
+<p><code class="prettyprint">POST /api/v1/groups/remove_users</code></p>
+
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Removes several persons from a group.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the group</td>
+</tr>
+<tr>
+<td>user_ids</td>
+<td>Array of Numbers</td>
+<td>Yes</td>
+<td>The ids of the users</td>
+</tr>
+</tbody></table>
+
           <h1 id="channels">Channels</h1>
 
 <p>A channel is a topic of discussion between a number of users.</p>
@@ -3065,1698 +3495,6 @@
 <td>Number</td>
 <td>Yes</td>
 <td>The id of the channel</td>
-</tr>
-<tr>
-<td>user_ids</td>
-<td>Array of Numbers</td>
-<td>Yes</td>
-<td>The ids of the users</td>
-</tr>
-</tbody></table>
-
-          <h1 id="conversations">Conversations</h1>
-
-<p>A conversation is a direct message exchange between one or more users.</p>
-
-<blockquote>
-<p>Conversation object:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">13037</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"User2"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"title"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"is_private"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-   </span><span class="s2">"creator"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10076</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"workspace_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5517</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"user_ids"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="mi">10073</span><span class="p">,</span><span class="w">
-      </span><span class="mi">10076</span><span class="w">
-   </span><span class="p">],</span><span class="w">
-   </span><span class="s2">"message_count"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"last_obj_index"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"snippet"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello!"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"snippet_creator"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10076</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"snippet_creators"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="mi">10076</span><span class="p">,</span><span class="w">
-      </span><span class="mi">10073</span><span class="w">
-   </span><span class="p">],</span><span class="w">
-   </span><span class="s2">"last_active_ts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1497970961</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"muted_until"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"archived"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"created_ts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1494330846</span><span class="p">,</span><span class="w">
-</span><span class="p">},</span><span class="w">
-</span></code></pre>
-<h3 id="properties-of-conversation-object">Properties of conversation object</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Number</td>
-<td>The id of the conversation</td>
-</tr>
-<tr>
-<td>name</td>
-<td>String</td>
-<td>The name of the other user or users or a title</td>
-</tr>
-<tr>
-<td>title</td>
-<td>String</td>
-<td>The title of the conversation, or <code class="prettyprint">null</code> if a private conversation</td>
-</tr>
-<tr>
-<td>is_private</td>
-<td>Number</td>
-<td>Whether the conversation is private, ie. between 2 users only</td>
-</tr>
-<tr>
-<td>creator</td>
-<td>Number</td>
-<td>The user that created the thread</td>
-</tr>
-<tr>
-<td>workspace_id</td>
-<td>Number</td>
-<td>The id of the workspace</td>
-</tr>
-<tr>
-<td>user_ids</td>
-<td>Array of Numbers</td>
-<td>The users that are participating in the conversation</td>
-</tr>
-<tr>
-<td>message_count</td>
-<td>Number</td>
-<td>The number of messages</td>
-</tr>
-<tr>
-<td>last_obj_index</td>
-<td>Number</td>
-<td>The last message&rsquo;s index</td>
-</tr>
-<tr>
-<td>snippet</td>
-<td>String</td>
-<td>A part of the last comment</td>
-</tr>
-<tr>
-<td>snippet_creator</td>
-<td>Number</td>
-<td>The user of the last comment</td>
-</tr>
-<tr>
-<td>snippet_creators</td>
-<td>Array of Numbers</td>
-<td>The users of the last comments</td>
-</tr>
-<tr>
-<td>last_active_ts</td>
-<td>Number</td>
-<td>The Unix time when the conversation was last active</td>
-</tr>
-<tr>
-<td>muted_until</td>
-<td>Number</td>
-<td>The Unix time until when the conversation is muted</td>
-</tr>
-<tr>
-<td>archived</td>
-<td>Number</td>
-<td>Whether the conversation is archived</td>
-</tr>
-<tr>
-<td>created_ts</td>
-<td>Number</td>
-<td>The Unix time when the conversation was created</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Conversation message object:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">514069</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"content"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi!"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"creator"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10073</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"conversation_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">13037</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"workspace_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5517</span><span class="w">
-   </span><span class="s2">"obj_index"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"attachments"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-   </span><span class="s2">"actions"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-   </span><span class="s2">"reactions"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-   </span><span class="s2">"is_deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"system_message"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"posted_ts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1497970956</span><span class="p">,</span><span class="w">
-</span><span class="p">},</span><span class="w">
-</span></code></pre>
-<h3 id="properties-of-conversation-message-object">Properties of conversation message object</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Number</td>
-<td>The id of the message</td>
-</tr>
-<tr>
-<td>content</td>
-<td>String</td>
-<td>The content of the message</td>
-</tr>
-<tr>
-<td>creator</td>
-<td>Number</td>
-<td>The user that added the message</td>
-</tr>
-<tr>
-<td>conversation_id</td>
-<td>Number</td>
-<td>The id of the conversation</td>
-</tr>
-<tr>
-<td>workspace_id</td>
-<td>Number</td>
-<td>The id of the workspace</td>
-</tr>
-<tr>
-<td>obj_index</td>
-<td>Number</td>
-<td>The index of the message in regards to all other messages in the conversation</td>
-</tr>
-<tr>
-<td>attachments</td>
-<td>Array of Objects</td>
-<td>Files attached to the message</td>
-</tr>
-<tr>
-<td>actions</td>
-<td>Array of Objects</td>
-<td>Actions define special messages that trigger actions, buttons to click to open URLs, etc.</td>
-</tr>
-<tr>
-<td>reactions</td>
-<td>Object</td>
-<td>Reactions to the thread, where keys are the reactions and values the users that had that reaction</td>
-</tr>
-<tr>
-<td>is_deleted</td>
-<td>Number</td>
-<td>Whether the message is deleted</td>
-</tr>
-<tr>
-<td>system_message</td>
-<td>String</td>
-<td>A system message</td>
-</tr>
-<tr>
-<td>posted_ts</td>
-<td>Number</td>
-<td>The Unix time when the message was created</td>
-</tr>
-</tbody></table>
-
-<h2 id="get-conversation">Get conversation</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/getone <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
-  -d <span class="nv">id</span><span class="o">=</span>13037
-</code></pre>
-<p><code class="prettyprint">GET /api/v1/conversations/getone</code></p>
-
-<p>Gets a single conversation object.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the conversation</td>
-</tr>
-</tbody></table>
-
-<h3 id="return-value">Return value</h3>
-
-<p>A conversation object is returned.</p>
-
-<h2 id="get-all-conversations">Get all conversations</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/get <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
-  -d <span class="nv">workspace_id</span><span class="o">=</span>5517
-</code></pre>
-<p><code class="prettyprint">GET /api/v1/conversations/get</code></p>
-
-<p>Gets all conversations of a user in a workspace.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>workspace_id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the workspace</td>
-</tr>
-<tr>
-<td>limit</td>
-<td>Number</td>
-<td>No</td>
-<td>Limits the number of conversations</td>
-</tr>
-<tr>
-<td>newer_than_ts</td>
-<td>Number</td>
-<td>No</td>
-<td>Limits conversations to those newer whan the specified Unix time</td>
-</tr>
-<tr>
-<td>older_than_ts</td>
-<td>Number</td>
-<td>No</td>
-<td>Limits conversations to those older whan the specified Unix time</td>
-</tr>
-<tr>
-<td>order_by</td>
-<td>String</td>
-<td>No</td>
-<td>The order of the comments returned one of <code class="prettyprint">DESC</code> or <code class="prettyprint">ASC</code></td>
-</tr>
-<tr>
-<td>archived</td>
-<td>Boolean</td>
-<td>No</td>
-<td>If enabled, only archived converations are returned. By default it&rsquo;s off.</td>
-</tr>
-</tbody></table>
-
-<h3 id="return-value">Return value</h3>
-
-<p>A list of conversation objects is returned.</p>
-
-<h2 id="get-or-create-conversation">Get or create conversation</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/get_or_create <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
-  -d <span class="nv">workspace_id</span><span class="o">=</span>5517 <span class="se">\</span>
-  -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10073,10076]'</span>
-</code></pre>
-<p><code class="prettyprint">POST /api/v1/conversations/get_or_create</code></p>
-
-<p>Gets or creates a conversation with one or more users.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>workspace_id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the workspace</td>
-</tr>
-<tr>
-<td>user_ids</td>
-<td>Array of Numbers</td>
-<td>Yes</td>
-<td>The users that will participate in the conversation</td>
-</tr>
-</tbody></table>
-
-<h3 id="return-value">Return value</h3>
-
-<p>A conversation object is returned.</p>
-
-<h2 id="update-conversation">Update conversation</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/update <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
-  -d <span class="nv">id</span><span class="o">=</span>13037 <span class="se">\</span>
-  -d <span class="nv">title</span><span class="o">=</span>Title1
-</code></pre>
-<p><code class="prettyprint">POST /api/v1/conversations/update</code></p>
-
-<p>Updates an existing conversation.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the conversation</td>
-</tr>
-<tr>
-<td>title</td>
-<td>String</td>
-<td>Yes</td>
-<td>The title of the conversation</td>
-</tr>
-<tr>
-<td>archived</td>
-<td>Boolean</td>
-<td>No</td>
-<td>If enabled, the conversation is marked as archived</td>
-</tr>
-</tbody></table>
-
-<h3 id="return-value">Return value</h3>
-
-<p>A conversation object is returned.</p>
-
-<h2 id="add-user">Add user</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/add_user <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
-  -d <span class="nv">id</span><span class="o">=</span>13037 <span class="se">\</span>
-  -d <span class="nv">user_id</span><span class="o">=</span>10076
-</code></pre>
-<p><code class="prettyprint">POST /api/v1/conversations/add_user</code></p>
-
-<p>Adds a person to a conversation.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the conversation</td>
-</tr>
-<tr>
-<td>user_id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The user&rsquo;s id</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Return value:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h2 id="add-users">Add users</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/add_users <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
-  -d <span class="nv">id</span><span class="o">=</span>13037 <span class="se">\</span>
-  -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10076]'</span>
-</code></pre>
-<p><code class="prettyprint">POST /api/v1/conversations/add_users</code></p>
-
-<p>Adds several persons to a conversation.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the conversation</td>
-</tr>
-<tr>
-<td>user_ids</td>
-<td>Array of Numbers</td>
-<td>Yes</td>
-<td>The ids of the users</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Return value:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h2 id="remove-user">Remove user</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/remove_user <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
-  -d <span class="nv">id</span><span class="o">=</span>13037 <span class="se">\</span>
-  -d <span class="nv">user_id</span><span class="o">=</span>10076
-</code></pre>
-<p><code class="prettyprint">GET /api/v1/conversations/remove_user</code></p>
-
-<p>Removes a person from a conversation.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the conversation</td>
-</tr>
-<tr>
-<td>user_id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The user&rsquo;s id</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Return value:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h2 id="remove-users">Remove users</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/remove_users <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
-  -d <span class="nv">id</span><span class="o">=</span>13037 <span class="se">\</span>
-  -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10076]'</span>
-</code></pre>
-<p><code class="prettyprint">GET /api/v1/conversations/remove_users</code></p>
-
-<p>Removes several persons from a conversation.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the conversation</td>
-</tr>
-<tr>
-<td>user_ids</td>
-<td>Array of Numbers</td>
-<td>Yes</td>
-<td>The ids of the users</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Return value:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h2 id="archive-conversation">Archive conversation</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/archive <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
-  -d <span class="nv">id</span><span class="o">=</span>13037
-</code></pre>
-<p><code class="prettyprint">POST /api/v1/conversations/archive</code></p>
-
-<p>Archives a conversation.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the conversation</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Return value:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h2 id="unarchive-conversation">Unarchive conversation</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/unarchive <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
-  -d <span class="nv">id</span><span class="o">=</span>13037
-</code></pre>
-<p><code class="prettyprint">POST /api/v1/conversations/unarchive</code></p>
-
-<p>Unarchives a conversation.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the conversation</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Return value:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h2 id="get-unread-conversations">Get unread conversations</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/get_unread <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
-  -d <span class="nv">id</span><span class="o">=</span>5517
-</code></pre>
-<p><code class="prettyprint">GET /api/v1/conversations/get_unread</code></p>
-
-<p>Gets unread conversations.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>workspace_id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the workspace</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Return value:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-   </span><span class="p">[</span><span class="w">
-      </span><span class="mi">13037</span><span class="p">,</span><span class="w">
-      </span><span class="mi">1</span><span class="w">
-   </span><span class="p">]</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<h3 id="return-value">Return value</h3>
-
-<p>A list of unread conversations objects that are unread, where each unread conversation object is an array with two values: the conversation id and the id of last unread message.</p>
-
-<h2 id="mark-conversation-as-read">Mark conversation as read</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/mark_read <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
-  -d <span class="nv">conversation_id</span><span class="o">=</span>13037 <span class="se">\</span>
-  -d <span class="nv">messsage_id</span><span class="o">=</span>1
-</code></pre>
-<p><code class="prettyprint">POST /api/v1/conversations/mark_read</code></p>
-
-<p>Marks a conversation as read.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>conversation_id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the conversation</td>
-</tr>
-<tr>
-<td>obj_index</td>
-<td>Number</td>
-<td>Yes, this or <code class="prettyprint">message_id</code></td>
-<td>The index of the message, which will become the last read message in the conversation</td>
-</tr>
-<tr>
-<td>message_id</td>
-<td>Number</td>
-<td>Yes, this or <code class="prettyprint">obj_index</code></td>
-<td>The id of the message, which will become the last read message in the conversation</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Return value:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h2 id="mark-conversation-as-unread">Mark conversation as unread</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/mark_unread <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
-  -d <span class="nv">conversation_id</span><span class="o">=</span>13037 <span class="se">\</span>
-  -d <span class="nv">messsage_id</span><span class="o">=</span>1
-</code></pre>
-<p><code class="prettyprint">POST /api/v1/conversations/mark_unread</code></p>
-
-<p>Marks a conversation as unread.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>conversation_id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the conversation</td>
-</tr>
-<tr>
-<td>obj_index</td>
-<td>Number</td>
-<td>Yes, this or <code class="prettyprint">message_id</code></td>
-<td>The index of the message, which will become the last unread message in the conversation</td>
-</tr>
-<tr>
-<td>message_id</td>
-<td>Number</td>
-<td>Yes, this or <code class="prettyprint">obj_index</code></td>
-<td>The id of the message, which will become the last unread message in the conversation</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Return value:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h2 id="mute-conversation">Mute conversation</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/mute <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
-  -d <span class="nv">id</span><span class="o">=</span>13037 <span class="se">\</span>
-  -d <span class="nv">minutes</span><span class="o">=</span>30
-</code></pre>
-<p><code class="prettyprint">POST /api/v1/conversations/mute</code></p>
-
-<p>Mutes a conversation for a number of minutes.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the conversation</td>
-</tr>
-<tr>
-<td>minutes</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The number of minutes to mute the conversation</td>
-</tr>
-</tbody></table>
-
-<h3 id="return-value">Return value</h3>
-
-<p>A conversation object is returned.</p>
-
-<h2 id="unmute-conversation">Unmute conversation</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/unmute <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
-  -d <span class="nv">id</span><span class="o">=</span>13037
-</code></pre>
-<p><code class="prettyprint">POST /api/v1/conversations/unmute</code></p>
-
-<p>Unmutes a conversation.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the conversation</td>
-</tr>
-</tbody></table>
-
-<h3 id="return-value">Return value</h3>
-
-<p>A conversation object is returned.</p>
-
-<h2 id="get-conversation-message">Get conversation message</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversation_messages/getone <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
-  -d <span class="nv">id</span><span class="o">=</span>514069
-</code></pre>
-<p><code class="prettyprint">GET /api/v1/conversation_messages/getone</code></p>
-
-<p>Gets a single conversation message.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the conversation message</td>
-</tr>
-</tbody></table>
-
-<h3 id="return-value">Return value</h3>
-
-<p>A conversation message object is returned.</p>
-
-<h2 id="get-all-conversation-messages">Get all conversation messages</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversation_messages/get <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
-  -d <span class="nv">conversation_id</span><span class="o">=</span>13037
-</code></pre>
-<p><code class="prettyprint">GET /api/v1/conversation_messages/get</code></p>
-
-<p>Gets messages from a conversation.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>conversation_id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the conversation</td>
-</tr>
-<tr>
-<td>limit</td>
-<td>Number</td>
-<td>No</td>
-<td>Limits the number of messages returned</td>
-</tr>
-<tr>
-<td>from_obj_index</td>
-<td>Number</td>
-<td>No</td>
-<td>Limit messages starting at the specified object index</td>
-</tr>
-<tr>
-<td>to_obj_index</td>
-<td>String</td>
-<td>No</td>
-<td>Limit messages ending at the specified object index</td>
-</tr>
-<tr>
-<td>order_by</td>
-<td>String</td>
-<td>No</td>
-<td>The order of the conversations returned one of <code class="prettyprint">DESC</code> or <code class="prettyprint">ASC</code></td>
-</tr>
-<tr>
-<td>as_ids</td>
-<td>Boolean</td>
-<td>No</td>
-<td>If enabled, only the ids of the messages are returned</td>
-</tr>
-</tbody></table>
-
-<h3 id="return-value">Return value</h3>
-
-<p>A list of conversation message objects is returned.</p>
-
-<h2 id="add-message-to-conversation">Add message to conversation</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversation_messages/add <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
-  -d <span class="nv">conversation_id</span><span class="o">=</span>13037 <span class="se">\</span>
-  -d <span class="nv">content</span><span class="o">=</span><span class="s2">"Hello!"</span>
-</code></pre>
-<p><code class="prettyprint">POST /api/v1/conversation_messages/add</code></p>
-
-<p>Adds a message to an existing conversation.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>conversation_id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the conversation</td>
-</tr>
-<tr>
-<td>content</td>
-<td>String</td>
-<td>Yes</td>
-<td>The content of the new message</td>
-</tr>
-<tr>
-<td>attachments</td>
-<td>String</td>
-<td>No</td>
-<td>Attachments to the new message</td>
-</tr>
-</tbody></table>
-
-<h3 id="return-value">Return value</h3>
-
-<p>A conversation message object is returned.</p>
-
-<h2 id="update-message-in-conversation">Update message in conversation</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversation_messages/update <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
-  -d <span class="nv">conversation_id</span><span class="o">=</span>13037 <span class="se">\</span>
-  -d <span class="nv">content</span><span class="o">=</span><span class="s2">"Hello!"</span>
-</code></pre>
-<p><code class="prettyprint">POST /api/v1/conversation_messages/update</code></p>
-
-<p>Updates a message in conversation.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the message</td>
-</tr>
-<tr>
-<td>content</td>
-<td>String</td>
-<td>No</td>
-<td>The content of the new message</td>
-</tr>
-<tr>
-<td>attachments</td>
-<td>String</td>
-<td>No</td>
-<td>Attachments to the new message</td>
-</tr>
-</tbody></table>
-
-<h3 id="return-value">Return value</h3>
-
-<p>A conversation message object is returned.</p>
-
-<h2 id="remove-message-from-conversation">Remove message from conversation</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversation_messages/remove <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
-  -d <span class="nv">id</span><span class="o">=</span>514069
-</code></pre>
-<p><code class="prettyprint">POST /api/v1/conversation_messages/remove</code></p>
-
-<p>Removes a message from conversation.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the message</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Return value:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-          <h1 id="attachments">Attachments</h1>
-
-<p>Files can be attached to threads, comments, or conversation messages.</p>
-
-<h3 id="properties">Properties</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>attachment_id</td>
-<td>String</td>
-<td>The id of the attachment</td>
-</tr>
-<tr>
-<td>title</td>
-<td>String</td>
-<td>The title of the attachment</td>
-</tr>
-<tr>
-<td>url</td>
-<td>String</td>
-<td>The URL where the file is located</td>
-</tr>
-<tr>
-<td>url_type</td>
-<td>String</td>
-<td>The type of the file, such as <code class="prettyprint">file</code> or <code class="prettyprint">image</code></td>
-</tr>
-<tr>
-<td>file_name</td>
-<td>String</td>
-<td>The file&rsquo;s name</td>
-</tr>
-<tr>
-<td>file_size</td>
-<td>Number</td>
-<td>The file&rsquo;s size in bytes</td>
-</tr>
-<tr>
-<td>underlying_type</td>
-<td>String</td>
-<td>The file&rsquo;s media or content type (MIME)</td>
-</tr>
-<tr>
-<td>description</td>
-<td>String</td>
-<td>The description of the attachment</td>
-</tr>
-<tr>
-<td>image</td>
-<td>String</td>
-<td>If file is an image, the URL to the image file</td>
-</tr>
-<tr>
-<td>image_width</td>
-<td>Number</td>
-<td>If file is an image, the width of the image</td>
-</tr>
-<tr>
-<td>image_height</td>
-<td>Number</td>
-<td>If file is an image, the height of the image</td>
-</tr>
-<tr>
-<td>duration</td>
-<td>String</td>
-<td>If file is audio, the duration of the audio</td>
-</tr>
-<tr>
-<td>upload_state</td>
-<td>String</td>
-<td>Upload state is <code class="prettyprint">uploaded</code> on success, or <code class="prettyprint">failed</code> otherwise</td>
-</tr>
-</tbody></table>
-
-<h2 id="upload-an-attachment">Upload an attachment</h2>
-
-<p><code class="prettyprint">POST /api/v1/attachments/upload</code></p>
-
-<p>Uploads a file.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>file_name</td>
-<td>String</td>
-<td>Yes</td>
-<td>The name of the file to be uploaded</td>
-</tr>
-</tbody></table>
-
-<h2 id="remove-an-attachment">Remove an attachment</h2>
-
-<p><code class="prettyprint">POST /api/v1/attachments/remove</code></p>
-
-<p>Removes attachment from thread, comment or conversation message.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>attachment_id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the attachment</td>
-</tr>
-<tr>
-<td>thread_id</td>
-<td>Number</td>
-<td>Yes, this or <code class="prettyprint">comment_id</code> or <code class="prettyprint">message_id</code></td>
-<td>The id of the thread</td>
-</tr>
-<tr>
-<td>comment</td>
-<td>Number</td>
-<td>Yes, this or <code class="prettyprint">thread_id</code> or <code class="prettyprint">message_id</code></td>
-<td>The id of the comment</td>
-</tr>
-<tr>
-<td>message_id</td>
-<td>Number</td>
-<td>Yes, this or <code class="prettyprint">thread_id</code> or <code class="prettyprint">comment_id</code></td>
-<td>The id of the conversation message</td>
-</tr>
-</tbody></table>
-
-          <h1 id="groups">Groups</h1>
-
-<p>A group is a number of users grouped together under some name, a team.</p>
-
-<blockquote>
-<p>Group object:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">498</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Group1"</span><span class="w">
-   </span><span class="s2">"description"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"user_ids"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-   </span><span class="s2">"workspace_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5517</span><span class="p">,</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h3 id="properties-of-group-object">Properties of group object</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Number</td>
-<td>The id of the group</td>
-</tr>
-<tr>
-<td>name</td>
-<td>String</td>
-<td>The name of the group</td>
-</tr>
-<tr>
-<td>description</td>
-<td>String</td>
-<td>The description of the group</td>
-</tr>
-<tr>
-<td>user_ids</td>
-<td>Array of Numbers</td>
-<td>The users that are part of the group</td>
-</tr>
-<tr>
-<td>workspace_id</td>
-<td>Number</td>
-<td>The id of the workspace</td>
-</tr>
-</tbody></table>
-
-<h2 id="get-group">Get group</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/getone <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
-  -d <span class="nv">id</span><span class="o">=</span>498
-</code></pre>
-<p><code class="prettyprint">GET /api/v1/groups/getone</code></p>
-
-<p>Gets a single group object.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the group</td>
-</tr>
-</tbody></table>
-
-<h3 id="return-value">Return value</h3>
-
-<p>A group object is returned.</p>
-
-<h2 id="get-all-groups">Get all groups</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/get <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
-  -d <span class="nv">workspace_id</span><span class="o">=</span>5517
-</code></pre>
-<p><code class="prettyprint">GET /api/v1/groups/get</code></p>
-
-<p>Gets all groups in a workspace.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>workspace_id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the workspace</td>
-</tr>
-</tbody></table>
-
-<h3 id="return-value">Return value</h3>
-
-<p>A list of group objects is returned.</p>
-
-<h2 id="add-group">Add group</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/add <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
-  -d <span class="nv">workspace_id</span><span class="o">=</span>5571 <span class="se">\</span>
-  -d <span class="nv">name</span><span class="o">=</span>Group1 <span class="se">\</span>
-  -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10073]'</span>
-</code></pre>
-<p><code class="prettyprint">POST /api/v1/groups/add</code></p>
-
-<p>Adds a new group to a workspace.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>workspace_id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the workspace</td>
-</tr>
-<tr>
-<td>name</td>
-<td>String</td>
-<td>Yes</td>
-<td>The name of the new group</td>
-</tr>
-<tr>
-<td>user_ids</td>
-<td>Array of Numbers</td>
-<td>No</td>
-<td>The users that will comprise the group</td>
-</tr>
-</tbody></table>
-
-<h3 id="return-value">Return value</h3>
-
-<p>A group object is returned.</p>
-
-<h2 id="update-group">Update group</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/update <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
-  -d <span class="nv">id</span><span class="o">=</span>498 <span class="se">\</span>
-  -d <span class="nv">name</span><span class="o">=</span>Group1
-</code></pre>
-<p><code class="prettyprint">POST /api/v1/groups/update</code></p>
-
-<p>Updates an existing group.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the group</td>
-</tr>
-<tr>
-<td>name</td>
-<td>String</td>
-<td>Yes</td>
-<td>The name of the group</td>
-</tr>
-</tbody></table>
-
-<h3 id="return-value">Return value</h3>
-
-<p>The updated group object is returned.</p>
-
-<h2 id="remove-group">Remove group</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/remove <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
-  -d <span class="nv">id</span><span class="o">=</span>498
-</code></pre>
-<p><code class="prettyprint">POST /api/v1/groups/remove</code></p>
-
-<blockquote>
-<p>Return value:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Removes a group.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the group</td>
-</tr>
-</tbody></table>
-
-<h2 id="add-user">Add user</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/add_user <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
-  -d <span class="nv">id</span><span class="o">=</span>498 <span class="se">\</span>
-  -d <span class="nv">user_id</span><span class="o">=</span>10076
-</code></pre>
-<p><code class="prettyprint">POST /api/v1/groups/add_user</code></p>
-
-<blockquote>
-<p>Return value:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Adds a person to a group.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the group</td>
-</tr>
-<tr>
-<td>user_id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The user&rsquo;s id</td>
-</tr>
-</tbody></table>
-
-<h2 id="add-users">Add users</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/add_users <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
-  -d <span class="nv">id</span><span class="o">=</span>498 <span class="se">\</span>
-  -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10073,10076]'</span>
-</code></pre>
-<p><code class="prettyprint">POST /api/v1/groups/add_users</code></p>
-
-<blockquote>
-<p>Return value:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Adds several persons to a group.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the group</td>
-</tr>
-<tr>
-<td>user_ids</td>
-<td>Array of Numbers</td>
-<td>Yes</td>
-<td>The ids of the users</td>
-</tr>
-</tbody></table>
-
-<h2 id="remove-user">Remove user</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/remove_user <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
-  -d <span class="nv">id</span><span class="o">=</span>498 <span class="se">\</span>
-  -d <span class="nv">user_id</span><span class="o">=</span>10076
-</code></pre>
-<p><code class="prettyprint">POST /api/v1/groups/remove_user</code></p>
-
-<blockquote>
-<p>Return value:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Removes a person from a group.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the group</td>
-</tr>
-<tr>
-<td>user_id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The user&rsquo;s id</td>
-</tr>
-</tbody></table>
-
-<h2 id="remove-users">Remove users</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/remove_users <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
-  -d <span class="nv">id</span><span class="o">=</span>498 <span class="se">\</span>
-  -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10073,10076]'</span>
-</code></pre>
-<p><code class="prettyprint">POST /api/v1/groups/remove_users</code></p>
-
-<blockquote>
-<p>Return value:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Removes several persons from a group.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the group</td>
 </tr>
 <tr>
 <td>user_ids</td>
@@ -5980,6 +4718,1272 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+          <h1 id="conversations">Conversations</h1>
+
+<p>A conversation is a direct message exchange between one or more users.</p>
+
+<blockquote>
+<p>Conversation object:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">13037</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"User2"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"title"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"is_private"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+   </span><span class="s2">"creator"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10076</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"workspace_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5517</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"user_ids"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">10073</span><span class="p">,</span><span class="w">
+      </span><span class="mi">10076</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="s2">"message_count"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"last_obj_index"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"snippet"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello!"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"snippet_creator"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10076</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"snippet_creators"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">10076</span><span class="p">,</span><span class="w">
+      </span><span class="mi">10073</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="s2">"last_active_ts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1497970961</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"muted_until"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"archived"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"created_ts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1494330846</span><span class="p">,</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span></code></pre>
+<h3 id="properties-of-conversation-object">Properties of conversation object</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>The id of the conversation</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>The name of the other user or users or a title</td>
+</tr>
+<tr>
+<td>title</td>
+<td>String</td>
+<td>The title of the conversation, or <code class="prettyprint">null</code> if a private conversation</td>
+</tr>
+<tr>
+<td>is_private</td>
+<td>Number</td>
+<td>Whether the conversation is private, ie. between 2 users only</td>
+</tr>
+<tr>
+<td>creator</td>
+<td>Number</td>
+<td>The user that created the thread</td>
+</tr>
+<tr>
+<td>workspace_id</td>
+<td>Number</td>
+<td>The id of the workspace</td>
+</tr>
+<tr>
+<td>user_ids</td>
+<td>Array of Numbers</td>
+<td>The users that are participating in the conversation</td>
+</tr>
+<tr>
+<td>message_count</td>
+<td>Number</td>
+<td>The number of messages</td>
+</tr>
+<tr>
+<td>last_obj_index</td>
+<td>Number</td>
+<td>The last message&rsquo;s index</td>
+</tr>
+<tr>
+<td>snippet</td>
+<td>String</td>
+<td>A part of the last comment</td>
+</tr>
+<tr>
+<td>snippet_creator</td>
+<td>Number</td>
+<td>The user of the last comment</td>
+</tr>
+<tr>
+<td>snippet_creators</td>
+<td>Array of Numbers</td>
+<td>The users of the last comments</td>
+</tr>
+<tr>
+<td>last_active_ts</td>
+<td>Number</td>
+<td>The Unix time when the conversation was last active</td>
+</tr>
+<tr>
+<td>muted_until</td>
+<td>Number</td>
+<td>The Unix time until when the conversation is muted</td>
+</tr>
+<tr>
+<td>archived</td>
+<td>Number</td>
+<td>Whether the conversation is archived</td>
+</tr>
+<tr>
+<td>created_ts</td>
+<td>Number</td>
+<td>The Unix time when the conversation was created</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-conversation">Get conversation</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/getone <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>13037
+</code></pre>
+<p><code class="prettyprint">GET /api/v1/conversations/getone</code></p>
+
+<p>Gets a single conversation object.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the conversation</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-value">Return value</h3>
+
+<p>A conversation object is returned.</p>
+
+<h2 id="get-all-conversations">Get all conversations</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/get <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">workspace_id</span><span class="o">=</span>5517
+</code></pre>
+<p><code class="prettyprint">GET /api/v1/conversations/get</code></p>
+
+<p>Gets all conversations of a user in a workspace.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>workspace_id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the workspace</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Number</td>
+<td>No</td>
+<td>Limits the number of conversations</td>
+</tr>
+<tr>
+<td>newer_than_ts</td>
+<td>Number</td>
+<td>No</td>
+<td>Limits conversations to those newer whan the specified Unix time</td>
+</tr>
+<tr>
+<td>older_than_ts</td>
+<td>Number</td>
+<td>No</td>
+<td>Limits conversations to those older whan the specified Unix time</td>
+</tr>
+<tr>
+<td>order_by</td>
+<td>String</td>
+<td>No</td>
+<td>The order of the comments returned one of <code class="prettyprint">DESC</code> or <code class="prettyprint">ASC</code></td>
+</tr>
+<tr>
+<td>archived</td>
+<td>Boolean</td>
+<td>No</td>
+<td>If enabled, only archived converations are returned. By default it&rsquo;s off.</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-value">Return value</h3>
+
+<p>A list of conversation objects is returned.</p>
+
+<h2 id="get-or-create-conversation">Get or create conversation</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/get_or_create <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">workspace_id</span><span class="o">=</span>5517 <span class="se">\</span>
+  -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10073,10076]'</span>
+</code></pre>
+<p><code class="prettyprint">POST /api/v1/conversations/get_or_create</code></p>
+
+<p>Gets or creates a conversation with one or more users.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>workspace_id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the workspace</td>
+</tr>
+<tr>
+<td>user_ids</td>
+<td>Array of Numbers</td>
+<td>Yes</td>
+<td>The users that will participate in the conversation</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-value">Return value</h3>
+
+<p>A conversation object is returned.</p>
+
+<h2 id="update-conversation">Update conversation</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/update <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>13037 <span class="se">\</span>
+  -d <span class="nv">title</span><span class="o">=</span>Title1
+</code></pre>
+<p><code class="prettyprint">POST /api/v1/conversations/update</code></p>
+
+<p>Updates an existing conversation.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the conversation</td>
+</tr>
+<tr>
+<td>title</td>
+<td>String</td>
+<td>Yes</td>
+<td>The title of the conversation</td>
+</tr>
+<tr>
+<td>archived</td>
+<td>Boolean</td>
+<td>No</td>
+<td>If enabled, the conversation is marked as archived</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-value">Return value</h3>
+
+<p>A conversation object is returned.</p>
+
+<h2 id="add-user">Add user</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/add_user <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>13037 <span class="se">\</span>
+  -d <span class="nv">user_id</span><span class="o">=</span>10076
+</code></pre>
+<p><code class="prettyprint">POST /api/v1/conversations/add_user</code></p>
+
+<p>Adds a person to a conversation.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the conversation</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The user&rsquo;s id</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="add-users">Add users</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/add_users <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>13037 <span class="se">\</span>
+  -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10076]'</span>
+</code></pre>
+<p><code class="prettyprint">POST /api/v1/conversations/add_users</code></p>
+
+<p>Adds several persons to a conversation.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the conversation</td>
+</tr>
+<tr>
+<td>user_ids</td>
+<td>Array of Numbers</td>
+<td>Yes</td>
+<td>The ids of the users</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="remove-user">Remove user</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/remove_user <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>13037 <span class="se">\</span>
+  -d <span class="nv">user_id</span><span class="o">=</span>10076
+</code></pre>
+<p><code class="prettyprint">GET /api/v1/conversations/remove_user</code></p>
+
+<p>Removes a person from a conversation.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the conversation</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The user&rsquo;s id</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="remove-users">Remove users</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/remove_users <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>13037 <span class="se">\</span>
+  -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10076]'</span>
+</code></pre>
+<p><code class="prettyprint">GET /api/v1/conversations/remove_users</code></p>
+
+<p>Removes several persons from a conversation.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the conversation</td>
+</tr>
+<tr>
+<td>user_ids</td>
+<td>Array of Numbers</td>
+<td>Yes</td>
+<td>The ids of the users</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="archive-conversation">Archive conversation</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/archive <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>13037
+</code></pre>
+<p><code class="prettyprint">POST /api/v1/conversations/archive</code></p>
+
+<p>Archives a conversation.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the conversation</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="unarchive-conversation">Unarchive conversation</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/unarchive <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>13037
+</code></pre>
+<p><code class="prettyprint">POST /api/v1/conversations/unarchive</code></p>
+
+<p>Unarchives a conversation.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the conversation</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="get-unread-conversations">Get unread conversations</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/get_unread <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>5517
+</code></pre>
+<p><code class="prettyprint">GET /api/v1/conversations/get_unread</code></p>
+
+<p>Gets unread conversations.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>workspace_id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the workspace</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+   </span><span class="p">[</span><span class="w">
+      </span><span class="mi">13037</span><span class="p">,</span><span class="w">
+      </span><span class="mi">1</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<h3 id="return-value">Return value</h3>
+
+<p>A list of unread conversations objects that are unread, where each unread conversation object is an array with two values: the conversation id and the id of last unread message.</p>
+
+<h2 id="mark-conversation-as-read">Mark conversation as read</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/mark_read <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">conversation_id</span><span class="o">=</span>13037 <span class="se">\</span>
+  -d <span class="nv">messsage_id</span><span class="o">=</span>1
+</code></pre>
+<p><code class="prettyprint">POST /api/v1/conversations/mark_read</code></p>
+
+<p>Marks a conversation as read.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>conversation_id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the conversation</td>
+</tr>
+<tr>
+<td>obj_index</td>
+<td>Number</td>
+<td>Yes, this or <code class="prettyprint">message_id</code></td>
+<td>The index of the message, which will become the last read message in the conversation</td>
+</tr>
+<tr>
+<td>message_id</td>
+<td>Number</td>
+<td>Yes, this or <code class="prettyprint">obj_index</code></td>
+<td>The id of the message, which will become the last read message in the conversation</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="mark-conversation-as-unread">Mark conversation as unread</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/mark_unread <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">conversation_id</span><span class="o">=</span>13037 <span class="se">\</span>
+  -d <span class="nv">messsage_id</span><span class="o">=</span>1
+</code></pre>
+<p><code class="prettyprint">POST /api/v1/conversations/mark_unread</code></p>
+
+<p>Marks a conversation as unread.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>conversation_id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the conversation</td>
+</tr>
+<tr>
+<td>obj_index</td>
+<td>Number</td>
+<td>Yes, this or <code class="prettyprint">message_id</code></td>
+<td>The index of the message, which will become the last unread message in the conversation</td>
+</tr>
+<tr>
+<td>message_id</td>
+<td>Number</td>
+<td>Yes, this or <code class="prettyprint">obj_index</code></td>
+<td>The id of the message, which will become the last unread message in the conversation</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="mute-conversation">Mute conversation</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/mute <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>13037 <span class="se">\</span>
+  -d <span class="nv">minutes</span><span class="o">=</span>30
+</code></pre>
+<p><code class="prettyprint">POST /api/v1/conversations/mute</code></p>
+
+<p>Mutes a conversation for a number of minutes.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the conversation</td>
+</tr>
+<tr>
+<td>minutes</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The number of minutes to mute the conversation</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-value">Return value</h3>
+
+<p>A conversation object is returned.</p>
+
+<h2 id="unmute-conversation">Unmute conversation</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/unmute <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>13037
+</code></pre>
+<p><code class="prettyprint">POST /api/v1/conversations/unmute</code></p>
+
+<p>Unmutes a conversation.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the conversation</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-value">Return value</h3>
+
+<p>A conversation object is returned.</p>
+
+          <h1 id="conversation-messages">Conversation messages</h1>
+
+<p>A conversation message is a message between one or more users participating in a conversation.</p>
+
+<blockquote>
+<p>Conversation message object:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">514069</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"content"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi!"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"creator"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10073</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"conversation_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">13037</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"workspace_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5517</span><span class="w">
+   </span><span class="s2">"obj_index"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"attachments"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+   </span><span class="s2">"actions"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+   </span><span class="s2">"reactions"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+   </span><span class="s2">"is_deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"system_message"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"posted_ts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1497970956</span><span class="p">,</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span></code></pre>
+<h3 id="properties-of-conversation-message-object">Properties of conversation message object</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>The id of the message</td>
+</tr>
+<tr>
+<td>content</td>
+<td>String</td>
+<td>The content of the message</td>
+</tr>
+<tr>
+<td>creator</td>
+<td>Number</td>
+<td>The user that added the message</td>
+</tr>
+<tr>
+<td>conversation_id</td>
+<td>Number</td>
+<td>The id of the conversation</td>
+</tr>
+<tr>
+<td>workspace_id</td>
+<td>Number</td>
+<td>The id of the workspace</td>
+</tr>
+<tr>
+<td>obj_index</td>
+<td>Number</td>
+<td>The index of the message in regards to all other messages in the conversation</td>
+</tr>
+<tr>
+<td>attachments</td>
+<td>Array of Objects</td>
+<td>Files attached to the message</td>
+</tr>
+<tr>
+<td>actions</td>
+<td>Array of Objects</td>
+<td>Actions define special messages that trigger actions, buttons to click to open URLs, etc.</td>
+</tr>
+<tr>
+<td>reactions</td>
+<td>Object</td>
+<td>Reactions to the thread, where keys are the reactions and values the users that had that reaction</td>
+</tr>
+<tr>
+<td>is_deleted</td>
+<td>Number</td>
+<td>Whether the message is deleted</td>
+</tr>
+<tr>
+<td>system_message</td>
+<td>String</td>
+<td>A system message</td>
+</tr>
+<tr>
+<td>posted_ts</td>
+<td>Number</td>
+<td>The Unix time when the message was created</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-message">Get message</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversation_messages/getone <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>514069
+</code></pre>
+<p><code class="prettyprint">GET /api/v1/conversation_messages/getone</code></p>
+
+<p>Gets a single conversation message.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the conversation message</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-value">Return value</h3>
+
+<p>A conversation message object is returned.</p>
+
+<h2 id="get-all-messages">Get all messages</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversation_messages/get <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">conversation_id</span><span class="o">=</span>13037
+</code></pre>
+<p><code class="prettyprint">GET /api/v1/conversation_messages/get</code></p>
+
+<p>Gets messages from a conversation.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>conversation_id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the conversation</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Number</td>
+<td>No</td>
+<td>Limits the number of messages returned</td>
+</tr>
+<tr>
+<td>from_obj_index</td>
+<td>Number</td>
+<td>No</td>
+<td>Limit messages starting at the specified object index</td>
+</tr>
+<tr>
+<td>to_obj_index</td>
+<td>String</td>
+<td>No</td>
+<td>Limit messages ending at the specified object index</td>
+</tr>
+<tr>
+<td>order_by</td>
+<td>String</td>
+<td>No</td>
+<td>The order of the conversations returned one of <code class="prettyprint">DESC</code> or <code class="prettyprint">ASC</code></td>
+</tr>
+<tr>
+<td>as_ids</td>
+<td>Boolean</td>
+<td>No</td>
+<td>If enabled, only the ids of the messages are returned</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-value">Return value</h3>
+
+<p>A list of conversation message objects is returned.</p>
+
+<h2 id="add-message-to-conversation">Add message to conversation</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversation_messages/add <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">conversation_id</span><span class="o">=</span>13037 <span class="se">\</span>
+  -d <span class="nv">content</span><span class="o">=</span><span class="s2">"Hello!"</span>
+</code></pre>
+<p><code class="prettyprint">POST /api/v1/conversation_messages/add</code></p>
+
+<p>Adds a message to an existing conversation.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>conversation_id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the conversation</td>
+</tr>
+<tr>
+<td>content</td>
+<td>String</td>
+<td>Yes</td>
+<td>The content of the new message</td>
+</tr>
+<tr>
+<td>attachments</td>
+<td>String</td>
+<td>No</td>
+<td>Attachments to the new message</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-value">Return value</h3>
+
+<p>A conversation message object is returned.</p>
+
+<h2 id="update-message-in-conversation">Update message in conversation</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversation_messages/update <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">conversation_id</span><span class="o">=</span>13037 <span class="se">\</span>
+  -d <span class="nv">content</span><span class="o">=</span><span class="s2">"Hello!"</span>
+</code></pre>
+<p><code class="prettyprint">POST /api/v1/conversation_messages/update</code></p>
+
+<p>Updates a message in conversation.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the message</td>
+</tr>
+<tr>
+<td>content</td>
+<td>String</td>
+<td>No</td>
+<td>The content of the new message</td>
+</tr>
+<tr>
+<td>attachments</td>
+<td>String</td>
+<td>No</td>
+<td>Attachments to the new message</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-value">Return value</h3>
+
+<p>A conversation message object is returned.</p>
+
+<h2 id="remove-message-from-conversation">Remove message from conversation</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversation_messages/remove <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>514069
+</code></pre>
+<p><code class="prettyprint">POST /api/v1/conversation_messages/remove</code></p>
+
+<p>Removes a message from conversation.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the message</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+          <h1 id="attachments">Attachments</h1>
+
+<p>Files can be attached to threads, comments, or conversation messages.</p>
+
+<h3 id="properties">Properties</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>attachment_id</td>
+<td>String</td>
+<td>The id of the attachment</td>
+</tr>
+<tr>
+<td>title</td>
+<td>String</td>
+<td>The title of the attachment</td>
+</tr>
+<tr>
+<td>url</td>
+<td>String</td>
+<td>The URL where the file is located</td>
+</tr>
+<tr>
+<td>url_type</td>
+<td>String</td>
+<td>The type of the file, such as <code class="prettyprint">file</code> or <code class="prettyprint">image</code></td>
+</tr>
+<tr>
+<td>file_name</td>
+<td>String</td>
+<td>The file&rsquo;s name</td>
+</tr>
+<tr>
+<td>file_size</td>
+<td>Number</td>
+<td>The file&rsquo;s size in bytes</td>
+</tr>
+<tr>
+<td>underlying_type</td>
+<td>String</td>
+<td>The file&rsquo;s media or content type (MIME)</td>
+</tr>
+<tr>
+<td>description</td>
+<td>String</td>
+<td>The description of the attachment</td>
+</tr>
+<tr>
+<td>image</td>
+<td>String</td>
+<td>If file is an image, the URL to the image file</td>
+</tr>
+<tr>
+<td>image_width</td>
+<td>Number</td>
+<td>If file is an image, the width of the image</td>
+</tr>
+<tr>
+<td>image_height</td>
+<td>Number</td>
+<td>If file is an image, the height of the image</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>String</td>
+<td>If file is audio, the duration of the audio</td>
+</tr>
+<tr>
+<td>upload_state</td>
+<td>String</td>
+<td>Upload state is <code class="prettyprint">uploaded</code> on success, or <code class="prettyprint">failed</code> otherwise</td>
+</tr>
+</tbody></table>
+
+<h2 id="upload-an-attachment">Upload an attachment</h2>
+
+<p><code class="prettyprint">POST /api/v1/attachments/upload</code></p>
+
+<p>Uploads a file.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>file_name</td>
+<td>String</td>
+<td>Yes</td>
+<td>The name of the file to be uploaded</td>
+</tr>
+</tbody></table>
+
+<h2 id="remove-an-attachment">Remove an attachment</h2>
+
+<p><code class="prettyprint">POST /api/v1/attachments/remove</code></p>
+
+<p>Removes attachment from thread, comment or conversation message.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>attachment_id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the attachment</td>
+</tr>
+<tr>
+<td>thread_id</td>
+<td>Number</td>
+<td>Yes, this or <code class="prettyprint">comment_id</code> or <code class="prettyprint">message_id</code></td>
+<td>The id of the thread</td>
+</tr>
+<tr>
+<td>comment</td>
+<td>Number</td>
+<td>Yes, this or <code class="prettyprint">thread_id</code> or <code class="prettyprint">message_id</code></td>
+<td>The id of the comment</td>
+</tr>
+<tr>
+<td>message_id</td>
+<td>Number</td>
+<td>Yes, this or <code class="prettyprint">thread_id</code> or <code class="prettyprint">comment_id</code></td>
+<td>The id of the conversation message</td>
+</tr>
+</tbody></table>
+
           <h1 id="reactions">Reactions</h1>
 
 <p>Reactions can be added to threads, comments or conversation messages.</p>
@@ -6564,6 +6568,176 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 </span></code></pre>
 <p>The conversation is expanded, that is more comments are returned.</p>
 
+          <h1 id="notifications">Notifications</h1>
+
+<p>The user&rsquo;s last notifications.</p>
+
+<blockquote>
+<p>Notification object:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"notifications"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"type_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"workspace_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5517</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"channel_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">6984</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"thread_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">32038</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"comment_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">206113</span><span class="w">
+         </span><span class="s2">"by_user_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10076</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"posted_ts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1494489787</span><span class="p">,</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="s2">"last_read"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="properties-of-notification-object">Properties of notification object</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>The id of the notification</td>
+</tr>
+<tr>
+<td>type_id</td>
+<td>Number</td>
+<td>The notification type: <code class="prettyprint">1</code> when added to a comment, <code class="prettyprint">2</code> when added to a thread, <code class="prettyprint">3</code> when added to a workspace, <code class="prettyprint">4</code> when removed from a worksapce, <code class="prettyprint">5</code> when added to a channel, and <code class="prettyprint">6</code> when removed from a channel.</td>
+</tr>
+<tr>
+<td>workspace_id</td>
+<td>Number</td>
+<td>The id of the workspace</td>
+</tr>
+<tr>
+<td>channel_id</td>
+<td>Number</td>
+<td>The id of the channel</td>
+</tr>
+<tr>
+<td>thread_id</td>
+<td>Number</td>
+<td>The id of the thread</td>
+</tr>
+<tr>
+<td>comment_id</td>
+<td>Number</td>
+<td>The id of the comment</td>
+</tr>
+<tr>
+<td>by_user_id</td>
+<td>Number</td>
+<td>The id of the user that triggered the notification (notified the receiving user)</td>
+</tr>
+<tr>
+<td>posted_ts</td>
+<td>Number</td>
+<td>The Unix time when the notification took place</td>
+</tr>
+<tr>
+<td>last_read</td>
+<td>Number</td>
+<td>The id of the last read notification</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-last-notifications">Get last notifications</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://twistapp.com/api/v1/notifications/get <span class="se">\</span>
+  -d <span class="nv">token</span><span class="o">=</span>9b1bf97783c1ad5593dee12f3019079dbd3042cf
+</code></pre>
+<p><code class="prettyprint">GET /api/v1/notifications/get</code></p>
+
+<p>Gets the last notifications of the user.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>limit</td>
+<td>Number</td>
+<td>No</td>
+<td>Limits the number of threads returned</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-value">Return value</h3>
+
+<p>A list of notification objects is returned.</p>
+
+<h2 id="mark-notifications-as-read">Mark notifications as read</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://twistapp.com/api/v1/notifications/mark_read <span class="se">\</span>
+  -d <span class="nv">token</span><span class="o">=</span>9b1bf97783c1ad5593dee12f3019079dbd3042cf <span class="se">\</span>
+  -d <span class="nv">notification_id</span><span class="o">=</span>1
+</code></pre>
+<p><code class="prettyprint">POST /api/v1/notifications/mark_read</code></p>
+
+<p>Marks everything after specified notification as read.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>notification_id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The last read notification id</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="reset-notifications">Reset notifications</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://twistapp.com/api/v1/notifications/reset <span class="se">\</span>
+  -d <span class="nv">token</span><span class="o">=</span>9b1bf97783c1ad5593dee12f3019079dbd3042cf
+</code></pre>
+<p><code class="prettyprint">POST /api/v1/notifications/reset</code></p>
+
+<p>Resets all notifications read status.</p>
+
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
           <h1 id="notifications-settings">Notifications settings</h1>
 
 <p>The user&rsquo;s notification settings allow to setup email and push settings.</p>
