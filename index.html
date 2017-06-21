@@ -7183,12 +7183,42 @@ those that are read.</p>
 </tr>
 </tbody></table>
 
-          <h1 id="url-join">URL Join</h1>
+          <h1 id="url-join">URL join</h1>
 
 <p>This allows one to join a workspace using a special URL invite link.</p>
 
+<blockquote>
+<p>URL join object:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"https://twistapp.com/j/c5370f3ab4bad2d7eb6c432a17c37986"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="properties-of-url-join-object">Properties of URL join object</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url</td>
+<td>String</td>
+<td>The URL to be used to join a workspace</td>
+</tr>
+</tbody></table>
+
 <h2 id="get-or-create-url-join-link">Get or create URL join link</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/url_join/get_or_create <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">workspace_id</span><span class="o">=</span>5517
+</code></pre>
 <p><code class="prettyprint">POST /api/v1/url_join/get_or_create</code></p>
 
 <p>Gets or creates a URL join link to a workspace.</p>
@@ -7211,8 +7241,22 @@ those that are read.</p>
 </tr>
 </tbody></table>
 
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"https://twistapp.com/j/c5370f3ab4bad2d7eb6c432a17c37986"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <h2 id="disable-url-join-link">Disable URL join link</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/url_join/disable <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">workspace_id</span><span class="o">=</span>5517
+</code></pre>
 <p><code class="prettyprint">POST /api/v1/url_join/disable</code></p>
 
 <p>Disables a URL join link to a workspace.</p>
@@ -7235,8 +7279,22 @@ those that are read.</p>
 </tr>
 </tbody></table>
 
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <h2 id="join-workspace">Join workspace</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/url_join/join_workspace <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">url_invite_code</span><span class="o">=</span><span class="s2">"https://twistapp.com/j/c5370f3ab4bad2d7eb6c432a17c37986"</span>
+</code></pre>
 <p><code class="prettyprint">POST /api/v1/url_join/join_workspace</code></p>
 
 <p>Joins user to invited workspace using the URL link.</p>
@@ -7258,6 +7316,10 @@ those that are read.</p>
 <td>The URL join link</td>
 </tr>
 </tbody></table>
+
+<h3 id="return-value">Return value</h3>
+
+<p>A workspace object is returned.</p>
 
           <h1 id="loop-in">Loop In</h1>
 
