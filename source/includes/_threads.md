@@ -34,7 +34,7 @@ A thread is a discussion.
 }
 ```
 
-#### Properties of thread object
+### Properties of thread object
 
 | Name | Type | Description |
 | ---- | --- | --- |

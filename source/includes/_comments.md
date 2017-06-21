@@ -29,7 +29,7 @@ A comment is a message in a thread.
 }
 ```
 
-#### Properties of comment object
+### Properties of comment object
 
 | Name | Type | Description |
 | ---- | --- | --- |
@@ -62,7 +62,7 @@ curl https://api.twistapp.com/api/v1/comments/getone \
 
 Gets a single comment object by id.
 
-#### Parameters
+### Parameters
 
 | Name | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -87,7 +87,7 @@ curl https://api.twistapp.com/api/v1/comments/get \
 
 Gets all comments in a channel.
 
-#### Parameters
+### Parameters
 
 | Name | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -120,7 +120,7 @@ curl https://api.twistapp.com/api/v1/comments/add \
 
 Adds a new comment to a thread.
 
-#### Parameters
+### Parameters
 
 | Name | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -152,7 +152,7 @@ curl https://api.twistapp.com/api/v1/comments/update \
 
 Updates an existing comment.
 
-#### Parameters
+### Parameters
 
 | Name | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -179,7 +179,7 @@ curl https://api.twistapp.com/api/v1/comments/remove \
 
 Removes a comment \(only user's own comments can be removed\).
 
-#### Parameters
+### Parameters
 
 | Name | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -208,7 +208,7 @@ curl https://api.twistapp.com/api/v1/comments/mark_position \
 
 Marks the position of a thread.
 
-#### Parameters
+### Parameters
 
 | Name | Type | Required | Description |
 | --- | --- | --- | --- |
