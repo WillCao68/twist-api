@@ -10,15 +10,17 @@ includes:
   - batch
   - users
   - workspaces
-  - channels
-  - conversations
-  - attachments
   - groups
+  - channels
   - threads
   - comments
+  - conversations
+  - conversation_messages
+  - attachments
   - reactions
   - inbox
   - search
+  - notifications
   - notification_settings
   - url_join
   - loop_in
