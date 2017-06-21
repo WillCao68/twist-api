@@ -18,6 +18,8 @@ Reactions can be added to threads, comments or conversation messages.
 
 ### Properties of reaction object
 
+The reaction object is either `null` or has one or more key-value pairs.
+
 | Name | Type | Description |
 | ---- | --- | --- |
 | *key* | String | The reaction added by one or more users |
