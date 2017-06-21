@@ -3539,7 +3539,7 @@
      </span><span class="s2">"posted_ts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1494488709</span><span class="p">,</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<h4 id="properties-of-thread-object">Properties of thread object</h4>
+<h3 id="properties-of-thread-object">Properties of thread object</h3>
 
 <table><thead>
 <tr>
@@ -4327,7 +4327,7 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
    </span><span class="s2">"posted_ts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1494489787</span><span class="p">,</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<h4 id="properties-of-comment-object">Properties of comment object</h4>
+<h3 id="properties-of-comment-object">Properties of comment object</h3>
 
 <table><thead>
 <tr>
@@ -4416,7 +4416,7 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 
 <p>Gets a single comment object by id.</p>
 
-<h4 id="parameters">Parameters</h4>
+<h3 id="parameters">Parameters</h3>
 
 <table><thead>
 <tr>
@@ -4451,7 +4451,7 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 
 <p>Gets all comments in a channel.</p>
 
-<h4 id="parameters">Parameters</h4>
+<h3 id="parameters">Parameters</h3>
 
 <table><thead>
 <tr>
@@ -4529,7 +4529,7 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 
 <p>Adds a new comment to a thread.</p>
 
-<h4 id="parameters">Parameters</h4>
+<h3 id="parameters">Parameters</h3>
 
 <table><thead>
 <tr>
@@ -4601,7 +4601,7 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 
 <p>Updates an existing comment.</p>
 
-<h4 id="parameters">Parameters</h4>
+<h3 id="parameters">Parameters</h3>
 
 <table><thead>
 <tr>
@@ -4648,7 +4648,7 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 
 <p>Removes a comment (only user&rsquo;s own comments can be removed).</p>
 
-<h4 id="parameters">Parameters</h4>
+<h3 id="parameters">Parameters</h3>
 
 <table><thead>
 <tr>
@@ -4687,7 +4687,7 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 
 <p>Marks the position of a thread.</p>
 
-<h4 id="parameters">Parameters</h4>
+<h3 id="parameters">Parameters</h3>
 
 <table><thead>
 <tr>
@@ -6033,8 +6033,49 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 
 <p>Reactions can be added to threads, comments or conversation messages.</p>
 
+<blockquote>
+<p>Reaction object:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"👍"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">10076</span><span class="p">,</span><span class="w">
+      </span><span class="mi">10073</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="s2">"😄"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">10076</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="properties-of-reaction-object">Properties of reaction object</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><em>key</em></td>
+<td>String</td>
+<td>The reaction added by one or more users</td>
+</tr>
+<tr>
+<td><em>value</em></td>
+<td>Array of Numbers</td>
+<td>The users that added that specific reaction</td>
+</tr>
+</tbody></table>
+
 <h2 id="get-reactions">Get reactions</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/reactions/get <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">comment_id</span><span class="o">=</span>206113
+</code></pre>
 <p><code class="prettyprint">POST /api/v1/reactions/get</code></p>
 
 <p>Gets reactions of a thread, comment or conversation message.</p>
@@ -6069,8 +6110,20 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 </tr>
 </tbody></table>
 
+<h3 id="return-value">Return value</h3>
+
+<p>A reaction object is returned.</p>
+
 <h2 id="add-a-reaction">Add a reaction</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/reactions/add <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">reaction</span><span class="o">=</span><span class="s2">"👍"</span>
+  -d <span class="nv">comment_id</span><span class="o">=</span>206113
+</code></pre>
 <p><code class="prettyprint">POST /api/v1/reactions/add</code></p>
 
 <p>Adds a reaction to a thread, comment or conversation message.</p>
@@ -6111,8 +6164,23 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 </tr>
 </tbody></table>
 
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <h2 id="remove-a-reaction">Remove a reaction</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/reactions/remove <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">reaction</span><span class="o">=</span><span class="s2">"👍"</span>
+  -d <span class="nv">comment_id</span><span class="o">=</span>206113
+</code></pre>
 <p><code class="prettyprint">POST /api/v1/reactions/remove</code></p>
 
 <p>Removes a reaction from thread, comment or conversation message.</p>
@@ -6153,6 +6221,13 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 </tr>
 </tbody></table>
 
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
           <h1 id="inbox">Inbox</h1>
 
 <p>The inbox unifies the start page view on all platforms.</p>
