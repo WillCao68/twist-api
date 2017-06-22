@@ -35,18 +35,9 @@ search: true
 
 # Introduction
 
-This is the official Twist API documentation.
+Add extra functionality for your own teams or build integrations to share with others.
 
-
-## Goals of the system
-
-The Twist API is designed with the following principles:
-
-* Most of the data is fetched online
-* Offline support only for user data, workspaces and channels (since they don’t change a lot and don’t grow a lot)
-* Very limited offline support for threads and comments
-* Non-blocking add and updating of data (the user should not wait for the server to complete a request)
-* Aggressive pre-fetching to make loads fast
+This is the official documentation of the Twist API.
 
 
 ## Authentication
