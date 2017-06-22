@@ -15,8 +15,7 @@ The inbox unifies the start page view on all platforms.
 ### Description of the inbox object
 
 The inbox is a actually a list of thread objects.  It doesn't contain
-all threads, but the most recent threads.  Tthreads that are unread appear before
-those that are read.
+all threads, but the most recent threads ordered by date.
 
 
 ## Get inbox
