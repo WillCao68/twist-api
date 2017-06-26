@@ -36,7 +36,7 @@ The errors returned:
 | 115 | Comment not found | 404 |
 | 116 | Device not found | 404 |
 | 117 | Search not available | 404 |
-| 118 | One or more attachments don | comply with the JSON specification', 400 |
+| 118 | One or more attachments don't comply with the JSON specification | 400 |
 | 119 | Group not found | 404 |
 | 120 | You are not logged in | 401 |
 | 121 | Invalid timezone | 401 |
