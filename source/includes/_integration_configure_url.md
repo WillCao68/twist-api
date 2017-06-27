@@ -17,9 +17,10 @@ You'll get following GET parameters served to your configure URL:
 | --- | --- | --- | --- |
 | install_id | Number | No | The unique id of the installation |
 | post_data_url | String | No | A unique URL you can use to post content to Twist |
-| back_url | String | No | An URL to return to Twist |
 | user_id | Number | No | The id of the installer |
 | user_name | String | No | The full name of the installer |
+
+To get back to the installation page, please use `https://twistapp.com/integrations/installation/{ install_id }`.
 
 
 ## How to post data
