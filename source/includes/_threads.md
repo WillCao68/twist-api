@@ -46,8 +46,8 @@ A thread is a discussion.
 | channel_id | Number | The id of the channel |
 | workspace_id | Number | The id of the workspace |
 | attachments | Array of Objects | Files attached to the comment |
-| participants | Array of Numbers | The users that are participating in the thread, or `EVERYONE` |
-| recipients | Array of Numbers or String | The users that are participating in the thread, or `EVERYONE` |
+| recipients | Array of Numbers or String | The users that were initially attached to the the thread, or `EVERYONE` |
+| participants | Array of Numbers | The users that were at some point attached to the thread or one of its comments |
 | groups | Array of Numbers | The groups that will be notified |
 | reactions | Object | Reactions to the thread, where keys are the reactions and values the users that had that reaction |
 | comment_count | Number | The number of comments |
@@ -139,7 +139,7 @@ Adds a new thread to a channel.
 | title | String | Yes | The title of the new thread |
 | content | String | Yes | The content of the new thread |
 | attachments | Array of Objects | No | Files to attach to comment |
-| recipients | Array of Numbers or String | No | The users that will participate in the thread, or `EVERYONE` |
+| recipients | Array of Numbers or String | No | The users that will be attached to the thread, or `EVERYONE` |
 | groups | Array of Numbers | No | The groups that will be notified |
 | temp_id | Number | No | The temporary id of the thread |
 
