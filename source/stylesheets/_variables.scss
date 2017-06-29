@@ -1,5 +1,6 @@
 /*
 Copyright 2008-2013 Concur Technologies, Inc.
+Copyright 2017 Doist
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may
 not use this file except in compliance with the License. You may obtain
@@ -15,28 +16,28 @@ under the License.
 */
 
 
-////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
 // CUSTOMIZE SLATE
-////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
 // Use these settings to help adjust the appearance of Slate
 
 
 // BACKGROUND COLORS
 ////////////////////
-$nav-bg: #393939 !default;
-$examples-bg: #393939 !default;
-$code-bg: #292929 !default;
+$aside-notice-bg: #8fbcd4 !default;
+$aside-success-bg: #6ac174 !default;
+$aside-warning-bg: #c97a7e !default;
 $code-annotation-bg: #1c1c1c !default;
-$nav-subitem-bg: #262626 !default;
-$nav-active-bg: #2467af !default;
-$lang-select-border: #000 !default;
-$lang-select-bg: #222 !default;
+$code-bg: #292929 !default;
+$examples-bg: #393939 !default;
 $lang-select-active-bg: $examples-bg !default; // feel free to change this to blue or something
+$lang-select-bg: #222 !default;
+$lang-select-border: #000 !default;
 $lang-select-pressed-bg: #111 !default; // color of language tab bg when mouse is pressed
 $main-bg: #eaf2f6 !default;
-$aside-notice-bg: #8fbcd4 !default;
-$aside-warning-bg: #c97a7e !default;
-$aside-success-bg: #6ac174 !default;
+$nav-active-bg: #2467af !default;
+$nav-bg: #393939 !default;
+$nav-subitem-bg: #262626 !default;
 $search-notice-bg: #c97a7e !default;
 
 
@@ -52,6 +53,7 @@ $lang-select-pressed-text: #fff !default; // color of language tab text when mou
 
 // SIZES
 ////////////////////
+
 $nav-width: 230px !default; // width of the navbar
 $examples-width: 50% !default; // portion of the screen taken up by code examples
 $logo-margin: 20px !default; // margin between nav items and logo, ignored if search is active
@@ -91,15 +93,56 @@ $nav-footer-border-color: #666 !default;
 $nav-embossed-border-top: #000 !default;
 $nav-embossed-border-bottom: #939393 !default;
 $main-embossed-text-shadow: 0px 1px 0px #fff !default;
-$search-box-border-color: #666 !default;
+$search-box-border-color: #EFEFEF !default;
 
 
-////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
 // INTERNAL
-////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
 // These settings are probably best left alone.
 
 %break-words {
     word-break: break-all;
     hyphens: auto;
 }
+
+
+//////////////////////////////////////////////////////////////////////////
+// Doist variables
+//////////////////////////////////////////////////////////////////////////
+
+// SIZES
+$top-nav-height: 60px;
+
+// BACKGROUND COLORS
+$color-red: #316FEB; // not red anymore, but keeping it to avoid many changes
+$aside-notice-bg: #ddd;
+$separator-color: #efefef;
+
+$color-header-grey: #4b4b4c;
+$title-color: $color-header-grey;
+$paragraph-color: #2B2B32;
+
+$main-bg: #FFFFFF;
+$nav-active-bg: #F7F7F7;
+$nav-bg: #F7F7F7;
+$nav-subitem-bg: #F7F7F7;
+
+// FONTS
+$nav-font-size: 14px;
+%default-font {
+  // font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Graphik Web', 'Open Sans', Arial, sans-serif;
+  font-size: 14px;
+}
+
+%header-font {
+  @extend %default-font;
+  font-weight: bold;
+  color: $title-color;
+}
+
+// TEXT COLORS
+$main-text: #6B6B70;
+$nav-text: #2B2B32;
+$nav-active-text: $color-red;
