@@ -142,6 +142,7 @@ Adds a new thread to a channel.
 | recipients | Array of Numbers or String | No | The users that will be attached to the thread, or `EVERYONE` |
 | groups | Array of Numbers | No | The groups that will be notified |
 | temp_id | Number | No | The temporary id of the thread |
+| send_as_integration | Boolean | No | Displays the integration as the thread creator |
 
 ### Return value
 
