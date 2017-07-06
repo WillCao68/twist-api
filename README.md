@@ -1,7 +1,7 @@
 <p align="center">
-  <img src="https://api.twistapp.com/images/twist_logo.png" alt="Twist API documentation for developers">
+  <img src="https://developer.twistapp.com/images/twist_logo.svg" alt="Twist API documentation for developers">
   <br><br>
-  <a href="https://travis-ci.org/Doist/twist-api"><img src="https://travis-ci.org/Doist/twist-api.svg?branch=master" alt="Build Status"></a>
+  <a href="https://travis-ci.org/Doist/Twist-API"><img src="https://travis-ci.org/Doist/Twist-API.svg?branch=master" alt="Build Status"></a>
 </p>
 
 <br>
