@@ -131,6 +131,7 @@ Adds a new comment to a thread.
 | groups | Array of Numbers | No | The groups that will be notified |
 | temp_id | Number | No | The temporary id of the comment |
 | mark_thread_position | Boolean | No | By default, the position of the thread is marked |
+| send_as_integration | Boolean | No | Displays the integration as the comment creator |
 
 ### Return value
 
