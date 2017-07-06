@@ -154,10 +154,10 @@ A thread object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/threads/update \
+curl -X POST https://api.twistapp.com/api/v2/threads/update \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=32038 \
-  -d name=Thread1
+  -d title=Thread1
 ``
 
 `POST /api/v2/threads/update`
