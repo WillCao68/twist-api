@@ -53,12 +53,12 @@ A comment is a message in a thread.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/comments/getone \
+curl https://api.twistapp.com/api/v2/comments/getone \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=206113
 ```
 
-`GET /api/v1/comments/getone`
+`GET /api/v2/comments/getone`
 
 Gets a single comment object by id.
 
@@ -78,12 +78,12 @@ A comment object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/comments/get \
+curl https://api.twistapp.com/api/v2/comments/get \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d thread_id=32038
 ```
 
-`GET /api/v1/comments/get`
+`GET /api/v2/comments/get`
 
 Gets all comments in a channel.
 
@@ -110,13 +110,13 @@ A list of comment objects is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/comments/add \
+curl https://api.twistapp.com/api/v2/comments/add \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d thread_id=32038 \
   -d content="OK!"
 ```
 
-`POST /api/v1/comments/add`
+`POST /api/v2/comments/add`
 
 Adds a new comment to a thread.
 
@@ -142,13 +142,13 @@ A comment object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/comments/update \
+curl https://api.twistapp.com/api/v2/comments/update \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=206113 \
   -d content="OK!"
 ```
 
-`POST /api/v1/comments/update`
+`POST /api/v2/comments/update`
 
 Updates an existing comment.
 
@@ -170,12 +170,12 @@ A comment object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/comments/remove \
+curl https://api.twistapp.com/api/v2/comments/remove \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=206113
 ```
 
-`POST /api/v1/comments/remove`
+`POST /api/v2/comments/remove`
 
 Removes a comment \(only user's own comments can be removed\).
 
@@ -198,13 +198,13 @@ Removes a comment \(only user's own comments can be removed\).
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/comments/mark_position \
+curl https://api.twistapp.com/api/v2/comments/mark_position \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d thread_id=32038 \
 	-d comment_id=206113
 ```
 
-`POST /api/v1/comments/mark_position`
+`POST /api/v2/comments/mark_position`
 
 Marks the position of a thread.
 

@@ -31,12 +31,12 @@ The reaction object is either `null` or has one or more key-value pairs.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/reactions/get \
+curl https://api.twistapp.com/api/v2/reactions/get \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d comment_id=206113
 ```
 
-`POST /api/v1/reactions/get`
+`POST /api/v2/reactions/get`
 
 Gets reactions of a thread, comment or conversation message.
 
@@ -58,13 +58,13 @@ A reaction object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/reactions/add \
+curl https://api.twistapp.com/api/v2/reactions/add \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d reaction="👍"
   -d comment_id=206113
 ```
 
-`POST /api/v1/reactions/add`
+`POST /api/v2/reactions/add`
 
 Adds a reaction to a thread, comment or conversation message.
 
@@ -91,13 +91,13 @@ Adds a reaction to a thread, comment or conversation message.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/reactions/remove \
+curl https://api.twistapp.com/api/v2/reactions/remove \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d reaction="👍"
   -d comment_id=206113
 ```
 
-`POST /api/v1/reactions/remove`
+`POST /api/v2/reactions/remove`
 
 Removes a reaction from thread, comment or conversation message.
 

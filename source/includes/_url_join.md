@@ -22,12 +22,12 @@ This allows one to join a workspace using a special URL invite link.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/url_join/get_or_create \
+curl https://api.twistapp.com/api/v2/url_join/get_or_create \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d workspace_id=5517
 ```
 
-`POST /api/v1/url_join/get_or_create`
+`POST /api/v2/url_join/get_or_create`
 
 Gets or creates a URL join link to a workspace.
 
@@ -50,12 +50,12 @@ Gets or creates a URL join link to a workspace.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/url_join/disable \
+curl https://api.twistapp.com/api/v2/url_join/disable \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d workspace_id=5517
 ```
 
-`POST /api/v1/url_join/disable`
+`POST /api/v2/url_join/disable`
 
 Disables a URL join link to a workspace.
 
@@ -78,12 +78,12 @@ Disables a URL join link to a workspace.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/url_join/join_workspace \
+curl https://api.twistapp.com/api/v2/url_join/join_workspace \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d url_invite_code="https://twistapp.com/j/c5370f3ab4bad2d7eb6c432a17c37986"
 ```
 
-`POST /api/v1/url_join/join_workspace`
+`POST /api/v2/url_join/join_workspace`
 
 Joins user to invited workspace using the URL link.
 

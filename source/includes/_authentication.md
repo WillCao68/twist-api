@@ -2,7 +2,7 @@
 
 In order to make authorized calls to Twist APIs, your integration must first obtain an access token from the users. This section describes how to obtain such a token.
 
-For testing purposes you can also use `/api/v1/users/login` and `/api/v1/users/login_with_google`, but please don’t use this for a public integration, since it’s highly insecure and can be abused.
+For testing purposes you can also use `/api/v2/users/login` and `/api/v2/users/login_with_google`, but please don’t use this for a public integration, since it’s highly insecure and can be abused.
 
 ## oAuth 2
 

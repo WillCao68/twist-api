@@ -58,12 +58,12 @@ A conversation is a direct message exchange between one or more users.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/conversations/getone \
+curl https://api.twistapp.com/api/v2/conversations/getone \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=13037
 ```
 
-`GET /api/v1/conversations/getone`
+`GET /api/v2/conversations/getone`
 
 Gets a single conversation object.
 
@@ -84,12 +84,12 @@ A conversation object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/conversations/get \
+curl https://api.twistapp.com/api/v2/conversations/get \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d workspace_id=5517
 ```
 
-`GET /api/v1/conversations/get`
+`GET /api/v2/conversations/get`
 
 Gets all conversations of a user in a workspace.
 
@@ -114,13 +114,13 @@ A list of conversation objects is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/conversations/get_or_create \
+curl https://api.twistapp.com/api/v2/conversations/get_or_create \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d workspace_id=5517 \
   -d user_ids='[10073,10076]'
 ```
 
-`POST /api/v1/conversations/get_or_create`
+`POST /api/v2/conversations/get_or_create`
 
 Gets or creates a conversation with one or more users.
 
@@ -141,13 +141,13 @@ A conversation object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/conversations/update \
+curl https://api.twistapp.com/api/v2/conversations/update \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=13037 \
   -d title=Title1
 ```
 
-`POST /api/v1/conversations/update`
+`POST /api/v2/conversations/update`
 
 Updates an existing conversation.
 
@@ -169,13 +169,13 @@ A conversation object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/conversations/add_user \
+curl https://api.twistapp.com/api/v2/conversations/add_user \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=13037 \
   -d user_id=10076
 ```
 
-`POST /api/v1/conversations/add_user`
+`POST /api/v2/conversations/add_user`
 
 Adds a person to a conversation.
 
@@ -200,13 +200,13 @@ Adds a person to a conversation.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/conversations/add_users \
+curl https://api.twistapp.com/api/v2/conversations/add_users \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=13037 \
   -d user_ids='[10076]'
 ```
 
-`POST /api/v1/conversations/add_users`
+`POST /api/v2/conversations/add_users`
 
 Adds several persons to a conversation.
 
@@ -231,13 +231,13 @@ Adds several persons to a conversation.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/conversations/remove_user \
+curl https://api.twistapp.com/api/v2/conversations/remove_user \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=13037 \
   -d user_id=10076
 ```
 
-`GET /api/v1/conversations/remove_user`
+`GET /api/v2/conversations/remove_user`
 
 Removes a person from a conversation.
 
@@ -262,13 +262,13 @@ Removes a person from a conversation.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/conversations/remove_users \
+curl https://api.twistapp.com/api/v2/conversations/remove_users \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=13037 \
   -d user_ids='[10076]'
 ```
 
-`GET /api/v1/conversations/remove_users`
+`GET /api/v2/conversations/remove_users`
 
 Removes several persons from a conversation.
 
@@ -293,12 +293,12 @@ Removes several persons from a conversation.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/conversations/archive \
+curl https://api.twistapp.com/api/v2/conversations/archive \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=13037
 ```
 
-`POST /api/v1/conversations/archive`
+`POST /api/v2/conversations/archive`
 
 Archives a conversation.
 
@@ -322,12 +322,12 @@ Archives a conversation.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/conversations/unarchive \
+curl https://api.twistapp.com/api/v2/conversations/unarchive \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=13037
 ```
 
-`POST /api/v1/conversations/unarchive`
+`POST /api/v2/conversations/unarchive`
 
 Unarchives a conversation.
 
@@ -351,12 +351,12 @@ Unarchives a conversation.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/conversations/get_unread \
+curl https://api.twistapp.com/api/v2/conversations/get_unread \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=5517
 ```
 
-`GET /api/v1/conversations/get_unread`
+`GET /api/v2/conversations/get_unread`
 
 Gets unread conversations.
 
@@ -387,13 +387,13 @@ A list of unread conversations objects that are unread, where each unread conver
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/conversations/mark_read \
+curl https://api.twistapp.com/api/v2/conversations/mark_read \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d conversation_id=13037 \
   -d messsage_id=1
 ```
 
-`POST /api/v1/conversations/mark_read`
+`POST /api/v2/conversations/mark_read`
 
 Marks a conversation as read.
 
@@ -419,13 +419,13 @@ Marks a conversation as read.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/conversations/mark_unread \
+curl https://api.twistapp.com/api/v2/conversations/mark_unread \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d conversation_id=13037 \
   -d messsage_id=1
 ```
 
-`POST /api/v1/conversations/mark_unread`
+`POST /api/v2/conversations/mark_unread`
 
 Marks a conversation as unread.
 
@@ -450,13 +450,13 @@ Marks a conversation as unread.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/conversations/mute \
+curl https://api.twistapp.com/api/v2/conversations/mute \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=13037 \
   -d minutes=30
 ```
 
-`POST /api/v1/conversations/mute`
+`POST /api/v2/conversations/mute`
 
 Mutes a conversation for a number of minutes.
 
@@ -477,12 +477,12 @@ A conversation object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/conversations/unmute \
+curl https://api.twistapp.com/api/v2/conversations/unmute \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=13037
 ```
 
-`POST /api/v1/conversations/unmute`
+`POST /api/v2/conversations/unmute`
 
 Unmutes a conversation.
 

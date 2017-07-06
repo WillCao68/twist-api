@@ -64,12 +64,12 @@ A user represents a real person who collaborates with other users.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/users/getone \
+curl https://api.twistapp.com/api/v2/users/getone \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=10073
 ```
 
-`GET /api/v1/users/getone`
+`GET /api/v2/users/getone`
 
 Gets info about a user.
 
@@ -88,12 +88,12 @@ The user object.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/users/login \
+curl https://api.twistapp.com/api/v2/users/login \
   -d email=user@example.com \
   -d password=secret
 ```
 
-`POST /api/v1/users/login`
+`POST /api/v2/users/login`
 
 Logs in existing user.
 
@@ -115,10 +115,10 @@ The user object.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/users/logout
+curl https://api.twistapp.com/api/v2/users/logout
 ```
 
-`POST /api/v1/users/logout`
+`POST /api/v2/users/logout`
 
 > Return value:
 
@@ -136,13 +136,13 @@ Logs out user, and resets the session.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/users/register \
+curl https://api.twistapp.com/api/v2/users/register \
   -d name=User \
   -d email=user@example.com \
   -d password=secret
 ```
 
-`POST /api/v1/users/register`
+`POST /api/v2/users/register`
 
 Register a new user.
 
@@ -163,12 +163,12 @@ The user object.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/users/update \
+curl https://api.twistapp.com/api/v2/users/update \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d name=User
 ```
 
-`POST /api/v1/users/update`
+`POST /api/v2/users/update`
 
 Updates user's details.
 
@@ -202,13 +202,13 @@ The updated user object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/users/update_password \
+curl https://api.twistapp.com/api/v2/users/update_password \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d current_password=secret \
   -d new_password=newsecret
 ```
 
-`POST /api/v1/users/update_password`
+`POST /api/v2/users/update_password`
 
 Updates user's password.
 
@@ -229,12 +229,12 @@ The user object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/users/update_avatar \
+curl https://api.twistapp.com/api/v2/users/update_avatar \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -F image=@avatar.jpg
 ```
 
-`POST /api/v1/users/update_avatar`
+`POST /api/v2/users/update_avatar`
 
 Updates user's avatar.
 
@@ -254,11 +254,11 @@ The updated user object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/users/invalidate_token \
+curl https://api.twistapp.com/api/v2/users/invalidate_token \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
 ```
 
-`POST /api/v1/users/invalidate_token`
+`POST /api/v2/users/invalidate_token`
 
 Invalidates API token and generates a new token for the user.
 
@@ -272,11 +272,11 @@ The user object is returned, which also includes the new token.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/users/validate_token \
+curl https://api.twistapp.com/api/v2/users/validate_token \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
 ```
 
-`POST /api/v1/users/validate_token`
+`POST /api/v2/users/validate_token`
 
 > Return value:
 
@@ -294,13 +294,13 @@ Validates the user token.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/users/heartbeat \
+curl https://api.twistapp.com/api/v2/users/heartbeat \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d workspace_id=5517 \
   -d platform=api
 ```
 
-`POST /api/v1/users/heartbeat`
+`POST /api/v2/users/heartbeat`
 
 > Return value:
 
@@ -325,12 +325,12 @@ Marks user as active on workspace.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/users/reset_presense \
+curl https://api.twistapp.com/api/v2/users/reset_presense \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d workspace_id=5517
 ```
 
-`POST /api/v1/users/reset_presense`
+`POST /api/v2/users/reset_presense`
 
 > Return value:
 
@@ -353,11 +353,11 @@ Marks user as inactive on workspace.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/users/reset_password \
+curl https://api.twistapp.com/api/v2/users/reset_password \
   -d email=user@example.com
 ```
 
-`POST /api/v1/users/reset_password`
+`POST /api/v2/users/reset_password`
 
 > Return value:
 
@@ -381,12 +381,12 @@ Sends an email to reset the user's password.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/users/set_password \
+curl https://api.twistapp.com/api/v2/users/set_password \
   -d reset_code=12345abcef
   -d new_password=newsecret
 ```
 
-`POST /api/v1/users/set_password`
+`POST /api/v2/users/set_password`
 
 Sets the user password based on a reset code.
 
@@ -407,11 +407,11 @@ The updated user object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/users/login_with_google \
+curl https://api.twistapp.com/api/v2/users/login_with_google \
   -d access_token=ya29.AHES6ZRKeUQwH2xhirksSUDSyjg9oPuRMMal05Ty0cfFIT_uRfESHw
 ```
 
-`POST /api/v1/users/login_with_google`
+`POST /api/v2/users/login_with_google`
 
 Logs in user with a Google account.
 
@@ -432,11 +432,11 @@ The user object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/users/register_with_google \
+curl https://api.twistapp.com/api/v2/users/register_with_google \
   -d access_token=ya29.AHES6ZRKeUQwH2xhirksSUDSyjg9oPuRMMal05Ty0cfFIT_uRfESHw
 ```
 
-`POST /api/v1/users/register_with_google`
+`POST /api/v2/users/register_with_google`
 
 Registers new user with a Google account.
 
@@ -456,12 +456,12 @@ The user object.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/users/connect_with_google \
+curl https://api.twistapp.com/api/v2/users/connect_with_google \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d access_token=ya29.AHES6ZRKeUQwH2xhirksSUDSyjg9oPuRMMal05Ty0cfFIT_uRfESHw
 ```
 
-`POST /api/v1/users/connect_with_google`
+`POST /api/v2/users/connect_with_google`
 
 > Return value:
 
@@ -485,11 +485,11 @@ Connects user's account to a Google account.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/users/is_connected_to_google \
+curl https://api.twistapp.com/api/v2/users/is_connected_to_google \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
 ```
 
-`GET /api/v1/users/is_connected_to_google`
+`GET /api/v2/users/is_connected_to_google`
 
 > Return value:
 
@@ -507,11 +507,11 @@ Checks whether user's account is connected to a Google account.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/users/disconnect_google \
+curl https://api.twistapp.com/api/v2/users/disconnect_google \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
 ```
 
-`POST /api/v1/users/disconnect_google`
+`POST /api/v2/users/disconnect_google`
 
 > Return value:
 

@@ -30,12 +30,12 @@ A group is a number of users grouped together under some name, a team.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/groups/getone \
+curl https://api.twistapp.com/api/v2/groups/getone \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=498
 ```
 
-`GET /api/v1/groups/getone`
+`GET /api/v2/groups/getone`
 
 Gets a single group object.
 
@@ -55,12 +55,12 @@ A group object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/groups/get \
+curl https://api.twistapp.com/api/v2/groups/get \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d workspace_id=5517
 ```
 
-`GET /api/v1/groups/get`
+`GET /api/v2/groups/get`
 
 Gets all groups in a workspace.
 
@@ -81,14 +81,14 @@ A list of group objects is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/groups/add \
+curl https://api.twistapp.com/api/v2/groups/add \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d workspace_id=5571 \
   -d name=Group1 \
   -d user_ids='[10073]'
 ```
 
-`POST /api/v1/groups/add`
+`POST /api/v2/groups/add`
 
 Adds a new group to a workspace.
 
@@ -109,13 +109,13 @@ A group object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/groups/update \
+curl https://api.twistapp.com/api/v2/groups/update \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=498 \
   -d name=Group1
 ```
 
-`POST /api/v1/groups/update`
+`POST /api/v2/groups/update`
 
 Updates an existing group.
 
@@ -136,12 +136,12 @@ The updated group object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/groups/remove \
+curl https://api.twistapp.com/api/v2/groups/remove \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=498
 ```
 
-`POST /api/v1/groups/remove`
+`POST /api/v2/groups/remove`
 
 > Return value:
 
@@ -165,13 +165,13 @@ Removes a group.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/groups/add_user \
+curl https://api.twistapp.com/api/v2/groups/add_user \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=498 \
   -d user_id=10076
 ```
 
-`POST /api/v1/groups/add_user`
+`POST /api/v2/groups/add_user`
 
 > Return value:
 
@@ -196,13 +196,13 @@ Adds a person to a group.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/groups/add_users \
+curl https://api.twistapp.com/api/v2/groups/add_users \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=498 \
   -d user_ids='[10073,10076]'
 ```
 
-`POST /api/v1/groups/add_users`
+`POST /api/v2/groups/add_users`
 
 > Return value:
 
@@ -227,13 +227,13 @@ Adds several persons to a group.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/groups/remove_user \
+curl https://api.twistapp.com/api/v2/groups/remove_user \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=498 \
   -d user_id=10076
 ```
 
-`POST /api/v1/groups/remove_user`
+`POST /api/v2/groups/remove_user`
 
 > Return value:
 
@@ -258,13 +258,13 @@ Removes a person from a group.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/groups/remove_users \
+curl https://api.twistapp.com/api/v2/groups/remove_users \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=498 \
   -d user_ids='[10073,10076]'
 ```
 
-`POST /api/v1/groups/remove_users`
+`POST /api/v2/groups/remove_users`
 
 > Return value:
 

@@ -65,12 +65,12 @@ A thread is a discussion.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/threads/getone \
+curl https://api.twistapp.com/api/v2/threads/getone \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=32038
 ```
 
-`GET /api/v1/threads/getone`
+`GET /api/v2/threads/getone`
 
 Gets a thread object by id.
 
@@ -90,12 +90,12 @@ A thread object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/threads/get \
+curl https://api.twistapp.com/api/v2/threads/get \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d channel_id=6984
 ```
 
-`GET /api/v1/threads/get`
+`GET /api/v2/threads/get`
 
 Gets all threads in a channel.
 
@@ -121,13 +121,13 @@ A list of thread objects is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/threads/add \
+curl https://api.twistapp.com/api/v2/threads/add \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d channel_id=6984 \
   -d name=Thread1
 ```
 
-`POST /api/v1/threads/add`
+`POST /api/v2/threads/add`
 
 Adds a new thread to a channel.
 
@@ -153,13 +153,13 @@ A thread object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/threads/update \
+curl https://api.twistapp.com/api/v2/threads/update \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=32038 \
   -d name=Thread1
 ``
 
-`POST /api/v1/threads/update`
+`POST /api/v2/threads/update`
 
 Updates an existing thread.
 
@@ -182,13 +182,13 @@ The updated thread object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/threads/remove \
+curl https://api.twistapp.com/api/v2/threads/remove \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=32038
 ```
 
 
-`POST /api/v1/threads/remove`
+`POST /api/v2/threads/remove`
 
 Removes a thread.
 
@@ -212,12 +212,12 @@ Removes a thread.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/threads/star \
+curl https://api.twistapp.com/api/v2/threads/star \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=32038
 ```
 
-`POST /api/v1/threads/star`
+`POST /api/v2/threads/star`
 
 Stars a thread.
 
@@ -241,12 +241,12 @@ Stars a thread.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/threads/unstar \
+curl https://api.twistapp.com/api/v2/threads/unstar \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=32038
 ```
 
-`POST /api/v1/threads/unstar`
+`POST /api/v2/threads/unstar`
 
 Unstars a thread.
 
@@ -270,13 +270,13 @@ Unstars a thread.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/threads/move_to_channel \
+curl https://api.twistapp.com/api/v2/threads/move_to_channel \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=6984 \
   -d to_channel=6984
 ```
 
-`POST /api/v1/threads/move_to_channel`
+`POST /api/v2/threads/move_to_channel`
 
 Moves thread to a different channel.
 
@@ -301,12 +301,12 @@ Moves thread to a different channel.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/threads/follow \
+curl https://api.twistapp.com/api/v2/threads/follow \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=32038
 ```
 
-`POST /api/v1/threads/follow`
+`POST /api/v2/threads/follow`
 
 Follows thread.
 
@@ -330,12 +330,12 @@ Follows thread.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/threads/unfollow \
+curl https://api.twistapp.com/api/v2/threads/unfollow \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=32038
 ```
 
-`POST /api/v1/threads/unfollow`
+`POST /api/v2/threads/unfollow`
 
 Unfollows thread.
 
@@ -359,12 +359,12 @@ Unfollows thread.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/threads/get_unread \
+curl https://api.twistapp.com/api/v2/threads/get_unread \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d workspace_id=5517
 ```
 
-`GET /api/v1/threads/get_unread`
+`GET /api/v2/threads/get_unread`
 
 Gets unread threads in a workspace.
 
@@ -384,13 +384,13 @@ A list of thread objects is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/threads/mark_read \
+curl https://api.twistapp.com/api/v2/threads/mark_read \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=32038 \
   -d obj_index=2
 ```
 
-`POST /api/v1/threads/mark_read`
+`POST /api/v2/threads/mark_read`
 
 Marks thread as read.
 
@@ -415,13 +415,13 @@ Marks thread as read.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/threads/mark_unread \
+curl https://api.twistapp.com/api/v2/threads/mark_unread \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=32038 \
   -d obj_index=2
 ```
 
-`POST /api/v1/threads/mark_unread`
+`POST /api/v2/threads/mark_unread`
 
 Marks thread as unread.
 
@@ -446,12 +446,12 @@ Marks thread as unread.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/threads/mark_all_read \
+curl https://api.twistapp.com/api/v2/threads/mark_all_read \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d channel_id=6984
 ```
 
-`POST /api/v1/threads/mark_all_read`
+`POST /api/v2/threads/mark_all_read`
 
 Marks all thread in workspace or channel as read.
 
@@ -476,12 +476,12 @@ Marks all thread in workspace or channel as read.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/threads/clear_unread \
+curl https://api.twistapp.com/api/v2/threads/clear_unread \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d workspace_id=5517
 ```
 
-`POST /api/v1/threads/clear_unread`
+`POST /api/v2/threads/clear_unread`
 
 Clears unread threads in workspace.
 

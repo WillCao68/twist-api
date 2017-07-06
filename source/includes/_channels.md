@@ -44,12 +44,12 @@ A channel is a topic of discussion between a number of users.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/channels/getone \
+curl https://api.twistapp.com/api/v2/channels/getone \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=6984
 ```
 
-`GET /api/v1/channels/getone`
+`GET /api/v2/channels/getone`
 
 Gets a single channel object by id.
 
@@ -69,12 +69,12 @@ A channel object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/channels/get \
+curl https://api.twistapp.com/api/v2/channels/get \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d workspace_id=5517
 ```
 
-`GET /api/v1/channels/get`
+`GET /api/v2/channels/get`
 
 Gets all channels in a workspace.
 
@@ -95,13 +95,13 @@ A list of channel objects is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/channels/add \
+curl https://api.twistapp.com/api/v2/channels/add \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d workspace_id=5517 \
   -d name=Channel1
 ```
 
-`POST /api/v1/channels/add`
+`POST /api/v2/channels/add`
 
 Adds a new channel.
 
@@ -126,13 +126,13 @@ A channel object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/channels/update \
+curl https://api.twistapp.com/api/v2/channels/update \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=6984 \
   -d name=Channel1
 ```
 
-`POST /api/v1/channels/update`
+`POST /api/v2/channels/update`
 
 Updates an existing channel.
 
@@ -156,12 +156,12 @@ The updated channel object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/channels/remove \
+curl https://api.twistapp.com/api/v2/channels/remove \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=6984
 ```
 
-`POST /api/v1/channels/remove`
+`POST /api/v2/channels/remove`
 
 Removes a channel. Requires for the channel to be archived first.
 
@@ -184,12 +184,12 @@ Removes a channel. Requires for the channel to be archived first.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/channels/archive \
+curl https://api.twistapp.com/api/v2/channels/archive \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=6984
 ```
 
-`POST /api/v1/channels/archive`
+`POST /api/v2/channels/archive`
 
 > Return value:
 
@@ -214,12 +214,12 @@ Archives a channel.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/channels/unarchive \
+curl https://api.twistapp.com/api/v2/channels/unarchive \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=6984
 ```
 
-`POST /api/v1/channels/unarchive`
+`POST /api/v2/channels/unarchive`
 
 > Return value:
 
@@ -243,13 +243,13 @@ Unarchives a channel.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/channels/add_user \
+curl https://api.twistapp.com/api/v2/channels/add_user \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=6984 \
   -d user_id=10076
 ```
 
-`POST /api/v1/channels/add_user`
+`POST /api/v2/channels/add_user`
 
 > Return value:
 
@@ -274,13 +274,13 @@ Adds a person to a channel.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/channels/add_users \
+curl https://api.twistapp.com/api/v2/channels/add_users \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=6984 \
   -d user_ids='[10076]'
 ```
 
-`POST /api/v1/channels/add_users`
+`POST /api/v2/channels/add_users`
 
 > Return value:
 
@@ -306,13 +306,13 @@ Adds several persons to a channel.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/channels/remove_user \
+curl https://api.twistapp.com/api/v2/channels/remove_user \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=6984 \
   -d user_id=10076
 ```
 
-`POST /api/v1/channels/remove_user`
+`POST /api/v2/channels/remove_user`
 
 > Return value:
 
@@ -337,13 +337,13 @@ Removes a person from a channel.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/channels/remove_users \
+curl https://api.twistapp.com/api/v2/channels/remove_users \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=6984 \
   -d user_ids='[10076]'
 ```
 
-`POST /api/v1/channels/remove_users`
+`POST /api/v2/channels/remove_users`
 
 > Return value:
 

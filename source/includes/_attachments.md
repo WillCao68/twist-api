@@ -44,13 +44,13 @@ Files can be attached to threads, comments, or conversation messages.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/attachments/upload \
+curl https://api.twistapp.com/api/v2/attachments/upload \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
 	-F attachment_id=c8f962d3-491b-4a43-92c2-43f7ac076408 \
 	-F file_name=@image.png
 ```
 
-`POST /api/v1/attachments/upload`
+`POST /api/v2/attachments/upload`
 
 Uploads a file.
 
@@ -71,13 +71,13 @@ An attachment object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/attachments/upload \
+curl https://api.twistapp.com/api/v2/attachments/upload \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
 	-d attachment_id=c8f962d3-491b-4a43-92c2-43f7ac076408 \
   -d comment_id=241432
 ```
 
-`POST /api/v1/attachments/remove`
+`POST /api/v2/attachments/remove`
 
 Removes attachment from thread, comment or conversation message.
 

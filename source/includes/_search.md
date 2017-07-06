@@ -7,12 +7,12 @@ The search query allows for finding threads and conversations matching some text
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/search/query \
+curl https://api.twistapp.com/api/v2/search/query \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d query=texts
 ```
 
-`GET /api/v1/search/query`
+`GET /api/v2/search/query`
 
 > Return object::
 
@@ -26,7 +26,7 @@ curl https://api.twistapp.com/api/v1/search/query \
       "obj_type": "thread",
       "title": "Far far away",
       "snippet": "It is a paradisematic country, in which roasted parts of sentences fly into your mouth.",
-      "details_link": "/api/v1/search/comments?query=texts&workspace_id=201&thread_id=401"
+      "details_link": "/api/v2/search/comments?query=texts&workspace_id=201&thread_id=401"
       "id": 501,
       "thread_id": 401,
       "channel_id": 301,
@@ -39,7 +39,7 @@ curl https://api.twistapp.com/api/v1/search/query \
       "obj_type": "conversation",
       "title": "Chat",
       "snippet": "Even the all-powerful Pointing has no control about the blind texts..."
-      "details_link": "/api/v1/search/messages?query=texts&workspace_id=201&aggregate_id=123-345-678-9"
+      "details_link": "/api/v2/search/messages?query=texts&workspace_id=201&aggregate_id=123-345-678-9"
       "id": 703,
       "conversation_id": 601,
       "last_author": 101
@@ -89,11 +89,11 @@ Searches for a string.
 > Example:
 
 ```shell
-curl "https://api.twistapp.com/api/v1/search/comments?query=texts&workspace_id=201&thread_id=401" \
+curl "https://api.twistapp.com/api/v2/search/comments?query=texts&workspace_id=201&thread_id=401" \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
 ```
 
-`GET /api/v1/search/comments`
+`GET /api/v2/search/comments`
 
 > Return object:
 
@@ -138,9 +138,9 @@ curl "https://api.twistapp.com/api/v1/search/comments?query=texts&workspace_id=2
       "type" : "comment_range",
       "idx_start" : 0,
       "idx_end" : 3,
-      "expand_link" : "/api/v1/search/expand_comment_range?idx_end=3&thread_id=401&workspace_id=201&idx_start=0",
-      "top_expand_link" : "/api/v1/search/expand_comment_range?idx_end=3&thread_id=401&workspace_id=201&idx_start=0&direction=top",
-      "bottom_expand_link" : "/api/v1/search/expand_comment_range?idx_end=3&thread_id=401&workspace_id=201&idx_start=0&direction=bottom"
+      "expand_link" : "/api/v2/search/expand_comment_range?idx_end=3&thread_id=401&workspace_id=201&idx_start=0",
+      "top_expand_link" : "/api/v2/search/expand_comment_range?idx_end=3&thread_id=401&workspace_id=201&idx_start=0&direction=top",
+      "bottom_expand_link" : "/api/v2/search/expand_comment_range?idx_end=3&thread_id=401&workspace_id=201&idx_start=0&direction=bottom"
     }
   ],
 }
@@ -154,11 +154,11 @@ Here we get more details about a thread and its comments.
 > Example:
 
 ```shell
-curl "https://api.twistapp.com/api/v1/search/expand_comment_range?idx_end=3&thread_id=401&workspace_id=201&idx_start=0" \
+curl "https://api.twistapp.com/api/v2/search/expand_comment_range?idx_end=3&thread_id=401&workspace_id=201&idx_start=0" \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
 ```
 
-`GET /api/v1/search/expand_comment_range`
+`GET /api/v2/search/expand_comment_range`
 
 > Return object:
 
@@ -202,11 +202,11 @@ The thread is expanded, that is more comments are returned.
 > Example:
 
 ```shell
-curl "https://api.twistapp.com/api/v1/search/messages?query=hello&workspace_id=201&aggregate_id=123-345-678-9" \
+curl "https://api.twistapp.com/api/v2/search/messages?query=hello&workspace_id=201&aggregate_id=123-345-678-9" \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
 ```
 
-`GET /api/v1/search/messages`
+`GET /api/v2/search/messages`
 
 > Return object:
 
@@ -220,9 +220,9 @@ curl "https://api.twistapp.com/api/v1/search/messages?query=hello&workspace_id=2
       "type" : "conversation_message_range",
       "idx_start" : 0,
       "idx_end" : 5,
-      "expand_link" : "/api/v1/search/expand_conversation_message_range?conversation_id=601&idx_end=5&workspace_id=201&idx_start=0"
-      "top_expand_link" : "/api/v1/search/expand_conversation_message_range?conversation_id=601&idx_end=5&workspace_id=201&idx_start=0&direction=top",
-      "bottom_expand_link" : "/api/v1/search/expand_conversation_message_range?conversation_id=601&idx_end=5&workspace_id=201&idx_start=0&direction=bottom",
+      "expand_link" : "/api/v2/search/expand_conversation_message_range?conversation_id=601&idx_end=5&workspace_id=201&idx_start=0"
+      "top_expand_link" : "/api/v2/search/expand_conversation_message_range?conversation_id=601&idx_end=5&workspace_id=201&idx_start=0&direction=top",
+      "bottom_expand_link" : "/api/v2/search/expand_conversation_message_range?conversation_id=601&idx_end=5&workspace_id=201&idx_start=0&direction=bottom",
     },
     {
       "type" : "conversation_message"
@@ -298,11 +298,11 @@ Here we get more details about a conversation and its messages.
 > Example:
 
 ```shell
-curl "https://api.twistapp.com/api/v1/search/expand_conversation_message_range?conversation_id=601&idx_end=5&workspace_id=201&idx_start=0&direction=top" \
+curl "https://api.twistapp.com/api/v2/search/expand_conversation_message_range?conversation_id=601&idx_end=5&workspace_id=201&idx_start=0&direction=top" \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
 ```
 
-`GET /api/v1/search/expand_conversation_message_range`
+`GET /api/v2/search/expand_conversation_message_range`
 
 > Return object:
 

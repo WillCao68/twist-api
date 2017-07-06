@@ -42,11 +42,11 @@ The user's last notifications.
 > Example:
 
 ```shell
-curl https://twistapp.com/api/v1/notifications/get \
+curl https://twistapp.com/api/v2/notifications/get \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf
 ```
 
-`GET /api/v1/notifications/get`
+`GET /api/v2/notifications/get`
 
 Gets the last notifications of the user.
 
@@ -67,12 +67,12 @@ A list of notification objects is returned.
 > Example:
 
 ```shell
-curl https://twistapp.com/api/v1/notifications/mark_read \
+curl https://twistapp.com/api/v2/notifications/mark_read \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d notification_id=1
 ```
 
-`POST /api/v1/notifications/mark_read`
+`POST /api/v2/notifications/mark_read`
 
 Marks everything after specified notification as read.
 
@@ -95,11 +95,11 @@ Marks everything after specified notification as read.
 > Example:
 
 ```shell
-curl https://twistapp.com/api/v1/notifications/reset \
+curl https://twistapp.com/api/v2/notifications/reset \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf
 ```
 
-`POST /api/v1/notifications/reset`
+`POST /api/v2/notifications/reset`
 
 Resets all notifications read status.
 

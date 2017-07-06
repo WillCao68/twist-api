@@ -155,12 +155,12 @@ A workspace is a shared place between different users. In the Twist UI they are 
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/workspaces/getone \
+curl https://api.twistapp.com/api/v2/workspaces/getone \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
 ```
 
-`GET /api/v1/workspaces/getone`
+`GET /api/v2/workspaces/getone`
 
 Gets a single workspace object by id.
 
@@ -180,11 +180,11 @@ A workspace object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/workspaces/get_default \
+curl https://api.twistapp.com/api/v2/workspaces/get_default \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
 ```
 
-`GET /api/v1/workspaces/get_default`
+`GET /api/v2/workspaces/get_default`
 
 Gets the user's default workspace.
 
@@ -198,11 +198,11 @@ A workspace object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/workspaces/get \
+curl https://api.twistapp.com/api/v2/workspaces/get \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
 ```
 
-`GET /api/v1/workspaces/get`
+`GET /api/v2/workspaces/get`
 
 Gets all the user's workspaces.
 
@@ -216,12 +216,12 @@ A list of workspace objects is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/workspaces/add \
+curl https://api.twistapp.com/api/v2/workspaces/add \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d name=Workspace1
 ```
 
-`POST /api/v1/workspaces/add`
+`POST /api/v2/workspaces/add`
 
 Creates a new workspace.
 
@@ -243,12 +243,12 @@ A workspace object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/workspaces/update \
+curl https://api.twistapp.com/api/v2/workspaces/update \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d name=Workspace1
 ```
 
-`POST /api/v1/workspaces/update`
+`POST /api/v2/workspaces/update`
 
 Updates an existing workspace.
 
@@ -271,13 +271,13 @@ The updated workspace object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/workspaces/remove \
+curl https://api.twistapp.com/api/v2/workspaces/remove \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d current_password=secret
 ```
 
-`POST /api/v1/workspaces/remove`
+`POST /api/v2/workspaces/remove`
 
 > Return value:
 
@@ -301,13 +301,13 @@ Removes a workspace and all its data \(not recoverable\).
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/workspaces/add_user \
+curl https://api.twistapp.com/api/v2/workspaces/add_user \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d email=user2@example.com
 ```
 
-`POST /api/v1/workspaces/add_user`
+`POST /api/v2/workspaces/add_user`
 
 Adds a person to a workspace.
 
@@ -328,13 +328,13 @@ A workspace user object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/workspaces/resend_invite \
+curl https://api.twistapp.com/api/v2/workspaces/resend_invite \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d email=user2@example.com
 ```
 
-`POST /api/v1/workspaces/resend_invite`
+`POST /api/v2/workspaces/resend_invite`
 
 > Return value:
 
@@ -357,14 +357,14 @@ Adds a person to a workspace.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/workspaces/update_user \
+curl https://api.twistapp.com/api/v2/workspaces/update_user \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d email=user2@example.com
   -d user_type=USER
 ```
 
-`POST /api/v1/workspaces/update_user`
+`POST /api/v2/workspaces/update_user`
 
 Updates a person in a workspace.
 
@@ -386,13 +386,13 @@ The updated workspace user object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/workspaces/update_user \
+curl https://api.twistapp.com/api/v2/workspaces/update_user \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d email=user2@example.com
 ```
 
-`POST /api/v1/workspaces/remove_user`
+`POST /api/v2/workspaces/remove_user`
 
 > Return value:
 
@@ -417,13 +417,13 @@ Removes a person from a workspace.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/workspaces/get_user_by_email \
+curl https://api.twistapp.com/api/v2/workspaces/get_user_by_email \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d email=user2@example.com
 ```
 
-`GET /api/v1/workspaces/get_user_by_email`
+`GET /api/v2/workspaces/get_user_by_email`
 
 Gets user by email.
 
@@ -444,13 +444,13 @@ A workspace user object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/workspaces/get_user_by_id \
+curl https://api.twistapp.com/api/v2/workspaces/get_user_by_id \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d user_id=10073
 ```
 
-`GET /api/v1/workspaces/get_user_by_id`
+`GET /api/v2/workspaces/get_user_by_id`
 
 Gets user by id.
 
@@ -471,13 +471,13 @@ A workspace user object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/workspaces/get_user_info \
+curl https://api.twistapp.com/api/v2/workspaces/get_user_info \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d user_id=10073
 ```
 
-`GET /api/v1/workspaces/get_user_info` 
+`GET /api/v2/workspaces/get_user_info` 
 
 Gets user's info in the context of the workspace.
 
@@ -494,13 +494,13 @@ Gets user's info in the context of the workspace.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/workspaces/get_user_local_time \
+curl https://api.twistapp.com/api/v2/workspaces/get_user_local_time \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d user_id=10073
 ```
 
-`GET /api/v1/workspaces/get_user_local_time`
+`GET /api/v2/workspaces/get_user_local_time`
 
 > Return value:
 
@@ -523,12 +523,12 @@ Gets user's local time.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/workspaces/get_public_channels \
+curl https://api.twistapp.com/api/v2/workspaces/get_public_channels \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
 ```
 
-`GET /api/v1/workspaces/get_public_channels`
+`GET /api/v2/workspaces/get_public_channels`
 
 Gets public channels of workspace.
 

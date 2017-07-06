@@ -68,12 +68,12 @@ The user's notification settings allow to setup email and push settings.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/notifications_settings/v2/get \
+curl https://api.twistapp.com/api/v2/notifications_settings/v2/get \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d workspace_id=5517
 ```
 
-`GET /api/v1/notifications_settings/v2/get`
+`GET /api/v2/notifications_settings/v2/get`
 
 Gets the user's current notification settings.
 
@@ -93,14 +93,14 @@ A notifications settings object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/notifications_settings/v2/update \
+curl https://api.twistapp.com/api/v2/notifications_settings/v2/update \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d workspace_id=5517 \
   -d setting=desktop_conversations \
   -d value=true
 ```
 
-`POST /api/v1/notifications_settings/v2/update`
+`POST /api/v2/notifications_settings/v2/update`
 
 > Return value:
 
@@ -126,13 +126,13 @@ Updates user notifications settings.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/notifications_settings/v2/update_many \
+curl https://api.twistapp.com/api/v2/notifications_settings/v2/update_many \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d workspace_id=5517
   -d mapping='{"desktop_conversations":true,"email_comments":false}'
 ```
 
-`POST /api/v1/notifications_settings/v2/update_many`
+`POST /api/v2/notifications_settings/v2/update_many`
 
 > Return value:
 

@@ -44,12 +44,12 @@ A conversation message is a message between one or more users participating in a
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/conversation_messages/getone \
+curl https://api.twistapp.com/api/v2/conversation_messages/getone \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=514069
 ```
 
-`GET /api/v1/conversation_messages/getone`
+`GET /api/v2/conversation_messages/getone`
 
 Gets a single conversation message.
 
@@ -69,12 +69,12 @@ A conversation message object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/conversation_messages/get \
+curl https://api.twistapp.com/api/v2/conversation_messages/get \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d conversation_id=13037
 ```
 
-`GET /api/v1/conversation_messages/get`
+`GET /api/v2/conversation_messages/get`
 
 Gets messages from a conversation.
 
@@ -99,13 +99,13 @@ A list of conversation message objects is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/conversation_messages/add \
+curl https://api.twistapp.com/api/v2/conversation_messages/add \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d conversation_id=13037 \
   -d content="Hello!"
 ```
 
-`POST /api/v1/conversation_messages/add`
+`POST /api/v2/conversation_messages/add`
 
 Adds a message to an existing conversation.
 
@@ -127,13 +127,13 @@ A conversation message object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/conversation_messages/update \
+curl https://api.twistapp.com/api/v2/conversation_messages/update \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d conversation_id=13037 \
   -d content="Hello!"
 ```
 
-`POST /api/v1/conversation_messages/update`
+`POST /api/v2/conversation_messages/update`
 
 Updates a message in conversation.
 
@@ -155,12 +155,12 @@ A conversation message object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v1/conversation_messages/remove \
+curl https://api.twistapp.com/api/v2/conversation_messages/remove \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=514069
 ```
 
-`POST /api/v1/conversation_messages/remove`
+`POST /api/v2/conversation_messages/remove`
 
 Removes a message from conversation.
 

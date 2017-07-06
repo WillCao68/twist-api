@@ -42,7 +42,7 @@ This is the official documentation of the Twist API.
 
 ## Authentication
 
-Login and signup are done via `/api/v1/users/login` and `/api/v1/users/register`. For public integrations you must use our oAuth 2 authentication.
+Login and signup are done via `/api/v2/users/login` and `/api/v2/users/register`. For public integrations you must use our oAuth 2 authentication.
 
 
 ## Temporary ids
