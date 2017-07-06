@@ -240,7 +240,7 @@
 
 <h2 id="authentication">Authentication</h2>
 
-<p>Login and signup are done via <code class="prettyprint">/api/v1/users/login</code> and <code class="prettyprint">/api/v1/users/register</code>. For public integrations you must use our oAuth 2 authentication.</p>
+<p>Login and signup are done via <code class="prettyprint">/api/v2/users/login</code> and <code class="prettyprint">/api/v2/users/register</code>. For public integrations you must use our oAuth 2 authentication.</p>
 
 <h2 id="temporary-ids">Temporary ids</h2>
 
@@ -521,7 +521,7 @@
 
 <p>In order to make authorized calls to Twist APIs, your integration must first obtain an access token from the users. This section describes how to obtain such a token.</p>
 
-<p>For testing purposes you can also use <code class="prettyprint">/api/v1/users/login</code> and <code class="prettyprint">/api/v1/users/login_with_google</code>, but please don’t use this for a public integration, since it’s highly insecure and can be abused.</p>
+<p>For testing purposes you can also use <code class="prettyprint">/api/v2/users/login</code> and <code class="prettyprint">/api/v2/users/login_with_google</code>, but please don’t use this for a public integration, since it’s highly insecure and can be abused.</p>
 
 <h2 id="oauth-2">oAuth 2</h2>
 
@@ -734,12 +734,12 @@
 <blockquote>
 <p>Example</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.twistapp.com/api/v1/batch <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.twistapp.com/api/v2/batch <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
-  -d <span class="nv">requests</span><span class="o">=</span><span class="s1">'[{"method": "GET", "url": "https://api.twistapp.com/api/v1/workspaces/get?token=..."},
-                {"method": "GET", "url": "https://api.twistapp.com/api/v1/workspaces/getone?token=...&amp;id=201"}]'</span>
+  -d <span class="nv">requests</span><span class="o">=</span><span class="s1">'[{"method": "GET", "url": "https://api.twistapp.com/api/v2/workspaces/get?token=..."},
+                {"method": "GET", "url": "https://api.twistapp.com/api/v2/workspaces/getone?token=...&amp;id=201"}]'</span>
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/batch</code></p>
+<p><code class="prettyprint">POST /api/v2/batch</code></p>
 
 <p>Batching allows you to pass several requests in a single HTTP request. Once all operations have been completed, a consolidated response will be passed back to you and the HTTP connection will be closed.</p>
 
@@ -951,11 +951,11 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/getone <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/getone <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>10073
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/users/getone</code></p>
+<p><code class="prettyprint">GET /api/v2/users/getone</code></p>
 
 <p>Gets info about a user.</p>
 
@@ -986,11 +986,11 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/login <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/login <span class="se">\</span>
   -d <span class="nv">email</span><span class="o">=</span>user@example.com <span class="se">\</span>
   -d <span class="nv">password</span><span class="o">=</span>secret
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/users/login</code></p>
+<p><code class="prettyprint">POST /api/v2/users/login</code></p>
 
 <p>Logs in existing user.</p>
 
@@ -1033,9 +1033,9 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/logout
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/logout
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/users/logout</code></p>
+<p><code class="prettyprint">POST /api/v2/users/logout</code></p>
 
 <blockquote>
 <p>Return value:</p>
@@ -1051,12 +1051,12 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/register <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/register <span class="se">\</span>
   -d <span class="nv">name</span><span class="o">=</span>User <span class="se">\</span>
   -d <span class="nv">email</span><span class="o">=</span>user@example.com <span class="se">\</span>
   -d <span class="nv">password</span><span class="o">=</span>secret
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/users/register</code></p>
+<p><code class="prettyprint">POST /api/v2/users/register</code></p>
 
 <p>Register a new user.</p>
 
@@ -1099,11 +1099,11 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/update <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/update <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">name</span><span class="o">=</span>User
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/users/update</code></p>
+<p><code class="prettyprint">POST /api/v2/users/update</code></p>
 
 <p>Updates user&rsquo;s details.</p>
 
@@ -1218,12 +1218,12 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/update_password <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/update_password <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">current_password</span><span class="o">=</span>secret <span class="se">\</span>
   -d <span class="nv">new_password</span><span class="o">=</span>newsecret
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/users/update_password</code></p>
+<p><code class="prettyprint">POST /api/v2/users/update_password</code></p>
 
 <p>Updates user&rsquo;s password.</p>
 
@@ -1260,11 +1260,11 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/update_avatar <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/update_avatar <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -F <span class="nv">image</span><span class="o">=</span>@avatar.jpg
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/users/update_avatar</code></p>
+<p><code class="prettyprint">POST /api/v2/users/update_avatar</code></p>
 
 <p>Updates user&rsquo;s avatar.</p>
 
@@ -1295,10 +1295,10 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/invalidate_token <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/invalidate_token <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/users/invalidate_token</code></p>
+<p><code class="prettyprint">POST /api/v2/users/invalidate_token</code></p>
 
 <p>Invalidates API token and generates a new token for the user.</p>
 
@@ -1311,10 +1311,10 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/validate_token <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/validate_token <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/users/validate_token</code></p>
+<p><code class="prettyprint">POST /api/v2/users/validate_token</code></p>
 
 <blockquote>
 <p>Return value:</p>
@@ -1330,12 +1330,12 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/heartbeat <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/heartbeat <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5517 <span class="se">\</span>
   -d <span class="nv">platform</span><span class="o">=</span>api
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/users/heartbeat</code></p>
+<p><code class="prettyprint">POST /api/v2/users/heartbeat</code></p>
 
 <blockquote>
 <p>Return value:</p>
@@ -1375,11 +1375,11 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/reset_presense <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/reset_presense <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5517
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/users/reset_presense</code></p>
+<p><code class="prettyprint">POST /api/v2/users/reset_presense</code></p>
 
 <blockquote>
 <p>Return value:</p>
@@ -1413,10 +1413,10 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/reset_password <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/reset_password <span class="se">\</span>
   -d <span class="nv">email</span><span class="o">=</span>user@example.com
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/users/reset_password</code></p>
+<p><code class="prettyprint">POST /api/v2/users/reset_password</code></p>
 
 <blockquote>
 <p>Return value:</p>
@@ -1450,11 +1450,11 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/set_password <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/set_password <span class="se">\</span>
   -d <span class="nv">reset_code</span><span class="o">=</span>12345abcef
   -d <span class="nv">new_password</span><span class="o">=</span>newsecret
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/users/set_password</code></p>
+<p><code class="prettyprint">POST /api/v2/users/set_password</code></p>
 
 <p>Sets the user password based on a reset code.</p>
 
@@ -1491,10 +1491,10 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/login_with_google <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/login_with_google <span class="se">\</span>
   -d <span class="nv">access_token</span><span class="o">=</span>ya29.AHES6ZRKeUQwH2xhirksSUDSyjg9oPuRMMal05Ty0cfFIT_uRfESHw
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/users/login_with_google</code></p>
+<p><code class="prettyprint">POST /api/v2/users/login_with_google</code></p>
 
 <p>Logs in user with a Google account.</p>
 
@@ -1531,10 +1531,10 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/register_with_google <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/register_with_google <span class="se">\</span>
   -d <span class="nv">access_token</span><span class="o">=</span>ya29.AHES6ZRKeUQwH2xhirksSUDSyjg9oPuRMMal05Ty0cfFIT_uRfESHw
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/users/register_with_google</code></p>
+<p><code class="prettyprint">POST /api/v2/users/register_with_google</code></p>
 
 <p>Registers new user with a Google account.</p>
 
@@ -1571,11 +1571,11 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/connect_with_google <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/connect_with_google <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">access_token</span><span class="o">=</span>ya29.AHES6ZRKeUQwH2xhirksSUDSyjg9oPuRMMal05Ty0cfFIT_uRfESHw
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/users/connect_with_google</code></p>
+<p><code class="prettyprint">POST /api/v2/users/connect_with_google</code></p>
 
 <blockquote>
 <p>Return value:</p>
@@ -1615,10 +1615,10 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/is_connected_to_google <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/is_connected_to_google <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/users/is_connected_to_google</code></p>
+<p><code class="prettyprint">GET /api/v2/users/is_connected_to_google</code></p>
 
 <blockquote>
 <p>Return value:</p>
@@ -1634,10 +1634,10 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/users/disconnect_google <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/disconnect_google <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/users/disconnect_google</code></p>
+<p><code class="prettyprint">POST /api/v2/users/disconnect_google</code></p>
 
 <blockquote>
 <p>Return value:</p>
@@ -1909,11 +1909,11 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/getone <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/workspaces/getone <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>5517
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/workspaces/getone</code></p>
+<p><code class="prettyprint">GET /api/v2/workspaces/getone</code></p>
 
 <p>Gets a single workspace object by id.</p>
 
@@ -1944,10 +1944,10 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/get_default <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/workspaces/get_default <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/workspaces/get_default</code></p>
+<p><code class="prettyprint">GET /api/v2/workspaces/get_default</code></p>
 
 <p>Gets the user&rsquo;s default workspace.</p>
 
@@ -1960,10 +1960,10 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/get <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/workspaces/get <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/workspaces/get</code></p>
+<p><code class="prettyprint">GET /api/v2/workspaces/get</code></p>
 
 <p>Gets all the user&rsquo;s workspaces.</p>
 
@@ -1976,11 +1976,11 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/add <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/workspaces/add <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">name</span><span class="o">=</span>Workspace1
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/workspaces/add</code></p>
+<p><code class="prettyprint">POST /api/v2/workspaces/add</code></p>
 
 <p>Creates a new workspace.</p>
 
@@ -2023,11 +2023,11 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/update <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/workspaces/update <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">name</span><span class="o">=</span>Workspace1
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/workspaces/update</code></p>
+<p><code class="prettyprint">POST /api/v2/workspaces/update</code></p>
 
 <p>Updates an existing workspace.</p>
 
@@ -2070,12 +2070,12 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/remove <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/workspaces/remove <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>5517
   -d <span class="nv">current_password</span><span class="o">=</span>secret
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/workspaces/remove</code></p>
+<p><code class="prettyprint">POST /api/v2/workspaces/remove</code></p>
 
 <blockquote>
 <p>Return value:</p>
@@ -2115,12 +2115,12 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/add_user <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/workspaces/add_user <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>5517
   -d <span class="nv">email</span><span class="o">=</span>user2@example.com
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/workspaces/add_user</code></p>
+<p><code class="prettyprint">POST /api/v2/workspaces/add_user</code></p>
 
 <p>Adds a person to a workspace.</p>
 
@@ -2157,12 +2157,12 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/resend_invite <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/workspaces/resend_invite <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>5517
   -d <span class="nv">email</span><span class="o">=</span>user2@example.com
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/workspaces/resend_invite</code></p>
+<p><code class="prettyprint">POST /api/v2/workspaces/resend_invite</code></p>
 
 <blockquote>
 <p>Return value:</p>
@@ -2200,13 +2200,13 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/update_user <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/workspaces/update_user <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>5517
   -d <span class="nv">email</span><span class="o">=</span>user2@example.com
   -d <span class="nv">user_type</span><span class="o">=</span>USER
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/workspaces/update_user</code></p>
+<p><code class="prettyprint">POST /api/v2/workspaces/update_user</code></p>
 
 <p>Updates a person in a workspace.</p>
 
@@ -2249,12 +2249,12 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/update_user <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/workspaces/update_user <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>5517
   -d <span class="nv">email</span><span class="o">=</span>user2@example.com
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/workspaces/remove_user</code></p>
+<p><code class="prettyprint">POST /api/v2/workspaces/remove_user</code></p>
 
 <blockquote>
 <p>Return value:</p>
@@ -2294,12 +2294,12 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/get_user_by_email <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/workspaces/get_user_by_email <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>5517
   -d <span class="nv">email</span><span class="o">=</span>user2@example.com
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/workspaces/get_user_by_email</code></p>
+<p><code class="prettyprint">GET /api/v2/workspaces/get_user_by_email</code></p>
 
 <p>Gets user by email.</p>
 
@@ -2336,12 +2336,12 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/get_user_by_id <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/workspaces/get_user_by_id <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>5517
   -d <span class="nv">user_id</span><span class="o">=</span>10073
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/workspaces/get_user_by_id</code></p>
+<p><code class="prettyprint">GET /api/v2/workspaces/get_user_by_id</code></p>
 
 <p>Gets user by id.</p>
 
@@ -2378,12 +2378,12 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/get_user_info <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/workspaces/get_user_info <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>5517
   -d <span class="nv">user_id</span><span class="o">=</span>10073
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/workspaces/get_user_info</code> </p>
+<p><code class="prettyprint">GET /api/v2/workspaces/get_user_info</code> </p>
 
 <p>Gets user&rsquo;s info in the context of the workspace.</p>
 
@@ -2416,12 +2416,12 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/get_user_local_time <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/workspaces/get_user_local_time <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>5517
   -d <span class="nv">user_id</span><span class="o">=</span>10073
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/workspaces/get_user_local_time</code></p>
+<p><code class="prettyprint">GET /api/v2/workspaces/get_user_local_time</code></p>
 
 <blockquote>
 <p>Return value:</p>
@@ -2459,11 +2459,11 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/workspaces/get_public_channels <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/workspaces/get_public_channels <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>5517
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/workspaces/get_public_channels</code></p>
+<p><code class="prettyprint">GET /api/v2/workspaces/get_public_channels</code></p>
 
 <p>Gets public channels of workspace.</p>
 
@@ -2545,11 +2545,11 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/getone <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/groups/getone <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>498
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/groups/getone</code></p>
+<p><code class="prettyprint">GET /api/v2/groups/getone</code></p>
 
 <p>Gets a single group object.</p>
 
@@ -2580,11 +2580,11 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/get <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/groups/get <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5517
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/groups/get</code></p>
+<p><code class="prettyprint">GET /api/v2/groups/get</code></p>
 
 <p>Gets all groups in a workspace.</p>
 
@@ -2615,13 +2615,13 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/add <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/groups/add <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5571 <span class="se">\</span>
   -d <span class="nv">name</span><span class="o">=</span>Group1 <span class="se">\</span>
   -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10073]'</span>
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/groups/add</code></p>
+<p><code class="prettyprint">POST /api/v2/groups/add</code></p>
 
 <p>Adds a new group to a workspace.</p>
 
@@ -2664,12 +2664,12 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/update <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/groups/update <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>498 <span class="se">\</span>
   -d <span class="nv">name</span><span class="o">=</span>Group1
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/groups/update</code></p>
+<p><code class="prettyprint">POST /api/v2/groups/update</code></p>
 
 <p>Updates an existing group.</p>
 
@@ -2706,11 +2706,11 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/remove <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/groups/remove <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>498
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/groups/remove</code></p>
+<p><code class="prettyprint">POST /api/v2/groups/remove</code></p>
 
 <blockquote>
 <p>Return value:</p>
@@ -2744,12 +2744,12 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/add_user <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/groups/add_user <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>498 <span class="se">\</span>
   -d <span class="nv">user_id</span><span class="o">=</span>10076
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/groups/add_user</code></p>
+<p><code class="prettyprint">POST /api/v2/groups/add_user</code></p>
 
 <blockquote>
 <p>Return value:</p>
@@ -2789,12 +2789,12 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/add_users <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/groups/add_users <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>498 <span class="se">\</span>
   -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10073,10076]'</span>
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/groups/add_users</code></p>
+<p><code class="prettyprint">POST /api/v2/groups/add_users</code></p>
 
 <blockquote>
 <p>Return value:</p>
@@ -2834,12 +2834,12 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/remove_user <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/groups/remove_user <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>498 <span class="se">\</span>
   -d <span class="nv">user_id</span><span class="o">=</span>10076
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/groups/remove_user</code></p>
+<p><code class="prettyprint">POST /api/v2/groups/remove_user</code></p>
 
 <blockquote>
 <p>Return value:</p>
@@ -2879,12 +2879,12 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/groups/remove_users <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/groups/remove_users <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>498 <span class="se">\</span>
   -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10073,10076]'</span>
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/groups/remove_users</code></p>
+<p><code class="prettyprint">POST /api/v2/groups/remove_users</code></p>
 
 <blockquote>
 <p>Return value:</p>
@@ -3009,11 +3009,11 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/channels/getone <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/channels/getone <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>6984
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/channels/getone</code></p>
+<p><code class="prettyprint">GET /api/v2/channels/getone</code></p>
 
 <p>Gets a single channel object by id.</p>
 
@@ -3044,11 +3044,11 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/channels/get <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/channels/get <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5517
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/channels/get</code></p>
+<p><code class="prettyprint">GET /api/v2/channels/get</code></p>
 
 <p>Gets all channels in a workspace.</p>
 
@@ -3085,12 +3085,12 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/channels/add <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/channels/add <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5517 <span class="se">\</span>
   -d <span class="nv">name</span><span class="o">=</span>Channel1
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/channels/add</code></p>
+<p><code class="prettyprint">POST /api/v2/channels/add</code></p>
 
 <p>Adds a new channel.</p>
 
@@ -3157,12 +3157,12 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/channels/update <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/channels/update <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>6984 <span class="se">\</span>
   -d <span class="nv">name</span><span class="o">=</span>Channel1
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/channels/update</code></p>
+<p><code class="prettyprint">POST /api/v2/channels/update</code></p>
 
 <p>Updates an existing channel.</p>
 
@@ -3217,11 +3217,11 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/channels/remove <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/channels/remove <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>6984
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/channels/remove</code></p>
+<p><code class="prettyprint">POST /api/v2/channels/remove</code></p>
 
 <p>Removes a channel. Requires for the channel to be archived first.</p>
 
@@ -3253,11 +3253,11 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/channels/archive <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/channels/archive <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>6984
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/channels/archive</code></p>
+<p><code class="prettyprint">POST /api/v2/channels/archive</code></p>
 
 <blockquote>
 <p>Return value:</p>
@@ -3291,11 +3291,11 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/channels/unarchive <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/channels/unarchive <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>6984
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/channels/unarchive</code></p>
+<p><code class="prettyprint">POST /api/v2/channels/unarchive</code></p>
 
 <blockquote>
 <p>Return value:</p>
@@ -3329,12 +3329,12 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/channels/add_user <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/channels/add_user <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>6984 <span class="se">\</span>
   -d <span class="nv">user_id</span><span class="o">=</span>10076
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/channels/add_user</code></p>
+<p><code class="prettyprint">POST /api/v2/channels/add_user</code></p>
 
 <blockquote>
 <p>Return value:</p>
@@ -3374,12 +3374,12 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/channels/add_users <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/channels/add_users <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>6984 <span class="se">\</span>
   -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10076]'</span>
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/channels/add_users</code></p>
+<p><code class="prettyprint">POST /api/v2/channels/add_users</code></p>
 
 <blockquote>
 <p>Return value:</p>
@@ -3419,12 +3419,12 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/channels/remove_user <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/channels/remove_user <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>6984 <span class="se">\</span>
   -d <span class="nv">user_id</span><span class="o">=</span>10076
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/channels/remove_user</code></p>
+<p><code class="prettyprint">POST /api/v2/channels/remove_user</code></p>
 
 <blockquote>
 <p>Return value:</p>
@@ -3464,12 +3464,12 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/channels/remove_users <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/channels/remove_users <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>6984 <span class="se">\</span>
   -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10076]'</span>
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/channels/remove_users</code></p>
+<p><code class="prettyprint">POST /api/v2/channels/remove_users</code></p>
 
 <blockquote>
 <p>Return value:</p>
@@ -3655,11 +3655,11 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/getone <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/getone <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>32038
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/threads/getone</code></p>
+<p><code class="prettyprint">GET /api/v2/threads/getone</code></p>
 
 <p>Gets a thread object by id.</p>
 
@@ -3690,11 +3690,11 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/get <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/get <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">channel_id</span><span class="o">=</span>6984
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/threads/get</code></p>
+<p><code class="prettyprint">GET /api/v2/threads/get</code></p>
 
 <p>Gets all threads in a channel.</p>
 
@@ -3761,12 +3761,12 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/add <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/add <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">channel_id</span><span class="o">=</span>6984 <span class="se">\</span>
   -d <span class="nv">name</span><span class="o">=</span>Thread1
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/threads/add</code></p>
+<p><code class="prettyprint">POST /api/v2/threads/add</code></p>
 
 <p>Adds a new thread to a channel.</p>
 
@@ -3833,13 +3833,13 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/update <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/update <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>32038 <span class="se">\</span>
   -d <span class="nv">name</span><span class="o">=</span>Thread1
 <span class="sb">``</span>
 
-<span class="sb">`</span>POST /api/v1/threads/update<span class="sb">`</span>
+<span class="sb">`</span>POST /api/v2/threads/update<span class="sb">`</span>
 
 Updates an existing thread.
 
@@ -3862,11 +3862,11 @@ The updated thread object is returned.
 <span class="gp">&gt; </span>Example:
 
 <span class="sb">```</span>shell
-curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
+curl https://api.twistapp.com/api/v2/threads/remove <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>32038
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/threads/remove</code></p>
+<p><code class="prettyprint">POST /api/v2/threads/remove</code></p>
 
 <p>Removes a thread.</p>
 
@@ -3898,11 +3898,11 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/star <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/star <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>32038
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/threads/star</code></p>
+<p><code class="prettyprint">POST /api/v2/threads/star</code></p>
 
 <p>Stars a thread.</p>
 
@@ -3936,11 +3936,11 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/unstar <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/unstar <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>32038
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/threads/unstar</code></p>
+<p><code class="prettyprint">POST /api/v2/threads/unstar</code></p>
 
 <p>Unstars a thread.</p>
 
@@ -3974,12 +3974,12 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/move_to_channel <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/move_to_channel <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>6984 <span class="se">\</span>
   -d <span class="nv">to_channel</span><span class="o">=</span>6984
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/threads/move_to_channel</code></p>
+<p><code class="prettyprint">POST /api/v2/threads/move_to_channel</code></p>
 
 <p>Moves thread to a different channel.</p>
 
@@ -4019,11 +4019,11 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/follow <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/follow <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>32038
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/threads/follow</code></p>
+<p><code class="prettyprint">POST /api/v2/threads/follow</code></p>
 
 <p>Follows thread.</p>
 
@@ -4057,11 +4057,11 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/unfollow <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/unfollow <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>32038
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/threads/unfollow</code></p>
+<p><code class="prettyprint">POST /api/v2/threads/unfollow</code></p>
 
 <p>Unfollows thread.</p>
 
@@ -4095,11 +4095,11 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/get_unread <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/get_unread <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5517
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/threads/get_unread</code></p>
+<p><code class="prettyprint">GET /api/v2/threads/get_unread</code></p>
 
 <p>Gets unread threads in a workspace.</p>
 
@@ -4130,12 +4130,12 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/mark_read <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/mark_read <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>32038 <span class="se">\</span>
   -d <span class="nv">obj_index</span><span class="o">=</span>2
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/threads/mark_read</code></p>
+<p><code class="prettyprint">POST /api/v2/threads/mark_read</code></p>
 
 <p>Marks thread as read.</p>
 
@@ -4175,12 +4175,12 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/mark_unread <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/mark_unread <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>32038 <span class="se">\</span>
   -d <span class="nv">obj_index</span><span class="o">=</span>2
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/threads/mark_unread</code></p>
+<p><code class="prettyprint">POST /api/v2/threads/mark_unread</code></p>
 
 <p>Marks thread as unread.</p>
 
@@ -4220,11 +4220,11 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/mark_all_read <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/mark_all_read <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">channel_id</span><span class="o">=</span>6984
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/threads/mark_all_read</code></p>
+<p><code class="prettyprint">POST /api/v2/threads/mark_all_read</code></p>
 
 <p>Marks all thread in workspace or channel as read.</p>
 
@@ -4264,11 +4264,11 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/threads/clear_unread <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/clear_unread <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5517
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/threads/clear_unread</code></p>
+<p><code class="prettyprint">POST /api/v2/threads/clear_unread</code></p>
 
 <p>Clears unread threads in workspace.</p>
 
@@ -4408,11 +4408,11 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/comments/getone <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/comments/getone <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>206113
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/comments/getone</code></p>
+<p><code class="prettyprint">GET /api/v2/comments/getone</code></p>
 
 <p>Gets a single comment object by id.</p>
 
@@ -4443,11 +4443,11 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/comments/get <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/comments/get <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">thread_id</span><span class="o">=</span>32038
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/comments/get</code></p>
+<p><code class="prettyprint">GET /api/v2/comments/get</code></p>
 
 <p>Gets all comments in a channel.</p>
 
@@ -4520,12 +4520,12 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/comments/add <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/comments/add <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">thread_id</span><span class="o">=</span>32038 <span class="se">\</span>
   -d <span class="nv">content</span><span class="o">=</span><span class="s2">"OK!"</span>
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/comments/add</code></p>
+<p><code class="prettyprint">POST /api/v2/comments/add</code></p>
 
 <p>Adds a new comment to a thread.</p>
 
@@ -4592,12 +4592,12 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/comments/update <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/comments/update <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>206113 <span class="se">\</span>
   -d <span class="nv">content</span><span class="o">=</span><span class="s2">"OK!"</span>
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/comments/update</code></p>
+<p><code class="prettyprint">POST /api/v2/comments/update</code></p>
 
 <p>Updates an existing comment.</p>
 
@@ -4640,11 +4640,11 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/comments/remove <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/comments/remove <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>206113
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/comments/remove</code></p>
+<p><code class="prettyprint">POST /api/v2/comments/remove</code></p>
 
 <p>Removes a comment (only user&rsquo;s own comments can be removed).</p>
 
@@ -4678,12 +4678,12 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/comments/mark_position <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/comments/mark_position <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">thread_id</span><span class="o">=</span>32038 <span class="se">\</span>
     -d <span class="nv">comment_id</span><span class="o">=</span>206113
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/comments/mark_position</code></p>
+<p><code class="prettyprint">POST /api/v2/comments/mark_position</code></p>
 
 <p>Marks the position of a thread.</p>
 
@@ -4846,11 +4846,11 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/getone <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversations/getone <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>13037
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/conversations/getone</code></p>
+<p><code class="prettyprint">GET /api/v2/conversations/getone</code></p>
 
 <p>Gets a single conversation object.</p>
 
@@ -4881,11 +4881,11 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/get <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversations/get <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5517
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/conversations/get</code></p>
+<p><code class="prettyprint">GET /api/v2/conversations/get</code></p>
 
 <p>Gets all conversations of a user in a workspace.</p>
 
@@ -4946,12 +4946,12 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/get_or_create <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversations/get_or_create <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5517 <span class="se">\</span>
   -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10073,10076]'</span>
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/conversations/get_or_create</code></p>
+<p><code class="prettyprint">POST /api/v2/conversations/get_or_create</code></p>
 
 <p>Gets or creates a conversation with one or more users.</p>
 
@@ -4988,12 +4988,12 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/update <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversations/update <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>13037 <span class="se">\</span>
   -d <span class="nv">title</span><span class="o">=</span>Title1
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/conversations/update</code></p>
+<p><code class="prettyprint">POST /api/v2/conversations/update</code></p>
 
 <p>Updates an existing conversation.</p>
 
@@ -5036,12 +5036,12 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/add_user <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversations/add_user <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>13037 <span class="se">\</span>
   -d <span class="nv">user_id</span><span class="o">=</span>10076
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/conversations/add_user</code></p>
+<p><code class="prettyprint">POST /api/v2/conversations/add_user</code></p>
 
 <p>Adds a person to a conversation.</p>
 
@@ -5081,12 +5081,12 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/add_users <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversations/add_users <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>13037 <span class="se">\</span>
   -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10076]'</span>
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/conversations/add_users</code></p>
+<p><code class="prettyprint">POST /api/v2/conversations/add_users</code></p>
 
 <p>Adds several persons to a conversation.</p>
 
@@ -5126,12 +5126,12 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/remove_user <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversations/remove_user <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>13037 <span class="se">\</span>
   -d <span class="nv">user_id</span><span class="o">=</span>10076
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/conversations/remove_user</code></p>
+<p><code class="prettyprint">GET /api/v2/conversations/remove_user</code></p>
 
 <p>Removes a person from a conversation.</p>
 
@@ -5171,12 +5171,12 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/remove_users <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversations/remove_users <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>13037 <span class="se">\</span>
   -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10076]'</span>
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/conversations/remove_users</code></p>
+<p><code class="prettyprint">GET /api/v2/conversations/remove_users</code></p>
 
 <p>Removes several persons from a conversation.</p>
 
@@ -5216,11 +5216,11 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/archive <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversations/archive <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>13037
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/conversations/archive</code></p>
+<p><code class="prettyprint">POST /api/v2/conversations/archive</code></p>
 
 <p>Archives a conversation.</p>
 
@@ -5254,11 +5254,11 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/unarchive <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversations/unarchive <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>13037
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/conversations/unarchive</code></p>
+<p><code class="prettyprint">POST /api/v2/conversations/unarchive</code></p>
 
 <p>Unarchives a conversation.</p>
 
@@ -5292,11 +5292,11 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/get_unread <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversations/get_unread <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>5517
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/conversations/get_unread</code></p>
+<p><code class="prettyprint">GET /api/v2/conversations/get_unread</code></p>
 
 <p>Gets unread conversations.</p>
 
@@ -5337,12 +5337,12 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/mark_read <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversations/mark_read <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">conversation_id</span><span class="o">=</span>13037 <span class="se">\</span>
   -d <span class="nv">messsage_id</span><span class="o">=</span>1
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/conversations/mark_read</code></p>
+<p><code class="prettyprint">POST /api/v2/conversations/mark_read</code></p>
 
 <p>Marks a conversation as read.</p>
 
@@ -5388,12 +5388,12 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/mark_unread <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversations/mark_unread <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">conversation_id</span><span class="o">=</span>13037 <span class="se">\</span>
   -d <span class="nv">messsage_id</span><span class="o">=</span>1
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/conversations/mark_unread</code></p>
+<p><code class="prettyprint">POST /api/v2/conversations/mark_unread</code></p>
 
 <p>Marks a conversation as unread.</p>
 
@@ -5439,12 +5439,12 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/mute <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversations/mute <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>13037 <span class="se">\</span>
   -d <span class="nv">minutes</span><span class="o">=</span>30
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/conversations/mute</code></p>
+<p><code class="prettyprint">POST /api/v2/conversations/mute</code></p>
 
 <p>Mutes a conversation for a number of minutes.</p>
 
@@ -5481,11 +5481,11 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversations/unmute <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversations/unmute <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>13037
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/conversations/unmute</code></p>
+<p><code class="prettyprint">POST /api/v2/conversations/unmute</code></p>
 
 <p>Unmutes a conversation.</p>
 
@@ -5609,11 +5609,11 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversation_messages/getone <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversation_messages/getone <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>514069
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/conversation_messages/getone</code></p>
+<p><code class="prettyprint">GET /api/v2/conversation_messages/getone</code></p>
 
 <p>Gets a single conversation message.</p>
 
@@ -5644,11 +5644,11 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversation_messages/get <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversation_messages/get <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">conversation_id</span><span class="o">=</span>13037
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/conversation_messages/get</code></p>
+<p><code class="prettyprint">GET /api/v2/conversation_messages/get</code></p>
 
 <p>Gets messages from a conversation.</p>
 
@@ -5709,12 +5709,12 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversation_messages/add <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversation_messages/add <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">conversation_id</span><span class="o">=</span>13037 <span class="se">\</span>
   -d <span class="nv">content</span><span class="o">=</span><span class="s2">"Hello!"</span>
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/conversation_messages/add</code></p>
+<p><code class="prettyprint">POST /api/v2/conversation_messages/add</code></p>
 
 <p>Adds a message to an existing conversation.</p>
 
@@ -5757,12 +5757,12 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversation_messages/update <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversation_messages/update <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">conversation_id</span><span class="o">=</span>13037 <span class="se">\</span>
   -d <span class="nv">content</span><span class="o">=</span><span class="s2">"Hello!"</span>
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/conversation_messages/update</code></p>
+<p><code class="prettyprint">POST /api/v2/conversation_messages/update</code></p>
 
 <p>Updates a message in conversation.</p>
 
@@ -5805,11 +5805,11 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/conversation_messages/remove <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversation_messages/remove <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>514069
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/conversation_messages/remove</code></p>
+<p><code class="prettyprint">POST /api/v2/conversation_messages/remove</code></p>
 
 <p>Removes a message from conversation.</p>
 
@@ -5935,12 +5935,12 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/attachments/upload <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/attachments/upload <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
     -F <span class="nv">attachment_id</span><span class="o">=</span>c8f962d3-491b-4a43-92c2-43f7ac076408 <span class="se">\</span>
     -F <span class="nv">file_name</span><span class="o">=</span>@image.png
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/attachments/upload</code></p>
+<p><code class="prettyprint">POST /api/v2/attachments/upload</code></p>
 
 <p>Uploads a file.</p>
 
@@ -5977,12 +5977,12 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/attachments/upload <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/attachments/upload <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
     -d <span class="nv">attachment_id</span><span class="o">=</span>c8f962d3-491b-4a43-92c2-43f7ac076408 <span class="se">\</span>
   -d <span class="nv">comment_id</span><span class="o">=</span>241432
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/attachments/remove</code></p>
+<p><code class="prettyprint">POST /api/v2/attachments/remove</code></p>
 
 <p>Removes attachment from thread, comment or conversation message.</p>
 
@@ -6074,11 +6074,11 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/reactions/get <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/reactions/get <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">comment_id</span><span class="o">=</span>206113
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/reactions/get</code></p>
+<p><code class="prettyprint">POST /api/v2/reactions/get</code></p>
 
 <p>Gets reactions of a thread, comment or conversation message.</p>
 
@@ -6121,12 +6121,12 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/reactions/add <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/reactions/add <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">reaction</span><span class="o">=</span><span class="s2">"👍"</span>
   -d <span class="nv">comment_id</span><span class="o">=</span>206113
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/reactions/add</code></p>
+<p><code class="prettyprint">POST /api/v2/reactions/add</code></p>
 
 <p>Adds a reaction to a thread, comment or conversation message.</p>
 
@@ -6178,12 +6178,12 @@ curl https://api.twistapp.com/api/v1/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/reactions/remove <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/reactions/remove <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">reaction</span><span class="o">=</span><span class="s2">"👍"</span>
   -d <span class="nv">comment_id</span><span class="o">=</span>206113
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/reactions/remove</code></p>
+<p><code class="prettyprint">POST /api/v2/reactions/remove</code></p>
 
 <p>Removes a reaction from thread, comment or conversation message.</p>
 
@@ -6253,11 +6253,11 @@ all threads, but the most recent threads ordered by date.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/inbox/get <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/inbox/get <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5517
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/inbox/get</code></p>
+<p><code class="prettyprint">GET /api/v2/inbox/get</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -6308,11 +6308,11 @@ all threads, but the most recent threads ordered by date.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/search/query <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/search/query <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">query</span><span class="o">=</span>texts
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/search/query</code></p>
+<p><code class="prettyprint">GET /api/v2/search/query</code></p>
 
 <blockquote>
 <p>Return object::</p>
@@ -6326,7 +6326,7 @@ all threads, but the most recent threads ordered by date.</p>
       </span><span class="s2">"obj_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thread"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Far far away"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"snippet"</span><span class="p">:</span><span class="w"> </span><span class="s2">"It is a paradisematic country, in which roasted parts of sentences fly into your mouth."</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"details_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v1/search/comments?query=texts&amp;workspace_id=201&amp;thread_id=401"</span><span class="w">
+      </span><span class="s2">"details_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v2/search/comments?query=texts&amp;workspace_id=201&amp;thread_id=401"</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">501</span><span class="p">,</span><span class="w">
       </span><span class="s2">"thread_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">401</span><span class="p">,</span><span class="w">
       </span><span class="s2">"channel_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">301</span><span class="p">,</span><span class="w">
@@ -6339,7 +6339,7 @@ all threads, but the most recent threads ordered by date.</p>
       </span><span class="s2">"obj_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"conversation"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chat"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"snippet"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Even the all-powerful Pointing has no control about the blind texts..."</span><span class="w">
-      </span><span class="s2">"details_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v1/search/messages?query=texts&amp;workspace_id=201&amp;aggregate_id=123-345-678-9"</span><span class="w">
+      </span><span class="s2">"details_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v2/search/messages?query=texts&amp;workspace_id=201&amp;aggregate_id=123-345-678-9"</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">703</span><span class="p">,</span><span class="w">
       </span><span class="s2">"conversation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">601</span><span class="p">,</span><span class="w">
       </span><span class="s2">"last_author"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="w">
@@ -6481,10 +6481,10 @@ all threads, but the most recent threads ordered by date.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.twistapp.com/api/v1/search/comments?query=texts&amp;workspace_id=201&amp;thread_id=401"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.twistapp.com/api/v2/search/comments?query=texts&amp;workspace_id=201&amp;thread_id=401"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/search/comments</code></p>
+<p><code class="prettyprint">GET /api/v2/search/comments</code></p>
 
 <blockquote>
 <p>Return object:</p>
@@ -6529,9 +6529,9 @@ all threads, but the most recent threads ordered by date.</p>
       </span><span class="s2">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"comment_range"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"idx_start"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"idx_end"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"expand_link"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v1/search/expand_comment_range?idx_end=3&amp;thread_id=401&amp;workspace_id=201&amp;idx_start=0"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"top_expand_link"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v1/search/expand_comment_range?idx_end=3&amp;thread_id=401&amp;workspace_id=201&amp;idx_start=0&amp;direction=top"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"bottom_expand_link"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v1/search/expand_comment_range?idx_end=3&amp;thread_id=401&amp;workspace_id=201&amp;idx_start=0&amp;direction=bottom"</span><span class="w">
+      </span><span class="s2">"expand_link"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v2/search/expand_comment_range?idx_end=3&amp;thread_id=401&amp;workspace_id=201&amp;idx_start=0"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"top_expand_link"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v2/search/expand_comment_range?idx_end=3&amp;thread_id=401&amp;workspace_id=201&amp;idx_start=0&amp;direction=top"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"bottom_expand_link"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v2/search/expand_comment_range?idx_end=3&amp;thread_id=401&amp;workspace_id=201&amp;idx_start=0&amp;direction=bottom"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -6543,10 +6543,10 @@ all threads, but the most recent threads ordered by date.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.twistapp.com/api/v1/search/expand_comment_range?idx_end=3&amp;thread_id=401&amp;workspace_id=201&amp;idx_start=0"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.twistapp.com/api/v2/search/expand_comment_range?idx_end=3&amp;thread_id=401&amp;workspace_id=201&amp;idx_start=0"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/search/expand_comment_range</code></p>
+<p><code class="prettyprint">GET /api/v2/search/expand_comment_range</code></p>
 
 <blockquote>
 <p>Return object:</p>
@@ -6588,10 +6588,10 @@ all threads, but the most recent threads ordered by date.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.twistapp.com/api/v1/search/messages?query=hello&amp;workspace_id=201&amp;aggregate_id=123-345-678-9"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.twistapp.com/api/v2/search/messages?query=hello&amp;workspace_id=201&amp;aggregate_id=123-345-678-9"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/search/messages</code></p>
+<p><code class="prettyprint">GET /api/v2/search/messages</code></p>
 
 <blockquote>
 <p>Return object:</p>
@@ -6605,9 +6605,9 @@ all threads, but the most recent threads ordered by date.</p>
       </span><span class="s2">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"conversation_message_range"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"idx_start"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"idx_end"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"expand_link"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v1/search/expand_conversation_message_range?conversation_id=601&amp;idx_end=5&amp;workspace_id=201&amp;idx_start=0"</span><span class="w">
-      </span><span class="s2">"top_expand_link"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v1/search/expand_conversation_message_range?conversation_id=601&amp;idx_end=5&amp;workspace_id=201&amp;idx_start=0&amp;direction=top"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"bottom_expand_link"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v1/search/expand_conversation_message_range?conversation_id=601&amp;idx_end=5&amp;workspace_id=201&amp;idx_start=0&amp;direction=bottom"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"expand_link"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v2/search/expand_conversation_message_range?conversation_id=601&amp;idx_end=5&amp;workspace_id=201&amp;idx_start=0"</span><span class="w">
+      </span><span class="s2">"top_expand_link"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v2/search/expand_conversation_message_range?conversation_id=601&amp;idx_end=5&amp;workspace_id=201&amp;idx_start=0&amp;direction=top"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"bottom_expand_link"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v2/search/expand_conversation_message_range?conversation_id=601&amp;idx_end=5&amp;workspace_id=201&amp;idx_start=0&amp;direction=bottom"</span><span class="p">,</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"conversation_message"</span><span class="w">
@@ -6681,10 +6681,10 @@ all threads, but the most recent threads ordered by date.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.twistapp.com/api/v1/search/expand_conversation_message_range?conversation_id=601&amp;idx_end=5&amp;workspace_id=201&amp;idx_start=0&amp;direction=top"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.twistapp.com/api/v2/search/expand_conversation_message_range?conversation_id=601&amp;idx_end=5&amp;workspace_id=201&amp;idx_start=0&amp;direction=top"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/search/expand_conversation_message_range</code></p>
+<p><code class="prettyprint">GET /api/v2/search/expand_conversation_message_range</code></p>
 
 <blockquote>
 <p>Return object:</p>
@@ -6799,10 +6799,10 @@ all threads, but the most recent threads ordered by date.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://twistapp.com/api/v1/notifications/get <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://twistapp.com/api/v2/notifications/get <span class="se">\</span>
   -d <span class="nv">token</span><span class="o">=</span>9b1bf97783c1ad5593dee12f3019079dbd3042cf
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/notifications/get</code></p>
+<p><code class="prettyprint">GET /api/v2/notifications/get</code></p>
 
 <p>Gets the last notifications of the user.</p>
 
@@ -6833,11 +6833,11 @@ all threads, but the most recent threads ordered by date.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://twistapp.com/api/v1/notifications/mark_read <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://twistapp.com/api/v2/notifications/mark_read <span class="se">\</span>
   -d <span class="nv">token</span><span class="o">=</span>9b1bf97783c1ad5593dee12f3019079dbd3042cf <span class="se">\</span>
   -d <span class="nv">notification_id</span><span class="o">=</span>1
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/notifications/mark_read</code></p>
+<p><code class="prettyprint">POST /api/v2/notifications/mark_read</code></p>
 
 <p>Marks everything after specified notification as read.</p>
 
@@ -6871,10 +6871,10 @@ all threads, but the most recent threads ordered by date.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://twistapp.com/api/v1/notifications/reset <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://twistapp.com/api/v2/notifications/reset <span class="se">\</span>
   -d <span class="nv">token</span><span class="o">=</span>9b1bf97783c1ad5593dee12f3019079dbd3042cf
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/notifications/reset</code></p>
+<p><code class="prettyprint">POST /api/v2/notifications/reset</code></p>
 
 <p>Resets all notifications read status.</p>
 
@@ -7055,11 +7055,11 @@ all threads, but the most recent threads ordered by date.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/notifications_settings/v2/get <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/notifications_settings/v2/get <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5517
 </code></pre>
-<p><code class="prettyprint">GET /api/v1/notifications_settings/v2/get</code></p>
+<p><code class="prettyprint">GET /api/v2/notifications_settings/v2/get</code></p>
 
 <p>Gets the user&rsquo;s current notification settings.</p>
 
@@ -7090,13 +7090,13 @@ all threads, but the most recent threads ordered by date.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/notifications_settings/v2/update <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/notifications_settings/v2/update <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5517 <span class="se">\</span>
   -d <span class="nv">setting</span><span class="o">=</span>desktop_conversations <span class="se">\</span>
   -d <span class="nv">value</span><span class="o">=</span><span class="nb">true</span>
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/notifications_settings/v2/update</code></p>
+<p><code class="prettyprint">POST /api/v2/notifications_settings/v2/update</code></p>
 
 <blockquote>
 <p>Return value:</p>
@@ -7142,12 +7142,12 @@ all threads, but the most recent threads ordered by date.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/notifications_settings/v2/update_many <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/notifications_settings/v2/update_many <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5517
   -d <span class="nv">mapping</span><span class="o">=</span><span class="s1">'{"desktop_conversations":true,"email_comments":false}'</span>
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/notifications_settings/v2/update_many</code></p>
+<p><code class="prettyprint">POST /api/v2/notifications_settings/v2/update_many</code></p>
 
 <blockquote>
 <p>Return value:</p>
@@ -7214,11 +7214,11 @@ all threads, but the most recent threads ordered by date.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/url_join/get_or_create <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/url_join/get_or_create <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5517
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/url_join/get_or_create</code></p>
+<p><code class="prettyprint">POST /api/v2/url_join/get_or_create</code></p>
 
 <p>Gets or creates a URL join link to a workspace.</p>
 
@@ -7252,11 +7252,11 @@ all threads, but the most recent threads ordered by date.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/url_join/disable <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/url_join/disable <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5517
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/url_join/disable</code></p>
+<p><code class="prettyprint">POST /api/v2/url_join/disable</code></p>
 
 <p>Disables a URL join link to a workspace.</p>
 
@@ -7290,11 +7290,11 @@ all threads, but the most recent threads ordered by date.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/url_join/join_workspace <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/url_join/join_workspace <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">url_invite_code</span><span class="o">=</span><span class="s2">"https://twistapp.com/j/c5370f3ab4bad2d7eb6c432a17c37986"</span>
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/url_join/join_workspace</code></p>
+<p><code class="prettyprint">POST /api/v2/url_join/join_workspace</code></p>
 
 <p>Joins user to invited workspace using the URL link.</p>
 
@@ -7353,12 +7353,12 @@ to conversation by sending them to an email address.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/loop_in/get_or_create <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/loop_in/get_or_create <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">obj_type</span><span class="o">=</span>THREAD <span class="se">\</span>
   -d <span class="nv">obj_id</span><span class="o">=</span>32038
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/loop_in/get_or_create</code></p>
+<p><code class="prettyprint">POST /api/v2/loop_in/get_or_create</code></p>
 
 <p>Gets or creates a loop in email.</p>
 
@@ -7398,12 +7398,12 @@ to conversation by sending them to an email address.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/loop_in/disable <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/loop_in/disable <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">obj_type</span><span class="o">=</span>THREAD <span class="se">\</span>
   -d <span class="nv">obj_id</span><span class="o">=</span>32038
 </code></pre>
-<p><code class="prettyprint">POST /api/v1/loop_in/disable</code></p>
+<p><code class="prettyprint">POST /api/v2/loop_in/disable</code></p>
 
 <p>Disables a loop in email.</p>
 
@@ -7490,7 +7490,7 @@ to conversation by sending them to an email address.</p>
 <blockquote>
 <p>Example</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/hooks/subscribe <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/hooks/subscribe <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">target_url</span><span class="o">=</span>https://hooks.yourdomain.com/&lt;unique_target_url&gt;
   -d <span class="nv">event</span><span class="o">=</span>workspace_user_added
@@ -7560,7 +7560,7 @@ to conversation by sending them to an email address.</p>
 <blockquote>
 <p>Example</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v1/hooks/subscribe <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/hooks/subscribe <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">target_url</span><span class="o">=</span>https://hooks.yourdomain.com/&lt;unique_target_url&gt;
 </code></pre>
