@@ -81,7 +81,7 @@ Gets the user's current notification settings.
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| workspace_id | Yes | Number | The workspace id |
+| workspace_id | Number | Yes | The workspace id |
 
 ### Return value
 
@@ -116,7 +116,7 @@ Updates user notifications settings.
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| workspace_id | Yes | Number | The workspace id |
+| workspace_id | Number | Yes | The workspace id |
 | setting | String | Yes | The name of the notifications setting to update, see above |
 | value | Boolean | Yes | The value of the notifications setting to update |
 
@@ -148,5 +148,5 @@ Updates multiple user notifications settings at once.
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| workspace_id | Yes | Number | The workspace id |
+| workspace_id | Number | Yes | The workspace id |
 | mapping | Object | Yes | The notifications settings to update |
