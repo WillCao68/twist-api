@@ -138,7 +138,7 @@ Adds a new thread to a channel.
 | channel_id | Number | Yes | The id of the channel |
 | title | String | Yes | The title of the new thread |
 | content | String | Yes | The content of the new thread |
-| attachments | Array of Objects | No | Files to attach to comment |
+| attachments | Array of Objects | No | List of objects from [attachment#upload](#upload-an-attachment) to attach to the comment |
 | recipients | Array of Numbers or String | No | The users that will be attached to the thread, or `EVERYONE` |
 | groups | Array of Numbers | No | The groups that will be notified |
 | temp_id | Number | No | The temporary id of the thread |
@@ -171,7 +171,7 @@ Updates an existing thread.
 | id | Number | Yes | The id of the thread |
 | title | String | No | The title of the thread |
 | content | String | No | The content of the thread |
-| attachments | Array of Objects | No | Files to attach to comment |
+| attachments | Array of Objects | No | List of objects from [attachment#upload](#upload-an-attachment) to attach to the comment |
 
 ### Return value
 

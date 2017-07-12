@@ -39,7 +39,7 @@ A comment is a message in a thread.
 | thread_id | Number | The id of the thread |
 | channel_id | Number | The id of the channel |
 | workspace_id | Number | The id of the workspace |
-| attachments | Array of Objects | Files to attach to comment |
+| attachments | Array of Objects | Files attached to the comment |
 | recipients | Array of Numbers or String | The users that will be notified, or `EVERYONE` or `EVERYONE_IN_THREAD` |
 | groups | Array of Numbers | The groups that will be notified |
 | reactions | Object | Reactions to the thread, where keys are the reactions and values the users that had that reaction |
@@ -126,7 +126,7 @@ Adds a new comment to a thread.
 | --- | --- | --- | --- |
 | thread_id | Number | Yes | The id of the thread |
 | content | String | Yes | The content of the new comment |
-| attachments | Array of Objects | No | Files to attach to comment |
+| attachments | Array of Objects | No | List of objects from [attachment#upload](#upload-an-attachment) to attach to the comment |
 | recipients | Array of Numbers or String | No | The users that will be notified, or `EVERYONE` or `EVERYONE_IN_THREAD` |
 | groups | Array of Numbers | No | The groups that will be notified |
 | temp_id | Number | No | The temporary id of the comment |
@@ -159,7 +159,7 @@ Updates an existing comment.
 | --- | --- | --- | --- |
 | id | Number | Yes | The id of the comment |
 | content | String | No | The content of the comment |
-| attachments | Array of Objects | No | Files to attach to comment |
+| attachments | Array of Objects | No | List of objects from [attachment#upload](#upload-an-attachment) to attach to the comment |
 
 ### Return value
 
