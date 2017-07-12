@@ -66,17 +66,17 @@ A user represents a real person who collaborates with other users.
 ```shell
 curl https://api.twistapp.com/api/v2/users/getone \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
-  -d id=10073
 ```
 
 `GET /api/v2/users/getone`
 
-Gets info about a user.
+Gets info about a user. In case no `id` is provided, it will return
+the information for the current user.
 
 ### Parameters
 | Name | Type | Required | Description |
 | --- | --- | --- | --- |
-| id | Number | Yes | The id of the user |
+| id | Number | No | The id of the user |
 
 ### Return value
 
