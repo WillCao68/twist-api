@@ -953,11 +953,11 @@
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/getone <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
-  -d <span class="nv">id</span><span class="o">=</span>10073
 </code></pre>
 <p><code class="prettyprint">GET /api/v2/users/getone</code></p>
 
-<p>Gets info about a user.</p>
+<p>Gets info about a user. In case no <code class="prettyprint">id</code> is provided, it will return
+the information for the current user.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -972,7 +972,7 @@
 <tr>
 <td>id</td>
 <td>Number</td>
-<td>Yes</td>
+<td>No</td>
 <td>The id of the user</td>
 </tr>
 </tbody></table>
@@ -3822,6 +3822,12 @@
 <td>No</td>
 <td>The temporary id of the thread</td>
 </tr>
+<tr>
+<td>send_as_integration</td>
+<td>Boolean</td>
+<td>No</td>
+<td>Displays the integration as the thread creator</td>
+</tr>
 </tbody></table>
 
 <h3 id="return-value">Return value</h3>
@@ -3833,10 +3839,10 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/update <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/threads/update <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>32038 <span class="se">\</span>
-  -d <span class="nv">name</span><span class="o">=</span>Thread1
+  -d <span class="nv">title</span><span class="o">=</span>Thread1
 <span class="sb">``</span>
 
 <span class="sb">`</span>POST /api/v2/threads/update<span class="sb">`</span>
@@ -4580,6 +4586,12 @@ curl https://api.twistapp.com/api/v2/threads/remove <span class="se">\</span>
 <td>Boolean</td>
 <td>No</td>
 <td>By default, the position of the thread is marked</td>
+</tr>
+<tr>
+<td>send_as_integration</td>
+<td>Boolean</td>
+<td>No</td>
+<td>Displays the integration as the comment creator</td>
 </tr>
 </tbody></table>
 
