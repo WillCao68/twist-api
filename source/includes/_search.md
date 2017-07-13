@@ -14,7 +14,7 @@ curl https://api.twistapp.com/api/v2/search/query \
 
 `GET /api/v2/search/query`
 
-> Return object::
+> Return object:
 
 ```json
 {
