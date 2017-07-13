@@ -3802,7 +3802,7 @@ the information for the current user.</p>
 <td>attachments</td>
 <td>Array of Objects</td>
 <td>No</td>
-<td>Files to attach to comment</td>
+<td>List of objects from <a href="#upload-an-attachment">attachment#upload</a> to attach to the comment</td>
 </tr>
 <tr>
 <td>recipients</td>
@@ -3843,32 +3843,57 @@ the information for the current user.</p>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>32038 <span class="se">\</span>
   -d <span class="nv">title</span><span class="o">=</span>Thread1
-<span class="sb">``</span>
+</code></pre>
+<p><code class="prettyprint">POST /api/v2/threads/update</code></p>
 
-<span class="sb">`</span>POST /api/v2/threads/update<span class="sb">`</span>
+<p>Updates an existing thread.</p>
 
-Updates an existing thread.
+<h3 id="parameters">Parameters</h3>
 
-<span class="c">### Parameters</span>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>Yes</td>
+<td>The id of the thread</td>
+</tr>
+<tr>
+<td>title</td>
+<td>String</td>
+<td>No</td>
+<td>The title of the thread</td>
+</tr>
+<tr>
+<td>content</td>
+<td>String</td>
+<td>No</td>
+<td>The content of the thread</td>
+</tr>
+<tr>
+<td>attachments</td>
+<td>Array of Objects</td>
+<td>No</td>
+<td>List of objects from <a href="#upload-an-attachment">attachment#upload</a> to attach to the comment</td>
+</tr>
+</tbody></table>
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the thread |
-| title | String | No | The title of the thread |
-| content | String | No | The content of the thread |
-| attachments | Array of Objects | No | Files to attach to comment |
+<h3 id="return-value">Return value</h3>
 
-<span class="c">### Return value</span>
+<p>The updated thread object is returned.</p>
 
-The updated thread object is returned.
+<h2 id="remove-thread">Remove thread</h2>
 
-
-<span class="c">## Remove thread</span>
-
-<span class="gp">&gt; </span>Example:
-
-<span class="sb">```</span>shell
-curl https://api.twistapp.com/api/v2/threads/remove <span class="se">\</span>
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/remove <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>32038
 </code></pre>
@@ -4375,7 +4400,7 @@ curl https://api.twistapp.com/api/v2/threads/remove <span class="se">\</span>
 <tr>
 <td>attachments</td>
 <td>Array of Objects</td>
-<td>Files to attach to comment</td>
+<td>Files attached to the comment</td>
 </tr>
 <tr>
 <td>recipients</td>
@@ -4470,7 +4495,7 @@ curl https://api.twistapp.com/api/v2/threads/remove <span class="se">\</span>
 <tr>
 <td>thread_id</td>
 <td>Number</td>
-<td>No</td>
+<td>Yes</td>
 <td>The id of the thread</td>
 </tr>
 <tr>
@@ -4561,7 +4586,7 @@ curl https://api.twistapp.com/api/v2/threads/remove <span class="se">\</span>
 <td>attachments</td>
 <td>Array of Objects</td>
 <td>No</td>
-<td>Files to attach to comment</td>
+<td>List of objects from <a href="#upload-an-attachment">attachment#upload</a> to attach to the comment</td>
 </tr>
 <tr>
 <td>recipients</td>
@@ -4639,7 +4664,7 @@ curl https://api.twistapp.com/api/v2/threads/remove <span class="se">\</span>
 <td>attachments</td>
 <td>Array of Objects</td>
 <td>No</td>
-<td>Files to attach to comment</td>
+<td>List of objects from <a href="#upload-an-attachment">attachment#upload</a> to attach to the comment</td>
 </tr>
 </tbody></table>
 
@@ -5947,10 +5972,10 @@ curl https://api.twistapp.com/api/v2/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/attachments/upload <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/attachments/upload <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
-    -F <span class="nv">attachment_id</span><span class="o">=</span>c8f962d3-491b-4a43-92c2-43f7ac076408 <span class="se">\</span>
-    -F <span class="nv">file_name</span><span class="o">=</span>@image.png
+  -F <span class="nv">attachment_id</span><span class="o">=</span>c8f962d3-491b-4a43-92c2-43f7ac076408 <span class="se">\</span>
+  -F <span class="nv">file_name</span><span class="o">=</span>@image.png
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/attachments/upload</code></p>
 
@@ -5989,9 +6014,9 @@ curl https://api.twistapp.com/api/v2/threads/remove <span class="se">\</span>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/attachments/upload <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/attachments/upload <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
-    -d <span class="nv">attachment_id</span><span class="o">=</span>c8f962d3-491b-4a43-92c2-43f7ac076408 <span class="se">\</span>
+  -d <span class="nv">attachment_id</span><span class="o">=</span>c8f962d3-491b-4a43-92c2-43f7ac076408 <span class="se">\</span>
   -d <span class="nv">comment_id</span><span class="o">=</span>241432
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/attachments/remove</code></p>
@@ -6327,7 +6352,7 @@ all threads, but the most recent threads ordered by date.</p>
 <p><code class="prettyprint">GET /api/v2/search/query</code></p>
 
 <blockquote>
-<p>Return object::</p>
+<p>Return object:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="err">hits</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
@@ -7087,8 +7112,8 @@ all threads, but the most recent threads ordered by date.</p>
 </thead><tbody>
 <tr>
 <td>workspace_id</td>
-<td>Yes</td>
 <td>Number</td>
+<td>Yes</td>
 <td>The workspace id</td>
 </tr>
 </tbody></table>
@@ -7131,8 +7156,8 @@ all threads, but the most recent threads ordered by date.</p>
 </thead><tbody>
 <tr>
 <td>workspace_id</td>
-<td>Yes</td>
 <td>Number</td>
+<td>Yes</td>
 <td>The workspace id</td>
 </tr>
 <tr>
@@ -7182,8 +7207,8 @@ all threads, but the most recent threads ordered by date.</p>
 </thead><tbody>
 <tr>
 <td>workspace_id</td>
-<td>Yes</td>
 <td>Number</td>
+<td>Yes</td>
 <td>The workspace id</td>
 </tr>
 <tr>
