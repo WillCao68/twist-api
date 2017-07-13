@@ -103,7 +103,7 @@ Gets all threads in a channel.
 
 | Name | Type | Required | Description |
 | --- | --- | --- | --- |
-| channel_id | Number | No | The id of the channel |
+| channel_id | Number | Yes | The id of the channel |
 | workspace_id | Number | No | The id of the workspace |
 | filter_by | String | No | A filter can be one of `attached_to_me`, `everyone` and `is_starred` |
 | newer_than_ts | Number | No | Limits threads to those newer whan the specified Unix time |
