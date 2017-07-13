@@ -91,7 +91,7 @@ Gets all comments in a channel.
 
 | Name | Type | Required | Description |
 | --- | --- | --- | --- |
-| thread_id | Number | No | The id of the thread |
+| thread_id | Number | Yes | The id of the thread |
 | newer_than_ts | String | No | Limit comments to those newer than the specified Unix timestamp |
 | older_than_ts | String | No | Limit comments to those older than the specified Unix timestamp |
 | from_obj_index | Number | No | Limit comments starting at the specified object index |
