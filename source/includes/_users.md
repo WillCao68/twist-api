@@ -48,10 +48,10 @@ A user represents a real person who collaborates with other users.
 | snooze_dnd_start | String | Start time of do-not-disturb snooze for notifications |
 | snooze_dnd_stop | String | Stop time of do-not-disturb snooze for notifications |
 | is_snoozed | Boolean | Whether notifications are snoozed |
-| away_mode | Object | Away mode sets the user as away until some future date |
-| away_mode.type | String | The reason of being in away mode one of `parental`, `vacation`, `sickleave`, or `other` |
-| away_mode.date_from | String | The start date of the away mode in a `%Y-%m-%d` format (optional) |
-| away_mode.date_to | String | The end date of the away mode in a `%Y-%m-%d` format |
+| away_mode | Object | No | Away mode sets the user as away until some future date |
+| away_mode\#type | String | The reason of being in away mode may be `parental`, `vacation`, `sickleave`, or `other` |
+| away_mode\#date_from | String | The start date of the away mode in a `%Y-%m-%d` format. The `date_from` parameter is inclusive. *optional* |
+| away_mode\#date_to | String | The end date of the away mode in a `%Y-%m-%d` format. The `date_to` parameter is exclusive, which means the user will start receiving notifications on this date |
 | off_days | Array of numbers | Sets the user's off days (where they will get no notifications). It should be an array of numbers representing ISO weekdays, e.g. 1 is Monday and 7 is Sunday. E.g. `[6, 7]` |
 | setup_pending | Number/Boolean | Whether setup is pending |
 | is_bot | Boolean | Whether user is a bot |
@@ -187,9 +187,9 @@ Updates user's details.
 | snooze_dnd_start | String | No | Start time of do-not-disturb snooze for notifications |
 | snooze_dnd_stop | String | No | Stop time of do-not-disturb snooze for notifications |
 | away_mode | Object | No | Away mode sets the user as away until some future date |
-| away_mode\#type | String | No | The reason of being in away mode one of `parental`, `vacation`, `sickleave`, or `other` |
-| away_mode\#date_from | String | No | The start date of the away mode in a `%Y-%m-%d` format (optional) |
-| away_mode\#date_to | String | No | The end date of the away mode in a `%Y-%m-%d` format |
+| away_mode\#type | String | No | The reason of being in away mode may be `parental`, `vacation`, `sickleave`, or `other` |
+| away_mode\#date_from | String | No | The start date of the away mode in a `%Y-%m-%d` format. The `date_from` parameter is inclusive. *optional* |
+| away_mode\#date_to | String | No | The end date of the away mode in a `%Y-%m-%d` format. The `date_to` parameter is exclusive, which means the user will start receiving notifications on this date |
 | off_days | Array of numbers | No | Sets the user's off days (where they will get no notifications). It should be an array of numbers representing ISO weekdays, e.g. 1 is Monday and 7 is Sunday. E.g. `[6, 7]` |
 
 ### Return value
