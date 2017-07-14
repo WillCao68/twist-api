@@ -5,30 +5,30 @@ toc_footers:
   - <a href='https://twistapp.com/integrations/create'>Create your oAuth2 app</a>
 
 includes:
-  - errors
-  - authentication
-  - batch
-  - users
-  - workspaces
-  - groups
-  - channels
-  - threads
-  - comments
-  - conversations
-  - conversation_messages
-  - attachments
-  - reactions
-  - inbox
-  - search
-  - notifications
-  - notification_settings
-  - url_join
-  - loop_in
-  - integration_types
-  - integration_rest_hooks
-  - integration_ws
-  - integration_configure_url
-  - integration_automatic_reports
+  - v2/errors
+  - v2/authentication
+  - v2/batch
+  - v2/users
+  - v2/workspaces
+  - v2/groups
+  - v2/channels
+  - v2/threads
+  - v2/comments
+  - v2/conversations
+  - v2/conversation_messages
+  - v2/attachments
+  - v2/reactions
+  - v2/inbox
+  - v2/search
+  - v2/notifications
+  - v2/notification_settings
+  - v2/url_join
+  - v2/loop_in
+  - v2/integration_types
+  - v2/integration_rest_hooks
+  - v2/integration_ws
+  - v2/integration_configure_url
+  - v2/integration_automatic_reports
 
 search: true
 ---
