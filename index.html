@@ -902,22 +902,22 @@
 <tr>
 <td>away_mode</td>
 <td>Object</td>
-<td>Away mode sets the user as away until some future date</td>
+<td>No</td>
 </tr>
 <tr>
-<td>away_mode.type</td>
+<td>away_mode#type</td>
 <td>String</td>
-<td>The reason of being in away mode one of <code class="prettyprint">parental</code>, <code class="prettyprint">vacation</code>, <code class="prettyprint">sickleave</code>, or <code class="prettyprint">other</code></td>
+<td>The reason of being in away mode may be <code class="prettyprint">parental</code>, <code class="prettyprint">vacation</code>, <code class="prettyprint">sickleave</code>, or <code class="prettyprint">other</code></td>
 </tr>
 <tr>
-<td>away_mode.date_from</td>
+<td>away_mode#date_from</td>
 <td>String</td>
-<td>The start date of the away mode in a <code class="prettyprint">%Y-%m-%d</code> format (optional)</td>
+<td>The start date of the away mode in a <code class="prettyprint">%Y-%m-%d</code> format. The <code class="prettyprint">date_from</code> parameter is inclusive. <em>optional</em></td>
 </tr>
 <tr>
-<td>away_mode.date_to</td>
+<td>away_mode#date_to</td>
 <td>String</td>
-<td>The end date of the away mode in a <code class="prettyprint">%Y-%m-%d</code> format</td>
+<td>The end date of the away mode in a <code class="prettyprint">%Y-%m-%d</code> format. The <code class="prettyprint">date_to</code> parameter is exclusive, which means the user will start receiving notifications on this date</td>
 </tr>
 <tr>
 <td>off_days</td>
@@ -1187,19 +1187,19 @@ the information for the current user.</p>
 <td>away_mode#type</td>
 <td>String</td>
 <td>No</td>
-<td>The reason of being in away mode one of <code class="prettyprint">parental</code>, <code class="prettyprint">vacation</code>, <code class="prettyprint">sickleave</code>, or <code class="prettyprint">other</code></td>
+<td>The reason of being in away mode may be <code class="prettyprint">parental</code>, <code class="prettyprint">vacation</code>, <code class="prettyprint">sickleave</code>, or <code class="prettyprint">other</code></td>
 </tr>
 <tr>
 <td>away_mode#date_from</td>
 <td>String</td>
 <td>No</td>
-<td>The start date of the away mode in a <code class="prettyprint">%Y-%m-%d</code> format (optional)</td>
+<td>The start date of the away mode in a <code class="prettyprint">%Y-%m-%d</code> format. The <code class="prettyprint">date_from</code> parameter is inclusive. <em>optional</em></td>
 </tr>
 <tr>
 <td>away_mode#date_to</td>
 <td>String</td>
 <td>No</td>
-<td>The end date of the away mode in a <code class="prettyprint">%Y-%m-%d</code> format</td>
+<td>The end date of the away mode in a <code class="prettyprint">%Y-%m-%d</code> format. The <code class="prettyprint">date_to</code> parameter is exclusive, which means the user will start receiving notifications on this date</td>
 </tr>
 <tr>
 <td>off_days</td>
