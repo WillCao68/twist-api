@@ -36,28 +36,28 @@ A thread is a discussion.
 
 ### Properties of thread object
 
-| Name | Type | Description |
-| ---- | --- | --- |
-| id | Number | The id of the thread |
-| title | String | The title of the thread |
-| content | String | The content of the thread |
-| is_starred | Number | Whether the thread is starred |
-| creator | Number | The user that created the thread |
-| channel_id | Number | The id of the channel |
-| workspace_id | Number | The id of the workspace |
-| attachments | Array of Objects | Files attached to the comment |
-| recipients | Array of Numbers or String | The users that were initially attached to the the thread, or `EVERYONE` |
-| participants | Array of Numbers | The users that were at some point attached to the thread or one of its comments |
-| groups | Array of Numbers | The groups that will be notified |
-| reactions | Object | Reactions to the thread, where keys are the reactions and values the users that had that reaction |
-| comment_count | Number | The number of comments |
-| last_obj_index | Number | The last comment's index |
-| snippet | String | A part of the last comment |
-| snippet_creator | Number | The user of the last comment |
-| last_updated | String | The date and time when the thread was last updated |
-| last_updated_ts | Number | The Unix time when the thread was last updated |
-| system_message | String | A system message |
-| posted_ts | Number | The Unix time when the thread was created |
+| Name | Description |
+| ---- | --- |
+| id *Integer* | The id of the thread |
+| title *String* | The title of the thread |
+| content *String* | The content of the thread |
+| is_starred *Integer* | Whether the thread is starred |
+| creator *Integer* | The user that created the thread |
+| channel_id *Integer* | The id of the channel |
+| workspace_id *Integer* | The id of the workspace |
+| attachments *List of Objects* | Files attached to the comment |
+| recipients *List of Numbers or String | The users that were initially attached to the the thread, or `EVERYONE` |
+| participants *List of Numbers* | The users that were at some point attached to the thread or one of its comments |
+| groups *List of Numbers* | The groups that will be notified |
+| reactions *Object* | Reactions to the thread, where keys are the reactions and values the users that had that reaction |
+| comment_count *Integer* | The number of comments |
+| last_obj_index *Integer* | The last comment's index |
+| snippet *String* | A part of the last comment |
+| snippet_creator *Integer* | The user of the last comment |
+| last_updated *String* | The date and time when the thread was last updated |
+| last_updated_ts *Integer* | The Unix time when the thread was last updated |
+| system_message *String* | A system message |
+| posted_ts *Integer* | The Unix time when the thread was created |
 
 
 ## Get thread
@@ -76,9 +76,9 @@ Gets a thread object by id.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the thread |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the thread |
 
 ### Return value
 
@@ -101,15 +101,15 @@ Gets all threads in a channel.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| channel_id | Number | Yes | The id of the channel |
-| workspace_id | Number | No | The id of the workspace |
-| filter_by | String | No | A filter can be one of `attached_to_me`, `everyone` and `is_starred` |
-| newer_than_ts | Number | No | Limits threads to those newer whan the specified Unix time |
-| older_than_ts | Number | No | Limits threads to those older whan the specified Unix time |
-| limit | Number | No | Limits the number of threads returned |
-| as_ids | Boolean | No | If enabled, only the ids of the threads are returned |
+| Name | Required | Description |
+| --- | --- | --- |
+| channel_id *Integer* | Yes | The id of the channel |
+| workspace_id *Integer* | No | The id of the workspace |
+| filter_by *String* | No | A filter can be one of `attached_to_me`, `everyone` and `is_starred` |
+| newer_than_ts *Integer* | No | Limits threads to those newer whan the specified Unix time |
+| older_than_ts *Integer* | No | Limits threads to those older whan the specified Unix time |
+| limit *Integer* | No | Limits the number of threads returned |
+| as_ids *Boolean* | No | If enabled, only the ids of the threads are returned |
 
 ### Return value
 
@@ -121,7 +121,7 @@ A list of thread objects is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/threads/add \
+curl -X POST https://api.twistapp.com/api/v2/threads/add \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d channel_id=6984 \
   -d name=Thread1
@@ -133,16 +133,16 @@ Adds a new thread to a channel.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| channel_id | Number | Yes | The id of the channel |
-| title | String | Yes | The title of the new thread |
-| content | String | Yes | The content of the new thread |
-| attachments | Array of Objects | No | List of objects from [attachment#upload](#upload-an-attachment) to attach to the comment |
-| recipients | Array of Numbers or String | No | The users that will be attached to the thread, or `EVERYONE` |
-| groups | Array of Numbers | No | The groups that will be notified |
-| temp_id | Number | No | The temporary id of the thread |
-| send_as_integration | Boolean | No | Displays the integration as the thread creator |
+| Name | Required | Description |
+| --- | --- | --- |
+| channel_id *Integer* | Yes | The id of the channel |
+| title *String* | Yes | The title of the new thread |
+| content *String* | Yes | The content of the new thread |
+| attachments *List of Objects* | No | List of objects from [attachment#upload](#upload-an-attachment) to attach to the comment |
+| recipients *List of Numbers or String* | No | The users that will be attached to the thread, or `EVERYONE` |
+| groups *List of Numbers* | No | The groups that will be notified |
+| temp_id *Integer* | No | The temporary id of the thread |
+| send_as_integration *Boolean* | No | Displays the integration as the thread creator |
 
 ### Return value
 
@@ -166,12 +166,12 @@ Updates an existing thread.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the thread |
-| title | String | No | The title of the thread |
-| content | String | No | The content of the thread |
-| attachments | Array of Objects | No | List of objects from [attachment#upload](#upload-an-attachment) to attach to the comment |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the thread |
+| title *String* | No | The title of the thread |
+| content *String* | No | The content of the thread |
+| attachments *List of Objects* | No | List of objects from [attachment#upload](#upload-an-attachment) to attach to the comment |
 
 ### Return value
 
@@ -183,11 +183,10 @@ The updated thread object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/threads/remove \
+curl -X POST https://api.twistapp.com/api/v2/threads/remove \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=32038
 ```
-
 
 `POST /api/v2/threads/remove`
 
@@ -195,9 +194,9 @@ Removes a thread.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the thread |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the thread |
 
 ### Return value
 
@@ -213,7 +212,7 @@ Removes a thread.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/threads/star \
+curl -X POST https://api.twistapp.com/api/v2/threads/star \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=32038
 ```
@@ -224,9 +223,9 @@ Stars a thread.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the thread |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the thread |
 
 > Return value:
 
@@ -242,7 +241,7 @@ Stars a thread.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/threads/unstar \
+curl -X POST https://api.twistapp.com/api/v2/threads/unstar \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=32038
 ```
@@ -253,9 +252,9 @@ Unstars a thread.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the thread |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the thread |
 
 > Return value:
 
@@ -271,7 +270,7 @@ Unstars a thread.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/threads/move_to_channel \
+curl -X POST https://api.twistapp.com/api/v2/threads/move_to_channel \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=6984 \
   -d to_channel=6984
@@ -283,10 +282,10 @@ Moves thread to a different channel.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the thread |
-| to_channel | Number | Yes | The target channel's id |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the thread |
+| to_channel *Integer* | Yes | The target channel's id |
 
 > Return value:
 
@@ -302,7 +301,7 @@ Moves thread to a different channel.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/threads/follow \
+curl -X POST https://api.twistapp.com/api/v2/threads/follow \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=32038
 ```
@@ -313,9 +312,9 @@ Follows thread.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the thread |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the thread |
 
 > Return value:
 
@@ -331,7 +330,7 @@ Follows thread.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/threads/unfollow \
+curl -X POST https://api.twistapp.com/api/v2/threads/unfollow \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=32038
 ```
@@ -342,9 +341,9 @@ Unfollows thread.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the thread |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the thread |
 
 > Return value:
 
@@ -371,9 +370,9 @@ Gets unread threads in a workspace.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| workspace_id | Number | Yes | The id of the workspace |
+| Name | Required | Description |
+| --- | --- | --- |
+| workspace_id *Integer* | Yes | The id of the workspace |
 
 ### Return value
 
@@ -385,7 +384,7 @@ A list of thread objects is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/threads/mark_read \
+curl -X POST https://api.twistapp.com/api/v2/threads/mark_read \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=32038 \
   -d obj_index=2
@@ -397,10 +396,10 @@ Marks thread as read.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the thread |
-| obj_index | Number | Yes | The index of the last known read message |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the thread |
+| obj_index *Integer* | Yes | The index of the last known read message |
 
 > Return value:
 
@@ -416,7 +415,7 @@ Marks thread as read.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/threads/mark_unread \
+curl -X POST https://api.twistapp.com/api/v2/threads/mark_unread \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=32038 \
   -d obj_index=2
@@ -428,10 +427,10 @@ Marks thread as unread.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the thread |
-| obj_index | Number | Yes | The index of the last unread message |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the thread |
+| obj_index *Integer* | Yes | The index of the last unread message |
 
 > Return value:
 
@@ -447,7 +446,7 @@ Marks thread as unread.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/threads/mark_all_read \
+curl -X POST https://api.twistapp.com/api/v2/threads/mark_all_read \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d channel_id=6984
 ```
@@ -458,10 +457,10 @@ Marks all thread in workspace or channel as read.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| workspace_id | Number | Yes, this or `channel_id` | The id of the workspace |
-| channel_id | Number | Yes, this or `workspace_id` | The id of the channel |
+| Name | Required | Description |
+| --- | --- | --- |
+| workspace_id *Integer* | Yes, this or `channel_id` | The id of the workspace |
+| channel_id *Integer* | Yes, this or `workspace_id` | The id of the channel |
 
 > Return value:
 
@@ -477,7 +476,7 @@ Marks all thread in workspace or channel as read.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/threads/clear_unread \
+curl -X POST https://api.twistapp.com/api/v2/threads/clear_unread \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d workspace_id=5517
 ```
@@ -487,9 +486,10 @@ curl https://api.twistapp.com/api/v2/threads/clear_unread \
 Clears unread threads in workspace.
 
 ### Parameters
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| workspace_id | Number | Yes | The id of the workspace |
+
+| Name | Required | Description |
+| --- | --- | --- |
+| workspace_id *Integer* | Yes | The id of the workspace |
 
 > Return value:
 
