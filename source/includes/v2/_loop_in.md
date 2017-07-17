@@ -13,9 +13,9 @@ to conversation by sending them to an email address.
 
 ### Properties of URL join object
 
-| Name | Type | Description |
-| ---- | --- | --- |
-| email | String | The email address to use to add threads/comments/messages |
+| Name | Description |
+| ---- | --- |
+| email *String* | The email address to use to add threads/comments/messages |
 
 ## Get or create a loop in email
 
@@ -34,10 +34,10 @@ Gets or creates a loop in email.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| obj_type | String | Yes | The type of the object, one of `CHANNEL`, `THREAD` or `CONVERSATION` |
-| obj_id | Number | Yes | The id of the object |
+| Name | Required | Description |
+| --- | --- | --- |
+| obj_type *String* | Yes | The type of the object, one of `CHANNEL`, `THREAD` or `CONVERSATION` |
+| obj_id *Integer* | Yes | The id of the object |
 
 > Return value:
 
@@ -65,10 +65,10 @@ Disables a loop in email.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| obj_type | String | Yes | The type of the object, one of `CHANNEL`, `THREAD` or `CONVERSATION` |
-| obj_id | Number | Yes | The id of the object |
+| Name | Required | Description |
+| --- | --- | --- |
+| obj_type *String* | Yes | The type of the object, one of `CHANNEL`, `THREAD` or `CONVERSATION` |
+| obj_id *Integer* | Yes | The id of the object |
 
 > Return value:
 
