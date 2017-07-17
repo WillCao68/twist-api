@@ -5,6 +5,7 @@ toc_footers:
   - <a href='https://twistapp.com/integrations/create'>Create your oAuth2 app</a>
 
 includes:
+  - v2/overview
   - v2/errors
   - v2/authentication
   - v2/batch
@@ -33,35 +34,27 @@ includes:
 search: true
 ---
 
-# Introduction
+<!--
 
-Add extra functionality for your own teams or build integrations to share with others.
+The MIT License (MIT)
 
-This is the official documentation of the Twist API.
+Copyright (c) 2016-2017 Doist
 
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-## Authentication
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-Login and signup are done via `/api/v2/users/login` and `/api/v2/users/register`. For public integrations you must use our oAuth 2 authentication.
-
-
-## Temporary ids
-
-Temporary ids are negative and can be used when adding, updating or deleting items.
-
-
-## Return results and error handling
-
-A response is always a JSON object which can be following:
-
-- On successful return: JSON data
-- On an error return, HTTP error code followed by: `{ “error”: [error_code, error_string], **kwargs }`
-
-
-## Dates
-For dates we use ISO 8601. The formatting we can have inside the system:
-- Date time: `%Y-%m-%d %H:%M:%S`
-- Date only: `%Y-%m-%d`
-- With timezone info: `%Y-%m-%d %H:%M:%S +00:00`
-
-The current API should only return `%Y-%m-%d %H:%M:%S`, where the time zone is implicit set to `UTC`.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
