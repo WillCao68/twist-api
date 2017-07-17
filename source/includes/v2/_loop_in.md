@@ -22,7 +22,7 @@ to conversation by sending them to an email address.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/loop_in/get_or_create \
+curl -X POST https://api.twistapp.com/api/v2/loop_in/get_or_create \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d obj_type=THREAD \
   -d obj_id=32038
@@ -53,7 +53,7 @@ Gets or creates a loop in email.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/loop_in/disable \
+curl -X POST https://api.twistapp.com/api/v2/loop_in/disable \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d obj_type=THREAD \
   -d obj_id=32038
