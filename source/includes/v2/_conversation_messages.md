@@ -1,6 +1,7 @@
 # Conversation messages
 
-A conversation message is a message between one or more users participating in a conversation.
+A conversation message is a message between one or more users participating in a
+conversation.
 
 > Conversation message object:
 
@@ -23,20 +24,20 @@ A conversation message is a message between one or more users participating in a
 
 ### Properties of conversation message object
 
-| Name | Type | Description |
-| ---- | --- | --- |
-| id | Number | The id of the message |
-| content | String | The content of the message |
-| creator | Number | The user that added the message |
-| conversation_id | Number | The id of the conversation |
-| workspace_id | Number | The id of the workspace |
-| obj_index | Number | The index of the message in regards to all other messages in the conversation |
-| attachments | Array of Objects | Files attached to the message |
-| actions | Array of Objects | Actions define special messages that trigger actions, buttons to click to open URLs, etc. |
-| reactions | Object | Reactions to the thread, where keys are the reactions and values the users that had that reaction |
-| is_deleted | Number | Whether the message is deleted |
-| system_message | String | A system message |
-| posted_ts | Number | The Unix time when the message was created |
+| Name | Description |
+| ---- | --- |
+| id *Integer* | The id of the message |
+| content *String* | The content of the message |
+| creator *Integer* | The user that added the message |
+| conversation_id *Integer* | The id of the conversation |
+| workspace_id *Integer* | The id of the workspace |
+| obj_index *Integer* | The index of the message in regards to all other messages in the conversation |
+| attachments *List of Objects* | Files attached to the message |
+| actions *List of Objects* | Actions define special messages that trigger actions, buttons to click to open URLs, etc. |
+| reactions *Object* | Reactions to the thread, where keys are the reactions and values the users that had that reaction |
+| is_deleted *Integer* | Whether the message is deleted |
+| system_message *String* | A system message |
+| posted_ts *Integer* | The Unix time when the message was created |
 
 
 ## Get message
@@ -55,9 +56,9 @@ Gets a single conversation message.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the conversation message |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the conversation message |
 
 ### Return value
 
@@ -80,14 +81,14 @@ Gets messages from a conversation.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| conversation_id | Number | Yes | The id of the conversation |
-| limit | Number | No | Limits the number of messages returned |
-| from_obj_index | Number | No | Limit messages starting at the specified object index |
-| to_obj_index | String | No | Limit messages ending at the specified object index |
-| order_by | String | No | The order of the conversations returned one of `DESC` or `ASC` |
-| as_ids | Boolean | No | If enabled, only the ids of the messages are returned |
+| Name | Required | Description |
+| --- | --- | --- |
+| conversation_id *Integer* | Yes | The id of the conversation |
+| limit *Integer* | No | Limits the number of messages returned |
+| from_obj_index *Integer* | No | Limit messages starting at the specified object index |
+| to_obj_index *String* | No | Limit messages ending at the specified object index |
+| order_by *String* | No | The order of the conversations returned one of `DESC` or `ASC` |
+| as_ids *Boolean* | No | If enabled, only the ids of the messages are returned |
 
 ### Return value
 
@@ -99,7 +100,7 @@ A list of conversation message objects is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/conversation_messages/add \
+curl -X POST https://api.twistapp.com/api/v2/conversation_messages/add \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d conversation_id=13037 \
   -d content="Hello!"
@@ -111,11 +112,11 @@ Adds a message to an existing conversation.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| conversation_id | Number | Yes | The id of the conversation |
-| content | String | Yes | The content of the new message |
-| attachments | String | No | Attachments to the new message |
+| Name | Required | Description |
+| --- | --- | --- |
+| conversation_id *Integer* | Yes | The id of the conversation |
+| content *String* | Yes | The content of the new message |
+| attachments *String* | No | Attachments to the new message |
 
 ### Return value
 
@@ -127,7 +128,7 @@ A conversation message object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/conversation_messages/update \
+curl -X POST https://api.twistapp.com/api/v2/conversation_messages/update \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d conversation_id=13037 \
   -d content="Hello!"
@@ -139,11 +140,11 @@ Updates a message in conversation.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the message |
-| content | String | No | The content of the new message |
-| attachments | String | No | Attachments to the new message |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the message |
+| content *String* | No | The content of the new message |
+| attachments *String* | No | Attachments to the new message |
 
 ### Return value
 
@@ -155,7 +156,7 @@ A conversation message object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/conversation_messages/remove \
+curl -X POST https://api.twistapp.com/api/v2/conversation_messages/remove \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=514069
 ```
@@ -166,9 +167,9 @@ Removes a message from conversation.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the message |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the message |
 
 > Return value:
 
