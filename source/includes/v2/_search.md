@@ -9,8 +9,8 @@ text.
 
 ```shell
 curl https://api.twistapp.com/api/v2/search/query \
-  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
-  -d query=texts
+    -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
+    -d query=texts
 ```
 
 `GET /api/v2/search/query`
@@ -92,8 +92,11 @@ Searches for a string.
 > Example:
 
 ```shell
-curl "https://api.twistapp.com/api/v2/search/comments?query=texts&workspace_id=201&thread_id=401" \
-  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
+curl https://api.twistapp.com/api/v2/search/comments \
+    -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
+    -d query=texts \
+    -d workspace_id=201 \
+    -d thread_id=401"
 ```
 
 `GET /api/v2/search/comments`
@@ -157,8 +160,12 @@ Here we get more details about a thread and its comments.
 > Example:
 
 ```shell
-curl "https://api.twistapp.com/api/v2/search/expand_comment_range?idx_end=3&thread_id=401&workspace_id=201&idx_start=0" \
-  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
+curl https://api.twistapp.com/api/v2/search/expand_comment_range \
+    -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
+    -d idx_end=3 \
+    -d thread_id=401 \
+    -d workspace_id=201 \
+    -d idx_start=0
 ```
 
 `GET /api/v2/search/expand_comment_range`
@@ -205,8 +212,11 @@ The thread is expanded, that is more comments are returned.
 > Example:
 
 ```shell
-curl "https://api.twistapp.com/api/v2/search/messages?query=hello&workspace_id=201&aggregate_id=123-345-678-9" \
-  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
+curl https://api.twistapp.com/api/v2/search/messages \
+    -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
+    -d query=hello \
+    -d workspace_id=201 \
+    -d aggregate_id=123-345-678-9
 ```
 
 `GET /api/v2/search/messages`
@@ -301,8 +311,13 @@ Here we get more details about a conversation and its messages.
 > Example:
 
 ```shell
-curl "https://api.twistapp.com/api/v2/search/expand_conversation_message_range?conversation_id=601&idx_end=5&workspace_id=201&idx_start=0&direction=top" \
-  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
+curl https://api.twistapp.com/api/v2/search/expand_conversation_message_range \
+    -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
+    -d conversation_id=601 \
+    -d idx_end=5 \
+    -d workspace_id=201 \
+    -d idx_start=0 \
+    -d direction=top
 ```
 
 `GET /api/v2/search/expand_conversation_message_range`
