@@ -16,13 +16,13 @@ A group is a number of users grouped together under some name, a team.
 
 ### Properties of group object
 
-| Name | Type | Description |
-| --- | --- | --- |
-| id | Number | The id of the group |
-| name | String | The name of the group |
-| description | String | The description of the group |
-| user_ids | Array of Numbers | The users that are part of the group |
-| workspace_id | Number | The id of the workspace |
+| Name | Description |
+| --- | --- |
+| id *Integer* | The id of the group |
+| name *String* | The name of the group |
+| description *String* | The description of the group |
+| user_ids *List of Integers* | The users that are part of the group |
+| workspace_id *Integer* | The id of the workspace |
 
 
 ## Get group
@@ -41,9 +41,9 @@ Gets a single group object.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the group |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the group |
 
 ### Return value
 
@@ -66,9 +66,9 @@ Gets all groups in a workspace.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| workspace_id | Number | Yes | The id of the workspace |
+| Name | Required | Description |
+| --- | --- | --- |
+| workspace_id *Integer* | Yes | The id of the workspace |
 
 
 ### Return value
@@ -81,7 +81,7 @@ A list of group objects is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/groups/add \
+curl -X POST https://api.twistapp.com/api/v2/groups/add \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d workspace_id=5571 \
   -d name=Group1 \
@@ -93,11 +93,11 @@ curl https://api.twistapp.com/api/v2/groups/add \
 Adds a new group to a workspace.
 
 ### Parameters
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| workspace_id | Number | Yes | The id of the workspace |
-| name | String | Yes | The name of the new group |
-| user_ids | Array of Numbers | No | The users that will comprise the group |
+| Name | Required | Description |
+| --- | --- | --- |
+| workspace_id *Integer* | Yes | The id of the workspace |
+| name *String* | Yes | The name of the new group |
+| user_ids *List of Integers* | No | The users that will comprise the group |
 
 ### Return value
 
@@ -109,7 +109,7 @@ A group object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/groups/update \
+curl -X POST https://api.twistapp.com/api/v2/groups/update \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=498 \
   -d name=Group1
@@ -121,10 +121,10 @@ Updates an existing group.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the group |
-| name | String | Yes | The name of the group |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the group |
+| name *String* | Yes | The name of the group |
 
 ### Return value
 
@@ -136,7 +136,7 @@ The updated group object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/groups/remove \
+curl -X POST https://api.twistapp.com/api/v2/groups/remove \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=498
 ```
@@ -155,9 +155,9 @@ Removes a group.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the group |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the group |
 
 
 ## Add user
@@ -165,7 +165,7 @@ Removes a group.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/groups/add_user \
+curl -X POST https://api.twistapp.com/api/v2/groups/add_user \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=498 \
   -d user_id=10076
@@ -185,10 +185,10 @@ Adds a person to a group.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the group |
-| user_id | Number | Yes | The user's id |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the group |
+| user_id *Integer* | Yes | The user's id |
 
 
 ## Add users
@@ -196,7 +196,7 @@ Adds a person to a group.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/groups/add_users \
+curl -X POST https://api.twistapp.com/api/v2/groups/add_users \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=498 \
   -d user_ids='[10073,10076]'
@@ -216,10 +216,10 @@ Adds several persons to a group.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the group |
-| user_ids | Array of Numbers | Yes | The ids of the users |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the group |
+| user_ids *List of Integers* | Yes | The ids of the users |
 
 
 ## Remove user
@@ -227,7 +227,7 @@ Adds several persons to a group.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/groups/remove_user \
+curl -X POST https://api.twistapp.com/api/v2/groups/remove_user \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=498 \
   -d user_id=10076
@@ -247,10 +247,10 @@ Removes a person from a group.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the group |
-| user_id | Number | Yes | The user's id |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the group |
+| user_id *Integer* | Yes | The user's id |
 
 
 ## Remove users
@@ -258,7 +258,7 @@ Removes a person from a group.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/groups/remove_users \
+curl -X POST https://api.twistapp.com/api/v2/groups/remove_users \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=498 \
   -d user_ids='[10073,10076]'
@@ -278,9 +278,7 @@ Removes several persons from a group.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the group |
-| user_ids | Array of Numbers | Yes | The ids of the users |
-
-
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the group |
+| user_ids *List of Integers* | Yes | The ids of the users |
