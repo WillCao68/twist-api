@@ -12,9 +12,9 @@ This allows one to join a workspace using a special URL invite link.
 
 ### Properties of URL join object
 
-| Name | Type | Description |
-| ---- | --- | --- |
-| url | String | The URL to be used to join a workspace |
+| Name | Description |
+| ---- | --- |
+| url *String* | The URL to be used to join a workspace |
 
 
 ## Get or create URL join link
@@ -22,7 +22,7 @@ This allows one to join a workspace using a special URL invite link.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/url_join/get_or_create \
+curl -X POST https://api.twistapp.com/api/v2/url_join/get_or_create \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d workspace_id=5517
 ```
@@ -33,9 +33,9 @@ Gets or creates a URL join link to a workspace.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| workspace_id | Number | Yes | The id of the workspace |
+| Name | Required | Description |
+| --- | --- | --- |
+| workspace_id *Integer* | Yes | The id of the workspace |
 
 > Return value:
 
@@ -61,9 +61,9 @@ Disables a URL join link to a workspace.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| workspace_id | Number | Yes | The id of the workspace |
+| Name | Required | Description |
+| --- | --- | --- |
+| workspace_id *Integer* | Yes | The id of the workspace |
 
 > Return value:
 
@@ -89,11 +89,10 @@ Joins user to invited workspace using the URL link.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| url_invite_code | Number | Yes | The URL join link |
+| Name | Required | Description |
+| --- | --- | --- |
+| url_invite_code *Integer* | Yes | The URL join link |
 
 ### Return value
 
 A workspace object is returned.
-
