@@ -23,7 +23,7 @@ You'll get following GET parameters served to your configure URL:
 | user_name *String* | No | The full name of the installer |
 
 To get back to the installation page, please use
-`https://twistapp.com/integrations/installation/{ install_id }`.
+`https://twistapp.com/integrations/installation/{install_id}`.
 
 ## How to post data
 
