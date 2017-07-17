@@ -24,17 +24,17 @@ The user's last notifications.
 
 ### Properties of notification object
 
-| Name | Type | Description |
-| --- | --- | --- |
-| id | Number | The id of the notification |
-| type_id | Number | The notification type: `1` when added to a comment, `2` when added to a thread, `3` when added to a workspace, `4` when removed from a worksapce, `5` when added to a channel, and `6` when removed from a channel. |
-| workspace_id | Number | The id of the workspace |
-| channel_id | Number | The id of the channel |
-| thread_id | Number | The id of the thread |
-| comment_id | Number | The id of the comment |
-| by_user_id | Number | The id of the user that triggered the notification (notified the receiving user) |
-| posted_ts | Number | The Unix time when the notification took place |
-| last_read | Number | The id of the last read notification |
+| Name | Description |
+| ---  | ----------- |
+| id *Integer* | The id of the notification |
+| type_id *Integer* | The notification type: `1` when added to a comment, `2` when added to a thread, `3` when added to a workspace, `4` when removed from a worksapce, `5` when added to a channel, and `6` when removed from a channel. |
+| workspace_id *Integer* | The id of the workspace |
+| channel_id *Integer* | The id of the channel |
+| thread_id *Integer* | The id of the thread |
+| comment_id *Integer* | The id of the comment |
+| by_user_id *Integer* | The id of the user that triggered the notification (notified the receiving user) |
+| posted_ts *Integer* | The Unix time when the notification took place |
+| last_read *Integer* | The id of the last read notification |
 
 
 ## Get last notifications
@@ -52,9 +52,9 @@ Gets the last notifications of the user.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| limit | Number | No | Limits the number of threads returned |
+| Name | Required | Description |
+| ---- | -------- | ----------- |
+| limit *Integer* | No | Limits the number of threads returned |
 
 
 ### Return value
@@ -67,7 +67,7 @@ A list of notification objects is returned.
 > Example:
 
 ```shell
-curl https://twistapp.com/api/v2/notifications/mark_read \
+curl -X POST https://twistapp.com/api/v2/notifications/mark_read \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
   -d notification_id=1
 ```
@@ -78,9 +78,9 @@ Marks everything after specified notification as read.
 
 ### Parameters
 
-| Name | Type | Required | Description |
+| Name | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| notification_id | Number | Yes | The last read notification id |
+| notification_id *Integer* | Yes | The last read notification id |
 
 > Return value:
 
@@ -95,7 +95,7 @@ Marks everything after specified notification as read.
 > Example:
 
 ```shell
-curl https://twistapp.com/api/v2/notifications/reset \
+curl -X POST https://twistapp.com/api/v2/notifications/reset \
   -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf
 ```
 
@@ -110,4 +110,3 @@ Resets all notifications read status.
    "status": "ok"
 }
 ```
-
