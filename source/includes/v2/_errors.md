@@ -69,4 +69,5 @@ The HTTP error codes returned:
 
 ## Testing error handling
 
-To test error handling simply provide `?chaos=random` as an argument. If you want to test a specific error you can supply `?chaos=109`.
+To test error handling simply provide `?chaos=random` as an argument. If you
+want to test a specific error you can supply `?chaos=109`.
