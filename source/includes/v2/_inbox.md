@@ -10,12 +10,10 @@
 ]
 ```
 
-The inbox unifies the start page view on all platforms.
+The inbox unifies the start page view on all platforms. 
 
-### Description of the inbox object
-
-The inbox is a actually a list of thread objects. It doesn't contain all
-threads, but the most recent threads ordered by date.
+It is actually a list of thread objects. It doesn't contain all threads, but the
+most recent threads ordered by date.
 
 
 ## Get inbox
@@ -41,4 +39,4 @@ curl https://api.twistapp.com/api/v2/inbox/get \
 
 ### Return value
 
-A list of of thread objects is returned.
+A list of thread objects is returned.
