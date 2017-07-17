@@ -1,6 +1,7 @@
 # Workspaces
 
-A workspace is a shared place between different users. In the Twist UI they are usually called teams.
+A workspace is a shared place between different users. In the Twist UI they are
+usually called teams.
 
 > Workspace object:
 
@@ -64,16 +65,16 @@ A workspace is a shared place between different users. In the Twist UI they are 
 
 ### Properties of workspace object
 
-| Name | Type | Description |
-| --- | --- | --- |
-| id | Number | The id of the workspace |
-| name | String | The name of the new workspace |
-| color | Number | The color of the workspace |
-| default_channel | Number | The id of the default channel |
-| default_conversation | Number | The id of the default conversation |
-| creator | Number | The id of the user that created the workspace |
-| created_ts | Number | The Unix time when the workspace was created |
-| users | Array of Objects | The users that belong to the workspace |
+| Name | Description |
+| --- | --- |
+| id *Integer* | The id of the workspace |
+| name *String* | The name of the new workspace |
+| color *Integer* | The color of the workspace |
+| default_channel *Integer* | The id of the default channel |
+| default_conversation *Integer* | The id of the default conversation |
+| creator *Integer* | The id of the user that created the workspace |
+| created_ts *Integer* | The Unix time when the workspace was created |
+| users *List of Objects* | The users that belong to the workspace |
 
 
 > Workspace user object:
@@ -105,12 +106,12 @@ A workspace is a shared place between different users. In the Twist UI they are 
 
 ### Properties of workspace user object
 
-| Name | Type | Description |
-| --- | --- | --- |
-| user_type | String | The user type, one of `ADMIN`, `USER` or `GUEST` |
-| is_removed | Boolean | Whether the user has been removed |
-| is_doist_employee | Boolean | Whether the user is a Doist employee |
-| last_active | String | The date and time when the user was last active |
+| Name | Description |
+| --- | --- |
+| user_type *String* | The user type, one of `ADMIN`, `USER` or `GUEST` |
+| is_removed *Boolean* | Whether the user has been removed |
+| is_doist_employee *Boolean* | Whether the user is a Doist employee |
+| last_active *String* | The date and time when the user was last active |
 
 
 > Workspace user activity object:
@@ -135,19 +136,19 @@ A workspace is a shared place between different users. In the Twist UI they are 
 
 ### Properties of workspace user activity object
 
-| Name | Type | Description |
-| --- | --- | --- |
-| is_active | Boolean | Whether the user is active at the moment |
-| latest_activity | Array | The user's last activity |
-| latest_activity[0] | String | The user's last activity platform |
-| latest_activity | Number | The user's last activity Unix timestamp |
-| activity | Object | The Unix timestamp of last activity for each platform |
-| activity["mobile"] | Number | The last activity on the mobile platform |
-| activity["email"] | Number | The last activity on the email platform |
-| activity["api"] | Number | The last activity on the api platform |
-| activity["desktop"] | Number | The last activity on the desktop platform |
-| local_time | String | The user's current time in UTC |
-| user | Object | The workspace user object (see above) |
+| Name | Description |
+| --- | --- |
+| is_active *Boolean* | Whether the user is active at the moment |
+| latest_activity *Multi-value List* | The user's last activity |
+| latest_activity[0] *String* | The user's last activity platform |
+| latest_activity *Integer* | The user's last activity Unix timestamp |
+| activity *Object* | The Unix timestamp of last activity for each platform |
+| activity["mobile"] *Integer* | The last activity on the mobile platform |
+| activity["email"] *Integer* | The last activity on the email platform |
+| activity["api"] *Integer* | The last activity on the api platform |
+| activity["desktop"] *Integer* | The last activity on the desktop platform |
+| local_time *String* | The user's current time in UTC |
+| user *Object* | The workspace user object (see above) |
 
 
 ## Get workspace
@@ -166,9 +167,9 @@ Gets a single workspace object by id.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the workspace |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the workspace |
 
 ### Return value
 
@@ -216,7 +217,7 @@ A list of workspace objects is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/workspaces/add \
+curl -X POST https://api.twistapp.com/api/v2/workspaces/add \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d name=Workspace1
 ```
@@ -227,11 +228,11 @@ Creates a new workspace.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| name | String | Yes | The name of the new workspace |
-| temp_id | Number | No | The temporary id of the workspace |
-| color | Number | No | The color of the workspace |
+| Name | Required | Description |
+| --- | --- | --- |
+| name *String* | Yes | The name of the new workspace |
+| temp_id *Integer* | No | The temporary id of the workspace |
+| color *Integer* | No | The color of the workspace |
 
 ### Return value
 
@@ -243,7 +244,7 @@ A workspace object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/workspaces/update \
+curl -X POST https://api.twistapp.com/api/v2/workspaces/update \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d name=Workspace1
 ```
@@ -254,11 +255,11 @@ Updates an existing workspace.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the workspace |
-| name | String | No | The name of the workspace |
-| color | Number | No | The color of the workspace |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the workspace |
+| name *String* | No | The name of the workspace |
+| color *Integer* | No | The color of the workspace |
 
 ### Return value
 
@@ -271,7 +272,7 @@ The updated workspace object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/workspaces/remove \
+curl -X POST https://api.twistapp.com/api/v2/workspaces/remove \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d current_password=secret
@@ -290,10 +291,10 @@ Removes a workspace and all its data \(not recoverable\).
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the workspace |
-| current_password | String | Yes | The user's current password |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the workspace |
+| current_password *String* | Yes | The user's current password |
 
 
 ## Add user
@@ -301,7 +302,7 @@ Removes a workspace and all its data \(not recoverable\).
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/workspaces/add_user \
+curl -X POST https://api.twistapp.com/api/v2/workspaces/add_user \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d email=user2@example.com
@@ -313,10 +314,10 @@ Adds a person to a workspace.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the workspace |
-| email | String | Yes | The user's email |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the workspace |
+| email *String* | Yes | The user's email |
 
 ### Return value
 
@@ -328,7 +329,7 @@ A workspace user object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/workspaces/resend_invite \
+curl -X POST https://api.twistapp.com/api/v2/workspaces/resend_invite \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d email=user2@example.com
@@ -346,10 +347,10 @@ Adds a person to a workspace.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the workspace |
-| email | String | Yes | The user's email |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the workspace |
+| email *String* | Yes | The user's email |
 
 
 ## Update user
@@ -357,7 +358,7 @@ Adds a person to a workspace.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/workspaces/update_user \
+curl -X POST https://api.twistapp.com/api/v2/workspaces/update_user \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d email=user2@example.com
@@ -370,11 +371,11 @@ Updates a person in a workspace.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the workspace |
-| email | String | Yes | The user's email |
-| user_type | String | Yes | The user's type one of `USER`, `ADMIN` or `GUEST` |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the workspace |
+| email *String* | Yes | The user's email |
+| user_type *String* | Yes | The user's type one of `USER`, `ADMIN` or `GUEST` |
 
 ### Return value
 
@@ -386,7 +387,7 @@ The updated workspace user object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/workspaces/update_user \
+curl -X POST https://api.twistapp.com/api/v2/workspaces/update_user \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d email=user2@example.com
@@ -406,10 +407,10 @@ Removes a person from a workspace.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the workspace |
-| email | String | Yes | The user's email |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the workspace |
+| email *String* | Yes | The user's email |
 
 
 ## Get user by email
@@ -429,10 +430,10 @@ Gets user by email.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the workspace |
-| email | String | Yes | The user's email |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the workspace |
+| email *String* | Yes | The user's email |
 
 ### Return value
 
@@ -456,10 +457,10 @@ Gets user by id.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the workspace |
-| user_id | Number | Yes | The user's id |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the workspace |
+| user_id *Integer* | Yes | The user's id |
 
 ### Return value
 
@@ -483,10 +484,10 @@ Gets user's info in the context of the workspace.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the workspace |
-| user_id | Number | Yes | The user's id |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the workspace |
+| user_id *Integer* | Yes | The user's id |
 
 
 ## Get local time of user
@@ -512,10 +513,10 @@ Gets user's local time.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the workspace |
-| user_id | Number | Yes | The user's id |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the workspace |
+| user_id *Integer* | Yes | The user's id |
 
 
 ## Get public channels
@@ -533,9 +534,9 @@ curl https://api.twistapp.com/api/v2/workspaces/get_public_channels \
 Gets public channels of workspace.
 
 ### Parameters
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | Number | Yes | The id of the workspace |
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the workspace |
 
 ### Return value
 
