@@ -232,19 +232,47 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="introduction">Introduction</h1>
+        <!--
 
-<p>Add extra functionality for your own teams or build integrations to share with others.</p>
+The MIT License (MIT)
 
-<p>This is the official documentation of the Twist API.</p>
+Copyright (c) 2016-2017 Doist
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+
+          <h1 id="introduction">Introduction</h1>
+
+<p>This is the official Twist API documentation, a reference to the functionality
+our public API provides, with detailed description of each API endpoint, its
+parameters, and examples.</p>
 
 <h2 id="authentication">Authentication</h2>
 
-<p>Login and signup are done via <code class="prettyprint">/api/v2/users/login</code> and <code class="prettyprint">/api/v2/users/register</code>. For public integrations you must use our oAuth 2 authentication.</p>
+<p>Login and signup are done via <code class="prettyprint">/api/v2/users/login</code> and
+<code class="prettyprint">/api/v2/users/register</code>. For public integrations you must use
+our <a href="#oauth-2">oAuth 2 authentication</a>.</p>
 
 <h2 id="temporary-ids">Temporary ids</h2>
 
-<p>Temporary ids are negative and can be used when adding, updating or deleting items.</p>
+<p>Temporary ids are negative and can be used when adding, updating or deleting
+items.</p>
 
 <h2 id="return-results-and-error-handling">Return results and error handling</h2>
 
@@ -252,17 +280,22 @@
 
 <ul>
 <li>On successful return: JSON data</li>
-<li>On an error return, HTTP error code followed by: <code class="prettyprint">{ “error”: [error_code, error_string], **kwargs }</code></li>
+<li>On an error return, HTTP error code followed by: <code class="prettyprint">{“error”: [error_code, error_string], **kwargs}</code></li>
 </ul>
 
 <h2 id="dates">Dates</h2>
 
-<p>For dates we use ISO 8601. The formatting we can have inside the system:
-- Date time: <code class="prettyprint">%Y-%m-%d %H:%M:%S</code>
-- Date only: <code class="prettyprint">%Y-%m-%d</code>
-- With timezone info: <code class="prettyprint">%Y-%m-%d %H:%M:%S +00:00</code></p>
+<p>For dates we use <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a>. The
+formatting we can have inside the system:</p>
 
-<p>The current API should only return <code class="prettyprint">%Y-%m-%d %H:%M:%S</code>, where the time zone is implicit set to <code class="prettyprint">UTC</code>.</p>
+<ul>
+<li>Date time: <code class="prettyprint">%Y-%m-%d %H:%M:%S</code></li>
+<li>Date only: <code class="prettyprint">%Y-%m-%d</code></li>
+<li>With timezone info: <code class="prettyprint">%Y-%m-%d %H:%M:%S +00:00</code></li>
+</ul>
+
+<p>The current API should only return <code class="prettyprint">%Y-%m-%d %H:%M:%S</code>, where the time zone is
+implicit set to <code class="prettyprint">UTC</code>.</p>
 
           <h1 id="errors">Errors</h1>
 
@@ -515,25 +548,36 @@
 
 <h2 id="testing-error-handling">Testing error handling</h2>
 
-<p>To test error handling simply provide <code class="prettyprint">?chaos=random</code> as an argument. If you want to test a specific error you can supply <code class="prettyprint">?chaos=109</code>.</p>
+<p>To test error handling simply provide <code class="prettyprint">?chaos=random</code> as an argument. If you
+want to test a specific error you can supply <code class="prettyprint">?chaos=109</code>.</p>
 
           <h1 id="authentication">Authentication</h1>
 
-<p>In order to make authorized calls to Twist APIs, your integration must first obtain an access token from the users. This section describes how to obtain such a token.</p>
+<p>In order to make authorized calls to Twist APIs, your integration must first
+obtain an access token from the users. This section describes how to obtain such
+a token.</p>
 
-<p>For testing purposes you can also use <code class="prettyprint">/api/v2/users/login</code> and <code class="prettyprint">/api/v2/users/login_with_google</code>, but please don’t use this for a public integration, since it’s highly insecure and can be abused.</p>
+<p>For testing purposes you can also use <code class="prettyprint">/api/v2/users/login</code> and
+<code class="prettyprint">/api/v2/users/login_with_google</code>, but please don’t use this for a public
+integration, since it’s highly insecure and can be abused.</p>
 
 <h2 id="oauth-2">oAuth 2</h2>
 
-<p>Before getting started, you need to <a href="https://twistapp.com/integrations/create">create an oAuth 2 integration</a> and configure a valid OAuth redirect URL. A registered Twist integration is assigned a unique Client ID and Client Secret which are needed for the OAuth2 flow.</p>
+<p>Before getting started, you need
+to <a href="https://twistapp.com/integrations/create">create an oAuth 2 integration</a> and
+configure a valid OAuth redirect URL. A registered Twist integration is assigned
+a unique Client ID and Client Secret which are needed for
+the <a href="https://en.wikipedia.org/wiki/OAuth">OAuth2</a> flow.</p>
 
 <p>This procedure is comprised of 3 steps, which will be described below.</p>
 
-<p>All the error responses will be in JSON format, an example is <code class="prettyprint">{&quot;error&quot;: &quot;BAD_REQUEST&quot;, &quot;error_message&quot;: &quot;Invalid scope&quot;}</code>.</p>
+<p>All the error responses will be in JSON format, an example is
+<code class="prettyprint">{&quot;error&quot;:&quot;BAD_REQUEST&quot;, &quot;error_message&quot;: &quot;Invalid scope&quot;}</code>.</p>
 
 <h3 id="step-1-the-authorization-request">Step 1: The authorization request</h3>
 
-<p>Redirect users to the authorization URL at the endpoint <code class="prettyprint">https://twistapp.com/oauth/authorize</code>, with the specified request parameters.</p>
+<p>Redirect users to the authorization URL at the endpoint
+<code class="prettyprint">https://twistapp.com/oauth/authorize</code>, with the specified request parameters.</p>
 
 <p>Here follow the required parameters:</p>
 
@@ -581,13 +625,20 @@
 
 <h3 id="step-2-the-redirection-to-your-integration-site">Step 2: The redirection to your integration site</h3>
 
-<p>When the user grants your authorization request, the user will be redirected to the redirect URL configured in your integration setting. The redirect request will come with two query parameters attached: <code class="prettyprint">code</code> and <code class="prettyprint">state</code>.</p>
+<p>When the user grants your authorization request, the user will be redirected to
+the redirect URL configured in your integration setting. The redirect request
+will come with two query parameters attached: <code class="prettyprint">code</code> and <code class="prettyprint">state</code>.</p>
 
-<p>The <code class="prettyprint">code</code> parameter contains the authorization code that you will use to exchange for an access token. The state parameter should match the state parameter that you supplied in the previous step. If the state is unmatched, your request has been compromised by other parties, and the process should be aborted.</p>
+<p>The <code class="prettyprint">code</code> parameter contains the authorization code that you will use to
+exchange for an access token. The state parameter should match the state
+parameter that you supplied in the previous step. If the state is unmatched,
+your request has been compromised by other parties, and the process should be
+aborted.</p>
 
 <h3 id="step-3-the-redirection-to-your-integration-site">Step 3: The redirection to your integration site</h3>
 
-<p>Once you have the authorization <code class="prettyprint">code</code>, you can exchange it for the access token at the endpoint POST <code class="prettyprint">https://twistapp.com/oauth/access_token</code>.</p>
+<p>Once you have the authorization <code class="prettyprint">code</code>, you can exchange it for the access token
+at the endpoint POST <code class="prettyprint">https://twistapp.com/oauth/access_token</code>.</p>
 
 <table><thead>
 <tr>
@@ -734,14 +785,16 @@
 <blockquote>
 <p>Example</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl https://api.twistapp.com/api/v2/batch <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
-  -d <span class="nv">requests</span><span class="o">=</span><span class="s1">'[{"method": "GET", "url": "https://api.twistapp.com/api/v2/workspaces/get?token=..."},
-                {"method": "GET", "url": "https://api.twistapp.com/api/v2/workspaces/getone?token=...&amp;id=201"}]'</span>
+<pre class="highlight shell tab-shell"><code><span class="gp">$ </span>curl -X POST https://api.twistapp.com/api/v2/batch <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+    -d <span class="nv">requests</span><span class="o">=</span><span class="s1">'[{"method": "GET", "url": "https://api.twistapp.com/api/v2/workspaces/get?token=..."},
+        {"method": "GET", "url": "https://api.twistapp.com/api/v2/workspaces/getone?token=...&amp;id=201"}]'</span>
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/batch</code></p>
 
-<p>Batching allows you to pass several requests in a single HTTP request. Once all operations have been completed, a consolidated response will be passed back to you and the HTTP connection will be closed.</p>
+<p>Batching allows you to pass several requests in a single HTTP request. Once all
+operations have been completed, a consolidated response will be passed back to
+you and the HTTP connection will be closed.</p>
 
 <blockquote>
 <p>Return object</p>
@@ -764,26 +817,22 @@
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>requests</td>
-<td>Array of Objects</td>
+<td>requests <em>List of Objects</em></td>
 <td>Yes</td>
 <td>The requests to send</td>
 </tr>
 <tr>
-<td>requests[&ldquo;method&rdquo;]</td>
-<td>String</td>
+<td>requests[&ldquo;method&rdquo;] <em>String</em></td>
 <td>Yes</td>
 <td>The HTTP method like <code class="prettyprint">GET</code> or <code class="prettyprint">POST</code></td>
 </tr>
 <tr>
-<td>requests[&ldquo;url&rdquo;]</td>
-<td>String</td>
+<td>requests[&ldquo;url&rdquo;] <em>String</em></td>
 <td>Yes</td>
 <td>The completed URL with any arguments needed</td>
 </tr>
@@ -825,123 +874,99 @@
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>The id of the user</td>
 </tr>
 <tr>
-<td>token</td>
-<td>String</td>
+<td>token <em>String</em></td>
 <td>The user&rsquo;s API token</td>
 </tr>
 <tr>
-<td>email</td>
-<td>String</td>
+<td>email <em>String</em></td>
 <td>The user&rsquo;s email</td>
 </tr>
 <tr>
-<td>name</td>
-<td>String</td>
+<td>name <em>String</em></td>
 <td>The user&rsquo;s full name</td>
 </tr>
 <tr>
-<td>short_name</td>
-<td>String</td>
+<td>short_name <em>String</em></td>
 <td>The user&rsquo;s short name</td>
 </tr>
 <tr>
-<td>avatar_id</td>
-<td>String</td>
+<td>avatar_id <em>String</em></td>
 <td>The user&rsquo;s avatar id</td>
 </tr>
 <tr>
-<td>default_workspace</td>
-<td>Number</td>
+<td>default_workspace <em>Integer</em></td>
 <td>The user&rsquo;s default workspace</td>
 </tr>
 <tr>
-<td>profession</td>
-<td>String</td>
+<td>profession <em>String</em></td>
 <td>The user&rsquo;s profession</td>
 </tr>
 <tr>
-<td>contact_info</td>
-<td>String</td>
+<td>contact_info <em>String</em></td>
 <td>The user&rsquo;s contact info</td>
 </tr>
 <tr>
-<td>timezone</td>
-<td>String</td>
+<td>timezone <em>String</em></td>
 <td>The user&rsquo;s timezone</td>
 </tr>
 <tr>
-<td>snooze_until</td>
-<td>Number</td>
+<td>snooze_until <em>Integer</em></td>
 <td>Snooze notifications for the specified number of seconds</td>
 </tr>
 <tr>
-<td>snooze_dnd_start</td>
-<td>String</td>
+<td>snooze_dnd_start <em>String</em></td>
 <td>Start time of do-not-disturb snooze for notifications</td>
 </tr>
 <tr>
-<td>snooze_dnd_stop</td>
-<td>String</td>
+<td>snooze_dnd_stop <em>String</em></td>
 <td>Stop time of do-not-disturb snooze for notifications</td>
 </tr>
 <tr>
-<td>is_snoozed</td>
-<td>Boolean</td>
+<td>is_snoozed <em>Boolean</em></td>
 <td>Whether notifications are snoozed</td>
 </tr>
 <tr>
-<td>away_mode</td>
-<td>Object</td>
+<td>away_mode <em>Object</em></td>
 <td>No</td>
 </tr>
 <tr>
-<td>away_mode#type</td>
-<td>String</td>
+<td>away_mode#type <em>String</em></td>
 <td>The reason of being in away mode may be <code class="prettyprint">parental</code>, <code class="prettyprint">vacation</code>, <code class="prettyprint">sickleave</code>, or <code class="prettyprint">other</code></td>
 </tr>
 <tr>
-<td>away_mode#date_from</td>
-<td>String</td>
+<td>away_mode#date_from <em>String</em></td>
 <td>The start date of the away mode in a <code class="prettyprint">%Y-%m-%d</code> format. The <code class="prettyprint">date_from</code> parameter is inclusive. <em>optional</em></td>
 </tr>
 <tr>
-<td>away_mode#date_to</td>
-<td>String</td>
+<td>away_mode#date_to <em>String</em></td>
 <td>The end date of the away mode in a <code class="prettyprint">%Y-%m-%d</code> format. The <code class="prettyprint">date_to</code> parameter is exclusive, which means the user will start receiving notifications on this date</td>
 </tr>
 <tr>
-<td>off_days</td>
-<td>Array of numbers</td>
-<td>Sets the user&rsquo;s off days (where they will get no notifications). It should be an array of numbers representing ISO weekdays, e.g. 1 is Monday and 7 is Sunday. E.g. <code class="prettyprint">[6, 7]</code></td>
+<td>off_days <em>List of integers</em></td>
+<td>Sets the user&rsquo;s off days (where they will get no notifications). It should be an array of integers representing ISO weekdays, e.g. 1 is Monday and 7 is Sunday. E.g. <code class="prettyprint">[6, 7]</code></td>
 </tr>
 <tr>
-<td>setup_pending</td>
-<td>Number/Boolean</td>
+<td>setup_pending <em>Integer/Boolean</em></td>
 <td>Whether setup is pending</td>
 </tr>
 <tr>
-<td>is_bot</td>
-<td>Boolean</td>
+<td>is_bot <em>Boolean</em></td>
 <td>Whether user is a bot</td>
 </tr>
 <tr>
-<td>comet_server</td>
-<td>String</td>
+<td>comet_server <em>String</em></td>
 <td>The comet server</td>
 </tr>
 <tr>
-<td>comet_channel</td>
-<td>String</td>
+<td>comet_channel <em>String</em></td>
 <td>The comet channel</td>
 </tr>
 </tbody></table>
@@ -964,14 +989,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>No</td>
 <td>The id of the user</td>
 </tr>
@@ -986,7 +1009,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/login <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/login <span class="se">\</span>
   -d <span class="nv">email</span><span class="o">=</span>user@example.com <span class="se">\</span>
   -d <span class="nv">password</span><span class="o">=</span>secret
 </code></pre>
@@ -999,26 +1022,22 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>email</td>
-<td>String</td>
+<td>email <em>String</em></td>
 <td>Yes</td>
 <td>The user&rsquo;s email</td>
 </tr>
 <tr>
-<td>password</td>
-<td>String</td>
+<td>password <em>String</em></td>
 <td>Yes</td>
 <td>The user&rsquo;s password</td>
 </tr>
 <tr>
-<td>set_session_cookie</td>
-<td>Boolean</td>
+<td>set_session_cookie <em>Boolean</em></td>
 <td>No</td>
 <td>By default, a session cookie is set for the user</td>
 </tr>
@@ -1033,7 +1052,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/logout
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/logout
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/users/logout</code></p>
 
@@ -1051,7 +1070,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/register <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/register <span class="se">\</span>
   -d <span class="nv">name</span><span class="o">=</span>User <span class="se">\</span>
   -d <span class="nv">email</span><span class="o">=</span>user@example.com <span class="se">\</span>
   -d <span class="nv">password</span><span class="o">=</span>secret
@@ -1065,26 +1084,22 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>name</td>
-<td>String</td>
+<td>name <em>String</em></td>
 <td>Yes</td>
 <td>The user&rsquo;s full name</td>
 </tr>
 <tr>
-<td>email</td>
-<td>String</td>
+<td>email <em>String</em></td>
 <td>Yes</td>
 <td>The user&rsquo;s email</td>
 </tr>
 <tr>
-<td>password</td>
-<td>String</td>
+<td>password <em>String</em></td>
 <td>Yes</td>
 <td>The user&rsquo;s password</td>
 </tr>
@@ -1099,7 +1114,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/update <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/update <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">name</span><span class="o">=</span>User
 </code></pre>
@@ -1112,100 +1127,84 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>name</td>
-<td>String</td>
+<td>name <em>String</em></td>
 <td>No</td>
 <td>The user&rsquo;s full name</td>
 </tr>
 <tr>
-<td>email</td>
-<td>String</td>
+<td>email <em>String</em></td>
 <td>No</td>
 <td>The user&rsquo;s email</td>
 </tr>
 <tr>
-<td>password</td>
-<td>String</td>
+<td>password <em>String</em></td>
 <td>No</td>
 <td>The user&rsquo;s password</td>
 </tr>
 <tr>
-<td>default_workspace</td>
-<td>Number</td>
+<td>default_workspace <em>Integer</em></td>
 <td>No</td>
 <td>The user&rsquo;s default workspace</td>
 </tr>
 <tr>
-<td>profession</td>
-<td>String</td>
+<td>profession <em>String</em></td>
 <td>No</td>
 <td>The user&rsquo;s profession</td>
 </tr>
 <tr>
-<td>contact_info</td>
-<td>String</td>
+<td>contact_info <em>String</em></td>
 <td>No</td>
 <td>The user&rsquo;s contact info</td>
 </tr>
 <tr>
-<td>timezone</td>
-<td>String</td>
+<td>timezone <em>String</em></td>
 <td>No</td>
 <td>The user&rsquo;s timezone</td>
 </tr>
 <tr>
-<td>snooze_until</td>
-<td>Number</td>
+<td>snooze_until <em>Integer</em></td>
 <td>No</td>
 <td>Snooze notifications for the specified number of seconds</td>
 </tr>
 <tr>
-<td>snooze_dnd_start</td>
-<td>String</td>
+<td>snooze_dnd_start <em>String</em></td>
 <td>No</td>
 <td>Start time of do-not-disturb snooze for notifications</td>
 </tr>
 <tr>
-<td>snooze_dnd_stop</td>
-<td>String</td>
+<td>snooze_dnd_stop <em>String</em></td>
 <td>No</td>
 <td>Stop time of do-not-disturb snooze for notifications</td>
 </tr>
 <tr>
-<td>away_mode</td>
-<td>Object</td>
+<td>away_mode <em>Object</em></td>
 <td>No</td>
 <td>Away mode sets the user as away until some future date</td>
 </tr>
 <tr>
-<td>away_mode#type</td>
-<td>String</td>
+<td>away_mode#type <em>String</em></td>
 <td>No</td>
 <td>The reason of being in away mode may be <code class="prettyprint">parental</code>, <code class="prettyprint">vacation</code>, <code class="prettyprint">sickleave</code>, or <code class="prettyprint">other</code></td>
 </tr>
 <tr>
-<td>away_mode#date_from</td>
-<td>String</td>
+<td>away_mode#date_from <em>String</em></td>
 <td>No</td>
 <td>The start date of the away mode in a <code class="prettyprint">%Y-%m-%d</code> format. The <code class="prettyprint">date_from</code> parameter is inclusive. <em>optional</em></td>
 </tr>
 <tr>
-<td>away_mode#date_to</td>
-<td>String</td>
+<td>away_mode#date_to <em>String</em></td>
 <td>No</td>
 <td>The end date of the away mode in a <code class="prettyprint">%Y-%m-%d</code> format. The <code class="prettyprint">date_to</code> parameter is exclusive, which means the user will start receiving notifications on this date</td>
 </tr>
 <tr>
-<td>off_days</td>
-<td>Array of numbers</td>
+<td>off_days <em>List of integers</em></td>
 <td>No</td>
-<td>Sets the user&rsquo;s off days (where they will get no notifications). It should be an array of numbers representing ISO weekdays, e.g. 1 is Monday and 7 is Sunday. E.g. <code class="prettyprint">[6, 7]</code></td>
+<td>Sets the user&rsquo;s off days (where they will get no notifications). It should be an array of integers representing ISO weekdays, e.g. 1 is Monday and 7 is Sunday. E.g. <code class="prettyprint">[6, 7]</code></td>
 </tr>
 </tbody></table>
 
@@ -1218,7 +1217,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/update_password <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/update_password <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">current_password</span><span class="o">=</span>secret <span class="se">\</span>
   -d <span class="nv">new_password</span><span class="o">=</span>newsecret
@@ -1232,20 +1231,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>current_password</td>
-<td>String</td>
+<td>current_password <em>String</em></td>
 <td>Yes</td>
 <td>The user&rsquo;s current password</td>
 </tr>
 <tr>
-<td>new_password</td>
-<td>String</td>
+<td>new_password <em>String</em></td>
 <td>Yes</td>
 <td>The user&rsquo;s new password</td>
 </tr>
@@ -1260,7 +1256,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/update_avatar <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/update_avatar <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -F <span class="nv">image</span><span class="o">=</span>@avatar.jpg
 </code></pre>
@@ -1273,14 +1269,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>image</td>
-<td>String</td>
+<td>image <em>String</em></td>
 <td>Yes</td>
 <td>The file name of the image to upload</td>
 </tr>
@@ -1295,7 +1289,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/invalidate_token <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/invalidate_token <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/users/invalidate_token</code></p>
@@ -1311,7 +1305,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/validate_token <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/validate_token <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/users/validate_token</code></p>
@@ -1330,7 +1324,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/heartbeat <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/heartbeat <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5517 <span class="se">\</span>
   -d <span class="nv">platform</span><span class="o">=</span>api
@@ -1351,20 +1345,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>platform</td>
-<td>String</td>
+<td>platform <em>String</em></td>
 <td>Yes</td>
 <td>The platform can be one of <code class="prettyprint">mobile</code>, <code class="prettyprint">desktop</code> or <code class="prettyprint">api</code></td>
 </tr>
@@ -1375,7 +1366,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/reset_presense <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/reset_presense <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5517
 </code></pre>
@@ -1395,14 +1386,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the workspace</td>
 </tr>
@@ -1413,7 +1402,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/reset_password <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/reset_password <span class="se">\</span>
   -d <span class="nv">email</span><span class="o">=</span>user@example.com
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/users/reset_password</code></p>
@@ -1432,14 +1421,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>email</td>
-<td>String</td>
+<td>email <em>String</em></td>
 <td>Yes</td>
 <td>The user&rsquo;s email</td>
 </tr>
@@ -1450,7 +1437,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/set_password <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/set_password <span class="se">\</span>
   -d <span class="nv">reset_code</span><span class="o">=</span>12345abcef
   -d <span class="nv">new_password</span><span class="o">=</span>newsecret
 </code></pre>
@@ -1463,20 +1450,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>reset_code</td>
-<td>String</td>
+<td>reset_code <em>String</em></td>
 <td>Yes</td>
 <td>The reset code sent via email</td>
 </tr>
 <tr>
-<td>new_password</td>
-<td>String</td>
+<td>new_password <em>String</em></td>
 <td>Yes</td>
 <td>The user&rsquo;s new password</td>
 </tr>
@@ -1491,7 +1475,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/login_with_google <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/login_with_google <span class="se">\</span>
   -d <span class="nv">access_token</span><span class="o">=</span>ya29.AHES6ZRKeUQwH2xhirksSUDSyjg9oPuRMMal05Ty0cfFIT_uRfESHw
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/users/login_with_google</code></p>
@@ -1503,20 +1487,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id_token</td>
-<td>String</td>
+<td>id_token <em>String</em></td>
 <td>Yes, this or <code class="prettyprint">access_token</code></td>
 <td>The Google Sign-In ID token</td>
 </tr>
 <tr>
-<td>access_token</td>
-<td>String</td>
+<td>access_token <em>String</em></td>
 <td>Yes, this or <code class="prettyprint">id_token</code></td>
 <td>The Google OAuth2 token</td>
 </tr>
@@ -1531,7 +1512,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/register_with_google <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/register_with_google <span class="se">\</span>
   -d <span class="nv">access_token</span><span class="o">=</span>ya29.AHES6ZRKeUQwH2xhirksSUDSyjg9oPuRMMal05Ty0cfFIT_uRfESHw
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/users/register_with_google</code></p>
@@ -1543,20 +1524,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id_token</td>
-<td>String</td>
+<td>id_token <em>String</em></td>
 <td>Yes, this or <code class="prettyprint">access_token</code></td>
 <td>The Google Sign-In ID token</td>
 </tr>
 <tr>
-<td>access_token</td>
-<td>String</td>
+<td>access_token <em>String</em></td>
 <td>Yes, this or <code class="prettyprint">id_token</code></td>
 <td>The Google OAuth2 token</td>
 </tr>
@@ -1571,7 +1549,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/connect_with_google <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/connect_with_google <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">access_token</span><span class="o">=</span>ya29.AHES6ZRKeUQwH2xhirksSUDSyjg9oPuRMMal05Ty0cfFIT_uRfESHw
 </code></pre>
@@ -1591,20 +1569,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id_token</td>
-<td>String</td>
+<td>id_token <em>String</em></td>
 <td>Yes, this or <code class="prettyprint">access_token</code></td>
 <td>The Google Sign-In ID token</td>
 </tr>
 <tr>
-<td>access_token</td>
-<td>String</td>
+<td>access_token <em>String</em></td>
 <td>Yes, this or <code class="prettyprint">id_token</code></td>
 <td>The Google OAuth2 token</td>
 </tr>
@@ -1634,7 +1609,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/disconnect_google <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/disconnect_google <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/users/disconnect_google</code></p>
@@ -1650,7 +1625,8 @@ the information for the current user.</p>
 
           <h1 id="workspaces">Workspaces</h1>
 
-<p>A workspace is a shared place between different users. In the Twist UI they are usually called teams.</p>
+<p>A workspace is a shared place between different users. In the Twist UI they are
+usually called teams.</p>
 
 <blockquote>
 <p>Workspace object:</p>
@@ -1716,48 +1692,39 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>name</td>
-<td>String</td>
+<td>name <em>String</em></td>
 <td>The name of the new workspace</td>
 </tr>
 <tr>
-<td>color</td>
-<td>Number</td>
+<td>color <em>Integer</em></td>
 <td>The color of the workspace</td>
 </tr>
 <tr>
-<td>default_channel</td>
-<td>Number</td>
+<td>default_channel <em>Integer</em></td>
 <td>The id of the default channel</td>
 </tr>
 <tr>
-<td>default_conversation</td>
-<td>Number</td>
+<td>default_conversation <em>Integer</em></td>
 <td>The id of the default conversation</td>
 </tr>
 <tr>
-<td>creator</td>
-<td>Number</td>
+<td>creator <em>Integer</em></td>
 <td>The id of the user that created the workspace</td>
 </tr>
 <tr>
-<td>created_ts</td>
-<td>Number</td>
+<td>created_ts <em>Integer</em></td>
 <td>The Unix time when the workspace was created</td>
 </tr>
 <tr>
-<td>users</td>
-<td>Array of Objects</td>
+<td>users <em>List of Objects</em></td>
 <td>The users that belong to the workspace</td>
 </tr>
 </tbody></table>
@@ -1793,28 +1760,23 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>user_type</td>
-<td>String</td>
+<td>user_type <em>String</em></td>
 <td>The user type, one of <code class="prettyprint">ADMIN</code>, <code class="prettyprint">USER</code> or <code class="prettyprint">GUEST</code></td>
 </tr>
 <tr>
-<td>is_removed</td>
-<td>Boolean</td>
+<td>is_removed <em>Boolean</em></td>
 <td>Whether the user has been removed</td>
 </tr>
 <tr>
-<td>is_doist_employee</td>
-<td>Boolean</td>
+<td>is_doist_employee <em>Boolean</em></td>
 <td>Whether the user is a Doist employee</td>
 </tr>
 <tr>
-<td>last_active</td>
-<td>String</td>
+<td>last_active <em>String</em></td>
 <td>The date and time when the user was last active</td>
 </tr>
 </tbody></table>
@@ -1843,63 +1805,51 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>is_active</td>
-<td>Boolean</td>
+<td>is_active <em>Boolean</em></td>
 <td>Whether the user is active at the moment</td>
 </tr>
 <tr>
-<td>latest_activity</td>
-<td>Array</td>
+<td>latest_activity <em>Multi-value List</em></td>
 <td>The user&rsquo;s last activity</td>
 </tr>
 <tr>
-<td>latest_activity[0]</td>
-<td>String</td>
+<td>latest_activity[0] <em>String</em></td>
 <td>The user&rsquo;s last activity platform</td>
 </tr>
 <tr>
-<td>latest_activity</td>
-<td>Number</td>
+<td>latest_activity <em>Integer</em></td>
 <td>The user&rsquo;s last activity Unix timestamp</td>
 </tr>
 <tr>
-<td>activity</td>
-<td>Object</td>
+<td>activity <em>Object</em></td>
 <td>The Unix timestamp of last activity for each platform</td>
 </tr>
 <tr>
-<td>activity[&ldquo;mobile&rdquo;]</td>
-<td>Number</td>
+<td>activity[&ldquo;mobile&rdquo;] <em>Integer</em></td>
 <td>The last activity on the mobile platform</td>
 </tr>
 <tr>
-<td>activity[&ldquo;email&rdquo;]</td>
-<td>Number</td>
+<td>activity[&ldquo;email&rdquo;] <em>Integer</em></td>
 <td>The last activity on the email platform</td>
 </tr>
 <tr>
-<td>activity[&ldquo;api&rdquo;]</td>
-<td>Number</td>
+<td>activity[&ldquo;api&rdquo;] <em>Integer</em></td>
 <td>The last activity on the api platform</td>
 </tr>
 <tr>
-<td>activity[&ldquo;desktop&rdquo;]</td>
-<td>Number</td>
+<td>activity[&ldquo;desktop&rdquo;] <em>Integer</em></td>
 <td>The last activity on the desktop platform</td>
 </tr>
 <tr>
-<td>local_time</td>
-<td>String</td>
+<td>local_time <em>String</em></td>
 <td>The user&rsquo;s current time in UTC</td>
 </tr>
 <tr>
-<td>user</td>
-<td>Object</td>
+<td>user <em>Object</em></td>
 <td>The workspace user object (see above)</td>
 </tr>
 </tbody></table>
@@ -1922,14 +1872,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the workspace</td>
 </tr>
@@ -1976,7 +1924,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/workspaces/add <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/workspaces/add <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">name</span><span class="o">=</span>Workspace1
 </code></pre>
@@ -1989,26 +1937,22 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>name</td>
-<td>String</td>
+<td>name <em>String</em></td>
 <td>Yes</td>
 <td>The name of the new workspace</td>
 </tr>
 <tr>
-<td>temp_id</td>
-<td>Number</td>
+<td>temp_id <em>Integer</em></td>
 <td>No</td>
 <td>The temporary id of the workspace</td>
 </tr>
 <tr>
-<td>color</td>
-<td>Number</td>
+<td>color <em>Integer</em></td>
 <td>No</td>
 <td>The color of the workspace</td>
 </tr>
@@ -2023,7 +1967,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/workspaces/update <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/workspaces/update <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">name</span><span class="o">=</span>Workspace1
 </code></pre>
@@ -2036,26 +1980,22 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>name</td>
-<td>String</td>
+<td>name <em>String</em></td>
 <td>No</td>
 <td>The name of the workspace</td>
 </tr>
 <tr>
-<td>color</td>
-<td>Number</td>
+<td>color <em>Integer</em></td>
 <td>No</td>
 <td>The color of the workspace</td>
 </tr>
@@ -2070,7 +2010,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/workspaces/remove <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/workspaces/remove <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>5517
   -d <span class="nv">current_password</span><span class="o">=</span>secret
@@ -2091,20 +2031,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>current_password</td>
-<td>String</td>
+<td>current_password <em>String</em></td>
 <td>Yes</td>
 <td>The user&rsquo;s current password</td>
 </tr>
@@ -2115,7 +2052,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/workspaces/add_user <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/workspaces/add_user <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>5517
   -d <span class="nv">email</span><span class="o">=</span>user2@example.com
@@ -2129,20 +2066,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>email</td>
-<td>String</td>
+<td>email <em>String</em></td>
 <td>Yes</td>
 <td>The user&rsquo;s email</td>
 </tr>
@@ -2157,7 +2091,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/workspaces/resend_invite <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/workspaces/resend_invite <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>5517
   -d <span class="nv">email</span><span class="o">=</span>user2@example.com
@@ -2176,20 +2110,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>email</td>
-<td>String</td>
+<td>email <em>String</em></td>
 <td>Yes</td>
 <td>The user&rsquo;s email</td>
 </tr>
@@ -2200,7 +2131,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/workspaces/update_user <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/workspaces/update_user <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>5517
   -d <span class="nv">email</span><span class="o">=</span>user2@example.com
@@ -2215,26 +2146,22 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>email</td>
-<td>String</td>
+<td>email <em>String</em></td>
 <td>Yes</td>
 <td>The user&rsquo;s email</td>
 </tr>
 <tr>
-<td>user_type</td>
-<td>String</td>
+<td>user_type <em>String</em></td>
 <td>Yes</td>
 <td>The user&rsquo;s type one of <code class="prettyprint">USER</code>, <code class="prettyprint">ADMIN</code> or <code class="prettyprint">GUEST</code></td>
 </tr>
@@ -2249,7 +2176,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/workspaces/update_user <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/workspaces/update_user <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>5517
   -d <span class="nv">email</span><span class="o">=</span>user2@example.com
@@ -2270,20 +2197,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>email</td>
-<td>String</td>
+<td>email <em>String</em></td>
 <td>Yes</td>
 <td>The user&rsquo;s email</td>
 </tr>
@@ -2308,20 +2232,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>email</td>
-<td>String</td>
+<td>email <em>String</em></td>
 <td>Yes</td>
 <td>The user&rsquo;s email</td>
 </tr>
@@ -2350,20 +2271,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>user_id</td>
-<td>Number</td>
+<td>user_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The user&rsquo;s id</td>
 </tr>
@@ -2392,20 +2310,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>user_id</td>
-<td>Number</td>
+<td>user_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The user&rsquo;s id</td>
 </tr>
@@ -2435,20 +2350,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>user_id</td>
-<td>Number</td>
+<td>user_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The user&rsquo;s id</td>
 </tr>
@@ -2472,14 +2384,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the workspace</td>
 </tr>
@@ -2509,33 +2419,27 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>The id of the group</td>
 </tr>
 <tr>
-<td>name</td>
-<td>String</td>
+<td>name <em>String</em></td>
 <td>The name of the group</td>
 </tr>
 <tr>
-<td>description</td>
-<td>String</td>
+<td>description <em>String</em></td>
 <td>The description of the group</td>
 </tr>
 <tr>
-<td>user_ids</td>
-<td>Array of Numbers</td>
+<td>user_ids <em>List of Integers</em></td>
 <td>The users that are part of the group</td>
 </tr>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id <em>Integer</em></td>
 <td>The id of the workspace</td>
 </tr>
 </tbody></table>
@@ -2558,14 +2462,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the group</td>
 </tr>
@@ -2593,14 +2495,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the workspace</td>
 </tr>
@@ -2615,7 +2515,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/groups/add <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/groups/add <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5571 <span class="se">\</span>
   -d <span class="nv">name</span><span class="o">=</span>Group1 <span class="se">\</span>
@@ -2630,26 +2530,22 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>name</td>
-<td>String</td>
+<td>name <em>String</em></td>
 <td>Yes</td>
 <td>The name of the new group</td>
 </tr>
 <tr>
-<td>user_ids</td>
-<td>Array of Numbers</td>
+<td>user_ids <em>List of Integers</em></td>
 <td>No</td>
 <td>The users that will comprise the group</td>
 </tr>
@@ -2664,7 +2560,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/groups/update <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/groups/update <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>498 <span class="se">\</span>
   -d <span class="nv">name</span><span class="o">=</span>Group1
@@ -2678,20 +2574,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the group</td>
 </tr>
 <tr>
-<td>name</td>
-<td>String</td>
+<td>name <em>String</em></td>
 <td>Yes</td>
 <td>The name of the group</td>
 </tr>
@@ -2706,7 +2599,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/groups/remove <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/groups/remove <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>498
 </code></pre>
@@ -2726,14 +2619,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the group</td>
 </tr>
@@ -2744,7 +2635,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/groups/add_user <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/groups/add_user <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>498 <span class="se">\</span>
   -d <span class="nv">user_id</span><span class="o">=</span>10076
@@ -2765,20 +2656,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the group</td>
 </tr>
 <tr>
-<td>user_id</td>
-<td>Number</td>
+<td>user_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The user&rsquo;s id</td>
 </tr>
@@ -2789,7 +2677,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/groups/add_users <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/groups/add_users <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>498 <span class="se">\</span>
   -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10073,10076]'</span>
@@ -2810,20 +2698,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the group</td>
 </tr>
 <tr>
-<td>user_ids</td>
-<td>Array of Numbers</td>
+<td>user_ids <em>List of Integers</em></td>
 <td>Yes</td>
 <td>The ids of the users</td>
 </tr>
@@ -2834,7 +2719,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/groups/remove_user <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/groups/remove_user <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>498 <span class="se">\</span>
   -d <span class="nv">user_id</span><span class="o">=</span>10076
@@ -2855,20 +2740,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the group</td>
 </tr>
 <tr>
-<td>user_id</td>
-<td>Number</td>
+<td>user_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The user&rsquo;s id</td>
 </tr>
@@ -2879,7 +2761,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/groups/remove_users <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/groups/remove_users <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">id</span><span class="o">=</span>498 <span class="se">\</span>
   -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10073,10076]'</span>
@@ -2900,20 +2782,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the group</td>
 </tr>
 <tr>
-<td>user_ids</td>
-<td>Array of Numbers</td>
+<td>user_ids <em>List of Integers</em></td>
 <td>Yes</td>
 <td>The ids of the users</td>
 </tr>
@@ -2948,58 +2827,47 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>The id of the channel</td>
 </tr>
 <tr>
-<td>name</td>
-<td>String</td>
+<td>name <em>String</em></td>
 <td>The name of the channel</td>
 </tr>
 <tr>
-<td>description</td>
-<td>String</td>
+<td>description <em>String</em></td>
 <td>The description of the channel</td>
 </tr>
 <tr>
-<td>creator</td>
-<td>Number</td>
+<td>creator <em>Integer</em></td>
 <td>The user that created the channel</td>
 </tr>
 <tr>
-<td>user_ids</td>
-<td>Array of Numbers</td>
+<td>user_ids <em>List of Integers</em></td>
 <td>The users that will participate in the channel</td>
 </tr>
 <tr>
-<td>color</td>
-<td>Number</td>
+<td>color <em>Integer</em></td>
 <td>The color of the channel</td>
 </tr>
 <tr>
-<td>public</td>
-<td>Boolean</td>
+<td>public <em>Boolean</em></td>
 <td>If enabled, the channel will be marked as public</td>
 </tr>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id <em>Integer</em></td>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>archived</td>
-<td>Boolean</td>
+<td>archived <em>Boolean</em></td>
 <td>Whether the channel is archived</td>
 </tr>
 <tr>
-<td>created_ts</td>
-<td>Number</td>
+<td>created_ts <em>Integer</em></td>
 <td>The Unix time when the channel was created</td>
 </tr>
 </tbody></table>
@@ -3010,7 +2878,7 @@ the information for the current user.</p>
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/channels/getone <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>6984
 </code></pre>
 <p><code class="prettyprint">GET /api/v2/channels/getone</code></p>
@@ -3022,14 +2890,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the channel</td>
 </tr>
@@ -3045,7 +2911,7 @@ the information for the current user.</p>
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/channels/get <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5517
 </code></pre>
 <p><code class="prettyprint">GET /api/v2/channels/get</code></p>
@@ -3057,20 +2923,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>archived</td>
-<td>Boolean</td>
+<td>archived <em>Boolean</em></td>
 <td>No</td>
 <td>If enabled, only archived converations are returned. By default it&rsquo;s off.</td>
 </tr>
@@ -3085,8 +2948,8 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/channels/add <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/channels/add <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5517 <span class="se">\</span>
   -d <span class="nv">name</span><span class="o">=</span>Channel1
 </code></pre>
@@ -3099,50 +2962,42 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>name</td>
-<td>String</td>
+<td>name <em>String</em></td>
 <td>Yes</td>
 <td>The name of the new channel</td>
 </tr>
 <tr>
-<td>temp_id</td>
-<td>Number</td>
+<td>temp_id <em>Integer</em></td>
 <td>No</td>
 <td>The temporary id of the channel</td>
 </tr>
 <tr>
-<td>user_ids</td>
-<td>Array of Numbers</td>
+<td>user_ids <em>List of Integers</em></td>
 <td>No</td>
 <td>The users that will participate in the channel</td>
 </tr>
 <tr>
-<td>color</td>
-<td>Number</td>
+<td>color <em>Integer</em></td>
 <td>No</td>
 <td>The color of the channel</td>
 </tr>
 <tr>
-<td>public</td>
-<td>Boolean</td>
+<td>public <em>Boolean</em></td>
 <td>No</td>
 <td>If enabled, the channel will be marked as public</td>
 </tr>
 <tr>
-<td>description</td>
-<td>String</td>
+<td>description <em>String</em></td>
 <td>No</td>
 <td>The description of the channel</td>
 </tr>
@@ -3157,8 +3012,8 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/channels/update <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/channels/update <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>6984 <span class="se">\</span>
   -d <span class="nv">name</span><span class="o">=</span>Channel1
 </code></pre>
@@ -3171,38 +3026,32 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the channel</td>
 </tr>
 <tr>
-<td>name</td>
-<td>String</td>
+<td>name <em>String</em></td>
 <td>Yes</td>
 <td>The name of the new channel</td>
 </tr>
 <tr>
-<td>color</td>
-<td>Number</td>
+<td>color <em>Integer</em></td>
 <td>No</td>
 <td>The color of the channel</td>
 </tr>
 <tr>
-<td>public</td>
-<td>Boolean</td>
+<td>public <em>Boolean</em></td>
 <td>No</td>
 <td>If enabled, the channel will be marked as public</td>
 </tr>
 <tr>
-<td>description</td>
-<td>String</td>
+<td>description <em>String</em></td>
 <td>No</td>
 <td>The description of the channel</td>
 </tr>
@@ -3217,8 +3066,8 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/channels/remove <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/channels/remove <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>6984
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/channels/remove</code></p>
@@ -3230,14 +3079,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the channel</td>
 </tr>
@@ -3253,8 +3100,8 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/channels/archive <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/channels/archive <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>6984
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/channels/archive</code></p>
@@ -3273,14 +3120,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the channel</td>
 </tr>
@@ -3291,8 +3136,8 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/channels/unarchive <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/channels/unarchive <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>6984
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/channels/unarchive</code></p>
@@ -3311,14 +3156,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the channel</td>
 </tr>
@@ -3329,8 +3172,8 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/channels/add_user <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/channels/add_user <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>6984 <span class="se">\</span>
   -d <span class="nv">user_id</span><span class="o">=</span>10076
 </code></pre>
@@ -3350,20 +3193,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the channel</td>
 </tr>
 <tr>
-<td>user_id</td>
-<td>Number</td>
+<td>user_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The user&rsquo;s id</td>
 </tr>
@@ -3374,8 +3214,8 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/channels/add_users <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/channels/add_users <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>6984 <span class="se">\</span>
   -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10076]'</span>
 </code></pre>
@@ -3395,20 +3235,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the channel</td>
 </tr>
 <tr>
-<td>user_ids</td>
-<td>Array of Numbers</td>
+<td>user_ids <em>List of Integers</em></td>
 <td>Yes</td>
 <td>The ids of the users</td>
 </tr>
@@ -3419,8 +3256,8 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/channels/remove_user <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/channels/remove_user <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>6984 <span class="se">\</span>
   -d <span class="nv">user_id</span><span class="o">=</span>10076
 </code></pre>
@@ -3440,20 +3277,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the channel</td>
 </tr>
 <tr>
-<td>user_id</td>
-<td>Number</td>
+<td>user_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The user&rsquo;s id</td>
 </tr>
@@ -3464,8 +3298,8 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/channels/remove_users <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/channels/remove_users <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>6984 <span class="se">\</span>
   -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10076]'</span>
 </code></pre>
@@ -3485,20 +3319,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the channel</td>
 </tr>
 <tr>
-<td>user_ids</td>
-<td>Array of Numbers</td>
+<td>user_ids <em>List of Integers</em></td>
 <td>Yes</td>
 <td>The ids of the users</td>
 </tr>
@@ -3544,108 +3375,87 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>The id of the thread</td>
 </tr>
 <tr>
-<td>title</td>
-<td>String</td>
+<td>title <em>String</em></td>
 <td>The title of the thread</td>
 </tr>
 <tr>
-<td>content</td>
-<td>String</td>
+<td>content <em>String</em></td>
 <td>The content of the thread</td>
 </tr>
 <tr>
-<td>is_starred</td>
-<td>Number</td>
+<td>is_starred <em>Integer</em></td>
 <td>Whether the thread is starred</td>
 </tr>
 <tr>
-<td>creator</td>
-<td>Number</td>
+<td>creator <em>Integer</em></td>
 <td>The user that created the thread</td>
 </tr>
 <tr>
-<td>channel_id</td>
-<td>Number</td>
+<td>channel_id <em>Integer</em></td>
 <td>The id of the channel</td>
 </tr>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id <em>Integer</em></td>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>attachments</td>
-<td>Array of Objects</td>
+<td>attachments <em>List of Objects</em></td>
 <td>Files attached to the comment</td>
 </tr>
 <tr>
-<td>recipients</td>
-<td>Array of Numbers or String</td>
+<td>recipients *List of Integers or String</td>
 <td>The users that were initially attached to the the thread, or <code class="prettyprint">EVERYONE</code></td>
 </tr>
 <tr>
-<td>participants</td>
-<td>Array of Numbers</td>
+<td>participants <em>List of Integers</em></td>
 <td>The users that were at some point attached to the thread or one of its comments</td>
 </tr>
 <tr>
-<td>groups</td>
-<td>Array of Numbers</td>
+<td>groups <em>List of Integers</em></td>
 <td>The groups that will be notified</td>
 </tr>
 <tr>
-<td>reactions</td>
-<td>Object</td>
+<td>reactions <em>Object</em></td>
 <td>Reactions to the thread, where keys are the reactions and values the users that had that reaction</td>
 </tr>
 <tr>
-<td>comment_count</td>
-<td>Number</td>
+<td>comment_count <em>Integer</em></td>
 <td>The number of comments</td>
 </tr>
 <tr>
-<td>last_obj_index</td>
-<td>Number</td>
+<td>last_obj_index <em>Integer</em></td>
 <td>The last comment&rsquo;s index</td>
 </tr>
 <tr>
-<td>snippet</td>
-<td>String</td>
+<td>snippet <em>String</em></td>
 <td>A part of the last comment</td>
 </tr>
 <tr>
-<td>snippet_creator</td>
-<td>Number</td>
+<td>snippet_creator <em>Integer</em></td>
 <td>The user of the last comment</td>
 </tr>
 <tr>
-<td>last_updated</td>
-<td>String</td>
+<td>last_updated <em>String</em></td>
 <td>The date and time when the thread was last updated</td>
 </tr>
 <tr>
-<td>last_updated_ts</td>
-<td>Number</td>
+<td>last_updated_ts <em>Integer</em></td>
 <td>The Unix time when the thread was last updated</td>
 </tr>
 <tr>
-<td>system_message</td>
-<td>String</td>
+<td>system_message <em>String</em></td>
 <td>A system message</td>
 </tr>
 <tr>
-<td>posted_ts</td>
-<td>Number</td>
+<td>posted_ts <em>Integer</em></td>
 <td>The Unix time when the thread was created</td>
 </tr>
 </tbody></table>
@@ -3668,14 +3478,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the thread</td>
 </tr>
@@ -3703,50 +3511,42 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>channel_id</td>
-<td>Number</td>
+<td>channel_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the channel</td>
 </tr>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id <em>Integer</em></td>
 <td>No</td>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>filter_by</td>
-<td>String</td>
+<td>filter_by <em>String</em></td>
 <td>No</td>
 <td>A filter can be one of <code class="prettyprint">attached_to_me</code>, <code class="prettyprint">everyone</code> and <code class="prettyprint">is_starred</code></td>
 </tr>
 <tr>
-<td>newer_than_ts</td>
-<td>Number</td>
+<td>newer_than_ts <em>Integer</em></td>
 <td>No</td>
 <td>Limits threads to those newer whan the specified Unix time</td>
 </tr>
 <tr>
-<td>older_than_ts</td>
-<td>Number</td>
+<td>older_than_ts <em>Integer</em></td>
 <td>No</td>
 <td>Limits threads to those older whan the specified Unix time</td>
 </tr>
 <tr>
-<td>limit</td>
-<td>Number</td>
+<td>limit <em>Integer</em></td>
 <td>No</td>
 <td>Limits the number of threads returned</td>
 </tr>
 <tr>
-<td>as_ids</td>
-<td>Boolean</td>
+<td>as_ids <em>Boolean</em></td>
 <td>No</td>
 <td>If enabled, only the ids of the threads are returned</td>
 </tr>
@@ -3761,7 +3561,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/add <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/threads/add <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">channel_id</span><span class="o">=</span>6984 <span class="se">\</span>
   -d <span class="nv">name</span><span class="o">=</span>Thread1
@@ -3775,56 +3575,47 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>channel_id</td>
-<td>Number</td>
+<td>channel_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the channel</td>
 </tr>
 <tr>
-<td>title</td>
-<td>String</td>
+<td>title <em>String</em></td>
 <td>Yes</td>
 <td>The title of the new thread</td>
 </tr>
 <tr>
-<td>content</td>
-<td>String</td>
+<td>content <em>String</em></td>
 <td>Yes</td>
 <td>The content of the new thread</td>
 </tr>
 <tr>
-<td>attachments</td>
-<td>Array of Objects</td>
+<td>attachments <em>List of Objects</em></td>
 <td>No</td>
 <td>List of objects from <a href="#upload-an-attachment">attachment#upload</a> to attach to the comment</td>
 </tr>
 <tr>
-<td>recipients</td>
-<td>Array of Numbers or String</td>
+<td>recipients <em>List of Integers or String</em></td>
 <td>No</td>
 <td>The users that will be attached to the thread, or <code class="prettyprint">EVERYONE</code></td>
 </tr>
 <tr>
-<td>groups</td>
-<td>Array of Numbers</td>
+<td>groups <em>List of Integers</em></td>
 <td>No</td>
 <td>The groups that will be notified</td>
 </tr>
 <tr>
-<td>temp_id</td>
-<td>Number</td>
+<td>temp_id <em>Integer</em></td>
 <td>No</td>
 <td>The temporary id of the thread</td>
 </tr>
 <tr>
-<td>send_as_integration</td>
-<td>Boolean</td>
+<td>send_as_integration <em>Boolean</em></td>
 <td>No</td>
 <td>Displays the integration as the thread creator</td>
 </tr>
@@ -3853,32 +3644,27 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the thread</td>
 </tr>
 <tr>
-<td>title</td>
-<td>String</td>
+<td>title <em>String</em></td>
 <td>No</td>
 <td>The title of the thread</td>
 </tr>
 <tr>
-<td>content</td>
-<td>String</td>
+<td>content <em>String</em></td>
 <td>No</td>
 <td>The content of the thread</td>
 </tr>
 <tr>
-<td>attachments</td>
-<td>Array of Objects</td>
+<td>attachments <em>List of Objects</em></td>
 <td>No</td>
 <td>List of objects from <a href="#upload-an-attachment">attachment#upload</a> to attach to the comment</td>
 </tr>
@@ -3893,7 +3679,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/remove <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/threads/remove <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>32038
 </code></pre>
@@ -3906,14 +3692,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the thread</td>
 </tr>
@@ -3929,7 +3713,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/star <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/threads/star <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>32038
 </code></pre>
@@ -3942,14 +3726,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the thread</td>
 </tr>
@@ -3967,7 +3749,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/unstar <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/threads/unstar <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>32038
 </code></pre>
@@ -3980,14 +3762,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the thread</td>
 </tr>
@@ -4005,7 +3785,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/move_to_channel <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/threads/move_to_channel <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>6984 <span class="se">\</span>
   -d <span class="nv">to_channel</span><span class="o">=</span>6984
@@ -4019,20 +3799,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the thread</td>
 </tr>
 <tr>
-<td>to_channel</td>
-<td>Number</td>
+<td>to_channel <em>Integer</em></td>
 <td>Yes</td>
 <td>The target channel&rsquo;s id</td>
 </tr>
@@ -4050,7 +3827,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/follow <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/threads/follow <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>32038
 </code></pre>
@@ -4063,14 +3840,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the thread</td>
 </tr>
@@ -4088,7 +3863,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/unfollow <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/threads/unfollow <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>32038
 </code></pre>
@@ -4101,14 +3876,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the thread</td>
 </tr>
@@ -4139,14 +3912,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the workspace</td>
 </tr>
@@ -4161,7 +3932,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/mark_read <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/threads/mark_read <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>32038 <span class="se">\</span>
   -d <span class="nv">obj_index</span><span class="o">=</span>2
@@ -4175,20 +3946,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the thread</td>
 </tr>
 <tr>
-<td>obj_index</td>
-<td>Number</td>
+<td>obj_index <em>Integer</em></td>
 <td>Yes</td>
 <td>The index of the last known read message</td>
 </tr>
@@ -4206,7 +3974,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/mark_unread <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/threads/mark_unread <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>32038 <span class="se">\</span>
   -d <span class="nv">obj_index</span><span class="o">=</span>2
@@ -4220,20 +3988,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the thread</td>
 </tr>
 <tr>
-<td>obj_index</td>
-<td>Number</td>
+<td>obj_index <em>Integer</em></td>
 <td>Yes</td>
 <td>The index of the last unread message</td>
 </tr>
@@ -4251,7 +4016,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/mark_all_read <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/threads/mark_all_read <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">channel_id</span><span class="o">=</span>6984
 </code></pre>
@@ -4264,20 +4029,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id <em>Integer</em></td>
 <td>Yes, this or <code class="prettyprint">channel_id</code></td>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>channel_id</td>
-<td>Number</td>
+<td>channel_id <em>Integer</em></td>
 <td>Yes, this or <code class="prettyprint">workspace_id</code></td>
 <td>The id of the channel</td>
 </tr>
@@ -4295,7 +4057,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/threads/clear_unread <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/threads/clear_unread <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5517
 </code></pre>
@@ -4308,14 +4070,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the workspace</td>
 </tr>
@@ -4363,73 +4123,59 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>The id of the comment</td>
 </tr>
 <tr>
-<td>content</td>
-<td>String</td>
+<td>content <em>String</em></td>
 <td>The content of the new comment</td>
 </tr>
 <tr>
-<td>creator</td>
-<td>Number</td>
+<td>creator <em>Integer</em></td>
 <td>The user that added the comment</td>
 </tr>
 <tr>
-<td>thread_id</td>
-<td>Number</td>
+<td>thread_id <em>Integer</em></td>
 <td>The id of the thread</td>
 </tr>
 <tr>
-<td>channel_id</td>
-<td>Number</td>
+<td>channel_id <em>Integer</em></td>
 <td>The id of the channel</td>
 </tr>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id <em>Integer</em></td>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>attachments</td>
-<td>Array of Objects</td>
+<td>attachments <em>List of Objects</em></td>
 <td>Files attached to the comment</td>
 </tr>
 <tr>
-<td>recipients</td>
-<td>Array of Numbers or String</td>
+<td>recipients <em>List of Integers or String</em></td>
 <td>The users that will be notified, or <code class="prettyprint">EVERYONE</code> or <code class="prettyprint">EVERYONE_IN_THREAD</code></td>
 </tr>
 <tr>
-<td>groups</td>
-<td>Array of Numbers</td>
+<td>groups <em>List of Integers</em></td>
 <td>The groups that will be notified</td>
 </tr>
 <tr>
-<td>reactions</td>
-<td>Object</td>
+<td>reactions <em>Object</em></td>
 <td>Reactions to the thread, where keys are the reactions and values the users that had that reaction</td>
 </tr>
 <tr>
-<td>is_deleted</td>
-<td>Number</td>
+<td>is_deleted <em>Integer</em></td>
 <td>Whether the thread is deleted</td>
 </tr>
 <tr>
-<td>system_message</td>
-<td>String</td>
+<td>system_message <em>String</em></td>
 <td>A system message</td>
 </tr>
 <tr>
-<td>posted_ts</td>
-<td>Number</td>
+<td>posted_ts <em>Integer</em></td>
 <td>The Unix time when the thread was created</td>
 </tr>
 </tbody></table>
@@ -4452,14 +4198,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the comment</td>
 </tr>
@@ -4487,56 +4231,47 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>thread_id</td>
-<td>Number</td>
+<td>thread_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the thread</td>
 </tr>
 <tr>
-<td>newer_than_ts</td>
-<td>String</td>
+<td>newer_than_ts <em>String</em></td>
 <td>No</td>
 <td>Limit comments to those newer than the specified Unix timestamp</td>
 </tr>
 <tr>
-<td>older_than_ts</td>
-<td>String</td>
+<td>older_than_ts <em>String</em></td>
 <td>No</td>
 <td>Limit comments to those older than the specified Unix timestamp</td>
 </tr>
 <tr>
-<td>from_obj_index</td>
-<td>Number</td>
+<td>from_obj_index <em>Integer</em></td>
 <td>No</td>
 <td>Limit comments starting at the specified object index</td>
 </tr>
 <tr>
-<td>to_obj_index</td>
-<td>String</td>
+<td>to_obj_index <em>String</em></td>
 <td>No</td>
 <td>Limit comments ending at the specified object index</td>
 </tr>
 <tr>
-<td>limit</td>
-<td>Number</td>
+<td>limit <em>Integer</em></td>
 <td>No</td>
 <td>Limits the number of comments returned, by default <code class="prettyprint">20</code></td>
 </tr>
 <tr>
-<td>order_by</td>
-<td>String</td>
+<td>order_by <em>String</em></td>
 <td>No</td>
 <td>The order of the comments returned one of <code class="prettyprint">DESC</code> or <code class="prettyprint">ASC</code></td>
 </tr>
 <tr>
-<td>as_ids</td>
-<td>Boolean</td>
+<td>as_ids <em>Boolean</em></td>
 <td>No</td>
 <td>If enabled, only the ids of the comments are returned</td>
 </tr>
@@ -4551,7 +4286,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/comments/add <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/comments/add <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">thread_id</span><span class="o">=</span>32038 <span class="se">\</span>
   -d <span class="nv">content</span><span class="o">=</span><span class="s2">"OK!"</span>
@@ -4565,56 +4300,47 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>thread_id</td>
-<td>Number</td>
+<td>thread_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the thread</td>
 </tr>
 <tr>
-<td>content</td>
-<td>String</td>
+<td>content <em>String</em></td>
 <td>Yes</td>
 <td>The content of the new comment</td>
 </tr>
 <tr>
-<td>attachments</td>
-<td>Array of Objects</td>
+<td>attachments <em>List of Objects</em></td>
 <td>No</td>
 <td>List of objects from <a href="#upload-an-attachment">attachment#upload</a> to attach to the comment</td>
 </tr>
 <tr>
-<td>recipients</td>
-<td>Array of Numbers or String</td>
+<td>recipients <em>List of Integers or String</em></td>
 <td>No</td>
 <td>The users that will be notified, or <code class="prettyprint">EVERYONE</code> or <code class="prettyprint">EVERYONE_IN_THREAD</code></td>
 </tr>
 <tr>
-<td>groups</td>
-<td>Array of Numbers</td>
+<td>groups <em>List of Integers</em></td>
 <td>No</td>
 <td>The groups that will be notified</td>
 </tr>
 <tr>
-<td>temp_id</td>
-<td>Number</td>
+<td>temp_id <em>Integer</em></td>
 <td>No</td>
 <td>The temporary id of the comment</td>
 </tr>
 <tr>
-<td>mark_thread_position</td>
-<td>Boolean</td>
+<td>mark_thread_position <em>Boolean</em></td>
 <td>No</td>
 <td>By default, the position of the thread is marked</td>
 </tr>
 <tr>
-<td>send_as_integration</td>
-<td>Boolean</td>
+<td>send_as_integration <em>Boolean</em></td>
 <td>No</td>
 <td>Displays the integration as the comment creator</td>
 </tr>
@@ -4629,7 +4355,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/comments/update <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/comments/update <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>206113 <span class="se">\</span>
   -d <span class="nv">content</span><span class="o">=</span><span class="s2">"OK!"</span>
@@ -4643,26 +4369,22 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the comment</td>
 </tr>
 <tr>
-<td>content</td>
-<td>String</td>
+<td>content <em>String</em></td>
 <td>No</td>
 <td>The content of the comment</td>
 </tr>
 <tr>
-<td>attachments</td>
-<td>Array of Objects</td>
+<td>attachments <em>List of Objects</em></td>
 <td>No</td>
 <td>List of objects from <a href="#upload-an-attachment">attachment#upload</a> to attach to the comment</td>
 </tr>
@@ -4677,7 +4399,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/comments/remove <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/comments/remove <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>206113
 </code></pre>
@@ -4690,14 +4412,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the comment</td>
 </tr>
@@ -4715,10 +4435,10 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/comments/mark_position <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/comments/mark_position <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">thread_id</span><span class="o">=</span>32038 <span class="se">\</span>
-    -d <span class="nv">comment_id</span><span class="o">=</span>206113
+  -d <span class="nv">comment_id</span><span class="o">=</span>206113
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/comments/mark_position</code></p>
 
@@ -4729,20 +4449,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>thread_id</td>
-<td>Number</td>
+<td>thread_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the thread</td>
 </tr>
 <tr>
-<td>comment_id</td>
-<td>Number</td>
+<td>comment_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the comment</td>
 </tr>
@@ -4785,95 +4502,78 @@ the information for the current user.</p>
    </span><span class="s2">"muted_until"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
    </span><span class="s2">"archived"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
    </span><span class="s2">"created_ts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1494330846</span><span class="p">,</span><span class="w">
-</span><span class="p">},</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <h3 id="properties-of-conversation-object">Properties of conversation object</h3>
 
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>The id of the conversation</td>
 </tr>
 <tr>
-<td>name</td>
-<td>String</td>
+<td>name <em>String</em></td>
 <td>The name of the other user or users or a title</td>
 </tr>
 <tr>
-<td>title</td>
-<td>String</td>
+<td>title <em>String</em></td>
 <td>The title of the conversation, or <code class="prettyprint">null</code> if a private conversation</td>
 </tr>
 <tr>
-<td>is_private</td>
-<td>Number</td>
+<td>is_private <em>Integer</em></td>
 <td>Whether the conversation is private, ie. between 2 users only</td>
 </tr>
 <tr>
-<td>creator</td>
-<td>Number</td>
+<td>creator <em>Integer</em></td>
 <td>The user that created the thread</td>
 </tr>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id <em>Integer</em></td>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>user_ids</td>
-<td>Array of Numbers</td>
+<td>user_ids <em>List of Integers</em></td>
 <td>The users that are participating in the conversation</td>
 </tr>
 <tr>
-<td>message_count</td>
-<td>Number</td>
+<td>message_count <em>Integer</em></td>
 <td>The number of messages</td>
 </tr>
 <tr>
-<td>last_obj_index</td>
-<td>Number</td>
+<td>last_obj_index <em>Integer</em></td>
 <td>The last message&rsquo;s index</td>
 </tr>
 <tr>
-<td>snippet</td>
-<td>String</td>
+<td>snippet <em>String</em></td>
 <td>A part of the last comment</td>
 </tr>
 <tr>
-<td>snippet_creator</td>
-<td>Number</td>
+<td>snippet_creator <em>Integer</em></td>
 <td>The user of the last comment</td>
 </tr>
 <tr>
-<td>snippet_creators</td>
-<td>Array of Numbers</td>
+<td>snippet_creators <em>List of Integers</em></td>
 <td>The users of the last comments</td>
 </tr>
 <tr>
-<td>last_active_ts</td>
-<td>Number</td>
+<td>last_active_ts <em>Integer</em></td>
 <td>The Unix time when the conversation was last active</td>
 </tr>
 <tr>
-<td>muted_until</td>
-<td>Number</td>
+<td>muted_until <em>Integer</em></td>
 <td>The Unix time until when the conversation is muted</td>
 </tr>
 <tr>
-<td>archived</td>
-<td>Number</td>
+<td>archived <em>Integer</em></td>
 <td>Whether the conversation is archived</td>
 </tr>
 <tr>
-<td>created_ts</td>
-<td>Number</td>
+<td>created_ts <em>Integer</em></td>
 <td>The Unix time when the conversation was created</td>
 </tr>
 </tbody></table>
@@ -4896,16 +4596,53 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the conversation</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-value">Return value</h3>
+
+<p>A conversation object is returned.</p>
+
+<h2 id="get-or-create-conversation">Get or create conversation</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/conversations/get_or_create <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">workspace_id</span><span class="o">=</span>5517 <span class="se">\</span>
+  -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10073,10076]'</span>
+</code></pre>
+<p><code class="prettyprint">POST /api/v2/conversations/get_or_create</code></p>
+
+<p>Gets or creates a conversation with one or more users.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>workspace_id <em>Integer</em></td>
+<td>Yes</td>
+<td>The id of the workspace</td>
+</tr>
+<tr>
+<td>user_ids <em>List of Integers</em></td>
+<td>Yes</td>
+<td>The users that will participate in the conversation</td>
 </tr>
 </tbody></table>
 
@@ -4931,44 +4668,37 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>limit</td>
-<td>Number</td>
+<td>limit <em>Integer</em></td>
 <td>No</td>
 <td>Limits the number of conversations</td>
 </tr>
 <tr>
-<td>newer_than_ts</td>
-<td>Number</td>
+<td>newer_than_ts <em>Integer</em></td>
 <td>No</td>
 <td>Limits conversations to those newer whan the specified Unix time</td>
 </tr>
 <tr>
-<td>older_than_ts</td>
-<td>Number</td>
+<td>older_than_ts <em>Integer</em></td>
 <td>No</td>
 <td>Limits conversations to those older whan the specified Unix time</td>
 </tr>
 <tr>
-<td>order_by</td>
-<td>String</td>
+<td>order_by <em>String</em></td>
 <td>No</td>
 <td>The order of the comments returned one of <code class="prettyprint">DESC</code> or <code class="prettyprint">ASC</code></td>
 </tr>
 <tr>
-<td>archived</td>
-<td>Boolean</td>
+<td>archived <em>Boolean</em></td>
 <td>No</td>
 <td>If enabled, only archived converations are returned. By default it&rsquo;s off.</td>
 </tr>
@@ -4978,54 +4708,12 @@ the information for the current user.</p>
 
 <p>A list of conversation objects is returned.</p>
 
-<h2 id="get-or-create-conversation">Get or create conversation</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversations/get_or_create <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
-  -d <span class="nv">workspace_id</span><span class="o">=</span>5517 <span class="se">\</span>
-  -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10073,10076]'</span>
-</code></pre>
-<p><code class="prettyprint">POST /api/v2/conversations/get_or_create</code></p>
-
-<p>Gets or creates a conversation with one or more users.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>workspace_id</td>
-<td>Number</td>
-<td>Yes</td>
-<td>The id of the workspace</td>
-</tr>
-<tr>
-<td>user_ids</td>
-<td>Array of Numbers</td>
-<td>Yes</td>
-<td>The users that will participate in the conversation</td>
-</tr>
-</tbody></table>
-
-<h3 id="return-value">Return value</h3>
-
-<p>A conversation object is returned.</p>
-
 <h2 id="update-conversation">Update conversation</h2>
 
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversations/update <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/conversations/update <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>13037 <span class="se">\</span>
   -d <span class="nv">title</span><span class="o">=</span>Title1
@@ -5039,26 +4727,22 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the conversation</td>
 </tr>
 <tr>
-<td>title</td>
-<td>String</td>
+<td>title <em>String</em></td>
 <td>Yes</td>
 <td>The title of the conversation</td>
 </tr>
 <tr>
-<td>archived</td>
-<td>Boolean</td>
+<td>archived <em>Boolean</em></td>
 <td>No</td>
 <td>If enabled, the conversation is marked as archived</td>
 </tr>
@@ -5073,7 +4757,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversations/add_user <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/conversations/add_user <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>13037 <span class="se">\</span>
   -d <span class="nv">user_id</span><span class="o">=</span>10076
@@ -5087,20 +4771,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the conversation</td>
 </tr>
 <tr>
-<td>user_id</td>
-<td>Number</td>
+<td>user_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The user&rsquo;s id</td>
 </tr>
@@ -5118,7 +4799,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversations/add_users <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/conversations/add_users <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>13037 <span class="se">\</span>
   -d <span class="nv">user_ids</span><span class="o">=</span><span class="s1">'[10076]'</span>
@@ -5132,20 +4813,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the conversation</td>
 </tr>
 <tr>
-<td>user_ids</td>
-<td>Array of Numbers</td>
+<td>user_ids <em>List of Integers</em></td>
 <td>Yes</td>
 <td>The ids of the users</td>
 </tr>
@@ -5177,20 +4855,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the conversation</td>
 </tr>
 <tr>
-<td>user_id</td>
-<td>Number</td>
+<td>user_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The user&rsquo;s id</td>
 </tr>
@@ -5222,20 +4897,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the conversation</td>
 </tr>
 <tr>
-<td>user_ids</td>
-<td>Array of Numbers</td>
+<td>user_ids <em>List of Integers</em></td>
 <td>Yes</td>
 <td>The ids of the users</td>
 </tr>
@@ -5253,7 +4925,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversations/archive <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/conversations/archive <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>13037
 </code></pre>
@@ -5266,14 +4938,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the conversation</td>
 </tr>
@@ -5291,7 +4961,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversations/unarchive <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/conversations/unarchive <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>13037
 </code></pre>
@@ -5304,14 +4974,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the conversation</td>
 </tr>
@@ -5342,14 +5010,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the workspace</td>
 </tr>
@@ -5367,14 +5033,16 @@ the information for the current user.</p>
 </span></code></pre>
 <h3 id="return-value">Return value</h3>
 
-<p>A list of unread conversations objects that are unread, where each unread conversation object is an array with two values: the conversation id and the id of last unread message.</p>
+<p>A list of unread conversations objects that are unread, where each unread
+conversation object is an array with two values: the conversation id and the id
+of last unread message.</p>
 
 <h2 id="mark-conversation-as-read">Mark conversation as read</h2>
 
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversations/mark_read <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/conversations/mark_read <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">conversation_id</span><span class="o">=</span>13037 <span class="se">\</span>
   -d <span class="nv">messsage_id</span><span class="o">=</span>1
@@ -5388,26 +5056,22 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>conversation_id</td>
-<td>Number</td>
+<td>conversation_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the conversation</td>
 </tr>
 <tr>
-<td>obj_index</td>
-<td>Number</td>
+<td>obj_index <em>Integer</em></td>
 <td>Yes, this or <code class="prettyprint">message_id</code></td>
 <td>The index of the message, which will become the last read message in the conversation</td>
 </tr>
 <tr>
-<td>message_id</td>
-<td>Number</td>
+<td>message_id <em>Integer</em></td>
 <td>Yes, this or <code class="prettyprint">obj_index</code></td>
 <td>The id of the message, which will become the last read message in the conversation</td>
 </tr>
@@ -5425,7 +5089,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversations/mark_unread <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/conversations/mark_unread <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">conversation_id</span><span class="o">=</span>13037 <span class="se">\</span>
   -d <span class="nv">messsage_id</span><span class="o">=</span>1
@@ -5439,26 +5103,22 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>conversation_id</td>
-<td>Number</td>
+<td>conversation_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the conversation</td>
 </tr>
 <tr>
-<td>obj_index</td>
-<td>Number</td>
+<td>obj_index <em>Integer</em></td>
 <td>Yes, this or <code class="prettyprint">message_id</code></td>
 <td>The index of the message, which will become the last unread message in the conversation</td>
 </tr>
 <tr>
-<td>message_id</td>
-<td>Number</td>
+<td>message_id <em>Integer</em></td>
 <td>Yes, this or <code class="prettyprint">obj_index</code></td>
 <td>The id of the message, which will become the last unread message in the conversation</td>
 </tr>
@@ -5476,7 +5136,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversations/mute <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/conversations/mute <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>13037 <span class="se">\</span>
   -d <span class="nv">minutes</span><span class="o">=</span>30
@@ -5490,20 +5150,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the conversation</td>
 </tr>
 <tr>
-<td>minutes</td>
-<td>Number</td>
+<td>minutes <em>Integer</em></td>
 <td>Yes</td>
 <td>The number of minutes to mute the conversation</td>
 </tr>
@@ -5518,7 +5175,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversations/unmute <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/conversations/unmute <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>13037
 </code></pre>
@@ -5531,14 +5188,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the conversation</td>
 </tr>
@@ -5550,7 +5205,8 @@ the information for the current user.</p>
 
           <h1 id="conversation-messages">Conversation messages</h1>
 
-<p>A conversation message is a message between one or more users participating in a conversation.</p>
+<p>A conversation message is a message between one or more users participating in a
+conversation.</p>
 
 <blockquote>
 <p>Conversation message object:</p>
@@ -5575,68 +5231,55 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>The id of the message</td>
 </tr>
 <tr>
-<td>content</td>
-<td>String</td>
+<td>content <em>String</em></td>
 <td>The content of the message</td>
 </tr>
 <tr>
-<td>creator</td>
-<td>Number</td>
+<td>creator <em>Integer</em></td>
 <td>The user that added the message</td>
 </tr>
 <tr>
-<td>conversation_id</td>
-<td>Number</td>
+<td>conversation_id <em>Integer</em></td>
 <td>The id of the conversation</td>
 </tr>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id <em>Integer</em></td>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>obj_index</td>
-<td>Number</td>
+<td>obj_index <em>Integer</em></td>
 <td>The index of the message in regards to all other messages in the conversation</td>
 </tr>
 <tr>
-<td>attachments</td>
-<td>Array of Objects</td>
+<td>attachments <em>List of Objects</em></td>
 <td>Files attached to the message</td>
 </tr>
 <tr>
-<td>actions</td>
-<td>Array of Objects</td>
+<td>actions <em>List of Objects</em></td>
 <td>Actions define special messages that trigger actions, buttons to click to open URLs, etc.</td>
 </tr>
 <tr>
-<td>reactions</td>
-<td>Object</td>
+<td>reactions <em>Object</em></td>
 <td>Reactions to the thread, where keys are the reactions and values the users that had that reaction</td>
 </tr>
 <tr>
-<td>is_deleted</td>
-<td>Number</td>
+<td>is_deleted <em>Integer</em></td>
 <td>Whether the message is deleted</td>
 </tr>
 <tr>
-<td>system_message</td>
-<td>String</td>
+<td>system_message <em>String</em></td>
 <td>A system message</td>
 </tr>
 <tr>
-<td>posted_ts</td>
-<td>Number</td>
+<td>posted_ts <em>Integer</em></td>
 <td>The Unix time when the message was created</td>
 </tr>
 </tbody></table>
@@ -5659,14 +5302,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the conversation message</td>
 </tr>
@@ -5694,44 +5335,37 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>conversation_id</td>
-<td>Number</td>
+<td>conversation_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the conversation</td>
 </tr>
 <tr>
-<td>limit</td>
-<td>Number</td>
+<td>limit <em>Integer</em></td>
 <td>No</td>
 <td>Limits the number of messages returned</td>
 </tr>
 <tr>
-<td>from_obj_index</td>
-<td>Number</td>
+<td>from_obj_index <em>Integer</em></td>
 <td>No</td>
 <td>Limit messages starting at the specified object index</td>
 </tr>
 <tr>
-<td>to_obj_index</td>
-<td>String</td>
+<td>to_obj_index <em>String</em></td>
 <td>No</td>
 <td>Limit messages ending at the specified object index</td>
 </tr>
 <tr>
-<td>order_by</td>
-<td>String</td>
+<td>order_by <em>String</em></td>
 <td>No</td>
 <td>The order of the conversations returned one of <code class="prettyprint">DESC</code> or <code class="prettyprint">ASC</code></td>
 </tr>
 <tr>
-<td>as_ids</td>
-<td>Boolean</td>
+<td>as_ids <em>Boolean</em></td>
 <td>No</td>
 <td>If enabled, only the ids of the messages are returned</td>
 </tr>
@@ -5746,7 +5380,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversation_messages/add <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/conversation_messages/add <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">conversation_id</span><span class="o">=</span>13037 <span class="se">\</span>
   -d <span class="nv">content</span><span class="o">=</span><span class="s2">"Hello!"</span>
@@ -5760,26 +5394,22 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>conversation_id</td>
-<td>Number</td>
+<td>conversation_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the conversation</td>
 </tr>
 <tr>
-<td>content</td>
-<td>String</td>
+<td>content <em>String</em></td>
 <td>Yes</td>
 <td>The content of the new message</td>
 </tr>
 <tr>
-<td>attachments</td>
-<td>String</td>
+<td>attachments <em>String</em></td>
 <td>No</td>
 <td>Attachments to the new message</td>
 </tr>
@@ -5794,7 +5424,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversation_messages/update <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/conversation_messages/update <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">conversation_id</span><span class="o">=</span>13037 <span class="se">\</span>
   -d <span class="nv">content</span><span class="o">=</span><span class="s2">"Hello!"</span>
@@ -5808,26 +5438,22 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the message</td>
 </tr>
 <tr>
-<td>content</td>
-<td>String</td>
+<td>content <em>String</em></td>
 <td>No</td>
 <td>The content of the new message</td>
 </tr>
 <tr>
-<td>attachments</td>
-<td>String</td>
+<td>attachments <em>String</em></td>
 <td>No</td>
 <td>Attachments to the new message</td>
 </tr>
@@ -5842,7 +5468,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/conversation_messages/remove <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/conversation_messages/remove <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>514069
 </code></pre>
@@ -5855,14 +5481,12 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the message</td>
 </tr>
@@ -5901,68 +5525,55 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>attachment_id</td>
-<td>String</td>
+<td>attachment_id <em>String</em></td>
 <td>The id of the attachment</td>
 </tr>
 <tr>
-<td>title</td>
-<td>String</td>
+<td>title <em>String</em></td>
 <td>The title of the attachment</td>
 </tr>
 <tr>
-<td>url</td>
-<td>String</td>
+<td>url <em>String</em></td>
 <td>The URL where the file is located</td>
 </tr>
 <tr>
-<td>url_type</td>
-<td>String</td>
+<td>url_type <em>String</em></td>
 <td>The type of the file, such as <code class="prettyprint">file</code> or <code class="prettyprint">image</code></td>
 </tr>
 <tr>
-<td>file_name</td>
-<td>String</td>
+<td>file_name <em>String</em></td>
 <td>The file&rsquo;s name</td>
 </tr>
 <tr>
-<td>file_size</td>
-<td>Number</td>
+<td>file_size <em>Integer</em></td>
 <td>The file&rsquo;s size in bytes</td>
 </tr>
 <tr>
-<td>underlying_type</td>
-<td>String</td>
+<td>underlying_type <em>String</em></td>
 <td>The file&rsquo;s media or content type (MIME)</td>
 </tr>
 <tr>
-<td>image</td>
-<td>String</td>
+<td>image <em>String</em></td>
 <td>If file is an image, the URL to the image file</td>
 </tr>
 <tr>
-<td>image_width</td>
-<td>Number</td>
+<td>image_width <em>Integer</em></td>
 <td>If file is an image, the width of the image</td>
 </tr>
 <tr>
-<td>image_height</td>
-<td>Number</td>
+<td>image_height <em>Integer</em></td>
 <td>If file is an image, the height of the image</td>
 </tr>
 <tr>
-<td>duration</td>
-<td>String</td>
+<td>duration <em>String</em></td>
 <td>If file is audio, the duration of the audio</td>
 </tr>
 <tr>
-<td>upload_state</td>
-<td>String</td>
+<td>upload_state <em>String</em></td>
 <td>Upload state is <code class="prettyprint">uploaded</code> on success, or <code class="prettyprint">failed</code> otherwise</td>
 </tr>
 </tbody></table>
@@ -5986,20 +5597,17 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>attachment_id</td>
-<td>String</td>
+<td>attachment_id <em>String</em></td>
 <td>Yes</td>
 <td>A UUID that will be the id of the attachment</td>
 </tr>
 <tr>
-<td>file_name</td>
-<td>String</td>
+<td>file_name <em>String</em></td>
 <td>Yes</td>
 <td>The name of the file to be uploaded</td>
 </tr>
@@ -6028,32 +5636,27 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>attachment_id</td>
-<td>Number</td>
+<td>attachment_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the attachment</td>
 </tr>
 <tr>
-<td>thread_id</td>
-<td>Number</td>
+<td>thread_id <em>Integer</em></td>
 <td>Yes, this or <code class="prettyprint">comment_id</code> or <code class="prettyprint">message_id</code></td>
 <td>The id of the thread</td>
 </tr>
 <tr>
-<td>comment_id</td>
-<td>Number</td>
+<td>comment_id <em>Integer</em></td>
 <td>Yes, this or <code class="prettyprint">thread_id</code> or <code class="prettyprint">message_id</code></td>
 <td>The id of the comment</td>
 </tr>
 <tr>
-<td>message_id</td>
-<td>Number</td>
+<td>message_id <em>Integer</em></td>
 <td>Yes, this or <code class="prettyprint">thread_id</code> or <code class="prettyprint">comment_id</code></td>
 <td>The id of the conversation message</td>
 </tr>
@@ -6090,18 +5693,15 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><em>key</em></td>
-<td>String</td>
+<td>key <em>String</em></td>
 <td>The reaction added by one or more users</td>
 </tr>
 <tr>
-<td><em>value</em></td>
-<td>Array of Numbers</td>
+<td>value <em>List of Integers</em></td>
 <td>The users that added that specific reaction</td>
 </tr>
 </tbody></table>
@@ -6111,7 +5711,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/reactions/get <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/reactions/get <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">comment_id</span><span class="o">=</span>206113
 </code></pre>
@@ -6124,26 +5724,22 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>thread_id</td>
-<td>Number</td>
+<td>thread_id <em>Integer</em></td>
 <td>Yes, this or <code class="prettyprint">comment_id</code> or <code class="prettyprint">message_id</code></td>
 <td>The id of the thread</td>
 </tr>
 <tr>
-<td>comment_id</td>
-<td>Number</td>
+<td>comment_id <em>Integer</em></td>
 <td>Yes, this or <code class="prettyprint">thread_id</code> or <code class="prettyprint">message_id</code></td>
 <td>The id of the comment</td>
 </tr>
 <tr>
-<td>message_id</td>
-<td>Number</td>
+<td>message_id <em>Integer</em></td>
 <td>Yes, this or <code class="prettyprint">thread_id</code> or <code class="prettyprint">comment_id</code></td>
 <td>The id of the conversation message</td>
 </tr>
@@ -6158,7 +5754,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/reactions/add <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/reactions/add <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">reaction</span><span class="o">=</span><span class="s2">"👍"</span>
   -d <span class="nv">comment_id</span><span class="o">=</span>206113
@@ -6172,32 +5768,27 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>reaction</td>
-<td>String</td>
+<td>reaction <em>String</em></td>
 <td>Yes</td>
 <td>The reaction to add</td>
 </tr>
 <tr>
-<td>thread_id</td>
-<td>Number</td>
+<td>thread_id <em>Integer</em></td>
 <td>Yes, this or <code class="prettyprint">comment_id</code> or <code class="prettyprint">message_id</code></td>
 <td>The id of the thread</td>
 </tr>
 <tr>
-<td>comment_id</td>
-<td>Number</td>
+<td>comment_id <em>Integer</em></td>
 <td>Yes, this or <code class="prettyprint">thread_id</code> or <code class="prettyprint">message_id</code></td>
 <td>The id of the comment</td>
 </tr>
 <tr>
-<td>message_id</td>
-<td>Number</td>
+<td>message_id <em>Integer</em></td>
 <td>Yes, this or <code class="prettyprint">thread_id</code> or <code class="prettyprint">comment_id</code></td>
 <td>The id of the conversation message</td>
 </tr>
@@ -6215,7 +5806,7 @@ the information for the current user.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/reactions/remove <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/reactions/remove <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">reaction</span><span class="o">=</span><span class="s2">"👍"</span>
   -d <span class="nv">comment_id</span><span class="o">=</span>206113
@@ -6229,32 +5820,27 @@ the information for the current user.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>reaction</td>
-<td>String</td>
+<td>reaction <em>String</em></td>
 <td>Yes</td>
 <td>The reaction to remove</td>
 </tr>
 <tr>
-<td>thread_id</td>
-<td>Number</td>
+<td>thread_id <em>Integer</em></td>
 <td>Yes, this or <code class="prettyprint">comment_id</code> or <code class="prettyprint">message_id</code></td>
 <td>The id of the thread</td>
 </tr>
 <tr>
-<td>comment_id</td>
-<td>Number</td>
+<td>comment_id <em>Integer</em></td>
 <td>Yes, this or <code class="prettyprint">thread_id</code> or <code class="prettyprint">message_id</code></td>
 <td>The id of the comment</td>
 </tr>
 <tr>
-<td>message_id</td>
-<td>Number</td>
+<td>message_id <em>Integer</em></td>
 <td>Yes, this or <code class="prettyprint">thread_id</code> or <code class="prettyprint">comment_id</code></td>
 <td>The id of the conversation message</td>
 </tr>
@@ -6278,12 +5864,10 @@ the information for the current user.</p>
    </span><span class="err">...</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>The inbox unifies the start page view on all platforms.</p>
+<p>The inbox unifies the start page view on all platforms. </p>
 
-<h3 id="description-of-the-inbox-object">Description of the inbox object</h3>
-
-<p>The inbox is a actually a list of thread objects.  It doesn&rsquo;t contain
-all threads, but the most recent threads ordered by date.</p>
+<p>It is actually a list of thread objects. It doesn&rsquo;t contain all threads, but the
+most recent threads ordered by date.</p>
 
 <h2 id="get-inbox">Get inbox</h2>
 
@@ -6301,32 +5885,27 @@ all threads, but the most recent threads ordered by date.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>limit</td>
-<td>Number</td>
+<td>limit <em>Integer</em></td>
 <td>No</td>
 <td>Limits the number of threads returned, by default to <code class="prettyprint">30</code></td>
 </tr>
 <tr>
-<td>newer_than_ts</td>
-<td>Number</td>
+<td>newer_than_ts <em>Integer</em></td>
 <td>No</td>
 <td>Limits threads to those newer whan the specified Unix time</td>
 </tr>
 <tr>
-<td>older_than_ts</td>
-<td>Number</td>
+<td>older_than_ts <em>Integer</em></td>
 <td>No</td>
 <td>Limits threads to those older whan the specified Unix time</td>
 </tr>
@@ -6334,11 +5913,12 @@ all threads, but the most recent threads ordered by date.</p>
 
 <h3 id="return-value">Return value</h3>
 
-<p>A list of of thread objects is returned.</p>
+<p>A list of thread objects is returned.</p>
 
           <h1 id="search">Search</h1>
 
-<p>The search query allows for finding threads and conversations matching some text.</p>
+<p>The search query allows for finding threads and conversations matching some
+text.</p>
 
 <h2 id="search-for-query">Search for query</h2>
 
@@ -6346,8 +5926,8 @@ all threads, but the most recent threads ordered by date.</p>
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/search/query <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
-  -d <span class="nv">query</span><span class="o">=</span>texts
+    -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+    -d <span class="nv">query</span><span class="o">=</span>texts
 </code></pre>
 <p><code class="prettyprint">GET /api/v2/search/query</code></p>
 
@@ -6397,26 +5977,22 @@ all threads, but the most recent threads ordered by date.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>query</td>
-<td>String</td>
+<td>query <em>String</em></td>
 <td>Yes</td>
 <td>The full text query to search for</td>
 </tr>
 <tr>
-<td>limit</td>
-<td>Number</td>
+<td>limit <em>Integer</em></td>
 <td>No</td>
 <td>Limits the number of conversations</td>
 </tr>
 <tr>
-<td>cursor_mark</td>
-<td>String</td>
+<td>cursor_mark <em>String</em></td>
 <td>No</td>
 <td>Token for pagination</td>
 </tr>
@@ -6427,88 +6003,71 @@ all threads, but the most recent threads ordered by date.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>hits</td>
-<td>Number</td>
+<td>hits <em>Integer</em></td>
 <td>The number of results found</td>
 </tr>
 <tr>
-<td>has_more</td>
-<td>Boolean</td>
+<td>has_more <em>Boolean</em></td>
 <td>Whether there are more results that were not returned</td>
 </tr>
 <tr>
-<td>next_cursor_mark</td>
-<td>String</td>
+<td>next_cursor_mark <em>String</em></td>
 <td>The cursor mark to use in order to get more results</td>
 </tr>
 <tr>
-<td>items</td>
-<td>Array of Objects</td>
+<td>items <em>List of Objects</em></td>
 <td>The actual result items, threads or conversations found</td>
 </tr>
 <tr>
-<td>obj_type</td>
-<td>String</td>
+<td>obj_type <em>String</em></td>
 <td>The type of the item, a thread or a conversation</td>
 </tr>
 <tr>
-<td>title</td>
-<td>String</td>
+<td>title <em>String</em></td>
 <td>The title of the item</td>
 </tr>
 <tr>
-<td>snippet</td>
-<td>String</td>
+<td>snippet <em>String</em></td>
 <td>Part of the text that matched the search query</td>
 </tr>
 <tr>
-<td>details_link</td>
-<td>String</td>
+<td>details_link <em>String</em></td>
 <td>A URL that can be used to get more details on the item</td>
 </tr>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>The id of the comment or message</td>
 </tr>
 <tr>
-<td>thread_id</td>
-<td>Number</td>
+<td>thread_id <em>Integer</em></td>
 <td>The id of the thread that the comment is part of</td>
 </tr>
 <tr>
-<td>conversation_id</td>
-<td>Number</td>
+<td>conversation_id <em>Integer</em></td>
 <td>The id of the conversation the message is part of</td>
 </tr>
 <tr>
-<td>last_posted_ts</td>
-<td>Number</td>
+<td>last_posted_ts <em>Integer</em></td>
 <td>The timestamp of the last post in the discussion</td>
 </tr>
 <tr>
-<td>last_author</td>
-<td>Number</td>
+<td>last_author <em>Integer</em></td>
 <td>The id of the last user that wrote in that discussion</td>
 </tr>
 <tr>
-<td>participants</td>
-<td>Array of Numbers</td>
+<td>participants <em>List of Integers</em></td>
 <td>The user ids that participate in that comment or message</td>
 </tr>
 <tr>
-<td>user_ids</td>
-<td>Array of Numbers</td>
+<td>user_ids <em>List of Integers</em></td>
 <td>The user ids that have joined that conversation</td>
 </tr>
 <tr>
-<td>archived</td>
-<td>Boolean</td>
+<td>archived <em>Boolean</em></td>
 <td>Whether conversation or thread&rsquo;s channel is archived</td>
 </tr>
 </tbody></table>
@@ -6518,9 +6077,12 @@ all threads, but the most recent threads ordered by date.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.twistapp.com/api/v2/search/comments?query=texts&amp;workspace_id=201&amp;thread_id=401"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
-</code></pre>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/search/comments <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+    -d <span class="nv">query</span><span class="o">=</span>texts <span class="se">\</span>
+    -d <span class="nv">workspace_id</span><span class="o">=</span>201 <span class="se">\</span>
+    -d <span class="nv">thread_id</span><span class="o">=</span>401<span class="s2">"
+</span></code></pre>
 <p><code class="prettyprint">GET /api/v2/search/comments</code></p>
 
 <blockquote>
@@ -6580,8 +6142,12 @@ all threads, but the most recent threads ordered by date.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.twistapp.com/api/v2/search/expand_comment_range?idx_end=3&amp;thread_id=401&amp;workspace_id=201&amp;idx_start=0"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/search/expand_comment_range <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+    -d <span class="nv">idx_end</span><span class="o">=</span>3 <span class="se">\</span>
+    -d <span class="nv">thread_id</span><span class="o">=</span>401 <span class="se">\</span>
+    -d <span class="nv">workspace_id</span><span class="o">=</span>201 <span class="se">\</span>
+    -d <span class="nv">idx_start</span><span class="o">=</span>0
 </code></pre>
 <p><code class="prettyprint">GET /api/v2/search/expand_comment_range</code></p>
 
@@ -6625,8 +6191,11 @@ all threads, but the most recent threads ordered by date.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.twistapp.com/api/v2/search/messages?query=hello&amp;workspace_id=201&amp;aggregate_id=123-345-678-9"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/search/messages <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+    -d <span class="nv">query</span><span class="o">=</span>hello <span class="se">\</span>
+    -d <span class="nv">workspace_id</span><span class="o">=</span>201 <span class="se">\</span>
+    -d <span class="nv">aggregate_id</span><span class="o">=</span>123-345-678-9
 </code></pre>
 <p><code class="prettyprint">GET /api/v2/search/messages</code></p>
 
@@ -6718,8 +6287,13 @@ all threads, but the most recent threads ordered by date.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.twistapp.com/api/v2/search/expand_conversation_message_range?conversation_id=601&amp;idx_end=5&amp;workspace_id=201&amp;idx_start=0&amp;direction=top"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/search/expand_conversation_message_range <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+    -d <span class="nv">conversation_id</span><span class="o">=</span>601 <span class="se">\</span>
+    -d <span class="nv">idx_end</span><span class="o">=</span>5 <span class="se">\</span>
+    -d <span class="nv">workspace_id</span><span class="o">=</span>201 <span class="se">\</span>
+    -d <span class="nv">idx_start</span><span class="o">=</span>0 <span class="se">\</span>
+    -d <span class="nv">direction</span><span class="o">=</span>top
 </code></pre>
 <p><code class="prettyprint">GET /api/v2/search/expand_conversation_message_range</code></p>
 
@@ -6780,53 +6354,43 @@ all threads, but the most recent threads ordered by date.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Number</td>
+<td>id <em>Integer</em></td>
 <td>The id of the notification</td>
 </tr>
 <tr>
-<td>type_id</td>
-<td>Number</td>
+<td>type_id <em>Integer</em></td>
 <td>The notification type: <code class="prettyprint">1</code> when added to a comment, <code class="prettyprint">2</code> when added to a thread, <code class="prettyprint">3</code> when added to a workspace, <code class="prettyprint">4</code> when removed from a worksapce, <code class="prettyprint">5</code> when added to a channel, and <code class="prettyprint">6</code> when removed from a channel.</td>
 </tr>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id <em>Integer</em></td>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>channel_id</td>
-<td>Number</td>
+<td>channel_id <em>Integer</em></td>
 <td>The id of the channel</td>
 </tr>
 <tr>
-<td>thread_id</td>
-<td>Number</td>
+<td>thread_id <em>Integer</em></td>
 <td>The id of the thread</td>
 </tr>
 <tr>
-<td>comment_id</td>
-<td>Number</td>
+<td>comment_id <em>Integer</em></td>
 <td>The id of the comment</td>
 </tr>
 <tr>
-<td>by_user_id</td>
-<td>Number</td>
+<td>by_user_id <em>Integer</em></td>
 <td>The id of the user that triggered the notification (notified the receiving user)</td>
 </tr>
 <tr>
-<td>posted_ts</td>
-<td>Number</td>
+<td>posted_ts <em>Integer</em></td>
 <td>The Unix time when the notification took place</td>
 </tr>
 <tr>
-<td>last_read</td>
-<td>Number</td>
+<td>last_read <em>Integer</em></td>
 <td>The id of the last read notification</td>
 </tr>
 </tbody></table>
@@ -6837,7 +6401,7 @@ all threads, but the most recent threads ordered by date.</p>
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://twistapp.com/api/v2/notifications/get <span class="se">\</span>
-  -d <span class="nv">token</span><span class="o">=</span>9b1bf97783c1ad5593dee12f3019079dbd3042cf
+    -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span>
 </code></pre>
 <p><code class="prettyprint">GET /api/v2/notifications/get</code></p>
 
@@ -6848,14 +6412,12 @@ all threads, but the most recent threads ordered by date.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>limit</td>
-<td>Number</td>
+<td>limit <em>Integer</em></td>
 <td>No</td>
 <td>Limits the number of threads returned</td>
 </tr>
@@ -6870,9 +6432,9 @@ all threads, but the most recent threads ordered by date.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://twistapp.com/api/v2/notifications/mark_read <span class="se">\</span>
-  -d <span class="nv">token</span><span class="o">=</span>9b1bf97783c1ad5593dee12f3019079dbd3042cf <span class="se">\</span>
-  -d <span class="nv">notification_id</span><span class="o">=</span>1
+<pre class="highlight shell tab-shell"><code>curl -X POST https://twistapp.com/api/v2/notifications/mark_read <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span>
+    -d <span class="nv">notification_id</span><span class="o">=</span>1
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/notifications/mark_read</code></p>
 
@@ -6883,14 +6445,12 @@ all threads, but the most recent threads ordered by date.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>notification_id</td>
-<td>Number</td>
+<td>notification_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The last read notification id</td>
 </tr>
@@ -6908,8 +6468,8 @@ all threads, but the most recent threads ordered by date.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://twistapp.com/api/v2/notifications/reset <span class="se">\</span>
-  -d <span class="nv">token</span><span class="o">=</span>9b1bf97783c1ad5593dee12f3019079dbd3042cf
+<pre class="highlight shell tab-shell"><code>curl -X POST https://twistapp.com/api/v2/notifications/reset <span class="se">\</span>
+    -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span>
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/notifications/reset</code></p>
 
@@ -6961,128 +6521,103 @@ all threads, but the most recent threads ordered by date.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>desktop_conversations</td>
-<td>Boolean</td>
+<td>desktop_conversations <em>Boolean</em></td>
 <td>Desktop notifications for new messages on conversations</td>
 </tr>
 <tr>
-<td>desktop_comments</td>
-<td>Boolean</td>
+<td>desktop_comments <em>Boolean</em></td>
 <td>Desktop notifications for new comments attached to user</td>
 </tr>
 <tr>
-<td>desktop_threads</td>
-<td>Boolean</td>
+<td>desktop_threads <em>Boolean</em></td>
 <td>Desktop notifications for new threads attached to user</td>
 </tr>
 <tr>
-<td>desktop_added_to_ws</td>
-<td>Boolean</td>
+<td>desktop_added_to_ws <em>Boolean</em></td>
 <td>Desktop notifications when added to workspaces</td>
 </tr>
 <tr>
-<td>desktop_added_to_ch</td>
-<td>Boolean</td>
+<td>desktop_added_to_ch <em>Boolean</em></td>
 <td>Desktop notificationswhen added to channels</td>
 </tr>
 <tr>
-<td>desktop_removed_from_ws</td>
-<td>Boolean</td>
+<td>desktop_removed_from_ws <em>Boolean</em></td>
 <td>Desktop notifications when removed from workspaces</td>
 </tr>
 <tr>
-<td>desktop_removed_from_ch</td>
-<td>Boolean</td>
+<td>desktop_removed_from_ch <em>Boolean</em></td>
 <td>Desktop notifications when removed from channels</td>
 </tr>
 <tr>
-<td>email_conversations</td>
-<td>Boolean</td>
+<td>email_conversations <em>Boolean</em></td>
 <td>Email notifications for new messages on conversations</td>
 </tr>
 <tr>
-<td>email_comments</td>
-<td>Boolean</td>
+<td>email_comments <em>Boolean</em></td>
 <td>Email notifications for new comments attached to user</td>
 </tr>
 <tr>
-<td>email_threads</td>
-<td>Boolean</td>
+<td>email_threads <em>Boolean</em></td>
 <td>Email notifications for new threads attached to user</td>
 </tr>
 <tr>
-<td>email_added_to_ws</td>
-<td>Boolean</td>
+<td>email_added_to_ws <em>Boolean</em></td>
 <td>Email notifications when added to workspaces</td>
 </tr>
 <tr>
-<td>email_added_to_ch</td>
-<td>Boolean</td>
+<td>email_added_to_ch <em>Boolean</em></td>
 <td>Email notifications when added to channels</td>
 </tr>
 <tr>
-<td>email_removed_from_ws</td>
-<td>Boolean</td>
+<td>email_removed_from_ws <em>Boolean</em></td>
 <td>Email notifications when removed from workspaces</td>
 </tr>
 <tr>
-<td>email_removed_from_ch</td>
-<td>Boolean</td>
+<td>email_removed_from_ch <em>Boolean</em></td>
 <td>Email notifications when removed from channels</td>
 </tr>
 <tr>
-<td>email_aggregate</td>
-<td>Boolean</td>
+<td>email_aggregate <em>Boolean</em></td>
 <td>Email notifications digest</td>
 </tr>
 <tr>
-<td>push_conversations</td>
-<td>Boolean</td>
+<td>push_conversations <em>Boolean</em></td>
 <td>Push notifications for new messages on conversations</td>
 </tr>
 <tr>
-<td>push_comments</td>
-<td>Boolean</td>
+<td>push_comments <em>Boolean</em></td>
 <td>Push notifications for new comments attached to user</td>
 </tr>
 <tr>
-<td>push_threads</td>
-<td>Boolean</td>
+<td>push_threads <em>Boolean</em></td>
 <td>Push notifications for new threads attached to user</td>
 </tr>
 <tr>
-<td>push_added_to_ws</td>
-<td>Boolean</td>
+<td>push_added_to_ws <em>Boolean</em></td>
 <td>Push notifications when added to workspaces</td>
 </tr>
 <tr>
-<td>push_added_to_ch</td>
-<td>Boolean</td>
+<td>push_added_to_ch <em>Boolean</em></td>
 <td>Push notifications when added to channels</td>
 </tr>
 <tr>
-<td>push_removed_from_ws</td>
-<td>Boolean</td>
+<td>push_removed_from_ws <em>Boolean</em></td>
 <td>Push notifications when removed from workspaces</td>
 </tr>
 <tr>
-<td>push_removed_from_ch</td>
-<td>Boolean</td>
+<td>push_removed_from_ch <em>Boolean</em></td>
 <td>Push notifications when removed from channels</td>
 </tr>
 <tr>
-<td>badge_threads</td>
-<td>Boolean</td>
+<td>badge_threads <em>Boolean</em></td>
 <td>Badge notifications on unread threads (iOS)</td>
 </tr>
 <tr>
-<td>badge_conversations</td>
-<td>Boolean</td>
+<td>badge_conversations <em>Boolean</em></td>
 <td>Badge notifications on unread conversations (iOS)</td>
 </tr>
 </tbody></table>
@@ -7105,14 +6640,12 @@ all threads, but the most recent threads ordered by date.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id *Integer</td>
 <td>Yes</td>
 <td>The workspace id</td>
 </tr>
@@ -7127,7 +6660,7 @@ all threads, but the most recent threads ordered by date.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/notifications_settings/v2/update <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/notifications_settings/v2/update <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5517 <span class="se">\</span>
   -d <span class="nv">setting</span><span class="o">=</span>desktop_conversations <span class="se">\</span>
@@ -7149,26 +6682,22 @@ all threads, but the most recent threads ordered by date.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id *Integer</td>
 <td>Yes</td>
 <td>The workspace id</td>
 </tr>
 <tr>
-<td>setting</td>
-<td>String</td>
+<td>setting <em>String</em></td>
 <td>Yes</td>
 <td>The name of the notifications setting to update, see above</td>
 </tr>
 <tr>
-<td>value</td>
-<td>Boolean</td>
+<td>value <em>Boolean</em></td>
 <td>Yes</td>
 <td>The value of the notifications setting to update</td>
 </tr>
@@ -7179,7 +6708,7 @@ all threads, but the most recent threads ordered by date.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/notifications_settings/v2/update_many <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/notifications_settings/v2/update_many <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5517
   -d <span class="nv">mapping</span><span class="o">=</span><span class="s1">'{"desktop_conversations":true,"email_comments":false}'</span>
@@ -7200,20 +6729,17 @@ all threads, but the most recent threads ordered by date.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id *Integer</td>
 <td>Yes</td>
 <td>The workspace id</td>
 </tr>
 <tr>
-<td>mapping</td>
-<td>Object</td>
+<td>mapping <em>Object</em></td>
 <td>Yes</td>
 <td>The notifications settings to update</td>
 </tr>
@@ -7235,13 +6761,11 @@ all threads, but the most recent threads ordered by date.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>url</td>
-<td>String</td>
+<td>url <em>String</em></td>
 <td>The URL to be used to join a workspace</td>
 </tr>
 </tbody></table>
@@ -7251,7 +6775,7 @@ all threads, but the most recent threads ordered by date.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/url_join/get_or_create <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/url_join/get_or_create <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5517
 </code></pre>
@@ -7264,14 +6788,12 @@ all threads, but the most recent threads ordered by date.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the workspace</td>
 </tr>
@@ -7302,14 +6824,12 @@ all threads, but the most recent threads ordered by date.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the workspace</td>
 </tr>
@@ -7340,14 +6860,12 @@ all threads, but the most recent threads ordered by date.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>url_invite_code</td>
-<td>Number</td>
+<td>url_invite_code <em>Integer</em></td>
 <td>Yes</td>
 <td>The URL join link</td>
 </tr>
@@ -7374,13 +6892,11 @@ to conversation by sending them to an email address.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>email</td>
-<td>String</td>
+<td>email <em>String</em></td>
 <td>The email address to use to add threads/comments/messages</td>
 </tr>
 </tbody></table>
@@ -7390,7 +6906,7 @@ to conversation by sending them to an email address.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/loop_in/get_or_create <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/loop_in/get_or_create <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">obj_type</span><span class="o">=</span>THREAD <span class="se">\</span>
   -d <span class="nv">obj_id</span><span class="o">=</span>32038
@@ -7404,20 +6920,17 @@ to conversation by sending them to an email address.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>obj_type</td>
-<td>String</td>
+<td>obj_type <em>String</em></td>
 <td>Yes</td>
 <td>The type of the object, one of <code class="prettyprint">CHANNEL</code>, <code class="prettyprint">THREAD</code> or <code class="prettyprint">CONVERSATION</code></td>
 </tr>
 <tr>
-<td>obj_id</td>
-<td>Number</td>
+<td>obj_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the object</td>
 </tr>
@@ -7435,7 +6948,7 @@ to conversation by sending them to an email address.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/loop_in/disable <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/loop_in/disable <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">obj_type</span><span class="o">=</span>THREAD <span class="se">\</span>
   -d <span class="nv">obj_id</span><span class="o">=</span>32038
@@ -7449,20 +6962,17 @@ to conversation by sending them to an email address.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>obj_type</td>
-<td>String</td>
+<td>obj_type <em>String</em></td>
 <td>Yes</td>
 <td>The type of the object, one of <code class="prettyprint">CHANNEL</code>, <code class="prettyprint">THREAD</code> or <code class="prettyprint">CONVERSATION</code></td>
 </tr>
 <tr>
-<td>obj_id</td>
-<td>Number</td>
+<td>obj_id <em>Integer</em></td>
 <td>Yes</td>
 <td>The id of the object</td>
 </tr>
@@ -7486,41 +6996,56 @@ to conversation by sending them to an email address.</p>
 <li>Slash command integrations</li>
 </ul>
 
-<p>You have to carefully pick your integration type based on how your integration will be used.</p>
+<p>You have to carefully pick your integration type based on how your integration
+will be used.</p>
 
 <h2 id="oauth-2-applications">oAuth 2 applications</h2>
 
-<p>OAuth is an authorization protocol that allows you to access a user&rsquo;s data without the user needing to share login credentials.</p>
+<p>OAuth is an authorization protocol that allows you to access a user&rsquo;s data
+without the user needing to share login credentials.</p>
 
 <p>Use this type to create more advanced integrations with Twist.</p>
 
 <h2 id="channel-integrations">Channel integrations</h2>
 
-<p>Channel integrations are installed on a channel level, and they can post new threads.</p>
+<p>Channel integrations are installed on a channel level, and they can post new
+threads.</p>
 
-<p>Example usage: A growth report that Twist posts on a weekly or monthly basis.</p>
+<p><strong>Example usage</strong>: A growth report that Twist posts on a weekly or monthly
+basis.</p>
 
-<p>Channel integrations also have a scheduling option. You can let the user schedule when the channel integration will do its posting. For example, as a developer, you would just need to create an URL endpoint that can generate a growth report and you can let Twist handle scheduling and running of this growth report based on user’s preferences.</p>
+<p>Channel integrations also have a scheduling option. You can let the user
+schedule when the channel integration will do its posting. For example, as a
+developer, you would just need to create an URL endpoint that can generate a
+growth report and you can let Twist handle scheduling and running of this growth
+report based on user’s preferences.</p>
 
 <h2 id="thread-integrations">Thread integrations</h2>
 
-<p>Thread integrations are installed on a thread level, and they can post new comments.</p>
+<p>Thread integrations are installed on a thread level, and they can post new
+comments.</p>
 
-<p>Example usage: Post comments when new issues are added to a Github repository.</p>
+<p><strong>Example usage</strong>: Post comments when new issues are added to a Github
+repository.</p>
 
 <h2 id="slash-command-integrations">Slash command integrations</h2>
 
 <p>Slash command integrations are installed on a team level, and they add a slash command to the system. When a user types <code class="prettyprint">/command arguments</code> your integration is run and can act upon the arguments.</p>
 
-<p>Example usage: <code class="prettyprint">/gif funny cats</code> is a slash command. Another example is the <a href="https://appear.in">appear.in</a> integration, which lets you easily schedule video meetings (<code class="prettyprint">/appear meeting-room</code>).</p>
+<p><strong>Example usage</strong>: <code class="prettyprint">/gif funny cats</code> is a slash command. Another example is
+the <a href="https://appear.in">appear.in</a> integration, which lets you easily schedule
+video meetings (<code class="prettyprint">/appear meeting-room</code>).</p>
 
           <h1 id="integrations-rest-hooks">Integrations: Rest hooks</h1>
 
-<p>The significant benefit to <a href="http://resthooks.org/">REST hooks</a> is that you don&rsquo;t need to poll for changes, but can instead wait for hooks to deliver the payload when a change happens.</p>
+<p>The significant benefit to <a href="http://resthooks.org/">REST hooks</a> is that you don&rsquo;t
+need to poll for changes, but can instead wait for hooks to deliver the payload
+when a change happens.</p>
 
 <p>Twist implements REST hooks for most changes inside the system.</p>
 
-<p>Please note that REST Hooks only work with oAuth2 integrations and require an access token from an oAuth2 integration.</p>
+<p>Please note that REST Hooks only work with oAuth2 integrations and require an
+access token from an oAuth2 integration.</p>
 
 <h2 id="step-1-subscribe-a-hook">Step 1: Subscribe a hook</h2>
 
@@ -7536,51 +7061,45 @@ to conversation by sending them to an email address.</p>
 
 <p>On a successful creation Twist will return a <code class="prettyprint">201 Created</code>.</p>
 
-<p>A <code class="prettyprint">403 Forbidden</code> will be thrown if the access token scope does not have the permission to subscribe to the specified event type.</p>
+<p>A <code class="prettyprint">403 Forbidden</code> will be thrown if the access token scope does not have the
+permission to subscribe to the specified event type.</p>
 
 <h3 id="parameters">Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>target_url</td>
-<td>String</td>
+<td>target_url <em>String</em></td>
 <td>Yes</td>
 <td>The URL we should call when an event happens</td>
 </tr>
 <tr>
-<td>event_type</td>
-<td>String</td>
+<td>event_type <em>String</em></td>
 <td>Yes</td>
 <td>What Twist event should trigger the call</td>
 </tr>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id <em>Integer</em></td>
 <td>No</td>
 <td>Only trigger for following <code class="prettyprint">workspace_id</code></td>
 </tr>
 <tr>
-<td>channel_id</td>
-<td>Number</td>
+<td>channel_id <em>Integer</em></td>
 <td>No</td>
 <td>Only trigger for following <code class="prettyprint">channel_id</code></td>
 </tr>
 <tr>
-<td>thread_id</td>
-<td>Number</td>
+<td>thread_id <em>Integer</em></td>
 <td>No</td>
 <td>Only trigger for following <code class="prettyprint">thread_id</code></td>
 </tr>
 <tr>
-<td>conversation_id</td>
-<td>Number</td>
+<td>conversation_id <em>Integer</em></td>
 <td>No</td>
 <td>Only trigger for following <code class="prettyprint">conversation_id</code></td>
 </tr>
@@ -7588,9 +7107,11 @@ to conversation by sending them to an email address.</p>
 
 <h2 id="step-2-receiving-hooks">Step 2: Receiving hooks</h2>
 
-<p>When an event happens, we&rsquo;ll send a request to your <code class="prettyprint">target_url</code> that will be JSON encoded.</p>
+<p>When an event happens, we&rsquo;ll send a request to your <code class="prettyprint">target_url</code> that will be
+JSON encoded.</p>
 
-<p>The payload will be the object that triggered the event, for example <code class="prettyprint">channel_added</code> will include <a href="#channels">the channel object</a>. </p>
+<p>The payload will be the object that triggered the event, for example
+<code class="prettyprint">channel_added</code> will include <a href="#channels">the channel object</a>.</p>
 
 <h2 id="step-3-unsubscribe-a-hook">Step 3: Unsubscribe a hook</h2>
 
@@ -7610,14 +7131,12 @@ to conversation by sending them to an email address.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>target_url</td>
-<td>String</td>
+<td>target_url <em>String</em></td>
 <td>Yes</td>
 <td>The URL we should unsubscribe</td>
 </tr>
@@ -7741,15 +7260,23 @@ to conversation by sending them to an email address.</p>
 
           <h1 id="integrations-outgoing-webhooks">Integrations: Outgoing webhooks</h1>
 
-<p>Outgoing webhooks send data when an activity happens (e.g. a new comment is added to the thread or an uninstall happens). We also send data when a user uses a slash command.</p>
+<p>Outgoing webhooks send data when an activity happens (e.g. a new comment is
+added to the thread or an uninstall happens). We also send data when a user uses
+a slash command.</p>
 
-<p>Outgoing webhooks will send an HTTPS POST request to your specified URL. The payload depends on the integration type.</p>
+<p>Outgoing webhooks will send an HTTPS POST request to your specified URL. The
+payload depends on the integration type.</p>
 
 <p>Your webhooks handler can respond to add data back to Twist.</p>
 
-<p>The outgoing hooks can work with any language or framework — as long as they support HTTPS and JSON.</p>
+<p>The outgoing hooks can work with any language or framework — as long as they
+support HTTPS and JSON.</p>
 
-<p>Please note that outgoing webhooks are not the same as <a href="#integrations-rest-hooks">REST Hooks</a>, which Twist also implements. Rest hooks are harder to setup but much more powerful. Rest hooks are used by oAuth2 integrations while outgoing webhooks are used by Slash command, Thread and Channel integrations. </p>
+<p>Please note that outgoing webhooks are not the same
+as <a href="#integrations-rest-hooks">REST Hooks</a>, which Twist also implements. Rest
+hooks are harder to setup but much more powerful. Rest hooks are used by oAuth2
+integrations while outgoing webhooks are used by Slash command, Thread and
+Channel integrations.</p>
 
 <h2 id="example-implementation">Example implementation</h2>
 
@@ -7761,93 +7288,80 @@ to conversation by sending them to an email address.</p>
 
 <h2 id="payload-when-users-add-new-objects">Payload when users add new objects</h2>
 
-<p>When a new message, thread or a new comment is added, you can expect following parameters.</p>
+<p>When a new message, thread or a new comment is added, you can expect following
+parameters.</p>
 
 <h3 id="post-parameters">POST Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Optional</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>event_type</td>
-<td>String</td>
+<td>event_type <em>String</em></td>
 <td>No</td>
 <td>Can be <code class="prettyprint">message</code>, <code class="prettyprint">thread</code> or <code class="prettyprint">comment</code> — depending where the slash command was used</td>
 </tr>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id <em>Integer</em></td>
 <td>No</td>
 <td>The workspace the object was posted in</td>
 </tr>
 <tr>
-<td>content</td>
-<td>String</td>
+<td>content <em>String</em></td>
 <td>No</td>
 <td>The content of object, e.g. thread or message content</td>
 </tr>
 <tr>
-<td>user_id</td>
-<td>Number</td>
+<td>user_id <em>Integer</em></td>
 <td>No</td>
 <td>The id of the poster</td>
 </tr>
 <tr>
-<td>user_name</td>
-<td>String</td>
+<td>user_name <em>String</em></td>
 <td>No</td>
 <td>The name of the poster</td>
 </tr>
 <tr>
-<td>conversation_id</td>
-<td>Number</td>
+<td>conversation_id <em>Integer</em></td>
 <td>Yes</td>
 <td>Will be set if <code class="prettyprint">event_type</code> is <code class="prettyprint">message</code></td>
 </tr>
 <tr>
-<td>conversation_title</td>
-<td>String</td>
+<td>conversation_title <em>String</em></td>
 <td>Yes</td>
 <td>Will be set if <code class="prettyprint">event_type</code> is <code class="prettyprint">message</code></td>
 </tr>
 <tr>
-<td>thread_id</td>
-<td>Number</td>
+<td>thread_id <em>Integer</em></td>
 <td>Yes</td>
 <td>Will be set if <code class="prettyprint">event_type</code> is <code class="prettyprint">thread</code> or <code class="prettyprint">comment</code></td>
 </tr>
 <tr>
-<td>thread_title</td>
-<td>String</td>
+<td>thread_title <em>String</em></td>
 <td>Yes</td>
 <td>Will be set if <code class="prettyprint">event_type</code> is <code class="prettyprint">thread</code> or <code class="prettyprint">comment</code></td>
 </tr>
 <tr>
-<td>channel_id</td>
-<td>Number</td>
+<td>channel_id <em>Integer</em></td>
 <td>Yes</td>
 <td>Will be set if <code class="prettyprint">event_type</code> is <code class="prettyprint">thread</code> or <code class="prettyprint">comment</code></td>
 </tr>
 <tr>
-<td>comment_id</td>
-<td>Number</td>
+<td>comment_id <em>Integer</em></td>
 <td>Yes</td>
 <td>Will be set if <code class="prettyprint">event_type</code> is <code class="prettyprint">comment</code></td>
 </tr>
 <tr>
-<td>command</td>
-<td>String</td>
+<td>command <em>String</em></td>
 <td>Yes</td>
 <td>If the integration type is a slash command we&rsquo;ll include the command, e.g. <code class="prettyprint">/hello</code></td>
 </tr>
 <tr>
-<td>command_argument</td>
-<td>String</td>
+<td>command_argument <em>String</em></td>
 <td>Yes</td>
 <td>If the integration type is a slash command we&rsquo;ll include the command argument, e.g. for <code class="prettyprint">/hello world</code> it would be <code class="prettyprint">world</code></td>
 </tr>
@@ -7855,45 +7369,40 @@ to conversation by sending them to an email address.</p>
 
 <h2 id="payload-when-an-uninstall-happens">Payload when an uninstall happens</h2>
 
-<p>When a team uninstalls your integration, you can expect following parameters. You can use this to clean up any state you may have on your end.</p>
+<p>When a team uninstalls your integration, you can expect following
+parameters. You can use this to clean up any state you may have on your end.</p>
 
 <h3 id="post-parameters">POST Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Optional</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>event_type</td>
-<td>String</td>
+<td>event_type <em>String</em></td>
 <td>No</td>
 <td>Will be <code class="prettyprint">uninstall</code></td>
 </tr>
 <tr>
-<td>install_id</td>
-<td>Number</td>
+<td>install_id <em>Integer</em></td>
 <td>No</td>
 <td>The unique id of the installation</td>
 </tr>
 <tr>
-<td>workspace_id</td>
-<td>Number</td>
+<td>workspace_id <em>Integer</em></td>
 <td>No</td>
 <td>The workspace the installation belonged to</td>
 </tr>
 <tr>
-<td>user_id</td>
-<td>Number</td>
+<td>user_id <em>Integer</em></td>
 <td>No</td>
 <td>The id of the uninstaller</td>
 </tr>
 <tr>
-<td>user_name</td>
-<td>String</td>
+<td>user_name <em>String</em></td>
 <td>No</td>
 <td>The full name of the uninstaller</td>
 </tr>
@@ -7901,33 +7410,30 @@ to conversation by sending them to an email address.</p>
 
 <h2 id="payload-when-a-ping-happens">Payload when a ping happens</h2>
 
-<p>For debugging purposes, you might get a <code class="prettyprint">ping</code> payload. You should respond back with a JSON <code class="prettyprint">{&quot;content&quot;: &quot;pong&quot;}</code>.</p>
+<p>For debugging purposes, you might get a <code class="prettyprint">ping</code> payload. You should respond back
+with a JSON <code class="prettyprint">{&quot;content&quot;: &quot;pong&quot;}</code>.</p>
 
 <h3 id="post-parameters">POST Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Optional</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>event_type</td>
-<td>String</td>
+<td>event_type <em>String</em></td>
 <td>No</td>
 <td>Will be <code class="prettyprint">ping</code></td>
 </tr>
 <tr>
-<td>user_id</td>
-<td>Number</td>
+<td>user_id <em>Integer</em></td>
 <td>No</td>
 <td>The id of the pinger</td>
 </tr>
 <tr>
-<td>user_name</td>
-<td>String</td>
+<td>user_name <em>String</em></td>
 <td>No</td>
 <td>The full name of the pinger</td>
 </tr>
@@ -7966,27 +7472,35 @@ to conversation by sending them to an email address.</p>
 </span></code></pre>
 <p>For slash command, your response will replace the user&rsquo;s content.</p>
 
-<p>We&rsquo;ll try to unfurl any links found in the <code class="prettyprint">content</code>. Optionally you can also include a list of custom <code class="prettyprint">attachments</code> following the Attachments spec, e.g.</p>
+<p>We&rsquo;ll try to unfurl any links found in the <code class="prettyprint">content</code>. Optionally you can also
+include a list of custom <code class="prettyprint">attachments</code> following the <a href="#attachments">Attachments spec</a>.</p>
 
 <h2 id="error-handling">Error handling</h2>
 
-<p>Non-200 responses will be retried 10 times in the span of 12 hours. </p>
+<p>Non-200 responses will be retried 10 times in the span of 12 hours.</p>
 
 <h2 id="https-enforcing">HTTPS enforcing</h2>
 
-<p>Twist enforces HTTPS everywhere, including our integrations. If you need a certificate, we highly recommend <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a>. Furthermore we also enforce <a href="https://support.dnsimple.com/articles/what-is-ssl-certificate-chain/">certificate chain check</a>.</p>
+<p>Twist enforces HTTPS everywhere, including our integrations. If you need a
+certificate, we highly
+recommend <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a>. Furthermore we also
+enforce
+<a href="https://support.dnsimple.com/articles/what-is-ssl-certificate-chain/">certificate chain check</a>.</p>
 
 <h2 id="http-auth">HTTP Auth</h2>
 
-<p>We support and recommend that you use HTTP Auth for improving security, e.g. <code class="prettyprint">https://user:password@host/path</code>.</p>
+<p>We support and recommend that you use HTTP Auth for improving security,
+e.g. <code class="prettyprint">https://user:password@host/path</code>.</p>
 
           <h1 id="integrations-configure-url">Integrations: Configure URL</h1>
 
-<p>We redirect users to the configure URL when setting up a <code class="prettyprint">thread</code> or a <code class="prettyprint">channel</code> integration.</p>
+<p>We redirect users to the configure URL when setting up a <code class="prettyprint">thread</code> or a <code class="prettyprint">channel</code>
+integration.</p>
 
 <p>The configured URL lets you connect the installation with your app.</p>
 
-<p>The configure URL also includes an incoming webhook URL, which you can use as an easy way to post messages into Twist.</p>
+<p>The configure URL also includes an incoming webhook URL, which you can use as an
+easy way to post messages into Twist.</p>
 
 <h2 id="parameters-youll-get">Parameters you&rsquo;ll get</h2>
 
@@ -7997,38 +7511,34 @@ to conversation by sending them to an email address.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Optional</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>install_id</td>
-<td>Number</td>
+<td>install_id <em>Integer</em></td>
 <td>No</td>
 <td>The unique id of the installation</td>
 </tr>
 <tr>
-<td>post_data_url</td>
-<td>String</td>
+<td>post_data_url <em>String</em></td>
 <td>No</td>
 <td>A unique URL you can use to post content to Twist</td>
 </tr>
 <tr>
-<td>user_id</td>
-<td>Number</td>
+<td>user_id <em>Integer</em></td>
 <td>No</td>
 <td>The id of the installer</td>
 </tr>
 <tr>
-<td>user_name</td>
-<td>String</td>
+<td>user_name <em>String</em></td>
 <td>No</td>
 <td>The full name of the installer</td>
 </tr>
 </tbody></table>
 
-<p>To get back to the installation page, please use <code class="prettyprint">https://twistapp.com/integrations/installation/{ install_id }</code>.</p>
+<p>To get back to the installation page, please use
+<code class="prettyprint">https://twistapp.com/integrations/installation/{install_id}</code>.</p>
 
 <h2 id="how-to-post-data">How to post data</h2>
 
@@ -8036,30 +7546,28 @@ to conversation by sending them to an email address.</p>
 <p>CURL example</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
---data <span class="s1">'{"content":"42?"}'</span> <span class="se">\</span>
- https://hooks.twistapp.com/...
+    --data <span class="s1">'{"content":"42?"}'</span> <span class="se">\</span>
+    https://hooks.twistapp.com/...
 </code></pre>
-<p>Simply make a POST request to the <code class="prettyprint">post_data_url</code>. In the POST include your data encoded in JSON.</p>
+<p>Simply make a POST request to the <code class="prettyprint">post_data_url</code>. In the POST include your data
+encoded in JSON.</p>
 
 <h3 id="post-parameters">POST Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Optional</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>content</td>
-<td>String</td>
+<td>content <em>String</em></td>
 <td>No</td>
 <td>The content of the new object</td>
 </tr>
 <tr>
-<td>title</td>
-<td>String</td>
+<td>title <em>String</em></td>
 <td>Yes</td>
 <td>If the integration type is <code class="prettyprint">thread</code> include the title of the new thread</td>
 </tr>
@@ -8067,21 +7575,29 @@ to conversation by sending them to an email address.</p>
 
 <h2 id="https-enforcing">HTTPS enforcing</h2>
 
-<p>Twist enforces HTTPS everywhere, including our integrations. If you need a certificate, we highly recommend <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a>. Furthermore we also enforce <a href="https://support.dnsimple.com/articles/what-is-ssl-certificate-chain/">certificate chain check</a>.</p>
+<p>Twist enforces HTTPS everywhere, including our integrations. If you need a
+certificate, we highly
+recommend <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a>. Furthermore we also
+enforce
+<a href="https://support.dnsimple.com/articles/what-is-ssl-certificate-chain/">certificate chain check</a>.</p>
 
 <h2 id="http-auth">HTTP Auth</h2>
 
-<p>We support and recommend that you use HTTP Auth for improving security, e.g. <code class="prettyprint">https://user:password@host/path</code>.</p>
+<p>We support and recommend that you use HTTP Auth for improving security,
+e.g. <code class="prettyprint">https://user:password@host/path</code>.</p>
 
           <h1 id="integrations-url-reports">Integrations: URL Reports</h1>
 
-<p>Share reports with your team on a recurring basis by requesting data from an URL.</p>
+<p>Share reports with your team on a recurring basis by requesting data from an
+URL.</p>
 
 <h2 id="returning-markdown-content">Returning Markdown content</h2>
 
-<p>Automatic URL Reports can return plain Markdown content and Twist will use it as content for the new thread.</p>
+<p>Automatic URL Reports can return plain Markdown content and Twist will use it as
+content for the new thread.</p>
 
-<p>For example, the URL can return following (e.g. to generate automatic growth reports):</p>
+<p>For example, the URL can return following (e.g. to generate automatic growth
+reports):</p>
 <pre class="highlight plaintext"><code>Apple today announced financial results for its fiscal 2017 second quarter ended April 1, 2017.
 
 Core numbers:
@@ -8093,7 +7609,8 @@ Core numbers:
 </code></pre>
 <h2 id="returning-json-content">Returning JSON content</h2>
 
-<p>The Content URL can also return a JSON object specifying <code class="prettyprint">title</code> and <code class="prettyprint">content</code> of the new thread.</p>
+<p>The Content URL can also return a JSON object specifying <code class="prettyprint">title</code> and <code class="prettyprint">content</code>
+of the new thread.</p>
 
 <p>For example:</p>
 <pre class="highlight json tab-json"><code><span class="err">Content-type</span><span class="p">:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
