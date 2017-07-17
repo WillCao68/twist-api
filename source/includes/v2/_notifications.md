@@ -43,7 +43,7 @@ The user's last notifications.
 
 ```shell
 curl https://twistapp.com/api/v2/notifications/get \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf
+    -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"
 ```
 
 `GET /api/v2/notifications/get`
@@ -68,8 +68,8 @@ A list of notification objects is returned.
 
 ```shell
 curl -X POST https://twistapp.com/api/v2/notifications/mark_read \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf \
-  -d notification_id=1
+    -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"
+    -d notification_id=1
 ```
 
 `POST /api/v2/notifications/mark_read`
@@ -96,7 +96,7 @@ Marks everything after specified notification as read.
 
 ```shell
 curl -X POST https://twistapp.com/api/v2/notifications/reset \
-  -d token=9b1bf97783c1ad5593dee12f3019079dbd3042cf
+    -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"
 ```
 
 `POST /api/v2/notifications/reset`
