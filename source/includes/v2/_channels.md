@@ -31,7 +31,7 @@ A channel is a topic of discussion between a number of users.
 | name *String* | The name of the channel |
 | description *String* | The description of the channel |
 | creator *Integer* | The user that created the channel |
-| user_ids *Array of Numbers* | The users that will participate in the channel |
+| user_ids *List of Integers* | The users that will participate in the channel |
 | color *Integer* | The color of the channel |
 | public *Boolean* | If enabled, the channel will be marked as public |
 | workspace_id *Integer* | The id of the workspace |
@@ -111,7 +111,7 @@ Adds a new channel.
 | workspace_id *Integer* | Yes | The id of the workspace |
 | name *String* | Yes | The name of the new channel |
 | temp_id *Integer* | No | The temporary id of the channel |
-| user_ids *Array of Numbers* | No | The users that will participate in the channel |
+| user_ids *List of Integers* | No | The users that will participate in the channel |
 | color *Integer* | No | The color of the channel |
 | public *Boolean* | No | If enabled, the channel will be marked as public |
 | description *String* | No | The description of the channel |
@@ -295,7 +295,7 @@ Adds several persons to a channel.
 | Name | Required | Description |
 | --- | --- | --- |
 | id *Integer* | Yes | The id of the channel |
-| user_ids *List of Numbers* | Yes | The ids of the users |
+| user_ids *List of Integers* | Yes | The ids of the users |
 
 
 ## Remove user
@@ -357,4 +357,4 @@ Removes several persons from a channel.
 | Name | Required | Description |
 | --- | --- | --- |
 | id *Integer* | Yes | The id of the channel |
-| user_ids *List of Numbers* | Yes | The ids of the users |
+| user_ids *List of Integers* | Yes | The ids of the users |

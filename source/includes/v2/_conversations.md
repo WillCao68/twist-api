@@ -41,14 +41,14 @@ A conversation is a direct message exchange between one or more users.
 | is_private *Integer* | Whether the conversation is private, ie. between 2 users only |
 | creator *Integer* | The user that created the thread |
 | workspace_id *Integer* | The id of the workspace |
-| user_ids *List of Numbers* | The users that are participating in the conversation |
+| user_ids *List of Integers* | The users that are participating in the conversation |
 | message_count *Integer* | The number of messages |
 | last_obj_index *Integer* | The last message's index |
 | snippet *String* | A part of the last comment |
 | snippet_creator *Integer* | The user of the last comment |
-| snippet_creators *List of Numbers* | The users of the last comments |
+| snippet_creators *List of Integers* | The users of the last comments |
 | last_active_ts *Integer* | The Unix time when the conversation was last active |
-| muted_until |Number | The Unix time until when the conversation is muted |
+| muted_until *Integer* | The Unix time until when the conversation is muted |
 | archived *Integer* | Whether the conversation is archived |
 | created_ts *Integer* | The Unix time when the conversation was created |
 
@@ -99,7 +99,7 @@ Gets or creates a conversation with one or more users.
 | Name | Required | Description |
 | --- | --- | --- |
 | workspace_id *Integer* | Yes | The id of the workspace |
-| user_ids *List of Numbers* | Yes | The users that will participate in the conversation |
+| user_ids *List of Integers* | Yes | The users that will participate in the conversation |
 
 ### Return value
 
@@ -215,7 +215,7 @@ Adds several persons to a conversation.
 | Name | Required | Description |
 | --- | --- | --- |
 | id *Integer* | Yes | The id of the conversation |
-| user_ids *List of Numbers* | Yes | The ids of the users |
+| user_ids *List of Integers* | Yes | The ids of the users |
 
 > Return value:
 
@@ -277,7 +277,7 @@ Removes several persons from a conversation.
 | Name | Required | Description |
 | --- | --- | --- |
 | id *Integer* | Yes | The id of the conversation |
-| user_ids *List of Numbers* | Yes | The ids of the users |
+| user_ids *List of Integers* | Yes | The ids of the users |
 
 > Return value:
 

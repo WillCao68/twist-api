@@ -46,9 +46,9 @@ A thread is a discussion.
 | channel_id *Integer* | The id of the channel |
 | workspace_id *Integer* | The id of the workspace |
 | attachments *List of Objects* | Files attached to the comment |
-| recipients *List of Numbers or String | The users that were initially attached to the the thread, or `EVERYONE` |
-| participants *List of Numbers* | The users that were at some point attached to the thread or one of its comments |
-| groups *List of Numbers* | The groups that will be notified |
+| recipients *List of Integers or String | The users that were initially attached to the the thread, or `EVERYONE` |
+| participants *List of Integers* | The users that were at some point attached to the thread or one of its comments |
+| groups *List of Integers* | The groups that will be notified |
 | reactions *Object* | Reactions to the thread, where keys are the reactions and values the users that had that reaction |
 | comment_count *Integer* | The number of comments |
 | last_obj_index *Integer* | The last comment's index |
@@ -139,8 +139,8 @@ Adds a new thread to a channel.
 | title *String* | Yes | The title of the new thread |
 | content *String* | Yes | The content of the new thread |
 | attachments *List of Objects* | No | List of objects from [attachment#upload](#upload-an-attachment) to attach to the comment |
-| recipients *List of Numbers or String* | No | The users that will be attached to the thread, or `EVERYONE` |
-| groups *List of Numbers* | No | The groups that will be notified |
+| recipients *List of Integers or String* | No | The users that will be attached to the thread, or `EVERYONE` |
+| groups *List of Integers* | No | The groups that will be notified |
 | temp_id *Integer* | No | The temporary id of the thread |
 | send_as_integration *Boolean* | No | Displays the integration as the thread creator |
 
