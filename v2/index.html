@@ -557,10 +557,6 @@ want to test a specific error you can supply <code class="prettyprint">?chaos=10
 obtain an access token from the users. This section describes how to obtain such
 a token.</p>
 
-<p>For testing purposes you can also use <code class="prettyprint">/api/v2/users/login</code> and
-<code class="prettyprint">/api/v2/users/login_with_google</code>, but please don’t use this for a public
-integration, since it’s highly insecure and can be abused.</p>
-
 <h2 id="oauth-2">oAuth 2</h2>
 
 <p>Before getting started, you need
@@ -1469,121 +1465,6 @@ the information for the current user.</p>
 <h3 id="return-value">Return value</h3>
 
 <p>The updated user object is returned.</p>
-
-<h2 id="login-with-google">Login with Google</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/login_with_google <span class="se">\</span>
-  -d <span class="nv">access_token</span><span class="o">=</span>ya29.AHES6ZRKeUQwH2xhirksSUDSyjg9oPuRMMal05Ty0cfFIT_uRfESHw
-</code></pre>
-<p><code class="prettyprint">POST /api/v2/users/login_with_google</code></p>
-
-<p>Logs in user with a Google account.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id_token <em>String</em></td>
-<td>Yes, this or <code class="prettyprint">access_token</code></td>
-<td>The Google Sign-In ID token</td>
-</tr>
-<tr>
-<td>access_token <em>String</em></td>
-<td>Yes, this or <code class="prettyprint">id_token</code></td>
-<td>The Google OAuth2 token</td>
-</tr>
-</tbody></table>
-
-<h3 id="return-value">Return value</h3>
-
-<p>The user object is returned.</p>
-
-<h2 id="register-with-google">Register with Google</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/register_with_google <span class="se">\</span>
-  -d <span class="nv">access_token</span><span class="o">=</span>ya29.AHES6ZRKeUQwH2xhirksSUDSyjg9oPuRMMal05Ty0cfFIT_uRfESHw
-</code></pre>
-<p><code class="prettyprint">POST /api/v2/users/register_with_google</code></p>
-
-<p>Registers new user with a Google account.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id_token <em>String</em></td>
-<td>Yes, this or <code class="prettyprint">access_token</code></td>
-<td>The Google Sign-In ID token</td>
-</tr>
-<tr>
-<td>access_token <em>String</em></td>
-<td>Yes, this or <code class="prettyprint">id_token</code></td>
-<td>The Google OAuth2 token</td>
-</tr>
-</tbody></table>
-
-<h3 id="return-value">Return value</h3>
-
-<p>The user object.</p>
-
-<h2 id="connect-with-google">Connect with Google</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/connect_with_google <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
-  -d <span class="nv">access_token</span><span class="o">=</span>ya29.AHES6ZRKeUQwH2xhirksSUDSyjg9oPuRMMal05Ty0cfFIT_uRfESHw
-</code></pre>
-<p><code class="prettyprint">POST /api/v2/users/connect_with_google</code></p>
-
-<blockquote>
-<p>Return value:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Connects user&rsquo;s account to a Google account.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id_token <em>String</em></td>
-<td>Yes, this or <code class="prettyprint">access_token</code></td>
-<td>The Google Sign-In ID token</td>
-</tr>
-<tr>
-<td>access_token <em>String</em></td>
-<td>Yes, this or <code class="prettyprint">id_token</code></td>
-<td>The Google OAuth2 token</td>
-</tr>
-</tbody></table>
 
 <h2 id="check-google-connection">Check Google connection</h2>
 
