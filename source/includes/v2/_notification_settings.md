@@ -6,26 +6,20 @@ The user's notification settings allow to setup email and push settings.
 
 ```json
 {
-   "desktop_added_to_ch" : true,
    "desktop_added_to_ws" : true,
    "desktop_comments" : false,
    "desktop_conversations" : true,
-   "desktop_removed_from_ch" : true
    "desktop_removed_from_ws" : true,
    "desktop_threads" : false,
-   "email_added_to_ch" : true,
    "email_added_to_ws" : true,
    "email_aggregate" : true,
    "email_comments" : true,
    "email_conversations" : true,
-   "email_removed_from_ch" : true,
    "email_removed_from_ws" : true,
    "email_threads" : true,
-   "push_added_to_ch" : true,
    "push_added_to_ws" : true,
    "push_comments" : false,
    "push_conversations" : true,
-   "push_removed_from_ch" : true,
    "push_removed_from_ws" : true,
    "push_threads" : false,
    "badge_conversations" : true,
@@ -41,24 +35,18 @@ The user's notification settings allow to setup email and push settings.
 | desktop_comments *Boolean* | Desktop notifications for new comments attached to user |
 | desktop_threads *Boolean* | Desktop notifications for new threads attached to user |
 | desktop_added_to_ws *Boolean* | Desktop notifications when added to workspaces |
-| desktop_added_to_ch *Boolean* | Desktop notificationswhen added to channels |
 | desktop_removed_from_ws *Boolean* | Desktop notifications when removed from workspaces |
-| desktop_removed_from_ch *Boolean* | Desktop notifications when removed from channels |
 | email_conversations *Boolean* | Email notifications for new messages on conversations |
 | email_comments *Boolean* | Email notifications for new comments attached to user |
 | email_threads *Boolean* | Email notifications for new threads attached to user |
 | email_added_to_ws *Boolean* | Email notifications when added to workspaces |
-| email_added_to_ch *Boolean* | Email notifications when added to channels |
 | email_removed_from_ws *Boolean* | Email notifications when removed from workspaces |
-| email_removed_from_ch *Boolean* | Email notifications when removed from channels |
 | email_aggregate *Boolean* | Email notifications digest |
 | push_conversations *Boolean* | Push notifications for new messages on conversations |
 | push_comments *Boolean* | Push notifications for new comments attached to user |
 | push_threads *Boolean* | Push notifications for new threads attached to user |
 | push_added_to_ws *Boolean* | Push notifications when added to workspaces |
-| push_added_to_ch *Boolean* | Push notifications when added to channels |
 | push_removed_from_ws *Boolean* | Push notifications when removed from workspaces |
-| push_removed_from_ch *Boolean* | Push notifications when removed from channels |
 | badge_threads *Boolean* | Badge notifications on unread threads (iOS) |
 | badge_conversations *Boolean* | Badge notifications on unread conversations (iOS) |
 
