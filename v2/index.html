@@ -209,6 +209,7 @@
       </a>
       <nav class="site-nav v2 v2_index">
         <a class="link-index" href="/index.html">API Doc</a>
+        <a href="https://twistapp.com/integrations/create">Build an integration</a>
       </nav>
     </header>
 
@@ -225,9 +226,6 @@
         <ul class="search-results"></ul>
       <div id="toc">
       </div>
-        <ul class="toc-footer">
-            <li><a href='https://twistapp.com/integrations/create'>Create your oAuth2 app</a></li>
-        </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
@@ -6371,26 +6369,20 @@ text.</p>
 <p>Notifications settings object:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"desktop_added_to_ch"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
    </span><span class="s2">"desktop_added_to_ws"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
    </span><span class="s2">"desktop_comments"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
    </span><span class="s2">"desktop_conversations"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"desktop_removed_from_ch"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
    </span><span class="s2">"desktop_removed_from_ws"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
    </span><span class="s2">"desktop_threads"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"email_added_to_ch"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
    </span><span class="s2">"email_added_to_ws"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
    </span><span class="s2">"email_aggregate"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
    </span><span class="s2">"email_comments"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
    </span><span class="s2">"email_conversations"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"email_removed_from_ch"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
    </span><span class="s2">"email_removed_from_ws"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
    </span><span class="s2">"email_threads"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"push_added_to_ch"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
    </span><span class="s2">"push_added_to_ws"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
    </span><span class="s2">"push_comments"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
    </span><span class="s2">"push_conversations"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"push_removed_from_ch"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
    </span><span class="s2">"push_removed_from_ws"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
    </span><span class="s2">"push_threads"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
    </span><span class="s2">"badge_conversations"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -6422,16 +6414,8 @@ text.</p>
 <td>Desktop notifications when added to workspaces</td>
 </tr>
 <tr>
-<td>desktop_added_to_ch <em>Boolean</em></td>
-<td>Desktop notificationswhen added to channels</td>
-</tr>
-<tr>
 <td>desktop_removed_from_ws <em>Boolean</em></td>
 <td>Desktop notifications when removed from workspaces</td>
-</tr>
-<tr>
-<td>desktop_removed_from_ch <em>Boolean</em></td>
-<td>Desktop notifications when removed from channels</td>
 </tr>
 <tr>
 <td>email_conversations <em>Boolean</em></td>
@@ -6450,16 +6434,8 @@ text.</p>
 <td>Email notifications when added to workspaces</td>
 </tr>
 <tr>
-<td>email_added_to_ch <em>Boolean</em></td>
-<td>Email notifications when added to channels</td>
-</tr>
-<tr>
 <td>email_removed_from_ws <em>Boolean</em></td>
 <td>Email notifications when removed from workspaces</td>
-</tr>
-<tr>
-<td>email_removed_from_ch <em>Boolean</em></td>
-<td>Email notifications when removed from channels</td>
 </tr>
 <tr>
 <td>email_aggregate <em>Boolean</em></td>
@@ -6482,16 +6458,8 @@ text.</p>
 <td>Push notifications when added to workspaces</td>
 </tr>
 <tr>
-<td>push_added_to_ch <em>Boolean</em></td>
-<td>Push notifications when added to channels</td>
-</tr>
-<tr>
 <td>push_removed_from_ws <em>Boolean</em></td>
 <td>Push notifications when removed from workspaces</td>
-</tr>
-<tr>
-<td>push_removed_from_ch <em>Boolean</em></td>
-<td>Push notifications when removed from channels</td>
 </tr>
 <tr>
 <td>badge_threads <em>Boolean</em></td>
