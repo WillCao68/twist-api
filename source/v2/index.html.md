@@ -1,9 +1,6 @@
 ---
 title: Twist API Reference
 
-toc_footers:
-  - <a href='https://twistapp.com/integrations/create'>Create your oAuth2 app</a>
-
 includes:
   - v2/overview
   - v2/errors
