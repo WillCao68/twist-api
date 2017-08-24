@@ -20,6 +20,7 @@ The user's notification settings allow to setup email and push settings.
    "push_added_to_ws" : true,
    "push_comments" : false,
    "push_conversations" : true,
+   "push_delay" : 120,
    "push_removed_from_ws" : true,
    "push_threads" : false,
    "badge_conversations" : true,
@@ -44,6 +45,7 @@ The user's notification settings allow to setup email and push settings.
 | email_aggregate *Boolean* | Email notifications digest |
 | push_conversations *Boolean* | Push notifications for new messages on conversations |
 | push_comments *Boolean* | Push notifications for new comments attached to user |
+| push_delay *Integer* | Number of seconds before sending a push notification |
 | push_threads *Boolean* | Push notifications for new threads attached to user |
 | push_added_to_ws *Boolean* | Push notifications when added to workspaces |
 | push_removed_from_ws *Boolean* | Push notifications when removed from workspaces |

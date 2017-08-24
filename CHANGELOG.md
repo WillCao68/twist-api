@@ -13,6 +13,17 @@ break between minor patches.
 
 ## [Unreleased]
 
+- Deprecate `initiator` field from all system_messages
+- Deprecate `user_id` field from `USER_LEFT` system_messages
+
+
+## [2.0.2] - 2017-08-24
+
+### Added
+
+- Added `mobile_delay` to notification settings
+
+
 ## [2.0.1] - 2017-07-11
 
 ### Changed
