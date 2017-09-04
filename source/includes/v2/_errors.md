@@ -50,10 +50,12 @@ The errors returned:
 | 130 | Google account is already connected to a Google user | 403 |
 | 131 | Already found | 409 |
 | 132 | Email not found | 404 |
+| 133 | One or more actions don't comply with the JSON specification | 404 |
 | 200 | Invalid token | 403 |
 | 201 | Internal Server Error | 500 |
 | 202 | Upload failed | 400 |
 | 203 | Payment required | 402 |
+| 204 | External Server Error | 500 |
 | 205 | Upload is too big in size | 413 |
 | 406 | Not acceptable | 406 |
 
