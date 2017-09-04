@@ -54,6 +54,7 @@ The errors returned:
 | 201 | Internal Server Error | 500 |
 | 202 | Upload failed | 400 |
 | 203 | Payment required | 402 |
+| 205 | Upload is too big in size | 413 |
 | 406 | Not acceptable | 406 |
 
 The HTTP error codes returned:
