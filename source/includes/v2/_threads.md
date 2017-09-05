@@ -29,6 +29,7 @@ A thread is a discussion.
 	 "snippet_creator" : 10073,
 	 "last_updated" : "2017-05-11 11:05:13",
 	 "last_updated_ts" : 1494500713,
+     "muted_until" : null,
 	 "system_message" : null,
 	 "posted_ts" : 1494488709,
 }
@@ -56,6 +57,7 @@ A thread is a discussion.
 | snippet_creator *Integer* | The user of the last comment |
 | last_updated *String* | The date and time when the thread was last updated |
 | last_updated_ts *Integer* | The Unix time when the thread was last updated |
+| muted_until *Integer* | The Unix time until when the thread is muted |
 | system_message *String* | A system message |
 | posted_ts *Integer* | The Unix time when the thread was created |
 
@@ -498,3 +500,55 @@ Clears unread threads in workspace.
    "status": "ok"
 }
 ```
+
+
+## Mute thread
+
+> Example:
+
+```shell
+curl -X POST https://api.twistapp.com/api/v2/threads/mute \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
+  -d id=13037 \
+  -d minutes=30
+```
+
+`POST /api/v2/threads/mute`
+
+Mutes a thread for a number of minutes.
+
+### Parameters
+
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the thread |
+| minutes *Integer* | Yes | The number of minutes to mute the thread |
+
+### Return value
+
+A thread object is returned.
+
+
+## Unmute thread
+
+> Example:
+
+```shell
+curl -X POST https://api.twistapp.com/api/v2/threads/unmute \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
+  -d id=13037
+```
+
+`POST /api/v2/threads/unmute`
+
+Unmutes a thread.
+
+### Parameters
+
+| Name | Required | Description |
+| --- | --- | --- |
+| id *Integer* | Yes | The id of the thread |
+
+### Return value
+
+A thread object is returned.
