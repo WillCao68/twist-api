@@ -11,10 +11,23 @@ just for documentation purposes as it
 follows [Semantic Versioning](http://semver.org/spec/v2.0.0.html) and must not
 break between minor patches.
 
+
 ## [Unreleased]
 
-- Deprecate `initiator` field from all system_messages
-- Deprecate `user_id` field from `USER_LEFT` system_messages
+### Removed (already deprecated)
+
+- `initiator` field from all system_messages
+- `user_id` field from `USER_LEFT` system_messages
+
+
+## [2.0.3] - 2017-09-05
+
+### Added
+
+- `mobile_delay` to notification settings
+- Missing External Server Error code (204)
+- Missing 'Actions don't comply' code (133)
+- Mute/Unmute thread
 
 
 ## [2.0.2] - 2017-08-24
