@@ -236,7 +236,13 @@ curl -X POST https://api.twistapp.com/api/v2/users/update_avatar \
 
 `POST /api/v2/users/update_avatar`
 
-Updates user's avatar.
+Updates user's avatar. It currently supports the following formats:
+
++ gif
++ jpeg
++ png
++ bmp
++ tiff
 
 **Note:** the maximum allowed size for the avatar is 10MB
 
