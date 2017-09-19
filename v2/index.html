@@ -272,7 +272,11 @@ our <a href="#oauth-2">oAuth 2 authentication</a>.</p>
 <p>Temporary ids are negative and can be used when adding, updating or deleting
 items.</p>
 
-<h2 id="return-results-and-error-handling">Return results and error handling</h2>
+<h2 id="request-response-and-error-handling">Request, response, and error handling</h2>
+
+<p>The maximum allowed size of the request body for common requests is 5MB. Some
+attachments have their own limits for upload, please check their own sections
+for more details.</p>
 
 <p>A response is always a JSON object which can be following:</p>
 
@@ -1272,6 +1276,8 @@ the information for the current user.</p>
 <p><code class="prettyprint">POST /api/v2/users/update_avatar</code></p>
 
 <p>Updates user&rsquo;s avatar.</p>
+
+<p><strong>Note:</strong> the maximum allowed size for the avatar is 10MB</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -5474,6 +5480,8 @@ conversation.</p>
 
 <p>Files can be attached to threads, comments, or conversation messages.</p>
 
+<p><strong>Note:</strong> the maximum allowed size for the attachment is 100MB</p>
+
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -6825,6 +6833,8 @@ text.</p>
 
 <p>This allows to add threads to a channel, add comments to a thread, or messages
 to conversation by sending them to an email address.</p>
+
+<p><strong>Note:</strong> the maximum allowed size of the email is 25MB.</p>
 
 <blockquote>
 <p>Loop in object:</p>
