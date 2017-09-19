@@ -238,6 +238,9 @@ curl -X POST https://api.twistapp.com/api/v2/users/update_avatar \
 
 Updates user's avatar.
 
+**Note:** the maximum allowed size for the avatar is 10MB
+
+
 ### Parameters
 
 | Name | Required | Description |

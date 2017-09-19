@@ -18,9 +18,13 @@ Temporary ids are negative and can be used when adding, updating or deleting
 items.
 
 
-## Return results and error handling
+## Request, response, and error handling
 
-A response is always a JSON object which can be following:
+The maximum allowed size of the request body for common requests is 5MB. Some
+attachments have their own limits for upload, please check their own sections
+for more details.
+
+A response is always a JSON object which can be the following:
 
 - On successful return: JSON data
 - On an error return, HTTP error code followed by: `{“error”: [error_code, error_string], **kwargs}`

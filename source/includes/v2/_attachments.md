@@ -2,6 +2,8 @@
 
 Files can be attached to threads, comments, or conversation messages.
 
+**Note:** the maximum allowed size for the attachment is 100MB
+
 > Example:
 
 ```json

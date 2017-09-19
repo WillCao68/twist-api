@@ -3,6 +3,8 @@
 This allows to add threads to a channel, add comments to a thread, or messages
 to conversation by sending them to an email address.
 
+**Note:** the maximum allowed size of the email is 25MB.
+
 > Loop in object:
 
 ```json
