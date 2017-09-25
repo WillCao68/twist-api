@@ -204,7 +204,6 @@ The updated user object is returned.
 ```shell
 curl -X POST https://api.twistapp.com/api/v2/users/update_password \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
-  -d current_password=secret \
   -d new_password=newsecret
 ```
 
@@ -216,7 +215,6 @@ Updates user's password.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| current_password *String* | Yes | The user's current password |
 | new_password *String* | Yes | The user's new password |
 
 ### Return value
