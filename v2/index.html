@@ -1232,7 +1232,6 @@ the information for the current user.</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/update_password <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
-  -d <span class="nv">current_password</span><span class="o">=</span>secret <span class="se">\</span>
   -d <span class="nv">new_password</span><span class="o">=</span>newsecret
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/users/update_password</code></p>
@@ -1248,11 +1247,6 @@ the information for the current user.</p>
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>current_password <em>String</em></td>
-<td>Yes</td>
-<td>The user&rsquo;s current password</td>
-</tr>
 <tr>
 <td>new_password <em>String</em></td>
 <td>Yes</td>
