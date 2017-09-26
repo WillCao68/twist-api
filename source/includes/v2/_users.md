@@ -425,7 +425,8 @@ curl https://api.twistapp.com/api/v2/users/is_connected_to_google \
 
 ```json
 {
-   "google_connection": true
+   "google_connection": true,
+   "google_email": "amix4k@gmail.com"
 }
 ```
 
