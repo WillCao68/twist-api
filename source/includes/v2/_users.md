@@ -59,30 +59,6 @@ A user represents a real person who collaborates with other users.
 | comet_channel *String* | The comet channel |
 
 
-## Get one
-
-> Example:
-
-```shell
-curl https://api.twistapp.com/api/v2/users/getone \
-  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
-```
-
-`GET /api/v2/users/getone`
-
-Gets info about a user. In case no `id` is provided, it will return
-the information for the current user.
-
-### Parameters
-| Name | Required | Description |
-| --- | --- | --- |
-| id *Integer* | No | The id of the user |
-
-### Return value
-
-The user object.
-
-
 ## Login
 
 > Example:
