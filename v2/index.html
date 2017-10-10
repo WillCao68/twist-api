@@ -984,6 +984,39 @@ you and the HTTP connection will be closed.</p>
 </tr>
 </tbody></table>
 
+<h2 id="get-one">Get one</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/getone <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+</code></pre>
+<p><code class="prettyprint">GET /api/v2/users/getone</code></p>
+
+<p>Gets info about a user. In case no <code class="prettyprint">id</code> is provided, it will return
+the information for the current user.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id <em>Integer</em></td>
+<td>No</td>
+<td>The id of the user</td>
+</tr>
+</tbody></table>
+
+<h3 id="return-value">Return value</h3>
+
+<p>The user object.</p>
+
 <h2 id="login">Login</h2>
 
 <blockquote>
