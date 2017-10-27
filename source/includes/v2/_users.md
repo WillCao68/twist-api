@@ -65,7 +65,7 @@ A user represents a real person who collaborates with other users.
 
 ```shell
 curl https://api.twistapp.com/api/v2/users/getone \
-  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
 ```
 
 `GET /api/v2/users/getone`
@@ -164,7 +164,7 @@ The user object.
 
 ```shell
 curl -X POST https://api.twistapp.com/api/v2/users/update \
-  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d name=User
 ```
 
@@ -203,7 +203,7 @@ The updated user object is returned.
 
 ```shell
 curl -X POST https://api.twistapp.com/api/v2/users/update_password \
-  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d new_password=newsecret
 ```
 
@@ -228,7 +228,7 @@ The user object is returned.
 
 ```shell
 curl -X POST https://api.twistapp.com/api/v2/users/update_avatar \
-  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -F image=@avatar.jpg
 ```
 
@@ -249,7 +249,7 @@ Updates user's avatar. It currently supports the following formats:
 
 | Name | Required | Description |
 | --- | --- | --- |
-| image *String* | Yes | The file name of the image to upload |
+| image *String* | Yes | avatar image uploaded as `multipart/form-data` |
 
 ### Return value
 
@@ -262,7 +262,7 @@ The updated user object is returned.
 
 ```shell
 curl -X POST https://api.twistapp.com/api/v2/users/invalidate_token \
-  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
 ```
 
 `POST /api/v2/users/invalidate_token`
@@ -280,7 +280,7 @@ The user object is returned, which also includes the new token.
 
 ```shell
 curl -X POST https://api.twistapp.com/api/v2/users/validate_token \
-  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
 ```
 
 `POST /api/v2/users/validate_token`
@@ -302,7 +302,7 @@ Validates the user token.
 
 ```shell
 curl -X POST https://api.twistapp.com/api/v2/users/heartbeat \
-  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d workspace_id=5517 \
   -d platform=api
 ```
@@ -333,7 +333,7 @@ Marks user as active on workspace.
 
 ```shell
 curl -X POST https://api.twistapp.com/api/v2/users/reset_presense \
-  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d workspace_id=5517
 ```
 
@@ -416,7 +416,7 @@ The updated user object is returned.
 
 ```shell
 curl https://api.twistapp.com/api/v2/users/is_connected_to_google \
-  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
 ```
 
 `GET /api/v2/users/is_connected_to_google`
@@ -439,7 +439,7 @@ Checks whether user's account is connected to a Google account.
 
 ```shell
 curl -X POST https://api.twistapp.com/api/v2/users/disconnect_google \
-  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
 ```
 
 `POST /api/v2/users/disconnect_google`
