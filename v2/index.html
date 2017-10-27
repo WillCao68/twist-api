@@ -990,7 +990,7 @@ you and the HTTP connection will be closed.</p>
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/getone <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
 </code></pre>
 <p><code class="prettyprint">GET /api/v2/users/getone</code></p>
 
@@ -1128,7 +1128,7 @@ the information for the current user.</p>
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/update <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">name</span><span class="o">=</span>User
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/users/update</code></p>
@@ -1231,7 +1231,7 @@ the information for the current user.</p>
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/update_password <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">new_password</span><span class="o">=</span>newsecret
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/users/update_password</code></p>
@@ -1264,7 +1264,7 @@ the information for the current user.</p>
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/update_avatar <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -F <span class="nv">image</span><span class="o">=</span>@avatar.jpg
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/users/update_avatar</code></p>
@@ -1293,7 +1293,7 @@ the information for the current user.</p>
 <tr>
 <td>image <em>String</em></td>
 <td>Yes</td>
-<td>The file name of the image to upload</td>
+<td>avatar image uploaded as <code class="prettyprint">multipart/form-data</code></td>
 </tr>
 </tbody></table>
 
@@ -1307,7 +1307,7 @@ the information for the current user.</p>
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/invalidate_token <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/users/invalidate_token</code></p>
 
@@ -1323,7 +1323,7 @@ the information for the current user.</p>
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/validate_token <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/users/validate_token</code></p>
 
@@ -1342,7 +1342,7 @@ the information for the current user.</p>
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/heartbeat <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5517 <span class="se">\</span>
   -d <span class="nv">platform</span><span class="o">=</span>api
 </code></pre>
@@ -1384,7 +1384,7 @@ the information for the current user.</p>
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/reset_presense <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">workspace_id</span><span class="o">=</span>5517
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/users/reset_presense</code></p>
@@ -1493,7 +1493,7 @@ the information for the current user.</p>
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/users/is_connected_to_google <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
 </code></pre>
 <p><code class="prettyprint">GET /api/v2/users/is_connected_to_google</code></p>
 
@@ -1513,7 +1513,7 @@ the information for the current user.</p>
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/users/disconnect_google <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\ </span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/users/disconnect_google</code></p>
 
