@@ -18,6 +18,7 @@ break between minor patches.
 
 - `initiator` field from all system_messages
 - `user_id` field from `USER_LEFT` system_messages
+- `users#get_one` resource
 
 
 ## [2.0.3] - 2017-09-05

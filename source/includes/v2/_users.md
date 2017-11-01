@@ -61,6 +61,10 @@ A user represents a real person who collaborates with other users.
 
 ## Get one
 
+<aside class="notice">
+<strong>DEPRECATED</strong>: will be removed in the next major version. Please use <a href="#get-user-by-id">get_user_by_id</a> instead.
+</aside>
+
 > Example:
 
 ```shell
