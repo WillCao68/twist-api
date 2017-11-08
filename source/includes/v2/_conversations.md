@@ -58,7 +58,7 @@ A conversation is a direct message exchange between one or more users.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/conversations/getone \
+curl --get https://api.twistapp.com/api/v2/conversations/getone \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=13037
 ```
@@ -111,7 +111,7 @@ A conversation object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/conversations/get \
+curl --get https://api.twistapp.com/api/v2/conversations/get \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d workspace_id=5517
 ```
@@ -231,7 +231,7 @@ Adds several persons to a conversation.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/conversations/remove_user \
+curl --get https://api.twistapp.com/api/v2/conversations/remove_user \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=13037 \
   -d user_id=10076
@@ -262,7 +262,7 @@ Removes a person from a conversation.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/conversations/remove_users \
+curl --get https://api.twistapp.com/api/v2/conversations/remove_users \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=13037 \
   -d user_ids='[10076]'
@@ -351,7 +351,7 @@ Unarchives a conversation.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/conversations/get_unread \
+curl --get https://api.twistapp.com/api/v2/conversations/get_unread \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=5517
 ```

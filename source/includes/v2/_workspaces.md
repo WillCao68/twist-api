@@ -156,7 +156,7 @@ usually called teams.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/workspaces/getone \
+curl --get https://api.twistapp.com/api/v2/workspaces/getone \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
 ```
@@ -418,7 +418,7 @@ Removes a person from a workspace.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/workspaces/get_user_by_email \
+curl --get https://api.twistapp.com/api/v2/workspaces/get_user_by_email \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d email=user2@example.com
@@ -445,7 +445,7 @@ A workspace user object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/workspaces/get_user_by_id \
+curl --get https://api.twistapp.com/api/v2/workspaces/get_user_by_id \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d user_id=10073
@@ -472,7 +472,7 @@ A workspace user object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/workspaces/get_user_info \
+curl --get https://api.twistapp.com/api/v2/workspaces/get_user_info \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d user_id=10073
@@ -495,7 +495,7 @@ Gets user's info in the context of the workspace.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/workspaces/get_user_local_time \
+curl --get https://api.twistapp.com/api/v2/workspaces/get_user_local_time \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
   -d user_id=10073
@@ -524,7 +524,7 @@ Gets user's local time.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/workspaces/get_public_channels \
+curl --get https://api.twistapp.com/api/v2/workspaces/get_public_channels \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=5517
 ```

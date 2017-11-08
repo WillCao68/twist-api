@@ -8,7 +8,7 @@ text.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/search/query \
+curl --get https://api.twistapp.com/api/v2/search/query \
     -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
     -d query=texts
 ```
@@ -92,7 +92,7 @@ Searches for a string.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/search/comments \
+curl --get https://api.twistapp.com/api/v2/search/comments \
     -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
     -d query=texts \
     -d workspace_id=201 \
@@ -160,7 +160,7 @@ Here we get more details about a thread and its comments.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/search/expand_comment_range \
+curl --get https://api.twistapp.com/api/v2/search/expand_comment_range \
     -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
     -d idx_end=3 \
     -d thread_id=401 \
@@ -212,7 +212,7 @@ The thread is expanded, that is more comments are returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/search/messages \
+curl --get https://api.twistapp.com/api/v2/search/messages \
     -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
     -d query=hello \
     -d workspace_id=201 \
@@ -311,7 +311,7 @@ Here we get more details about a conversation and its messages.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/search/expand_conversation_message_range \
+curl --get https://api.twistapp.com/api/v2/search/expand_conversation_message_range \
     -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
     -d conversation_id=601 \
     -d idx_end=5 \

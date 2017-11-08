@@ -21,7 +21,7 @@ most recent threads ordered by date.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/inbox/get \
+curl --get https://api.twistapp.com/api/v2/inbox/get \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d workspace_id=5517
 ```

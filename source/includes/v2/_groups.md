@@ -30,7 +30,7 @@ A group is a number of users grouped together under some name, a team.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/groups/getone \
+curl --get https://api.twistapp.com/api/v2/groups/getone \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d id=498
 ```
@@ -55,7 +55,7 @@ A group object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/groups/get \
+curl --get https://api.twistapp.com/api/v2/groups/get \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d workspace_id=5517
 ```

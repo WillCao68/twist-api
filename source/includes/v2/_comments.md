@@ -53,7 +53,7 @@ A comment is a message in a thread.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/comments/getone \
+curl --get https://api.twistapp.com/api/v2/comments/getone \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=206113
 ```
@@ -78,7 +78,7 @@ A comment object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/comments/get \
+curl --get https://api.twistapp.com/api/v2/comments/get \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d thread_id=32038
 ```

@@ -67,7 +67,7 @@ A thread is a discussion.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/threads/getone \
+curl --get https://api.twistapp.com/api/v2/threads/getone \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=32038
 ```
@@ -92,7 +92,7 @@ A thread object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/threads/get \
+curl --get https://api.twistapp.com/api/v2/threads/get \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d channel_id=6984
 ```
@@ -361,7 +361,7 @@ Unfollows thread.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/threads/get_unread \
+curl --get https://api.twistapp.com/api/v2/threads/get_unread \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d workspace_id=5517
 ```

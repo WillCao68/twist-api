@@ -45,7 +45,7 @@ conversation.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/conversation_messages/getone \
+curl --get https://api.twistapp.com/api/v2/conversation_messages/getone \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=514069
 ```
@@ -70,7 +70,7 @@ A conversation message object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/conversation_messages/get \
+curl --get https://api.twistapp.com/api/v2/conversation_messages/get \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d conversation_id=13037
 ```

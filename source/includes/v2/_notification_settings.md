@@ -58,7 +58,7 @@ The user's notification settings allow to setup email and push settings.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/notifications_settings/v2/get \
+curl --get https://api.twistapp.com/api/v2/notifications_settings/v2/get \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \ 
   -d workspace_id=5517
 ```

@@ -44,7 +44,7 @@ A channel is a topic of discussion between a number of users.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/channels/getone \
+curl --get https://api.twistapp.com/api/v2/channels/getone \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=6984
 ```
@@ -69,7 +69,7 @@ A channel object is returned.
 > Example:
 
 ```shell
-curl https://api.twistapp.com/api/v2/channels/get \
+curl --get https://api.twistapp.com/api/v2/channels/get \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d workspace_id=5517
 ```
