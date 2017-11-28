@@ -376,9 +376,22 @@ Gets unread threads in a workspace.
 | --- | --- | --- |
 | workspace_id *Integer* | Yes | The id of the workspace |
 
+> Return value:
+
+```json
+[
+  [
+    channel_id,
+    thread_id,
+    last_read_object_index
+  ]
+]
+```
+
 ### Return value
 
-A list of thread objects is returned.
+A list of unread thread objects, where each unread thread object is an array with three values:
+the channel id, the thread id and the index of the last unread comment.
 
 
 ## Mark thread as read
