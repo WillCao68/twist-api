@@ -380,11 +380,11 @@ Gets unread threads in a workspace.
 
 ```json
 [
-  [
-    channel_id,
-    thread_id,
-    last_read_object_index
-  ]
+    [
+        channel_id,
+        thread_id,
+        last_read_object_index
+    ]
 ]
 ```
 
