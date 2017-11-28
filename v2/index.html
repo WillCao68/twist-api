@@ -3835,9 +3835,21 @@ usually called teams.</p>
 </tr>
 </tbody></table>
 
+<blockquote>
+<p>Return value:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">[</span><span class="w">
+        </span><span class="err">channel_id</span><span class="p">,</span><span class="w">
+        </span><span class="err">thread_id</span><span class="p">,</span><span class="w">
+        </span><span class="err">last_read_object_index</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
 <h3 id="return-value">Return value</h3>
 
-<p>A list of thread objects is returned.</p>
+<p>A list of unread thread objects, where each unread thread object is an array with three values:
+the channel id, the thread id and the index of the last unread comment.</p>
 
 <h2 id="mark-thread-as-read">Mark thread as read</h2>
 
@@ -5009,17 +5021,16 @@ usually called teams.</p>
 <p>Return value:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-   </span><span class="p">[</span><span class="w">
-      </span><span class="mi">13037</span><span class="p">,</span><span class="w">
-      </span><span class="mi">1</span><span class="w">
-   </span><span class="p">]</span><span class="w">
+    </span><span class="p">[</span><span class="w">
+        </span><span class="mi">13037</span><span class="p">,</span><span class="w">
+        </span><span class="mi">1</span><span class="w">
+    </span><span class="p">]</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <h3 id="return-value">Return value</h3>
 
-<p>A list of unread conversations objects that are unread, where each unread
-conversation object is an array with two values: the conversation id and the id
-of last unread message.</p>
+<p>A list of unread conversation objects, where each unread conversation object
+is an array with two values: the conversation id and the index of the last unread message.</p>
 
 <h2 id="mark-conversation-as-read">Mark conversation as read</h2>
 
@@ -7081,7 +7092,7 @@ JSON encoded.</p>
 <blockquote>
 <p>Example</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/hooks/subscribe <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/hooks/unsubscribe <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">target_url</span><span class="o">=</span>https://hooks.yourdomain.com/&lt;unique_target_url&gt;
 </code></pre>
