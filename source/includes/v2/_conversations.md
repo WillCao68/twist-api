@@ -370,18 +370,17 @@ Gets unread conversations.
 
 ```json
 [
-   [
-      13037,
-      1
-   ]
+    [
+        13037,
+        1
+    ]
 ]
 ```
 
 ### Return value
 
-A list of unread conversations objects that are unread, where each unread
-conversation object is an array with two values: the conversation id and the id
-of last unread message.
+A list of unread conversation objects, where each unread conversation object
+is an array with two values: the conversation id and the index of the last unread message.
 
 
 ## Mark conversation as read
