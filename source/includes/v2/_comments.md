@@ -85,7 +85,7 @@ curl --get https://api.twistapp.com/api/v2/comments/get \
 
 `GET /api/v2/comments/get`
 
-Gets all comments in a channel.
+Gets all comments in a thread.
 
 ### Parameters
 
