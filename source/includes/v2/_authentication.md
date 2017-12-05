@@ -12,7 +12,14 @@ configure a valid OAuth redirect URL. A registered Twist integration is assigned
 a unique Client ID and Client Secret which are needed for
 the [OAuth2](https://en.wikipedia.org/wiki/OAuth) flow.
 
-This procedure is comprised of 3 steps, which will be described below.
+The OAuth integration page also has a test token for those who just
+want to try the API out. The test token provided may be used in any
+requests requiring authorization. The test token will use the current
+logged user account to authorize the utilization of the resources.
+
+When building an integration, it's necessary to ask the user's
+permission to use the resources and for that you have to do the
+3 steps procedure described below.
 
 All the error responses will be in JSON format, an example is
 `{"error":"BAD_REQUEST", "error_message": "Invalid scope"}`.
