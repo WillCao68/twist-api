@@ -23,10 +23,10 @@ includes:
   - v2/url_join
   - v2/loop_in
   - v2/integration_types
-  - v2/integration_rest_hooks
-  - v2/integration_ws
-  - v2/integration_configure_url
-  - v2/integration_automatic_reports
+  - v2/integration_oauth
+  - v2/integration_channel
+  - v2/integration_thread
+  - v2/integration_slash
 
 search: true
 ---
@@ -35,7 +35,7 @@ search: true
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2017 Doist
+Copyright (c) 2017 Doist
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
