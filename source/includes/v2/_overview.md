@@ -7,9 +7,13 @@ parameters, and examples.
 
 ## Authentication
 
-Login and signup are done via `/api/v2/users/login` and
-`/api/v2/users/register`. For public integrations you must use
-our [oAuth 2 authentication](#oauth-2).
+Login and signup are done via [/api/v2/users/login](/v2/#login)
+and [/api/v2/users/register](/v2/#register). For public integration, you must
+use our [oAuth 2 authentication](#oauth-2).
+
+If you just want a token to try the API, we provide a test token when you create
+an application following what we describe in
+the [oAuth 2 authentication](#oauth-2) guide.
 
 
 ## Temporary ids
