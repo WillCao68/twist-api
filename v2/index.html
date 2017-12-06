@@ -234,7 +234,7 @@
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2017 Doist
+Copyright (c) 2017 Doist
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -263,9 +263,13 @@ parameters, and examples.</p>
 
 <h2 id="authentication">Authentication</h2>
 
-<p>Login and signup are done via <code class="prettyprint">/api/v2/users/login</code> and
-<code class="prettyprint">/api/v2/users/register</code>. For public integrations you must use
-our <a href="#oauth-2">oAuth 2 authentication</a>.</p>
+<p>Login and signup are done via <a href="#login">/api/v2/users/login</a>
+and <a href="#register">/api/v2/users/register</a>. For public integration, you must
+use our <a href="#oauth-2">oAuth 2 authentication</a>.</p>
+
+<p>If you just want a token to try the API, we provide a test token when you create
+an application following what we describe in
+the <a href="#oauth-2">oAuth 2 authentication</a> guide.</p>
 
 <h2 id="temporary-ids">Temporary ids</h2>
 
@@ -582,7 +586,14 @@ configure a valid OAuth redirect URL. A registered Twist integration is assigned
 a unique Client ID and Client Secret which are needed for
 the <a href="https://en.wikipedia.org/wiki/OAuth">OAuth2</a> flow.</p>
 
-<p>This procedure is comprised of 3 steps, which will be described below.</p>
+<p>The OAuth integration page also has a test token for those who just
+want to try the API out. The test token provided may be used in any
+requests requiring authorization. The test token will use the current
+logged user account to authorize the utilization of the resources.</p>
+
+<p>When building an integration, it&rsquo;s necessary to ask the user&rsquo;s
+permission to use the resources and for that you have to do the
+3 steps procedure described below.</p>
 
 <p>All the error responses will be in JSON format, an example is
 <code class="prettyprint">{&quot;error&quot;:&quot;BAD_REQUEST&quot;, &quot;error_message&quot;: &quot;Invalid scope&quot;}</code>.</p>
@@ -6959,166 +6970,249 @@ to conversation by sending them to an email address.</p>
    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-          <h1 id="integration-types">Integration: Types</h1>
+          <h1 id="integrations">Integrations</h1>
 
-<p>Currently, Twist has four core integration types:</p>
+<p>Twits has some types of integrations and you have to carefully pick
+your type based on how your integration will be used. Here is a link
+for the full explanation of each one with a small summary of what they
+can do:</p>
 
 <ul>
-<li>oAuth 2 applications</li>
-<li>Channel integrations</li>
-<li>Thread integrations</li>
-<li>Slash command integrations</li>
+<li><a href="#oauth">oAuth 2 applications</a> - Requires more setup but is more powerful</li>
+<li><a href="#channel">Channel integration</a> - Has access to one channel only, has schedule powers</li>
+<li><a href="#thread">Thread integration</a> - Has access to one thread or create new threads</li>
+<li><a href="#slash-command">Slash command integration</a> - Receives a request when called via slash command</li>
 </ul>
 
-<p>You have to carefully pick your integration type based on how your integration
-will be used.</p>
+<p>And below we have some information shared between the all types.</p>
 
-<h2 id="oauth-2-applications">oAuth 2 applications</h2>
+<h3 id="https-enforcing">HTTPS enforcing</h3>
 
-<p>OAuth is an authorization protocol that allows you to access a user&rsquo;s data
-without the user needing to share login credentials.</p>
+<p>Twist enforces HTTPS everywhere, including our production
+integrations. It means that all production URLs that communicate with
+Twist somehow have to use HTTPS. If you need a certificate, we highly
+recommend <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a>. Furthermore we
+also enforce
+<a href="https://support.dnsimple.com/articles/what-is-ssl-certificate-chain/">certificate chain check</a>.</p>
 
-<p>Use this type to create more advanced integrations with Twist.</p>
+<h3 id="http-auth">HTTP Auth</h3>
 
-<h2 id="channel-integrations">Channel integrations</h2>
+<p>We support and recommend that you use HTTP Auth for improving security,
+e.g. <code class="prettyprint">https://user:password@host/path</code>.</p>
 
-<p>Channel integrations are installed on a channel level, and they can post new
-threads.</p>
+<h3 id="outgoing-webhooks">Outgoing webhooks</h3>
 
-<p><strong>Example usage</strong>: A growth report that Twist posts on a weekly or monthly
-basis.</p>
+<p><strong>Note</strong>: Outgoing webhooks are not the same
+as <a href="#resthooks">REST Hooks</a>. Resthooks are harder to setup but much
+more powerful and are used by oAuth2 integrations only. Outgoing
+webhooks are used by Slash command, Thread and Channel integrations.</p>
 
-<p>Channel integrations also have a scheduling option. You can let the user
-schedule when the channel integration will do its posting. For example, as a
-developer, you would just need to create an URL endpoint that can generate a
-growth report and you can let Twist handle scheduling and running of this growth
-report based on user’s preferences.</p>
+<p>Outgoing webhooks send data when an activity happens (e.g. a new comment is
+added to the thread or an uninstall happens). We also send data when a user uses
+a slash command.</p>
 
-<h2 id="thread-integrations">Thread integrations</h2>
+<p>Outgoing webhooks will send an HTTPS POST request to your specified URL. The
+payload depends on the integration type.</p>
 
-<p>Thread integrations are installed on a thread level, and they can post new
-comments.</p>
+<p>Your webhooks handler can respond to add data back to Twist.</p>
 
-<p><strong>Example usage</strong>: Post comments when new issues are added to a Github
-repository.</p>
+<p>The outgoing hooks can work with any language or framework — as long as they
+support HTTPS and JSON.</p>
 
-<h2 id="slash-command-integrations">Slash command integrations</h2>
+<h4 id="post-parameters-when-users-add-new-objects">POST Parameters when users add new objects</h4>
 
-<p>Slash command integrations are installed on a team level, and they add a slash command to the system. When a user types <code class="prettyprint">/command arguments</code> your integration is run and can act upon the arguments.</p>
-
-<p><strong>Example usage</strong>: <code class="prettyprint">/gif funny cats</code> is a slash command. Another example is
-the <a href="https://appear.in">appear.in</a> integration, which lets you easily schedule
-video meetings (<code class="prettyprint">/appear meeting-room</code>).</p>
-
-          <h1 id="integrations-rest-hooks">Integrations: Rest hooks</h1>
-
-<p>The significant benefit to <a href="http://resthooks.org/">REST hooks</a> is that you don&rsquo;t
-need to poll for changes, but can instead wait for hooks to deliver the payload
-when a change happens.</p>
-
-<p>Twist implements REST hooks for most changes inside the system.</p>
-
-<p>Please note that REST Hooks only work with oAuth2 integrations and require an
-access token from an oAuth2 integration.</p>
-
-<h2 id="step-1-subscribe-a-hook">Step 1: Subscribe a hook</h2>
-
-<blockquote>
-<p>Example</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/hooks/subscribe <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
-  -d <span class="nv">target_url</span><span class="o">=</span>https://hooks.yourdomain.com/&lt;unique_target_url&gt;
-  -d <span class="nv">event</span><span class="o">=</span>workspace_user_added
-</code></pre>
-<p>Subscribe to an event, the full list of events is listed below.</p>
-
-<p>On a successful creation Twist will return a <code class="prettyprint">201 Created</code>.</p>
-
-<p>A <code class="prettyprint">403 Forbidden</code> will be thrown if the access token scope does not have the
-permission to subscribe to the specified event type.</p>
-
-<h3 id="parameters">Parameters</h3>
+<p>When a new message, thread or a new comment is added, you can expect following
+parameters.</p>
 
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Required</th>
+<th>Optional</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>target_url <em>String</em></td>
-<td>Yes</td>
-<td>The URL we should call when an event happens</td>
-</tr>
-<tr>
 <td>event_type <em>String</em></td>
-<td>Yes</td>
-<td>What Twist event should trigger the call</td>
+<td>No</td>
+<td>Can be <code class="prettyprint">message</code>, <code class="prettyprint">thread</code> or <code class="prettyprint">comment</code> — depending where the slash command was used</td>
 </tr>
 <tr>
 <td>workspace_id <em>Integer</em></td>
 <td>No</td>
-<td>Only trigger for following <code class="prettyprint">workspace_id</code></td>
+<td>The workspace the object was posted in</td>
 </tr>
 <tr>
-<td>channel_id <em>Integer</em></td>
+<td>content <em>String</em></td>
 <td>No</td>
-<td>Only trigger for following <code class="prettyprint">channel_id</code></td>
+<td>The content of object, e.g. thread or message content</td>
 </tr>
 <tr>
-<td>thread_id <em>Integer</em></td>
+<td>user_id <em>Integer</em></td>
 <td>No</td>
-<td>Only trigger for following <code class="prettyprint">thread_id</code></td>
+<td>The id of the poster</td>
+</tr>
+<tr>
+<td>user_name <em>String</em></td>
+<td>No</td>
+<td>The name of the poster</td>
 </tr>
 <tr>
 <td>conversation_id <em>Integer</em></td>
-<td>No</td>
-<td>Only trigger for following <code class="prettyprint">conversation_id</code></td>
+<td>Yes</td>
+<td>Will be set if <code class="prettyprint">event_type</code> is <code class="prettyprint">message</code></td>
+</tr>
+<tr>
+<td>conversation_title <em>String</em></td>
+<td>Yes</td>
+<td>Will be set if <code class="prettyprint">event_type</code> is <code class="prettyprint">message</code></td>
+</tr>
+<tr>
+<td>thread_id <em>Integer</em></td>
+<td>Yes</td>
+<td>Will be set if <code class="prettyprint">event_type</code> is <code class="prettyprint">thread</code> or <code class="prettyprint">comment</code></td>
+</tr>
+<tr>
+<td>thread_title <em>String</em></td>
+<td>Yes</td>
+<td>Will be set if <code class="prettyprint">event_type</code> is <code class="prettyprint">thread</code> or <code class="prettyprint">comment</code></td>
+</tr>
+<tr>
+<td>channel_id <em>Integer</em></td>
+<td>Yes</td>
+<td>Will be set if <code class="prettyprint">event_type</code> is <code class="prettyprint">thread</code> or <code class="prettyprint">comment</code></td>
+</tr>
+<tr>
+<td>comment_id <em>Integer</em></td>
+<td>Yes</td>
+<td>Will be set if <code class="prettyprint">event_type</code> is <code class="prettyprint">comment</code></td>
+</tr>
+<tr>
+<td>command <em>String</em></td>
+<td>Yes</td>
+<td>If the integration type is a slash command we&rsquo;ll include the command, e.g. <code class="prettyprint">/hello</code></td>
+</tr>
+<tr>
+<td>command_argument <em>String</em></td>
+<td>Yes</td>
+<td>If the integration type is a slash command we&rsquo;ll include the command argument, e.g. for <code class="prettyprint">/hello world</code> it would be <code class="prettyprint">world</code></td>
 </tr>
 </tbody></table>
 
-<h2 id="step-2-receiving-hooks">Step 2: Receiving hooks</h2>
+<h4 id="post-parameters-when-an-uninstall-happens">POST Parameters when an uninstall happens</h4>
 
-<p>When an event happens, we&rsquo;ll send a request to your <code class="prettyprint">target_url</code> that will be
-JSON encoded.</p>
-
-<p>The payload will be the object that triggered the event, for example
-<code class="prettyprint">channel_added</code> will include <a href="#channels">the channel object</a>.</p>
-
-<h2 id="step-3-unsubscribe-a-hook">Step 3: Unsubscribe a hook</h2>
-
-<blockquote>
-<p>Example</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/hooks/unsubscribe <span class="se">\</span>
-  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
-  -d <span class="nv">target_url</span><span class="o">=</span>https://hooks.yourdomain.com/&lt;unique_target_url&gt;
-</code></pre>
-<p>To stop listening to changes just unsubscribe your hook.</p>
-
-<p>On a successful unsubscribe, we return a <code class="prettyprint">200 OK</code>.</p>
-
-<h3 id="parameters">Parameters</h3>
+<p>When a team uninstalls your integration, you can expect following
+parameters. You can use this to clean up any state you may have on your end.</p>
 
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Required</th>
+<th>Optional</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>target_url <em>String</em></td>
-<td>Yes</td>
-<td>The URL we should unsubscribe</td>
+<td>event_type <em>String</em></td>
+<td>No</td>
+<td>Will be <code class="prettyprint">uninstall</code></td>
+</tr>
+<tr>
+<td>install_id <em>Integer</em></td>
+<td>No</td>
+<td>The unique id of the installation</td>
+</tr>
+<tr>
+<td>workspace_id <em>Integer</em></td>
+<td>No</td>
+<td>The workspace the installation belonged to</td>
+</tr>
+<tr>
+<td>user_id <em>Integer</em></td>
+<td>No</td>
+<td>The id of the uninstaller</td>
+</tr>
+<tr>
+<td>user_name <em>String</em></td>
+<td>No</td>
+<td>The full name of the uninstaller</td>
 </tr>
 </tbody></table>
 
-<h2 id="supported-hook-events">Supported hook events</h2>
+<h4 id="post-parameters-when-a-ping-happens">POST Parameters when a ping happens</h4>
 
-<p>These are the events you can subscribe to:</p>
+<p>For debugging purposes, you might get a <code class="prettyprint">ping</code> payload. You should respond back
+with a JSON <code class="prettyprint">{&quot;content&quot;: &quot;pong&quot;}</code>.</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>event_type <em>String</em></td>
+<td>No</td>
+<td>Will be <code class="prettyprint">ping</code></td>
+</tr>
+<tr>
+<td>user_id <em>Integer</em></td>
+<td>No</td>
+<td>The id of the pinger</td>
+</tr>
+<tr>
+<td>user_name <em>String</em></td>
+<td>No</td>
+<td>The full name of the pinger</td>
+</tr>
+</tbody></table>
+
+<h4 id="adding-content-back">Adding content back</h4>
+
+<p>If your handler wishes to post a response back, use the following JSON
+response:</p>
+
+<p><code class="prettyprint">{&quot;content&quot;: &quot;42 is the answer to everything.&quot;}</code></p>
+
+<h4 id="error-handling">Error handling</h4>
+
+<p>Non-200 responses will be retried 10 times in the span of 12 hours.</p>
+
+          <h1 id="oauth">&#8627; OAuth</h1>
+
+<p>The OAuth integration is the most powerful way to use the Twist API
+but it&rsquo;s also the one that needs a more work for a full setup. The
+steps needed to setup are described in our <a href="#oauth2">OAuth2</a> section.</p>
+
+<p><strong>Example usage</strong>: Integrate an application with Twist, creating new
+workspaces, channels, threads, and/or messages.</p>
+
+<h2 id="retrieving-a-token-for-the-api">Retrieving a token for the API</h2>
+
+<p>Sometimes a developer just wants a <strong>token</strong> so he/she can use all the
+endpoints of the API for personal purposes or create a proof of
+concept. For these cases, when the OAuth integration is created we
+provide a <strong>test token</strong>.</p>
+
+<p>The test token is a result of the <a href="#oauth2">OAuth2</a> process for the
+current logged user and will have the full scope access. </p>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/your_endpoint <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer Gen3rated_t3st_t0k3n"</span> <span class="se">\</span>
+</code></pre>
+<p>The generated token can be used in the authorization header to make
+requests to all endpoints in the API.</p>
+
+<h2 id="resthooks">Resthooks</h2>
+
+<p><strong>Note</strong>: Resthooks are not the same as webhooks. They are hard to
+setup and are available to OAuth integrations only.</p>
+
+<p>Twist implements <a href="http://resthooks.org/">REST hooks</a> for most changes
+inside the system. The significant benefit is that you don&rsquo;t need to
+poll for changes, but can instead wait for hooks to deliver the
+payload when a change happens.</p>
+
+<p>To be able to receive notifications, you need to subscribe to an
+event via hook. These are the supported events:</p>
 
 <table><thead>
 <tr>
@@ -7232,251 +7326,127 @@ JSON encoded.</p>
 </tr>
 </tbody></table>
 
-          <h1 id="integrations-outgoing-webhooks">Integrations: Outgoing webhooks</h1>
+<h3 id="subscribe-to-a-hook">Subscribe to a hook</h3>
 
-<p>Outgoing webhooks send data when an activity happens (e.g. a new comment is
-added to the thread or an uninstall happens). We also send data when a user uses
-a slash command.</p>
-
-<p>Outgoing webhooks will send an HTTPS POST request to your specified URL. The
-payload depends on the integration type.</p>
-
-<p>Your webhooks handler can respond to add data back to Twist.</p>
-
-<p>The outgoing hooks can work with any language or framework — as long as they
-support HTTPS and JSON.</p>
-
-<p>Please note that outgoing webhooks are not the same
-as <a href="#integrations-rest-hooks">REST Hooks</a>, which Twist also implements. Rest
-hooks are harder to setup but much more powerful. Rest hooks are used by oAuth2
-integrations while outgoing webhooks are used by Slash command, Thread and
-Channel integrations.</p>
-
-<h2 id="example-implementation">Example implementation</h2>
-
-<p>Please take a look at this simple example implementation:</p>
-
-<ul>
-<li><a href="https://gist.github.com/amix/b5428febcaff80c84f616453196fe7dc">Slash command: Implementing /appear room-name</a>: A simple Flask app implemented in Python</li>
-</ul>
-
-<h2 id="payload-when-users-add-new-objects">Payload when users add new objects</h2>
-
-<p>When a new message, thread or a new comment is added, you can expect following
-parameters.</p>
-
-<h3 id="post-parameters">POST Parameters</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/hooks/subscribe <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">target_url</span><span class="o">=</span>https://hooks.yourdomain.com/&lt;unique_target_url&gt;
+  -d <span class="nv">event</span><span class="o">=</span>workspace_user_added
+</code></pre>
+<p>To start listening to changes you have to subscribe to a hook. The following
+parameters are accepted in the subscribe request:</p>
 
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Optional</th>
+<th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
+<td>target_url <em>String</em></td>
+<td>Yes</td>
+<td>The URL we should call when an event happens</td>
+</tr>
+<tr>
 <td>event_type <em>String</em></td>
-<td>No</td>
-<td>Can be <code class="prettyprint">message</code>, <code class="prettyprint">thread</code> or <code class="prettyprint">comment</code> — depending where the slash command was used</td>
+<td>Yes</td>
+<td>What Twist event should trigger the call</td>
 </tr>
 <tr>
 <td>workspace_id <em>Integer</em></td>
 <td>No</td>
-<td>The workspace the object was posted in</td>
-</tr>
-<tr>
-<td>content <em>String</em></td>
-<td>No</td>
-<td>The content of object, e.g. thread or message content</td>
-</tr>
-<tr>
-<td>user_id <em>Integer</em></td>
-<td>No</td>
-<td>The id of the poster</td>
-</tr>
-<tr>
-<td>user_name <em>String</em></td>
-<td>No</td>
-<td>The name of the poster</td>
-</tr>
-<tr>
-<td>conversation_id <em>Integer</em></td>
-<td>Yes</td>
-<td>Will be set if <code class="prettyprint">event_type</code> is <code class="prettyprint">message</code></td>
-</tr>
-<tr>
-<td>conversation_title <em>String</em></td>
-<td>Yes</td>
-<td>Will be set if <code class="prettyprint">event_type</code> is <code class="prettyprint">message</code></td>
-</tr>
-<tr>
-<td>thread_id <em>Integer</em></td>
-<td>Yes</td>
-<td>Will be set if <code class="prettyprint">event_type</code> is <code class="prettyprint">thread</code> or <code class="prettyprint">comment</code></td>
-</tr>
-<tr>
-<td>thread_title <em>String</em></td>
-<td>Yes</td>
-<td>Will be set if <code class="prettyprint">event_type</code> is <code class="prettyprint">thread</code> or <code class="prettyprint">comment</code></td>
+<td>Only trigger for following <code class="prettyprint">workspace_id</code></td>
 </tr>
 <tr>
 <td>channel_id <em>Integer</em></td>
-<td>Yes</td>
-<td>Will be set if <code class="prettyprint">event_type</code> is <code class="prettyprint">thread</code> or <code class="prettyprint">comment</code></td>
+<td>No</td>
+<td>Only trigger for following <code class="prettyprint">channel_id</code></td>
 </tr>
 <tr>
-<td>comment_id <em>Integer</em></td>
-<td>Yes</td>
-<td>Will be set if <code class="prettyprint">event_type</code> is <code class="prettyprint">comment</code></td>
+<td>thread_id <em>Integer</em></td>
+<td>No</td>
+<td>Only trigger for following <code class="prettyprint">thread_id</code></td>
 </tr>
 <tr>
-<td>command <em>String</em></td>
-<td>Yes</td>
-<td>If the integration type is a slash command we&rsquo;ll include the command, e.g. <code class="prettyprint">/hello</code></td>
-</tr>
-<tr>
-<td>command_argument <em>String</em></td>
-<td>Yes</td>
-<td>If the integration type is a slash command we&rsquo;ll include the command argument, e.g. for <code class="prettyprint">/hello world</code> it would be <code class="prettyprint">world</code></td>
+<td>conversation_id <em>Integer</em></td>
+<td>No</td>
+<td>Only trigger for following <code class="prettyprint">conversation_id</code></td>
 </tr>
 </tbody></table>
 
-<h2 id="payload-when-an-uninstall-happens">Payload when an uninstall happens</h2>
+<p>On a successful creation Twist will return a <code class="prettyprint">201 Created</code> and a <code class="prettyprint">403
+Forbidden</code> will be thrown if the access token scope does not have the
+permission to subscribe to the specified event type.</p>
 
-<p>When a team uninstalls your integration, you can expect following
-parameters. You can use this to clean up any state you may have on your end.</p>
+<p>When an event happens, we&rsquo;ll send a request to your <code class="prettyprint">target_url</code> that
+will be JSON encoded. The payload will be the object that triggered
+the event, for example <code class="prettyprint">channel_added</code> will
+include <a href="#channels">the channel object</a>.</p>
 
-<h3 id="post-parameters">POST Parameters</h3>
+<h3 id="unsubscribe-from-a-hook">Unsubscribe from a hook</h3>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.twistapp.com/api/v2/hooks/unsubscribe <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">target_url</span><span class="o">=</span>https://hooks.yourdomain.com/&lt;unique_target_url&gt;
+</code></pre>
+<p>To stop listening to changes just unsubscribe your hook. The following
+parameters are accepted:</p>
 
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Optional</th>
+<th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>event_type <em>String</em></td>
-<td>No</td>
-<td>Will be <code class="prettyprint">uninstall</code></td>
-</tr>
-<tr>
-<td>install_id <em>Integer</em></td>
-<td>No</td>
-<td>The unique id of the installation</td>
-</tr>
-<tr>
-<td>workspace_id <em>Integer</em></td>
-<td>No</td>
-<td>The workspace the installation belonged to</td>
-</tr>
-<tr>
-<td>user_id <em>Integer</em></td>
-<td>No</td>
-<td>The id of the uninstaller</td>
-</tr>
-<tr>
-<td>user_name <em>String</em></td>
-<td>No</td>
-<td>The full name of the uninstaller</td>
+<td>target_url <em>String</em></td>
+<td>Yes</td>
+<td>The URL we should unsubscribe</td>
 </tr>
 </tbody></table>
 
-<h2 id="payload-when-a-ping-happens">Payload when a ping happens</h2>
+<p>On a successful unsubscribe, we return a <code class="prettyprint">200 OK</code>.</p>
 
-<p>For debugging purposes, you might get a <code class="prettyprint">ping</code> payload. You should respond back
-with a JSON <code class="prettyprint">{&quot;content&quot;: &quot;pong&quot;}</code>.</p>
+          <h1 id="channel">&#8627; Channel</h1>
 
-<h3 id="post-parameters">POST Parameters</h3>
+<p>Channel integrations are installed on a channel level and can post new threads.</p>
 
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Optional</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>event_type <em>String</em></td>
-<td>No</td>
-<td>Will be <code class="prettyprint">ping</code></td>
-</tr>
-<tr>
-<td>user_id <em>Integer</em></td>
-<td>No</td>
-<td>The id of the pinger</td>
-</tr>
-<tr>
-<td>user_name <em>String</em></td>
-<td>No</td>
-<td>The full name of the pinger</td>
-</tr>
-</tbody></table>
+<p>It provides an URL for distribution and installation, so the integration
+developer can provide it to his users. The installation page asks for write
+permission to one channel and also which teams it should notify. In case the
+schedule option was used, it will also ask for the recurrence period and source
+of data.</p>
 
-<h2 id="responding">Responding</h2>
+<p><strong>Example usage</strong>: A growth report that Twist posts on a weekly or monthly
+basis to the same channel</p>
 
-<h3 id="adding-content-back">Adding content back</h3>
-<pre class="highlight json tab-json"><code><span class="err">Content-type</span><span class="p">:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
-</span><span class="p">{</span><span class="w">
-    </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42 is the answer to everything."</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>If your handler wishes to post a response back, use the following JSON response:</p>
+<h2 id="channel-incoming-webhook">Channel Incoming webhook</h2>
 
-<h3 id="replacing-content-as-a-slash-command">Replacing content as a Slash command</h3>
-<pre class="highlight json tab-json"><code><span class="err">Content-type</span><span class="p">:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
-</span><span class="p">{</span><span class="w">
-    </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42 is the answer to everything."</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-       </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"thumbnails"</span><span class="p">:{</span><span class="w">
-             </span><span class="s2">"1024x1024"</span><span class="p">:</span><span class="s2">"https://d10oy3rrrp8hu2.cloudfront.net/tn_l_06fc98f4b65a1996bd2c59f92e2ff23f.png"</span><span class="p">,</span><span class="w">
-             </span><span class="s2">"512x512"</span><span class="p">:</span><span class="s2">"https://d10oy3rrrp8hu2.cloudfront.net/tn_m_06fc98f4b65a1996bd2c59f92e2ff23f.png"</span><span class="p">,</span><span class="w">
-             </span><span class="s2">"192x192"</span><span class="p">:</span><span class="s2">"https://d10oy3rrrp8hu2.cloudfront.net/tn_s_06fc98f4b65a1996bd2c59f92e2ff23f.png"</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="s2">"file_type"</span><span class="p">:</span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"file_name"</span><span class="p">:</span><span class="s2">"test.png"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"https://d10oy3rrrp8hu2.cloudfront.net/06fc98f4b65a1996bd2c59f92e2ff23f/as/test.png"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"file_size"</span><span class="p">:</span><span class="mi">222614</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"upload_state"</span><span class="p">:</span><span class="s2">"uploaded"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"attachment_id"</span><span class="p">:</span><span class="s2">"30cf79a8-4e6b-11e6-8b28-80e6501c348c"</span><span class="w">
-       </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>For slash command, your response will replace the user&rsquo;s content.</p>
+<p>Sometimes a developer just want an <strong>incoming webhook</strong> URL to post via some script
+or external system without setting up a webserver and so on. It can be done
+via <a href="#oauth">OAuth integration</a> by using the token provided or via channel or
+thread integration.</p>
 
-<p>We&rsquo;ll try to unfurl any links found in the <code class="prettyprint">content</code>. Optionally you can also
-include a list of custom <code class="prettyprint">attachments</code> following the <a href="#attachments">Attachments spec</a>.</p>
+<p>To do that using a channel integration, you just have to create and install
+it. After the installation, Twist will provide the URL for manual posting.</p>
 
-<h2 id="error-handling">Error handling</h2>
+<p>Please follow the subsection on
+<a href="#how-to-post-data-from-a-channel-integration">How to post data from a channel integration</a>.</p>
 
-<p>Non-200 responses will be retried 10 times in the span of 12 hours.</p>
+<h2 id="configure-url">Configure URL</h2>
 
-<h2 id="https-enforcing">HTTPS enforcing</h2>
-
-<p>Twist enforces HTTPS everywhere, including our integrations. If you need a
-certificate, we highly
-recommend <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a>. Furthermore we also
-enforce
-<a href="https://support.dnsimple.com/articles/what-is-ssl-certificate-chain/">certificate chain check</a>.</p>
-
-<h2 id="http-auth">HTTP Auth</h2>
-
-<p>We support and recommend that you use HTTP Auth for improving security,
-e.g. <code class="prettyprint">https://user:password@host/path</code>.</p>
-
-          <h1 id="integrations-configure-url">Integrations: Configure URL</h1>
-
-<p>We redirect users to the configure URL when setting up a <code class="prettyprint">thread</code> or a <code class="prettyprint">channel</code>
-integration.</p>
-
-<p>The configured URL lets you connect the installation with your app.</p>
-
-<p>The configure URL also includes an incoming webhook URL, which you can use as an
-easy way to post messages into Twist.</p>
-
-<h2 id="parameters-youll-get">Parameters you&rsquo;ll get</h2>
+<p>We redirect users to the configure URL when setting up the integration. The
+configured URL lets you connect the installation with your app and also
+includes <a href="#channel-incoming-webhook">an incoming webhook</a> URL, which you can use
+as an easy way to manually post new threads into Twist as an integration.</p>
 
 <p>You&rsquo;ll get following GET parameters served to your configure URL:</p>
 
@@ -7485,28 +7455,28 @@ easy way to post messages into Twist.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Optional</th>
+<th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>install_id <em>Integer</em></td>
-<td>No</td>
+<td>Yes</td>
 <td>The unique id of the installation</td>
 </tr>
 <tr>
 <td>post_data_url <em>String</em></td>
-<td>No</td>
+<td>Yes</td>
 <td>A unique URL you can use to post content to Twist</td>
 </tr>
 <tr>
 <td>user_id <em>Integer</em></td>
-<td>No</td>
+<td>Yes</td>
 <td>The id of the installer</td>
 </tr>
 <tr>
 <td>user_name <em>String</em></td>
-<td>No</td>
+<td>Yes</td>
 <td>The full name of the installer</td>
 </tr>
 </tbody></table>
@@ -7514,7 +7484,7 @@ easy way to post messages into Twist.</p>
 <p>To get back to the installation page, please use
 <code class="prettyprint">https://twistapp.com/integrations/installation/{install_id}</code>.</p>
 
-<h2 id="how-to-post-data">How to post data</h2>
+<h2 id="how-to-post-data-from-a-channel-integration">How to post data from a channel integration</h2>
 
 <blockquote>
 <p>CURL example</p>
@@ -7531,41 +7501,29 @@ encoded in JSON.</p>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Optional</th>
+<th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>content <em>String</em></td>
-<td>No</td>
+<td>Yes</td>
 <td>The content of the new object</td>
 </tr>
 <tr>
 <td>title <em>String</em></td>
-<td>Yes</td>
-<td>If the integration type is <code class="prettyprint">thread</code> include the title of the new thread</td>
+<td>No</td>
+<td>Title of the new thread</td>
 </tr>
 </tbody></table>
 
-<h2 id="https-enforcing">HTTPS enforcing</h2>
+<h2 id="url-reports">URL Reports</h2>
 
-<p>Twist enforces HTTPS everywhere, including our integrations. If you need a
-certificate, we highly
-recommend <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a>. Furthermore we also
-enforce
-<a href="https://support.dnsimple.com/articles/what-is-ssl-certificate-chain/">certificate chain check</a>.</p>
+<p>This feature provides a way to retrieve real content from an external source via
+GET request. When combined with the <code class="prettyprint">schedule</code> feature may become a way to
+provide periodic information with real data.</p>
 
-<h2 id="http-auth">HTTP Auth</h2>
-
-<p>We support and recommend that you use HTTP Auth for improving security,
-e.g. <code class="prettyprint">https://user:password@host/path</code>.</p>
-
-          <h1 id="integrations-url-reports">Integrations: URL Reports</h1>
-
-<p>Share reports with your team on a recurring basis by requesting data from an
-URL.</p>
-
-<h2 id="returning-markdown-content">Returning Markdown content</h2>
+<h3 id="returning-markdown-content">Returning Markdown content</h3>
 
 <p>Automatic URL Reports can return plain Markdown content and Twist will use it as
 content for the new thread.</p>
@@ -7581,21 +7539,161 @@ Core numbers:
 * 13.1 Million iPads Sold
 * ...
 </code></pre>
-<h2 id="returning-json-content">Returning JSON content</h2>
+<h3 id="returning-json-content">Returning JSON content</h3>
 
-<p>The Content URL can also return a JSON object specifying <code class="prettyprint">title</code> and <code class="prettyprint">content</code>
+<p>The URL content can also return a JSON object specifying <code class="prettyprint">title</code> and <code class="prettyprint">content</code>
 of the new thread.</p>
-
-<p>For example:</p>
 <pre class="highlight json tab-json"><code><span class="err">Content-type</span><span class="p">:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
 </span><span class="p">{</span><span class="w">
     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Webdev snippets | &lt;date&gt;"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please share your weeky snippets"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<h2 id="automatic-date-in-the-title">Automatic date in the title</h2>
+<p>Note that you can use <code class="prettyprint">&lt;date&gt;</code> in the <code class="prettyprint">title</code>, and we will convert it to the
+current date.</p>
 
-<p>You can use <code class="prettyprint">&lt;date&gt;</code> in the <code class="prettyprint">title</code>, and we will convert it to the current date.</p>
+          <h1 id="thread">&#8627; Thread</h1>
+
+<p>Thread integrations are installed on a thread level, and they can post new
+comments.</p>
+
+<p>It provides an URL for distribution and installation, so the
+integration developer can provide it to his users. The installation
+page asks for write permission to one channel or thread and which
+teams it should notify.</p>
+
+<p><strong>Example usage</strong>: Post comments when new issues are added to a Github
+repository.</p>
+
+<h2 id="thread-incoming-webhook">Thread Incoming webhook</h2>
+
+<p>Sometimes a developer just want <strong>an incoming webhook</strong> URL to post via
+some script or external system without setting up a webserver and so
+on. It can be done via <a href="#oauth">OAuth integration</a> by using the token
+provided or via channel or thread integration.</p>
+
+<p>To do that using a thread integration, you just have to create and
+install it. After the installation, Twist will provide the URL for
+manual posting.</p>
+
+<p>Please follow the subsection on
+<a href="#how-to-post-data-from-a-thread-integration">How to post data from a thread integration</a>.</p>
+
+<h2 id="configure-url">Configure URL</h2>
+
+<p>We redirect users to the configure URL when setting up the
+integration. The configured URL lets you connect the installation with
+your app and also
+includes <a href="#thread-incoming-webhook">an incoming webhook</a> URL, which
+you can use as an easy way to post messages into Twist.</p>
+
+<p>You&rsquo;ll get following GET parameters served to your configure URL:</p>
+
+<h3 id="get-parameters">GET Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>install_id <em>Integer</em></td>
+<td>Yes</td>
+<td>The unique id of the installation</td>
+</tr>
+<tr>
+<td>post_data_url <em>String</em></td>
+<td>Yes</td>
+<td>A unique URL you can use to post content to Twist</td>
+</tr>
+<tr>
+<td>user_id <em>Integer</em></td>
+<td>Yes</td>
+<td>The id of the installer</td>
+</tr>
+<tr>
+<td>user_name <em>String</em></td>
+<td>Yes</td>
+<td>The full name of the installer</td>
+</tr>
+</tbody></table>
+
+<p>To get back to the installation page, please use
+<code class="prettyprint">https://twistapp.com/integrations/installation/{install_id}</code>.</p>
+
+<h2 id="how-to-post-data-from-a-thread-integration">How to post data from a thread integration</h2>
+
+<blockquote>
+<p>CURL example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+    --data <span class="s1">'{"content":"42?"}'</span> <span class="se">\</span>
+    https://hooks.twistapp.com/...
+</code></pre>
+<p>Simply make a POST request to the <code class="prettyprint">post_data_url</code>. In the POST include your data
+encoded in JSON.</p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>content <em>String</em></td>
+<td>Yes</td>
+<td>The content of the new object</td>
+</tr>
+</tbody></table>
+
+          <h1 id="slash-command">&#8627; Slash command</h1>
+
+<p>Slash command integrations are installed on a team level, and they add
+a slash command to the system. When a user types <code class="prettyprint">/command arguments</code>
+your integration runs and can act upon the arguments.</p>
+
+<p><strong>Examples</strong>: <code class="prettyprint">/gif funny cats</code> is a slash command. Another example is
+the <a href="https://appear.in">appear.in</a> integration, which lets you easily
+schedule video meetings (<code class="prettyprint">/appearin meeting-room</code>). Both integrations
+are available on
+our <a href="https://twistapp.com/integrations">integrations page</a>.</p>
+
+<h3 id="example-implementation">Example implementation</h3>
+<pre class="highlight plaintext"><code># formstring data
+
+user_name: user_name
+verify_token: 200_abcdefghijklmnopqrstuvwx
+thread_id: 180000
+workspace_id: 4800
+command_argument: appearin_username
+command: /appear
+thread_title: Test thread name
+content: /appear appearin_username
+event_type: comment
+comment_id: 6402000
+channel_name: General
+channel_id: 6000
+user_id: 9000
+</code></pre><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">JSON</span><span class="w"> </span><span class="err">return</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"📹 [/appear appearin_username](https://appear.in/appearin_username)"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>You can check some examples in the
+<a href="https://github.com/Doist/twist-integration-examples/tree/master/slash_integration">integration examples repository</a>. Let&rsquo;s
+use the
+<a href="https://github.com/Doist/twist-integration-examples/tree/master/slash_integration/python">python example implementation</a> for
+the appear.in an example.</p>
+
+<p>Your application will receive a POST call with some information in
+formstring format, so the integration can decide what to do and it
+reply with a JSON containing a <code class="prettyprint">content</code> key. The text on this
+<code class="prettyprint">content</code> key will replace the message containing the slash command.</p>
 
       </div>
       <div class="dark-box">
