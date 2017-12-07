@@ -12,6 +12,7 @@ can do:
 
 And below we have some information shared among all types.
 
+
 ### HTTPS enforcing
 
 Twist enforces HTTPS everywhere, including our production
@@ -20,12 +21,6 @@ Twist somehow have to use HTTPS. If you need a certificate, we highly
 recommend [Let's Encrypt](https://letsencrypt.org/). Furthermore, we
 also enforce
 [certificate chain check](https://support.dnsimple.com/articles/what-is-ssl-certificate-chain/).
-
-
-### HTTP Auth
-
-We support and recommend that you use HTTP Auth for improving security,
-e.g. `https://user:password@host/path`.
 
 
 ### Outgoing webhooks
