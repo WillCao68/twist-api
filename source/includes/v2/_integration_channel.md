@@ -14,7 +14,7 @@ basis to the same channel
 
 ## Channel Incoming webhook
 
-Sometimes a developer just want an **incoming webhook** URL to post via some script
+Sometimes a developer just wants an **incoming webhook** URL to post via some script
 or external system without setting up a webserver and so on. It can be done
 via [OAuth integration](#oauth) by using the token provided or via channel or
 thread integration.
@@ -29,7 +29,7 @@ Please follow the subsection on
 ## Configure URL
 
 We redirect users to the configure URL when setting up the integration. The
-configured URL lets you connect the installation with your app and also
+configured URL lets you connect the installation to your app and also
 includes [an incoming webhook](#channel-incoming-webhook) URL, which you can use
 as an easy way to manually post new threads into Twist as an integration.
 

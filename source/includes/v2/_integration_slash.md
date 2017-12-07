@@ -44,7 +44,7 @@ use the
 [python example implementation](https://github.com/Doist/twist-integration-examples/tree/master/slash_integration/python) for
 the appear.in an example.
 
-Your application will receive a POST call with some information in
+Your application will receive a POST call with some information in a
 formstring format, so the integration can decide what to do and it
-reply with a JSON containing a `content` key. The text on this
+replies with a JSON containing a `content` key. The text on this
 `content` key will replace the message containing the slash command.

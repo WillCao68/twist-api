@@ -32,12 +32,12 @@ requests to all endpoints in the API.
 setup and are available to OAuth integrations only.
 
 Twist implements [REST hooks](http://resthooks.org/) for most changes
-inside the system. The significant benefit is that you don't need to
+in the system. The significant benefit is that you don't need to
 poll for changes, but can instead wait for hooks to deliver the
 payload when a change happens.
 
 To be able to receive notifications, you need to subscribe to an
-event via hook. These are the supported events:
+event via a hook. These are the supported events:
 
 
 | Event type | Description |
@@ -93,13 +93,13 @@ parameters are accepted in the subscribe request:
 | thread_id *Integer* | No | Only trigger for following `thread_id` |
 | conversation_id *Integer* | No | Only trigger for following `conversation_id` |
 
-On a successful creation Twist will return a `201 Created` and a `403
+On a successful creation, Twist will return a `201 Created` and a `403
 Forbidden` will be thrown if the access token scope does not have the
 permission to subscribe to the specified event type.
 
 When an event happens, we'll send a request to your `target_url` that
 will be JSON encoded. The payload will be the object that triggered
-the event, for example `channel_added` will
+the event, for example, `channel_added` will
 include [the channel object](#channels).
 
 

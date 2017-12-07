@@ -10,14 +10,14 @@ can do:
 * [Thread integration](#thread) - Has access to one thread or create new threads
 * [Slash command integration](#slash-command) - Receives a request when called via slash command
 
-And below we have some information shared between the all types.
+And below we have some information shared among all types.
 
 ### HTTPS enforcing
 
 Twist enforces HTTPS everywhere, including our production
 integrations. It means that all production URLs that communicate with
 Twist somehow have to use HTTPS. If you need a certificate, we highly
-recommend [Let's Encrypt](https://letsencrypt.org/). Furthermore we
+recommend [Let's Encrypt](https://letsencrypt.org/). Furthermore, we
 also enforce
 [certificate chain check](https://support.dnsimple.com/articles/what-is-ssl-certificate-chain/).
 
