@@ -126,7 +126,7 @@ Adds a new comment to a thread.
 | --- | --- | --- |
 | thread_id *Integer* | Yes | The id of the thread |
 | content *String* | Yes | The content of the new comment |
-| attachments *List of Objects* | No | List of objects from [attachment#upload](#upload-an-attachment) to attach to the comment |
+| attachments *List of Objects* | No | List of attachments to the new comment. It must follow the JSON format returned by [attachment#upload](#upload-an-attachment) |
 | recipients *List of Integers or String* | No | The users that will be notified, or `EVERYONE` or `EVERYONE_IN_THREAD` |
 | groups *List of Integers* | No | The groups that will be notified |
 | temp_id *Integer* | No | The temporary id of the comment |
@@ -159,7 +159,7 @@ Updates an existing comment.
 | --- | --- | --- |
 | id *Integer* | Yes | The id of the comment |
 | content *String* | No | The content of the comment |
-| attachments *List of Objects* | No | List of objects from [attachment#upload](#upload-an-attachment) to attach to the comment |
+| attachments *List of Objects* | No | List of attachments to the comment. It must follow the JSON format returned by [attachment#upload](#upload-an-attachment) |
 
 ### Return value
 

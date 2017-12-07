@@ -116,7 +116,7 @@ Adds a message to an existing conversation.
 | --- | --- | --- |
 | conversation_id *Integer* | Yes | The id of the conversation |
 | content *String* | Yes | The content of the new message |
-| attachments *String* | No | Attachments to the new message |
+| attachments *List of Objects* | No | List of attachments to the message. It must follow the JSON format returned by [attachment#upload](#upload-an-attachment) |
 
 ### Return value
 
@@ -144,7 +144,7 @@ Updates a message in conversation.
 | --- | --- | --- |
 | id *Integer* | Yes | The id of the message |
 | content *String* | No | The content of the new message |
-| attachments *String* | No | Attachments to the new message |
+| attachments *List of Objects* | No | List of attachments to the message. It must follow the JSON format returned by [attachment#upload](#upload-an-attachment) |
 
 ### Return value
 

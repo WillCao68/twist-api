@@ -140,7 +140,7 @@ Adds a new thread to a channel.
 | channel_id *Integer* | Yes | The id of the channel |
 | title *String* | Yes | The title of the new thread |
 | content *String* | Yes | The content of the new thread |
-| attachments *List of Objects* | No | List of objects from [attachment#upload](#upload-an-attachment) to attach to the comment |
+| attachments *List of Objects* | No | List of attachments to the new thread. It must follow the JSON format returned by [attachment#upload](#upload-an-attachment) |
 | recipients *List of Integers or String* | No | The users that will be attached to the thread, or `EVERYONE` |
 | groups *List of Integers* | No | The groups that will be notified |
 | temp_id *Integer* | No | The temporary id of the thread |
@@ -173,7 +173,7 @@ Updates an existing thread.
 | id *Integer* | Yes | The id of the thread |
 | title *String* | No | The title of the thread |
 | content *String* | No | The content of the thread |
-| attachments *List of Objects* | No | List of objects from [attachment#upload](#upload-an-attachment) to attach to the comment |
+| attachments *List of Objects* | No | List of attachments to the thread. It must follow the JSON format returned by [attachment#upload](#upload-an-attachment) |
 
 ### Return value
 
