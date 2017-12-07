@@ -3520,7 +3520,7 @@ usually called teams.</p>
 <tr>
 <td>attachments <em>List of Objects</em></td>
 <td>No</td>
-<td>List of objects from <a href="#upload-an-attachment">attachment#upload</a> to attach to the comment</td>
+<td>List of attachments to the new thread. It must follow the JSON format returned by <a href="#upload-an-attachment">attachment#upload</a></td>
 </tr>
 <tr>
 <td>recipients <em>List of Integers or String</em></td>
@@ -3589,7 +3589,7 @@ usually called teams.</p>
 <tr>
 <td>attachments <em>List of Objects</em></td>
 <td>No</td>
-<td>List of objects from <a href="#upload-an-attachment">attachment#upload</a> to attach to the comment</td>
+<td>List of attachments to the thread. It must follow the JSON format returned by <a href="#upload-an-attachment">attachment#upload</a></td>
 </tr>
 </tbody></table>
 
@@ -4324,7 +4324,7 @@ the channel id, the thread id and the index of the last unread comment.</p>
 <tr>
 <td>attachments <em>List of Objects</em></td>
 <td>No</td>
-<td>List of objects from <a href="#upload-an-attachment">attachment#upload</a> to attach to the comment</td>
+<td>List of attachments to the new comment. It must follow the JSON format returned by <a href="#upload-an-attachment">attachment#upload</a></td>
 </tr>
 <tr>
 <td>recipients <em>List of Integers or String</em></td>
@@ -4393,7 +4393,7 @@ the channel id, the thread id and the index of the last unread comment.</p>
 <tr>
 <td>attachments <em>List of Objects</em></td>
 <td>No</td>
-<td>List of objects from <a href="#upload-an-attachment">attachment#upload</a> to attach to the comment</td>
+<td>List of attachments to the comment. It must follow the JSON format returned by <a href="#upload-an-attachment">attachment#upload</a></td>
 </tr>
 </tbody></table>
 
@@ -5415,9 +5415,9 @@ conversation.</p>
 <td>The content of the new message</td>
 </tr>
 <tr>
-<td>attachments <em>String</em></td>
+<td>attachments <em>List of Objects</em></td>
 <td>No</td>
-<td>Attachments to the new message</td>
+<td>List of attachments to the message. It must follow the JSON format returned by <a href="#upload-an-attachment">attachment#upload</a></td>
 </tr>
 </tbody></table>
 
@@ -5459,9 +5459,9 @@ conversation.</p>
 <td>The content of the new message</td>
 </tr>
 <tr>
-<td>attachments <em>String</em></td>
+<td>attachments <em>List of Objects</em></td>
 <td>No</td>
-<td>Attachments to the new message</td>
+<td>List of attachments to the message. It must follow the JSON format returned by <a href="#upload-an-attachment">attachment#upload</a></td>
 </tr>
 </tbody></table>
 
