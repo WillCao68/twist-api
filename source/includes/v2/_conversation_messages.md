@@ -104,6 +104,13 @@ curl -X POST https://api.twistapp.com/api/v2/conversation_messages/add \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d conversation_id=13037 \
   -d content="Hello!"
+
+# Create a message with an attachment using two requests
+curl -X POST https://api.twistapp.com/api/v2/conversation_messages/add \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
+  -d conversation_id=13037 \
+  -d content="Hello!" \
+  -d attachments=[$(curl -X POST https://api.twistapp.com/api/v2/attachments/upload -F attachment_id=$(uuidgen) -F file_name=@mytext.txt -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf")]
 ```
 
 `POST /api/v2/conversation_messages/add`
@@ -132,6 +139,13 @@ curl -X POST https://api.twistapp.com/api/v2/conversation_messages/update \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d conversation_id=13037 \
   -d content="Hello!"
+
+# Update a message with an attachment using two requests
+curl -X POST https://api.twistapp.com/api/v2/conversation_messages/update \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
+  -d id=130371 \
+  -d content="Hello!" \
+  -d attachments=[$(curl -X POST https://api.twistapp.com/api/v2/attachments/upload -F attachment_id=$(uuidgen) -F file_name=@mytext.txt -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf")]
 ```
 
 `POST /api/v2/conversation_messages/update`

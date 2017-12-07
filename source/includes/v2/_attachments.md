@@ -30,15 +30,15 @@ Files can be attached to threads, comments, or conversation messages.
 | attachment_id *String* | The id of the attachment |
 | title *String* | The title of the attachment |
 | url *String* | The URL where the file is located |
-| url_type *String* | The type of the file, such as `file` or `image` |
 | file_name *String* | The file's name |
 | file_size *Integer* | The file's size in bytes |
 | underlying_type *String* | The file's media or content type (MIME)|
-| image *String* | If file is an image, the URL to the image file |
-| image_width *Integer* | If file is an image, the width of the image |
-| image_height *Integer* | If file is an image, the height of the image |
-| duration *String* | If file is audio, the duration of the audio |
 | upload_state *String* | Upload state is `uploaded` on success, or `failed` otherwise |
+| url_type *String* | The type of the file, such as `file` or `image` |
+| image *String* | If file is an `image`, the URL to the image file |
+| image_width *Integer* | If file is an `image`, the width of the image |
+| image_height *Integer* | If file is an `image`, the height of the image |
+| duration *String* | If file is `audio`, the duration of the audio |
 
 
 ## Upload an attachment

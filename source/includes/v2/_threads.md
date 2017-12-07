@@ -126,7 +126,14 @@ A list of thread objects is returned.
 curl -X POST https://api.twistapp.com/api/v2/threads/add \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d channel_id=6984 \
-  -d name=Thread1
+  -d title=Thread1
+
+# Create a thread with an attachment using two requests
+curl -X POST https://api.twistapp.com/api/v2/threads/add \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
+  -d channel_id=6984 \
+  -d title=Thread1
+  -d attachments=[$(curl -X POST https://api.twistapp.com/api/v2/attachments/upload -F attachment_id=$(uuidgen) -F file_name=@mytext.txt -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf")]
 ```
 
 `POST /api/v2/threads/add`
@@ -160,6 +167,13 @@ curl -X POST https://api.twistapp.com/api/v2/threads/update \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
   -d id=32038 \
   -d title=Thread1
+
+# Update a thread with an attachment using two requests
+curl -X POST https://api.twistapp.com/api/v2/threads/add \
+  -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
+  -d channel_id=6984 \
+  -d title=Thread1 \
+  -d attachments=[$(curl -X POST https://api.twistapp.com/api/v2/attachments/upload -F attachment_id=$(uuidgen) -F file_name=@mytext.txt -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf")]
 ```
 
 `POST /api/v2/threads/update`
