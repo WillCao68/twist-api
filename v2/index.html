@@ -6984,21 +6984,16 @@ can do:</p>
 <li><a href="#slash-command">Slash command integration</a> - Receives a request when called via slash command</li>
 </ul>
 
-<p>And below we have some information shared between the all types.</p>
+<p>And below we have some information shared among all types.</p>
 
 <h3 id="https-enforcing">HTTPS enforcing</h3>
 
 <p>Twist enforces HTTPS everywhere, including our production
 integrations. It means that all production URLs that communicate with
 Twist somehow have to use HTTPS. If you need a certificate, we highly
-recommend <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a>. Furthermore we
+recommend <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a>. Furthermore, we
 also enforce
 <a href="https://support.dnsimple.com/articles/what-is-ssl-certificate-chain/">certificate chain check</a>.</p>
-
-<h3 id="http-auth">HTTP Auth</h3>
-
-<p>We support and recommend that you use HTTP Auth for improving security,
-e.g. <code class="prettyprint">https://user:password@host/path</code>.</p>
 
 <h3 id="outgoing-webhooks">Outgoing webhooks</h3>
 
@@ -7207,12 +7202,12 @@ requests to all endpoints in the API.</p>
 setup and are available to OAuth integrations only.</p>
 
 <p>Twist implements <a href="http://resthooks.org/">REST hooks</a> for most changes
-inside the system. The significant benefit is that you don&rsquo;t need to
+in the system. The significant benefit is that you don&rsquo;t need to
 poll for changes, but can instead wait for hooks to deliver the
 payload when a change happens.</p>
 
 <p>To be able to receive notifications, you need to subscribe to an
-event via hook. These are the supported events:</p>
+event via a hook. These are the supported events:</p>
 
 <table><thead>
 <tr>
@@ -7378,13 +7373,13 @@ parameters are accepted in the subscribe request:</p>
 </tr>
 </tbody></table>
 
-<p>On a successful creation Twist will return a <code class="prettyprint">201 Created</code> and a <code class="prettyprint">403
+<p>On a successful creation, Twist will return a <code class="prettyprint">201 Created</code> and a <code class="prettyprint">403
 Forbidden</code> will be thrown if the access token scope does not have the
 permission to subscribe to the specified event type.</p>
 
 <p>When an event happens, we&rsquo;ll send a request to your <code class="prettyprint">target_url</code> that
 will be JSON encoded. The payload will be the object that triggered
-the event, for example <code class="prettyprint">channel_added</code> will
+the event, for example, <code class="prettyprint">channel_added</code> will
 include <a href="#channels">the channel object</a>.</p>
 
 <h3 id="unsubscribe-from-a-hook">Unsubscribe from a hook</h3>
@@ -7430,7 +7425,7 @@ basis to the same channel</p>
 
 <h2 id="channel-incoming-webhook">Channel Incoming webhook</h2>
 
-<p>Sometimes a developer just want an <strong>incoming webhook</strong> URL to post via some script
+<p>Sometimes a developer just wants an <strong>incoming webhook</strong> URL to post via some script
 or external system without setting up a webserver and so on. It can be done
 via <a href="#oauth">OAuth integration</a> by using the token provided or via channel or
 thread integration.</p>
@@ -7444,7 +7439,7 @@ it. After the installation, Twist will provide the URL for manual posting.</p>
 <h2 id="configure-url">Configure URL</h2>
 
 <p>We redirect users to the configure URL when setting up the integration. The
-configured URL lets you connect the installation with your app and also
+configured URL lets you connect the installation to your app and also
 includes <a href="#channel-incoming-webhook">an incoming webhook</a> URL, which you can use
 as an easy way to manually post new threads into Twist as an integration.</p>
 
@@ -7690,9 +7685,9 @@ use the
 <a href="https://github.com/Doist/twist-integration-examples/tree/master/slash_integration/python">python example implementation</a> for
 the appear.in an example.</p>
 
-<p>Your application will receive a POST call with some information in
+<p>Your application will receive a POST call with some information in a
 formstring format, so the integration can decide what to do and it
-reply with a JSON containing a <code class="prettyprint">content</code> key. The text on this
+replies with a JSON containing a <code class="prettyprint">content</code> key. The text on this
 <code class="prettyprint">content</code> key will replace the message containing the slash command.</p>
 
       </div>
