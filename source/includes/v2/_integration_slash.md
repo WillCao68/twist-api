@@ -48,3 +48,11 @@ Your application will receive a POST call with some information in a
 formstring format, so the integration can decide what to do and it
 replies with a JSON containing a `content` key. The text on this
 `content` key will replace the message containing the slash command.
+
+
+### Timeout
+
+Be aware that your integration must deliver the content in less than
+**10 seconds** or the server will drop the connection and try again as
+stated
+in [Error handling](https://developer.twistapp.com/v2/#integrations).
