@@ -3487,7 +3487,14 @@ usually called teams.</p>
 <pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/threads/add <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">channel_id</span><span class="o">=</span>6984 <span class="se">\</span>
-  -d <span class="nv">name</span><span class="o">=</span>Thread1
+  -d <span class="nv">title</span><span class="o">=</span>Thread1
+
+<span class="c"># Create a thread with an attachment using two requests</span>
+curl -X POST https://api.twistapp.com/api/v2/threads/add <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">channel_id</span><span class="o">=</span>6984 <span class="se">\</span>
+  -d <span class="nv">title</span><span class="o">=</span>Thread1
+  -d <span class="nv">attachments</span><span class="o">=[</span><span class="k">$(</span>curl -X POST https://api.twistapp.com/api/v2/attachments/upload -F <span class="nv">attachment_id</span><span class="o">=</span><span class="k">$(</span>uuidgen<span class="k">)</span> -F <span class="nv">file_name</span><span class="o">=</span>@mytext.txt -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span><span class="k">)</span><span class="o">]</span>
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/threads/add</code></p>
 
@@ -3557,6 +3564,13 @@ usually called teams.</p>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>32038 <span class="se">\</span>
   -d <span class="nv">title</span><span class="o">=</span>Thread1
+
+<span class="c"># Update a thread with an attachment using two requests</span>
+curl -X POST https://api.twistapp.com/api/v2/threads/add <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">channel_id</span><span class="o">=</span>6984 <span class="se">\</span>
+  -d <span class="nv">title</span><span class="o">=</span>Thread1 <span class="se">\</span>
+  -d <span class="nv">attachments</span><span class="o">=[</span><span class="k">$(</span>curl -X POST https://api.twistapp.com/api/v2/attachments/upload -F <span class="nv">attachment_id</span><span class="o">=</span><span class="k">$(</span>uuidgen<span class="k">)</span> -F <span class="nv">file_name</span><span class="o">=</span>@mytext.txt -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span><span class="k">)</span><span class="o">]</span>
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/threads/update</code></p>
 
@@ -4297,6 +4311,13 @@ the channel id, the thread id and the index of the last unread comment.</p>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">thread_id</span><span class="o">=</span>32038 <span class="se">\</span>
   -d <span class="nv">content</span><span class="o">=</span><span class="s2">"OK!"</span>
+
+<span class="c"># Create a comment with an attachment using two requests</span>
+curl -X POST https://api.twistapp.com/api/v2/comments/add <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">thread_id</span><span class="o">=</span>32038 <span class="se">\</span>
+  -d <span class="nv">content</span><span class="o">=</span><span class="s2">"OK!"</span> <span class="se">\</span>
+  -d <span class="nv">attachments</span><span class="o">=[</span><span class="k">$(</span>curl -X POST https://api.twistapp.com/api/v2/attachments/upload -F <span class="nv">attachment_id</span><span class="o">=</span><span class="k">$(</span>uuidgen<span class="k">)</span> -F <span class="nv">file_name</span><span class="o">=</span>@mytext.txt -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span><span class="k">)</span><span class="o">]</span>
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/comments/add</code></p>
 
@@ -4366,6 +4387,13 @@ the channel id, the thread id and the index of the last unread comment.</p>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">id</span><span class="o">=</span>206113 <span class="se">\</span>
   -d <span class="nv">content</span><span class="o">=</span><span class="s2">"OK!"</span>
+
+<span class="c"># Update a comment with an attachment using two requests</span>
+curl -X POST https://api.twistapp.com/api/v2/comments/update <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>206113 <span class="se">\</span>
+  -d <span class="nv">content</span><span class="o">=</span><span class="s2">"OK!"</span> <span class="se">\</span>
+  -d <span class="nv">attachments</span><span class="o">=[</span><span class="k">$(</span>curl -X POST https://api.twistapp.com/api/v2/attachments/upload -F <span class="nv">attachment_id</span><span class="o">=</span><span class="k">$(</span>uuidgen<span class="k">)</span> -F <span class="nv">file_name</span><span class="o">=</span>@mytext.txt -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span><span class="o">]</span><span class="k">)</span>
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/comments/update</code></p>
 
@@ -5390,6 +5418,13 @@ conversation.</p>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">conversation_id</span><span class="o">=</span>13037 <span class="se">\</span>
   -d <span class="nv">content</span><span class="o">=</span><span class="s2">"Hello!"</span>
+
+<span class="c"># Create a message with an attachment using two requests</span>
+curl -X POST https://api.twistapp.com/api/v2/conversation_messages/add <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">conversation_id</span><span class="o">=</span>13037 <span class="se">\</span>
+  -d <span class="nv">content</span><span class="o">=</span><span class="s2">"Hello!"</span> <span class="se">\</span>
+  -d <span class="nv">attachments</span><span class="o">=[</span><span class="k">$(</span>curl -X POST https://api.twistapp.com/api/v2/attachments/upload -F <span class="nv">attachment_id</span><span class="o">=</span><span class="k">$(</span>uuidgen<span class="k">)</span> -F <span class="nv">file_name</span><span class="o">=</span>@mytext.txt -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span><span class="k">)</span><span class="o">]</span>
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/conversation_messages/add</code></p>
 
@@ -5434,6 +5469,13 @@ conversation.</p>
   -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
   -d <span class="nv">conversation_id</span><span class="o">=</span>13037 <span class="se">\</span>
   -d <span class="nv">content</span><span class="o">=</span><span class="s2">"Hello!"</span>
+
+<span class="c"># Update a message with an attachment using two requests</span>
+curl -X POST https://api.twistapp.com/api/v2/conversation_messages/update <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span> <span class="se">\</span>
+  -d <span class="nv">id</span><span class="o">=</span>130371 <span class="se">\</span>
+  -d <span class="nv">content</span><span class="o">=</span><span class="s2">"Hello!"</span> <span class="se">\</span>
+  -d <span class="nv">attachments</span><span class="o">=[</span><span class="k">$(</span>curl -X POST https://api.twistapp.com/api/v2/attachments/upload -F <span class="nv">attachment_id</span><span class="o">=</span><span class="k">$(</span>uuidgen<span class="k">)</span> -F <span class="nv">file_name</span><span class="o">=</span>@mytext.txt -H <span class="s2">"Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf"</span><span class="k">)</span><span class="o">]</span>
 </code></pre>
 <p><code class="prettyprint">POST /api/v2/conversation_messages/update</code></p>
 
@@ -5549,10 +5591,6 @@ conversation.</p>
 <td>The URL where the file is located</td>
 </tr>
 <tr>
-<td>url_type <em>String</em></td>
-<td>The type of the file, such as <code class="prettyprint">file</code> or <code class="prettyprint">image</code></td>
-</tr>
-<tr>
 <td>file_name <em>String</em></td>
 <td>The file&rsquo;s name</td>
 </tr>
@@ -5565,24 +5603,28 @@ conversation.</p>
 <td>The file&rsquo;s media or content type (MIME)</td>
 </tr>
 <tr>
+<td>upload_state <em>String</em></td>
+<td>Upload state is <code class="prettyprint">uploaded</code> on success, or <code class="prettyprint">failed</code> otherwise</td>
+</tr>
+<tr>
+<td>url_type <em>String</em></td>
+<td>The type of the file, such as <code class="prettyprint">file</code> or <code class="prettyprint">image</code></td>
+</tr>
+<tr>
 <td>image <em>String</em></td>
-<td>If file is an image, the URL to the image file</td>
+<td>If file is an <code class="prettyprint">image</code>, the URL to the image file</td>
 </tr>
 <tr>
 <td>image_width <em>Integer</em></td>
-<td>If file is an image, the width of the image</td>
+<td>If file is an <code class="prettyprint">image</code>, the width of the image</td>
 </tr>
 <tr>
 <td>image_height <em>Integer</em></td>
-<td>If file is an image, the height of the image</td>
+<td>If file is an <code class="prettyprint">image</code>, the height of the image</td>
 </tr>
 <tr>
 <td>duration <em>String</em></td>
-<td>If file is audio, the duration of the audio</td>
-</tr>
-<tr>
-<td>upload_state <em>String</em></td>
-<td>Upload state is <code class="prettyprint">uploaded</code> on success, or <code class="prettyprint">failed</code> otherwise</td>
+<td>If file is <code class="prettyprint">audio</code>, the duration of the audio</td>
 </tr>
 </tbody></table>
 
