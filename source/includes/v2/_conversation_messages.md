@@ -32,8 +32,8 @@ conversation.
 | conversation_id *Integer* | The id of the conversation |
 | workspace_id *Integer* | The id of the workspace |
 | obj_index *Integer* | The index of the message in regards to all other messages in the conversation |
-| attachments *List of Objects* | Files attached to the message |
-| actions *List of Objects* | Actions define special messages that trigger actions, buttons to click to open URLs, etc. |
+| attachments *List of [Attachments](#attachments)* | Files attached to the comment |
+| actions *List of [Action buttons](#action-buttons)* | Action buttons attached to the comment |
 | reactions *Object* | Reactions to the thread, where keys are the reactions and values the users that had that reaction |
 | is_deleted *Integer* | Whether the message is deleted |
 | system_message *String* | A system message |
@@ -123,7 +123,9 @@ Adds a message to an existing conversation.
 | --- | --- | --- |
 | conversation_id *Integer* | Yes | The id of the conversation |
 | content *String* | Yes | The content of the new message |
-| attachments *List of Objects* | No | List of attachments to the message. It must follow the JSON format returned by [attachment#upload](#upload-an-attachment) |
+| attachments *List of [Attachments](#attachments)* | No | List of attachments to the message. It must follow the JSON format returned by [attachment#upload](#upload-an-attachment) |
+| actions *List of [Action Buttons](#action-buttons)* | No | List of action to the new message. More information about the format of the object available at the [add an action button submenu](#add-an-action-button) |
+
 
 ### Return value
 
@@ -158,7 +160,8 @@ Updates a message in conversation.
 | --- | --- | --- |
 | id *Integer* | Yes | The id of the message |
 | content *String* | No | The content of the new message |
-| attachments *List of Objects* | No | List of attachments to the message. It must follow the JSON format returned by [attachment#upload](#upload-an-attachment) |
+| attachments *List of [Attachments](#attachments)* | No | List of attachments to the message. It must follow the JSON format returned by [attachment#upload](#upload-an-attachment) |
+| actions *List of [Action Buttons](#action-buttons)* | No | List of action to the message. More information about the format of the object available at the [add an action button submenu](#add-an-action-button) |
 
 ### Return value
 

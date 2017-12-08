@@ -14,6 +14,7 @@ includes:
   - v2/comments
   - v2/conversations
   - v2/conversation_messages
+  - v2/action_buttons
   - v2/attachments
   - v2/reactions
   - v2/inbox

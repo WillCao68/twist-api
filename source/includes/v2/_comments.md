@@ -39,7 +39,8 @@ A comment is a message in a thread.
 | thread_id *Integer* | The id of the thread |
 | channel_id *Integer* | The id of the channel |
 | workspace_id *Integer* | The id of the workspace |
-| attachments *List of Objects* | Files attached to the comment |
+| attachments *List of [Attachments](#attachments)* | Files attached to the comment |
+| actions *List of [Action buttons](#action-buttons)* | Action buttons attached to the comment |
 | recipients *List of Integers or String* | The users that will be notified, or `EVERYONE` or `EVERYONE_IN_THREAD` |
 | groups *List of Integers* | The groups that will be notified |
 | reactions *Object* | Reactions to the thread, where keys are the reactions and values the users that had that reaction |
@@ -133,7 +134,8 @@ Adds a new comment to a thread.
 | --- | --- | --- |
 | thread_id *Integer* | Yes | The id of the thread |
 | content *String* | Yes | The content of the new comment |
-| attachments *List of Objects* | No | List of attachments to the new comment. It must follow the JSON format returned by [attachment#upload](#upload-an-attachment) |
+| attachments *List of [Attachments](#attachments)* | No | List of attachments to the new comment. It must follow the JSON format returned by [attachment#upload](#upload-an-attachment) |
+| actions *List of [Action Buttons](#action-buttons)* | No | List of action to the new comment. More information about the format of the object available at the [add an action button submenu](#add-an-action-button) |
 | recipients *List of Integers or String* | No | The users that will be notified, or `EVERYONE` or `EVERYONE_IN_THREAD` |
 | groups *List of Integers* | No | The groups that will be notified |
 | temp_id *Integer* | No | The temporary id of the comment |
@@ -173,7 +175,9 @@ Updates an existing comment.
 | --- | --- | --- |
 | id *Integer* | Yes | The id of the comment |
 | content *String* | No | The content of the comment |
-| attachments *List of Objects* | No | List of attachments to the comment. It must follow the JSON format returned by [attachment#upload](#upload-an-attachment) |
+| attachments *List of [Attachments](#attachments)* | No | List of attachments to the new comment. It must follow the JSON format returned by [attachment#upload](#upload-an-attachment) |
+| actions *List of [Action Buttons](#action-buttons)* | No | List of action to the new comment. More information about the format of the object available at the [add an action button submenu](#add-an-action-button) |
+
 
 ### Return value
 
