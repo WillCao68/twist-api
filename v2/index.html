@@ -3326,8 +3326,12 @@ usually called teams.</p>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>attachments <em>List of Objects</em></td>
+<td>attachments <em>List of <a href="#attachments">Attachments</a></em></td>
 <td>Files attached to the comment</td>
+</tr>
+<tr>
+<td>actions <em>List of <a href="#action-buttons">Action buttons</a></em></td>
+<td>Action buttons attached to the comment</td>
 </tr>
 <tr>
 <td>recipients *List of Integers or String</td>
@@ -3525,9 +3529,14 @@ curl -X POST https://api.twistapp.com/api/v2/threads/add <span class="se">\</spa
 <td>The content of the new thread</td>
 </tr>
 <tr>
-<td>attachments <em>List of Objects</em></td>
+<td>attachments <em>List of <a href="#attachments">Attachments</a></em></td>
 <td>No</td>
 <td>List of attachments to the new thread. It must follow the JSON format returned by <a href="#upload-an-attachment">attachment#upload</a></td>
+</tr>
+<tr>
+<td>actions <em>List of <a href="#action-buttons">Action Buttons</a></em></td>
+<td>No</td>
+<td>List of action to the new thread. More information about the format of the object available at the <a href="#add-an-action-button">add an action button submenu</a></td>
 </tr>
 <tr>
 <td>recipients <em>List of Integers or String</em></td>
@@ -3601,9 +3610,14 @@ curl -X POST https://api.twistapp.com/api/v2/threads/add <span class="se">\</spa
 <td>The content of the thread</td>
 </tr>
 <tr>
-<td>attachments <em>List of Objects</em></td>
+<td>attachments <em>List of <a href="#attachments">Attachments</a></em></td>
 <td>No</td>
 <td>List of attachments to the thread. It must follow the JSON format returned by <a href="#upload-an-attachment">attachment#upload</a></td>
+</tr>
+<tr>
+<td>actions <em>List of <a href="#action-buttons">Action Buttons</a></em></td>
+<td>No</td>
+<td>List of action to the thread. More information about the format of the object available at the <a href="#add-an-action-button">add an action button submenu</a></td>
 </tr>
 </tbody></table>
 
@@ -4172,8 +4186,12 @@ the channel id, the thread id and the index of the last unread comment.</p>
 <td>The id of the workspace</td>
 </tr>
 <tr>
-<td>attachments <em>List of Objects</em></td>
+<td>attachments <em>List of <a href="#attachments">Attachments</a></em></td>
 <td>Files attached to the comment</td>
+</tr>
+<tr>
+<td>actions <em>List of <a href="#action-buttons">Action buttons</a></em></td>
+<td>Action buttons attached to the comment</td>
 </tr>
 <tr>
 <td>recipients <em>List of Integers or String</em></td>
@@ -4343,9 +4361,14 @@ curl -X POST https://api.twistapp.com/api/v2/comments/add <span class="se">\</sp
 <td>The content of the new comment</td>
 </tr>
 <tr>
-<td>attachments <em>List of Objects</em></td>
+<td>attachments <em>List of <a href="#attachments">Attachments</a></em></td>
 <td>No</td>
 <td>List of attachments to the new comment. It must follow the JSON format returned by <a href="#upload-an-attachment">attachment#upload</a></td>
+</tr>
+<tr>
+<td>actions <em>List of <a href="#action-buttons">Action Buttons</a></em></td>
+<td>No</td>
+<td>List of action to the new comment. More information about the format of the object available at the <a href="#add-an-action-button">add an action button submenu</a></td>
 </tr>
 <tr>
 <td>recipients <em>List of Integers or String</em></td>
@@ -4419,9 +4442,14 @@ curl -X POST https://api.twistapp.com/api/v2/comments/update <span class="se">\<
 <td>The content of the comment</td>
 </tr>
 <tr>
-<td>attachments <em>List of Objects</em></td>
+<td>attachments <em>List of <a href="#attachments">Attachments</a></em></td>
 <td>No</td>
-<td>List of attachments to the comment. It must follow the JSON format returned by <a href="#upload-an-attachment">attachment#upload</a></td>
+<td>List of attachments to the new comment. It must follow the JSON format returned by <a href="#upload-an-attachment">attachment#upload</a></td>
+</tr>
+<tr>
+<td>actions <em>List of <a href="#action-buttons">Action Buttons</a></em></td>
+<td>No</td>
+<td>List of action to the new comment. More information about the format of the object available at the <a href="#add-an-action-button">add an action button submenu</a></td>
 </tr>
 </tbody></table>
 
@@ -5293,12 +5321,12 @@ conversation.</p>
 <td>The index of the message in regards to all other messages in the conversation</td>
 </tr>
 <tr>
-<td>attachments <em>List of Objects</em></td>
-<td>Files attached to the message</td>
+<td>attachments <em>List of <a href="#attachments">Attachments</a></em></td>
+<td>Files attached to the comment</td>
 </tr>
 <tr>
-<td>actions <em>List of Objects</em></td>
-<td>Actions define special messages that trigger actions, buttons to click to open URLs, etc.</td>
+<td>actions <em>List of <a href="#action-buttons">Action buttons</a></em></td>
+<td>Action buttons attached to the comment</td>
 </tr>
 <tr>
 <td>reactions <em>Object</em></td>
@@ -5450,9 +5478,14 @@ curl -X POST https://api.twistapp.com/api/v2/conversation_messages/add <span cla
 <td>The content of the new message</td>
 </tr>
 <tr>
-<td>attachments <em>List of Objects</em></td>
+<td>attachments <em>List of <a href="#attachments">Attachments</a></em></td>
 <td>No</td>
 <td>List of attachments to the message. It must follow the JSON format returned by <a href="#upload-an-attachment">attachment#upload</a></td>
+</tr>
+<tr>
+<td>actions <em>List of <a href="#action-buttons">Action Buttons</a></em></td>
+<td>No</td>
+<td>List of action to the new message. More information about the format of the object available at the <a href="#add-an-action-button">add an action button submenu</a></td>
 </tr>
 </tbody></table>
 
@@ -5501,9 +5534,14 @@ curl -X POST https://api.twistapp.com/api/v2/conversation_messages/update <span 
 <td>The content of the new message</td>
 </tr>
 <tr>
-<td>attachments <em>List of Objects</em></td>
+<td>attachments <em>List of <a href="#attachments">Attachments</a></em></td>
 <td>No</td>
 <td>List of attachments to the message. It must follow the JSON format returned by <a href="#upload-an-attachment">attachment#upload</a></td>
+</tr>
+<tr>
+<td>actions <em>List of <a href="#action-buttons">Action Buttons</a></em></td>
+<td>No</td>
+<td>List of action to the message. More information about the format of the object available at the <a href="#add-an-action-button">add an action button submenu</a></td>
 </tr>
 </tbody></table>
 
@@ -5547,6 +5585,128 @@ curl -X POST https://api.twistapp.com/api/v2/conversation_messages/update <span 
    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+          <h1 id="action-buttons">Action buttons</h1>
+
+<p>Action buttons are used inside other objects
+like <a href="#threads">threads</a>, <a href="#comments">comments</a>
+or <a href="#conversation-messages">messages</a>. As it&rsquo;s possible to have many
+action buttons inside the same object, they are represented as a list
+of action buttons in the <code class="prettyprint">actions</code> key.</p>
+
+<p>They are used to make it easy to execute an action for the message
+received. An example of usage would be adding text to the message box or a
+link to another page.</p>
+
+<blockquote>
+<p>Action buttons objects:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="err">...</span><span class="p">,</span><span class="w">
+
+    </span><span class="s2">"actions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open_url"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.google.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"action"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"button_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open Url Action Btn"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prefill_message"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This message is prefilled by an action button"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"action"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"button_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prefill Message Action Btn"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prefill_reply"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This reply is prefilled by an action button"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"action"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"button_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prefill Reply Action Btn"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+
+    </span><span class="err">...</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="properties-of-the-action-button-object">Properties of the action button object</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>action <em>String</em></td>
+<td>The action of the button. It can be <strong>open_url</strong>, <strong>prefill_message</strong>, or <strong>prefill_reply</strong></td>
+</tr>
+<tr>
+<td>type <em>String</em></td>
+<td>The type of the button, for now just <code class="prettyprint">action</code> is available</td>
+</tr>
+<tr>
+<td>button_text <em>String</em></td>
+<td>The text for the action button</td>
+</tr>
+<tr>
+<td>message <em>String</em></td>
+<td>Message to be added when using <strong>prefill_*</strong>  actions</td>
+</tr>
+<tr>
+<td>url <em>String</em></td>
+<td>URL to redirect. It&rsquo;s used for <strong>open_url</strong> types</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-action-buttons">Get action buttons</h2>
+
+<p>Action buttons cannot be retrieved alone, they are part of other
+objects like <a href="#threads">threads</a>, <a href="#comments">comments</a>,
+and <a href="#messages">messages</a>. To retrieve them use the get methods from
+the object in which they were inserted.</p>
+
+<h2 id="add-an-action-button">Add an action button</h2>
+
+<p>Action buttons cannot be added alone, they are part of other objects
+like <a href="#threads">threads</a>, <a href="#comments">comments</a>,
+and <a href="#messages">messages</a>. To add them, you have to use the add
+methods from the object in which they will be inserted into.</p>
+
+<h3 id="parameters-to-add-new-action-buttons">Parameters to add new action buttons</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>action <em>String</em></td>
+<td>Yes</td>
+<td>The action of the button. It can be <strong>open_url</strong>, <strong>prefill_message</strong>, or <strong>prefill_reply</strong></td>
+</tr>
+<tr>
+<td>type <em>String</em></td>
+<td>Yes</td>
+<td>The type of the button, for now just <code class="prettyprint">action</code> is available</td>
+</tr>
+<tr>
+<td>button_text <em>String</em></td>
+<td>Yes</td>
+<td>The text for the action button</td>
+</tr>
+<tr>
+<td>message <em>String</em></td>
+<td>No</td>
+<td>Message to be added when using <strong>prefill_*</strong>  actions</td>
+</tr>
+<tr>
+<td>url <em>String</em></td>
+<td>No</td>
+<td>URL to redirect in case the action used requires it</td>
+</tr>
+</tbody></table>
+
           <h1 id="attachments">Attachments</h1>
 
 <p>Files can be attached to threads, comments, or conversation messages.</p>
