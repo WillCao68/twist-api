@@ -30,10 +30,10 @@ link to another page.
             "button_text": "Prefill Message Action Btn"
         },
         {
-            "action": "prefill_reply",
-            "message": "This reply is prefilled by an action button",
+            "action": "send_reply",
+            "message": "This reply was sent by an action button",
             "type": "action",
-            "button_text": "Prefill Reply Action Btn"
+            "button_text": "Send Reply Action Btn"
         },
     ],
 
@@ -45,10 +45,10 @@ link to another page.
 
 | Name | Description |
 | ---- | --- |
-| action *String* | The action of the button. It can be **open_url**, **prefill_message**, or **prefill_reply** |
+| action *String* | The action of the button. It can be **open_url**, **prefill_message**, or **send_reply** |
 | type *String* | The type of the button, for now just `action` is available |
 | button_text *String* | The text for the action button |
-| message *String* | Message to be added when using __prefill_*__  actions |
+| message *String* | Message to be added when using __prefill_*__  and __send_*__actions |
 | url *String* | URL to redirect. It's used for **open_url** types |
 
 
@@ -71,8 +71,8 @@ methods from the object in which they will be inserted into.
 
 | Name | Required | Description |
 | ---- | --- | --- |
-| action *String* | Yes | The action of the button. It can be **open_url**, **prefill_message**, or **prefill_reply** |
+| action *String* | Yes | The action of the button. It can be **open_url**, **prefill_message**, or **send_reply** |
 | type *String* | Yes | The type of the button, for now just `action` is available |
 | button_text *String* | Yes | The text for the action button |
-| message *String* | No | Message to be added when using __prefill_*__  actions |
+| message *String* | No | Message to be added when using __prefill_*__  and __send_*__ actions |
 | url *String* | No | URL to redirect in case the action used requires it |

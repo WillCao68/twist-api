@@ -21,6 +21,17 @@ break between minor patches.
 - `users#get_one` resource
 
 
+## [2.0.4] - 2017-12-12
+
+### Added
+
+- Action buttons for threads, comments, and messages
+
+### Changed
+
+- Improvement in the documentation regarding our integrations
+
+
 ## [2.0.3] - 2017-09-05
 
 ### Added
