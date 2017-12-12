@@ -5617,10 +5617,10 @@ link to another page.</p>
             </span><span class="s2">"button_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prefill Message Action Btn"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prefill_reply"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This reply is prefilled by an action button"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"send_reply"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This reply was sent by an action button"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"action"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"button_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prefill Reply Action Btn"</span><span class="w">
+            </span><span class="s2">"button_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Send Reply Action Btn"</span><span class="w">
         </span><span class="p">},</span><span class="w">
     </span><span class="p">],</span><span class="w">
 
@@ -5637,7 +5637,7 @@ link to another page.</p>
 </thead><tbody>
 <tr>
 <td>action <em>String</em></td>
-<td>The action of the button. It can be <strong>open_url</strong>, <strong>prefill_message</strong>, or <strong>prefill_reply</strong></td>
+<td>The action of the button. It can be <strong>open_url</strong>, <strong>prefill_message</strong>, or <strong>send_reply</strong></td>
 </tr>
 <tr>
 <td>type <em>String</em></td>
@@ -5649,7 +5649,7 @@ link to another page.</p>
 </tr>
 <tr>
 <td>message <em>String</em></td>
-<td>Message to be added when using <strong>prefill_*</strong>  actions</td>
+<td>Message to be added when using <strong>prefill_*</strong>  and <strong>send_*</strong>actions</td>
 </tr>
 <tr>
 <td>url <em>String</em></td>
@@ -5683,7 +5683,7 @@ methods from the object in which they will be inserted into.</p>
 <tr>
 <td>action <em>String</em></td>
 <td>Yes</td>
-<td>The action of the button. It can be <strong>open_url</strong>, <strong>prefill_message</strong>, or <strong>prefill_reply</strong></td>
+<td>The action of the button. It can be <strong>open_url</strong>, <strong>prefill_message</strong>, or <strong>send_reply</strong></td>
 </tr>
 <tr>
 <td>type <em>String</em></td>
@@ -5698,7 +5698,7 @@ methods from the object in which they will be inserted into.</p>
 <tr>
 <td>message <em>String</em></td>
 <td>No</td>
-<td>Message to be added when using <strong>prefill_*</strong>  actions</td>
+<td>Message to be added when using <strong>prefill_*</strong>  and <strong>send_*</strong> actions</td>
 </tr>
 <tr>
 <td>url <em>String</em></td>
