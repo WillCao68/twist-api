@@ -7688,7 +7688,7 @@ as an easy way to manually post new threads into Twist as an integration.</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
     --data <span class="s1">'{"content":"42?"}'</span> <span class="se">\</span>
-    https://hooks.twistapp.com/...
+    <span class="s2">"https://hooks.twistapp.com/api/v2/integration_incoming/post_data?install_id=...&amp;install_token=..."</span>
 </code></pre>
 <p>Simply make a POST request to the <code class="prettyprint">post_data_url</code>. In the POST include your data
 encoded in JSON.</p>
@@ -7827,7 +7827,7 @@ you can use as an easy way to post messages into Twist.</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
     --data <span class="s1">'{"content":"42?"}'</span> <span class="se">\</span>
-    https://hooks.twistapp.com/...
+    <span class="s2">"https://hooks.twistapp.com/api/v2/integration_incoming/post_data?install_id=...&amp;install_token=..."</span>
 </code></pre>
 <p>Simply make a POST request to the <code class="prettyprint">post_data_url</code>. In the POST include your data
 encoded in JSON.</p>
