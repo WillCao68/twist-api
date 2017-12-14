@@ -77,7 +77,7 @@ event via a hook. These are the supported events:
 ```shell
 curl https://api.twistapp.com/api/v2/hooks/subscribe \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
-  -d target_url=https://hooks.yourdomain.com/<unique_target_url>
+  -d target_url=https://hooks.yourdomain.com/<unique_target_url> \
   -d event=workspace_user_added
 ```
 
