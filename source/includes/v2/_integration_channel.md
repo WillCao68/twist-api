@@ -55,7 +55,7 @@ To get back to the installation page, please use
 ```shell
 curl -X POST -H 'Content-type: application/json' \
     --data '{"content":"42?"}' \
-    https://hooks.twistapp.com/...
+    "https://hooks.twistapp.com/api/v2/integration_incoming/post_data?install_id=...&install_token=..."
 ```
 
 Simply make a POST request to the `post_data_url`. In the POST include your data
