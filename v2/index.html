@@ -7627,10 +7627,10 @@ basis to the same channel</p>
 
 <h2 id="channel-incoming-webhook">Channel Incoming webhook</h2>
 
-<p>Sometimes a developer just wants an <strong>incoming webhook</strong> URL to post via some script
-or external system without setting up a webserver and so on. It can be done
-via <a href="#oauth">OAuth integration</a> by using the token provided or via channel or
-thread integration.</p>
+<p>Sometimes a developer just wants an <strong>incoming webhook</strong> URL to post
+via manually via <code class="prettyprint">curl</code> (for example) or to include in the Continuous
+Integration build. It can be done via <a href="#oauth">OAuth integration</a> by
+using the token provided or via channel or thread integration.</p>
 
 <p>To do that using a channel integration, you just have to create and install
 it. After the installation, Twist will provide the URL for manual posting.</p>
