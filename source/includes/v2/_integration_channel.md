@@ -14,10 +14,10 @@ basis to the same channel
 
 ## Channel Incoming webhook
 
-Sometimes a developer just wants an **incoming webhook** URL to post via some script
-or external system without setting up a webserver and so on. It can be done
-via [OAuth integration](#oauth) by using the token provided or via channel or
-thread integration.
+Sometimes a developer just wants an **incoming webhook** URL to post
+via manually via `curl` (for example) or to include in the Continuous
+Integration build. It can be done via [OAuth integration](#oauth) by
+using the token provided or via channel or thread integration.
 
 To do that using a channel integration, you just have to create and install
 it. After the installation, Twist will provide the URL for manual posting.
