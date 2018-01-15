@@ -3287,6 +3287,7 @@ usually called teams.</p>
      </span><span class="s2">"muted_until"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
      </span><span class="s2">"system_message"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
      </span><span class="s2">"posted_ts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1494488709</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"last_edited_ts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1494488709</span><span class="p">,</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <h3 id="properties-of-thread-object">Properties of thread object</h3>
@@ -3384,6 +3385,10 @@ usually called teams.</p>
 <tr>
 <td>posted_ts <em>Integer</em></td>
 <td>The Unix time when the thread was created</td>
+</tr>
+<tr>
+<td>last_edited_ts <em>Integer</em></td>
+<td>The Unix time when the thread was last edited or <code class="prettyprint">null</code> if it hasn&rsquo;t</td>
 </tr>
 </tbody></table>
 
@@ -4151,6 +4156,7 @@ the channel id, the thread id and the index of the last unread comment.</p>
    </span><span class="s2">"is_deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
    </span><span class="s2">"system_message"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
    </span><span class="s2">"posted_ts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1494489787</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"last_edited_ts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1494488709</span><span class="p">,</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <h3 id="properties-of-comment-object">Properties of comment object</h3>
@@ -4216,6 +4222,10 @@ the channel id, the thread id and the index of the last unread comment.</p>
 <tr>
 <td>posted_ts <em>Integer</em></td>
 <td>The Unix time when the thread was created</td>
+</tr>
+<tr>
+<td>last_edited_ts <em>Integer</em></td>
+<td>The Unix time when the comment was last edited or <code class="prettyprint">null</code> if it hasn&rsquo;t</td>
 </tr>
 </tbody></table>
 
@@ -5286,6 +5296,7 @@ conversation.</p>
    </span><span class="s2">"is_deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
    </span><span class="s2">"system_message"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
    </span><span class="s2">"posted_ts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1497970956</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"last_edited_ts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1494488709</span><span class="p">,</span><span class="w">
 </span><span class="p">},</span><span class="w">
 </span></code></pre>
 <h3 id="properties-of-conversation-message-object">Properties of conversation message object</h3>
@@ -5343,6 +5354,10 @@ conversation.</p>
 <tr>
 <td>posted_ts <em>Integer</em></td>
 <td>The Unix time when the message was created</td>
+</tr>
+<tr>
+<td>last_edited_ts <em>Integer</em></td>
+<td>The Unix time when the message was last edited or <code class="prettyprint">null</code> if it hasn&rsquo;t</td>
 </tr>
 </tbody></table>
 
