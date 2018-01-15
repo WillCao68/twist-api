@@ -19,6 +19,7 @@ conversation.
    "is_deleted" : false,
    "system_message" : null,
    "posted_ts" : 1497970956,
+   "last_edited_ts" : 1494488709,
 },
 ```
 
@@ -38,6 +39,7 @@ conversation.
 | is_deleted *Integer* | Whether the message is deleted |
 | system_message *String* | A system message |
 | posted_ts *Integer* | The Unix time when the message was created |
+| last_edited_ts *Integer* | The Unix time when the message was last edited or `null` if it hasn't |
 
 
 ## Get message

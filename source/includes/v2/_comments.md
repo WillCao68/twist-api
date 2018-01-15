@@ -26,6 +26,7 @@ A comment is a message in a thread.
    "is_deleted" : false,
    "system_message" : null,
    "posted_ts" : 1494489787,
+   "last_edited_ts" : 1494488709,
 }
 ```
 
@@ -47,6 +48,7 @@ A comment is a message in a thread.
 | is_deleted *Integer* | Whether the thread is deleted |
 | system_message *String* | A system message |
 | posted_ts *Integer* | The Unix time when the thread was created |
+| last_edited_ts *Integer* | The Unix time when the comment was last edited or `null` if it hasn't |
 
 
 ## Get comment

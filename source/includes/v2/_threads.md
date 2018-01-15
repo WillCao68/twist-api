@@ -32,6 +32,7 @@ A thread is a discussion.
      "muted_until" : null,
 	 "system_message" : null,
 	 "posted_ts" : 1494488709,
+	 "last_edited_ts" : 1494488709,
 }
 ```
 
@@ -61,6 +62,7 @@ A thread is a discussion.
 | muted_until *Integer* | The Unix time until when the thread is muted |
 | system_message *String* | A system message |
 | posted_ts *Integer* | The Unix time when the thread was created |
+| last_edited_ts *Integer* | The Unix time when the thread was last edited or `null` if it hasn't |
 
 
 ## Get thread
