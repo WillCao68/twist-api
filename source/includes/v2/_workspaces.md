@@ -33,7 +33,6 @@ usually called teams.
          "profession" : "Bot, at your service",
          "avatar_id" : "dc6ed0e255968188ea48d00815f95eb3",
          "snooze_dnd_start" : null,
-         "last_active" : null,
          "name" : "Ada Bot",
          "default_workspace" : null
       },
@@ -49,7 +48,6 @@ usually called teams.
          "name" : "User",
          "default_workspace" : null,
          "snooze_dnd_start" : null,
-         "last_active" : null,
          "snooze_until" : -1,
          "is_removed" : 0,
          "away_mode" : null,
@@ -100,7 +98,6 @@ usually called teams.
    "user_type" : "ADMIN",
    "is_removed" : 0,
    "is_doist_employee" : 0,
-   "last_active" : null,
 }
 ```
 
@@ -111,7 +108,6 @@ usually called teams.
 | user_type *String* | The user type, one of `ADMIN`, `USER` or `GUEST` |
 | is_removed *Boolean* | Whether the user has been removed |
 | is_doist_employee *Boolean* | Whether the user is a Doist employee |
-| last_active *String* | The date and time when the user was last active |
 
 
 > Workspace user activity object:
