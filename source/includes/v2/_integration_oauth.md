@@ -7,7 +7,7 @@ steps needed to setup are described in our [OAuth2](#oauth2) section.
 **Example usage**: Integrate an application with Twist, creating new
 workspaces, channels, threads, and/or messages.
 
-## Retrieving a token for the API
+## Retrieving a token
 
 Sometimes a developer just wants a **token** so he/she can use all the
 endpoints of the API for personal purposes or create a proof of
@@ -26,19 +26,18 @@ The generated token can be used in the authorization header to make
 requests to all endpoints in the API.
 
 
-## Resthooks
+## Outgoing webhook
 
-**Note**: Resthooks are not the same as webhooks. They are hard to
-setup and are available to OAuth integrations only.
+Outgoing webhooks for OAuth integrations are based on [REST
+hooks](http://resthooks.org/), so they are different from
+[channels](##outgoing-webhook151) and
+[threads](#outgoing-webhook157).
 
-Twist implements [REST hooks](http://resthooks.org/) for most changes
-in the system. The significant benefit is that you don't need to
-poll for changes, but can instead wait for hooks to deliver the
-payload when a change happens.
+The webhooks for the OAuth integration provide fine-grained access to
+the event hooks. It's possible to subscribe and unsubscribe to any
+available event programmatically.
 
-To be able to receive notifications, you need to subscribe to an
-event via a hook. These are the supported events:
-
+These are the supported events:
 
 | Event type | Description |
 | ---------- | ----------- |
@@ -81,8 +80,8 @@ curl https://api.twistapp.com/api/v2/hooks/subscribe \
   -d event=workspace_user_added
 ```
 
-To start listening to changes you have to subscribe to a hook. The following
-parameters are accepted in the subscribe request:
+To start listening to changes you have to subscribe to a hook. The
+following parameters are accepted in the subscribe request:
 
 | Name | Required | Description |
 | --- | --- | --- |
@@ -92,6 +91,9 @@ parameters are accepted in the subscribe request:
 | channel_id *Integer* | No | Only trigger for following `channel_id` |
 | thread_id *Integer* | No | Only trigger for following `thread_id` |
 | conversation_id *Integer* | No | Only trigger for following `conversation_id` |
+
+It just needs to be done once, the `target_url` will receive the
+events until it receives an `unsubscribe` command.
 
 On a successful creation, Twist will return a `201 Created` and a `403
 Forbidden` will be thrown if the access token scope does not have the
