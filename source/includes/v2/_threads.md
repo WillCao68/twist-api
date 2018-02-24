@@ -49,7 +49,7 @@ A thread is a discussion.
 | workspace_id *Integer* | The id of the workspace |
 | attachments *List of [Attachments](#attachments)* | Files attached to the comment |
 | actions *List of [Action buttons](#action-buttons)* | Action buttons attached to the comment |
-| recipients *List of Integers or String | The users that were initially attached to the the thread, or `EVERYONE` |
+| recipients *List of Integers or String* | The users that were initially attached to the the thread, or `EVERYONE` |
 | participants *List of Integers* | The users that were at some point attached to the thread or one of its comments |
 | groups *List of Integers* | The groups that will be notified |
 | reactions *Object* | Reactions to the thread, where keys are the reactions and values the users that had that reaction |
