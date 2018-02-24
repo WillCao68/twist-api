@@ -45,18 +45,18 @@ link to another page.
 
 | Name | Description |
 | ---- | --- |
-| action *String* | The action of the button. It can be **open_url**, **prefill_message**, or **send_reply** |
-| type *String* | The type of the button, for now just `action` is available |
-| button_text *String* | The text for the action button |
-| message *String* | Message to be added when using __prefill_*__  and __send_*__actions |
-| url *String* | URL to redirect. It's used for **open_url** types |
+| action *String* | The action of the button. It can be **open_url**, **prefill_message**, or **send_reply**. |
+| type *String* | The type of the button, for now just `action` is available. |
+| button_text *String* | The text for the action button. |
+| message *String* | Message to be added when using __prefill_*__  and __send_*__actions. |
+| url *String* | URL to redirect. It's used for **open_url** types. |
 
 
 ## Get action buttons
 
 Action buttons cannot be retrieved alone, they are part of other
 objects like [threads](#threads), [comments](#comments),
-and [messages](#messages). To retrieve them use the get methods from
+and [messages](#messages). To retrieve them, use the get methods from
 the object in which they were inserted.
 
 
@@ -71,8 +71,8 @@ methods from the object in which they will be inserted into.
 
 | Name | Required | Description |
 | ---- | --- | --- |
-| action *String* | Yes | The action of the button. It can be **open_url**, **prefill_message**, or **send_reply** |
-| type *String* | Yes | The type of the button, for now just `action` is available |
-| button_text *String* | Yes | The text for the action button |
-| message *String* | No | Message to be added when using __prefill_*__  and __send_*__ actions |
-| url *String* | No | URL to redirect in case the action used requires it |
+| action *String* | Yes | The action of the button. It can be **open_url**, **prefill_message**, or **send_reply**. |
+| type *String* | Yes | The type of the button, for now just `action` is available. |
+| button_text *String* | Yes | The text for the action button. |
+| message *String* | No | Message to be added when using __prefill_*__  and __send_*__ actions. |
+| url *String* | No | URL to redirect in case the action used requires it. |

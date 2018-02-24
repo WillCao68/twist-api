@@ -35,22 +35,22 @@ A conversation is a direct message exchange between one or more users.
 
 | Name | Description |
 | --- | --- |
-| id *Integer* | The id of the conversation |
-| name *String* | The name of the other user or users or a title |
-| title *String* | The title of the conversation, or `null` if a private conversation |
-| is_private *Integer* | Whether the conversation is private, ie. between 2 users only |
-| creator *Integer* | The user that created the thread |
-| workspace_id *Integer* | The id of the workspace |
-| user_ids *List of Integers* | The users that are participating in the conversation |
-| message_count *Integer* | The number of messages |
-| last_obj_index *Integer* | The last message's index |
-| snippet *String* | A part of the last comment |
-| snippet_creator *Integer* | The user of the last comment |
-| snippet_creators *List of Integers* | The users of the last comments |
-| last_active_ts *Integer* | The Unix time when the conversation was last active |
-| muted_until *Integer* | The Unix time until when the conversation is muted |
-| archived *Integer* | Whether the conversation is archived |
-| created_ts *Integer* | The Unix time when the conversation was created |
+| id *Integer* | The id of the conversation. |
+| name *String* | The name of the other user or users or a title. |
+| title *String* | The title of the conversation, or `null` if a private conversation. |
+| is_private *Integer* | Whether the conversation is private, ie. between 2 users only. |
+| creator *Integer* | The user that created the thread. |
+| workspace_id *Integer* | The id of the workspace. |
+| user_ids *List of Integers* | The users that are participating in the conversation. |
+| message_count *Integer* | The number of messages. |
+| last_obj_index *Integer* | The last message's index. |
+| snippet *String* | A part of the last comment. |
+| snippet_creator *Integer* | The user of the last comment. |
+| snippet_creators *List of Integers* | The users of the last comments. |
+| last_active_ts *Integer* | The Unix time when the conversation was last active. |
+| muted_until *Integer* | The Unix time until when the conversation is muted. |
+| archived *Integer* | Whether the conversation is archived. |
+| created_ts *Integer* | The Unix time when the conversation was created. |
 
 
 ## Get conversation
@@ -71,7 +71,7 @@ Gets a single conversation object.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the conversation |
+| id *Integer* | Yes | The id of the conversation. |
 
 
 ### Return value
@@ -98,8 +98,8 @@ Gets or creates a conversation with one or more users.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| workspace_id *Integer* | Yes | The id of the workspace |
-| user_ids *List of Integers* | Yes | The users that will participate in the conversation |
+| workspace_id *Integer* | Yes | The id of the workspace. |
+| user_ids *List of Integers* | Yes | The users that will participate in the conversation. |
 
 ### Return value
 
@@ -124,12 +124,12 @@ Gets all conversations of a user in a workspace.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| workspace_id *Integer* | Yes | The id of the workspace |
-| limit *Integer* | No | Limits the number of conversations |
-| newer_than_ts *Integer* | No | Limits conversations to those newer whan the specified Unix time |
-| older_than_ts *Integer* | No | Limits conversations to those older whan the specified Unix time |
-| order_by *String* | No | The order of the comments returned one of `DESC` or `ASC` |
-| archived *Boolean* | No | If enabled, only archived converations are returned. By default it's off. |
+| workspace_id *Integer* | Yes | The id of the workspace. |
+| limit *Integer* | No | Limits the number of conversations. |
+| newer_than_ts *Integer* | No | Limits conversations to those newer when the specified Unix time. |
+| older_than_ts *Integer* | No | Limits conversations to those older when the specified Unix time. |
+| order_by *String* | No | The order of the comments returned one of `DESC` or `ASC`. |
+| archived *Boolean* | No | If enabled, only archived conversations are returned. By default it's disabled. |
 
 ### Return value
 
@@ -155,9 +155,9 @@ Updates an existing conversation.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the conversation |
-| title *String* | Yes | The title of the conversation |
-| archived *Boolean* | No | If enabled, the conversation is marked as archived |
+| id *Integer* | Yes | The id of the conversation. |
+| title *String* | Yes | The title of the conversation. |
+| archived *Boolean* | No | If enabled, the conversation is marked as archived. |
 
 ### Return value
 
@@ -183,8 +183,8 @@ Adds a person to a conversation.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the conversation |
-| user_id *Integer* | Yes | The user's id |
+| id *Integer* | Yes | The id of the conversation. |
+| user_id *Integer* | Yes | The user's id. |
 
 > Return value:
 
@@ -214,8 +214,8 @@ Adds several persons to a conversation.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the conversation |
-| user_ids *List of Integers* | Yes | The ids of the users |
+| id *Integer* | Yes | The id of the conversation. |
+| user_ids *List of Integers* | Yes | The ids of the users. |
 
 > Return value:
 
@@ -245,8 +245,8 @@ Removes a person from a conversation.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the conversation |
-| user_id *Integer* | Yes | The user's id |
+| id *Integer* | Yes | The id of the conversation. |
+| user_id *Integer* | Yes | The user's id. |
 
 > Return value:
 
@@ -276,8 +276,8 @@ Removes several persons from a conversation.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the conversation |
-| user_ids *List of Integers* | Yes | The ids of the users |
+| id *Integer* | Yes | The id of the conversation. |
+| user_ids *List of Integers* | Yes | The ids of the users. |
 
 > Return value:
 
@@ -306,7 +306,7 @@ Archives a conversation.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the conversation |
+| id *Integer* | Yes | The id of the conversation. |
 
 > Return value:
 
@@ -335,7 +335,7 @@ Unarchives a conversation.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the conversation |
+| id *Integer* | Yes | The id of the conversation. |
 
 > Return value:
 
@@ -364,7 +364,7 @@ Gets unread conversations.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| workspace_id *Integer* | Yes | The id of the workspace |
+| workspace_id *Integer* | Yes | The id of the workspace. |
 
 > Return value:
 
@@ -402,9 +402,9 @@ Marks a conversation as read.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| conversation_id *Integer* | Yes | The id of the conversation |
-| obj_index *Integer* | Yes, this or `message_id` | The index of the message, which will become the last read message in the conversation |
-| message_id *Integer* | Yes, this or `obj_index` | The id of the message, which will become the last read message in the conversation |
+| conversation_id *Integer* | Yes | The id of the conversation. |
+| obj_index *Integer* | Yes, this or `message_id` | The index of the message, which will become the last read message in the conversation. |
+| message_id *Integer* | Yes, this or `obj_index` | The id of the message, which will become the last read message in the conversation. |
 
 > Return value:
 
@@ -434,9 +434,9 @@ Marks a conversation as unread.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| conversation_id *Integer* | Yes | The id of the conversation |
-| obj_index *Integer* | Yes, this or `message_id` | The index of the message, which will become the last unread message in the conversation |
-| message_id *Integer* | Yes, this or `obj_index` | The id of the message, which will become the last unread message in the conversation |
+| conversation_id *Integer* | Yes | The id of the conversation. |
+| obj_index *Integer* | Yes, this or `message_id` | The index of the message, which will become the last unread message in the conversation. |
+| message_id *Integer* | Yes, this or `obj_index` | The id of the message, which will become the last unread message in the conversation. |
 
 > Return value:
 
@@ -465,8 +465,8 @@ Mutes a conversation for a number of minutes.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the conversation |
-| minutes *Integer* | Yes | The number of minutes to mute the conversation |
+| id *Integer* | Yes | The id of the conversation. |
+| minutes *Integer* | Yes | The number of minutes to mute the conversation. |
 
 ### Return value
 
@@ -491,7 +491,7 @@ Unmutes a conversation.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the conversation |
+| id *Integer* | Yes | The id of the conversation. |
 
 ### Return value
 

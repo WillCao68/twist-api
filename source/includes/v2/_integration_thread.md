@@ -35,7 +35,7 @@ one provided by OAuth](#outgoing-webhook). 😉
 Outgoing webhooks send data when an activity happens (e.g. a new
 comment is added to the thread or an uninstall happens).
 
-Its sends an HTTPS POST request to your specified URL and your webhook
+It sends an HTTPS POST request to your specified URL and your webhook
 handler can respond to add data back to Twist. The payload depends on
 the integration type.
 
@@ -50,19 +50,19 @@ parameters.
 
 | Name | Optional | Description |
 | --- | --- | --- |
-| event_type *String* | No | Can be `message`, `thread` or `comment` — depending where the slash command was used |
-| workspace_id *Integer* | No | The workspace the object was posted in |
-| content *String* | No | The content of object, e.g. thread or message content |
-| user_id *Integer* | No | The id of the poster |
-| user_name *String* | No | The name of the poster |
-| conversation_id *Integer* | Yes | Will be set if `event_type` is `message` |
-| conversation_title *String* | Yes | Will be set if `event_type` is `message` |
-| thread_id *Integer* | Yes | Will be set if `event_type` is `thread` or `comment` |
-| thread_title *String* | Yes | Will be set if `event_type` is `thread` or `comment` |
-| channel_id *Integer* | Yes | Will be set if `event_type` is `thread` or `comment` |
-| comment_id *Integer* | Yes | Will be set if `event_type` is `comment` |
-| command *String* | Yes | If the integration type is a slash command we'll include the command, e.g. `/hello` |
-| command_argument *String* | Yes | If the integration type is a slash command we'll include the command argument, e.g. for `/hello world` it would be `world` |
+| event_type *String* | No | Can be `message`, `thread` or `comment` — depending where the slash command was used. |
+| workspace_id *Integer* | No | The workspace the object was posted in. |
+| content *String* | No | The content of object, e.g. thread or message content. |
+| user_id *Integer* | No | The id of the poster. |
+| user_name *String* | No | The name of the poster. |
+| conversation_id *Integer* | Yes | Will be set if `event_type` is `message`. |
+| conversation_title *String* | Yes | Will be set if `event_type` is `message`. |
+| thread_id *Integer* | Yes | Will be set if `event_type` is `thread` or `comment`. |
+| thread_title *String* | Yes | Will be set if `event_type` is `thread` or `comment`. |
+| channel_id *Integer* | Yes | Will be set if `event_type` is `thread` or `comment`. |
+| comment_id *Integer* | Yes | Will be set if `event_type` is `comment`. |
+| command *String* | Yes | If the integration type is a slash command we'll include the command, e.g. `/hello`. |
+| command_argument *String* | Yes | If the integration type is a slash command we'll include the command argument, e.g. for `/hello world` it would be `world`. |
 
 
 ### POST Parameters when an uninstall happens
@@ -72,11 +72,11 @@ parameters. You can use this to clean up any state you may have on your end.
 
 | Name | Optional | Description |
 | --- | --- | --- |
-| event_type *String* | No | Will be `uninstall` |
-| install_id *Integer* | No | The unique id of the installation |
-| workspace_id *Integer* | No | The workspace the installation belonged to |
-| user_id *Integer* | No | The id of the uninstaller |
-| user_name *String* | No | The full name of the uninstaller |
+| event_type *String* | No | Will be `uninstall`. |
+| install_id *Integer* | No | The unique id of the installation. |
+| workspace_id *Integer* | No | The workspace the installation belonged to. |
+| user_id *Integer* | No | The id of the uninstaller. |
+| user_name *String* | No | The full name of the uninstaller. |
 
 
 ### POST Parameters when a ping happens
@@ -86,9 +86,9 @@ with a JSON `{"content": "pong"}`.
 
 | Name | Optional | Description |
 | --- | --- | --- |
-| event_type *String* | No | Will be `ping` |
-| user_id *Integer* | No | The id of the pinger |
-| user_name *String* | No | The full name of the pinger |
+| event_type *String* | No | Will be `ping`. |
+| user_id *Integer* | No | The id of the pinger. |
+| user_name *String* | No | The full name of the pinger. |
 
 
 ### Adding content back
@@ -119,10 +119,10 @@ You'll get following GET parameters served to your configure URL:
 
 | Name | Required | Description |
 | --- | --- | --- |
-| install_id *Integer* | Yes | The unique id of the installation |
-| post_data_url *String* | Yes | A unique URL you can use to post content to Twist |
-| user_id *Integer* | Yes | The id of the installer |
-| user_name *String* | Yes | The full name of the installer |
+| install_id *Integer* | Yes | The unique id of the installation. |
+| post_data_url *String* | Yes | A unique URL you can use to post content to Twist. |
+| user_id *Integer* | Yes | The id of the installer. |
+| user_name *String* | Yes | The full name of the installer. |
 
 To get back to the installation page, please use
 `https://twistapp.com/integrations/installation/{install_id}`.
@@ -144,4 +144,4 @@ encoded in JSON.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| content *String* | Yes | The content of the new object |
+| content *String* | Yes | The content of the new object. |

@@ -13,9 +13,9 @@ a unique Client ID and Client Secret which are needed for
 the [OAuth2](https://en.wikipedia.org/wiki/OAuth) flow.
 
 The OAuth integration page also has a test token for those who just
-want to try the API out. The test token provided may be used in any
+want to try the API out whilst in development. The test token provided may be used in any
 requests requiring authorization. The test token will use the current
-logged user account to authorize the utilization of the resources.
+authenticated user account to authorize the utilization of the resources.
 
 When building an integration, it's necessary to ask the user's
 permission to use the resources and for that you have to do the
@@ -43,8 +43,8 @@ And here are some common errors that you may encounter (you will find more info 
 | Error | Description |
 | --- | --- |
 | ACCESS_DENIED  | When the user denies your authorization request, Twist will redirect the user to the configured redirect URI with the error parameter: `http://example.com?error=ACCESS_DENIED`. |
-| FORBIDDEN  | A permissions issue happened |
-| BAD_REQUEST  | The request was badly formatted, for example, if you supply an invalid `scope`  |
+| FORBIDDEN  | A permissions issue happened. |
+| BAD_REQUEST  | The request was badly formatted, for example, if you supply an invalid `scope`.  |
 
 
 ### Step 2: The redirection to your integration site
@@ -78,30 +78,30 @@ These are the scope permissions that the user grant your integration:
 
 | Name | Description |
 | --- | --- |
-| user:write | Access and update user's personal settings |
-| user:read | Access user's personal settings |
-| workspaces:write | Access and update teams the user is part of |
-| workspaces:read | Access teams the user is part of |
-| channels:remove | Access, update, and delete channels |
-| channels:write | Access and update channels |
-| channels:read | Access channels |
-| threads:remove | Access, update, and delete threads |
-| threads:write | Access and update threads |
-| threads:read | Access threads |
-| comments:remove | Access, update, and delete comments |
-| comments:write | Access and update comments |
-| comments:read | Access comments |
-| groups:remove | Access, update, and delete groups |
-| groups:write | Access and update groups |
-| groups:read | Access groups |
-| messages:remove | Access, update, and delete messages |
-| messages:write | Access and update messages |
-| messages:read | Access messages |
-| reactions:remove | Access, update, and delete reactions |
-| reactions:write | Access and update reactions |
-| reactions:read | Access reactions |
-| search:read | Search |
-| attachments:write | Access and update attachments |
-| attachments:read | Access attachments |
-| notifications:write | Read and update user's notifications settings |
-| notifications:read | Read user's notifications settings |
+| user:write | Access and update user's personal settings. |
+| user:read | Access user's personal settings. |
+| workspaces:write | Access and update teams the user is part of. |
+| workspaces:read | Access teams the user is part of. |
+| channels:remove | Access, update, and delete channels. |
+| channels:write | Access and update channels. |
+| channels:read | Access channels. |
+| threads:remove | Access, update, and delete threads. |
+| threads:write | Access and update threads. |
+| threads:read | Access threads. |
+| comments:remove | Access, update, and delete comments. |
+| comments:write | Access and update comments. |
+| comments:read | Access comments. |
+| groups:remove | Access, update, and delete groups. |
+| groups:write | Access and update groups. |
+| groups:read | Access groups. |
+| messages:remove | Access, update, and delete messages. |
+| messages:write | Access and update messages. |
+| messages:read | Access messages. |
+| reactions:remove | Access, update, and delete reactions. |
+| reactions:write | Access and update reactions. |
+| reactions:read | Access reactions. |
+| search:read | Search. |
+| attachments:write | Access and update attachments. |
+| attachments:read | Access attachments. |
+| notifications:write | Read and update user's notifications settings. |
+| notifications:read | Read user's notifications settings. |

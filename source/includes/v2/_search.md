@@ -61,30 +61,30 @@ Searches for a string.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| query *String* | Yes | The full text query to search for |
-| limit *Integer* | No | Limits the number of conversations |
-| cursor\_mark *String* | No | Token for pagination |
+| query *String* | Yes | The full text query to search for. |
+| limit *Integer* | No | Limits the number of conversations. |
+| cursor\_mark *String* | No | Token for pagination. |
 
 ### Return object details
 
 | Name | Description |
 | --- | --- |
-| hits *Integer* | The number of results found |
-| has\_more *Boolean* | Whether there are more results that were not returned |
-| next\_cursor\_mark *String* | The cursor mark to use in order to get more results |
-| items *List of Objects* | The actual result items, threads or conversations found |
-| obj\_type *String* | The type of the item, a thread or a conversation |
-| title *String* | The title of the item |
-| snippet *String* | Part of the text that matched the search query |
-| details\_link *String* | A URL that can be used to get more details on the item |
-| id *Integer* | The id of the comment or message |
-| thread\_id *Integer* | The id of the thread that the comment is part of |
-| conversation\_id *Integer* | The id of the conversation the message is part of |
-| last\_posted\_ts *Integer* | The timestamp of the last post in the discussion |
-| last\_author *Integer* | The id of the last user that wrote in that discussion |
-| participants *List of Integers* | The user ids that participate in that comment or message |
-| user\_ids *List of Integers* | The user ids that have joined that conversation |
-| archived *Boolean* | Whether conversation or thread's channel is archived |
+| hits *Integer* | The number of results found. |
+| has\_more *Boolean* | Whether there are more results that were not returned. |
+| next\_cursor\_mark *String* | The cursor mark to use in order to get more results. |
+| items *List of Objects* | The actual result items, threads or conversations found. |
+| obj\_type *String* | The type of the item, a thread or a conversation. |
+| title *String* | The title of the item. |
+| snippet *String* | Part of the text that matched the search query. |
+| details\_link *String* | A URL that can be used to get more details on the item. |
+| id *Integer* | The id of the comment or message. |
+| thread\_id *Integer* | The id of the thread that the comment is part of. |
+| conversation\_id *Integer* | The id of the conversation the message is part of. |
+| last\_posted\_ts *Integer* | The timestamp of the last post in the discussion. |
+| last\_author *Integer* | The id of the last user that wrote in that discussion. |
+| participants *List of Integers* | The user ids that participate in that comment or message. |
+| user\_ids *List of Integers* | The user ids that have joined that conversation. |
+| archived *Boolean* | Whether conversation or thread's channel is archived. |
 
 
 ## Get more details about comments

@@ -18,11 +18,11 @@ A group is a number of users grouped together under some name, a team.
 
 | Name | Description |
 | --- | --- |
-| id *Integer* | The id of the group |
-| name *String* | The name of the group |
-| description *String* | The description of the group |
-| user_ids *List of Integers* | The users that are part of the group |
-| workspace_id *Integer* | The id of the workspace |
+| id *Integer* | The id of the group. |
+| name *String* | The name of the group. |
+| description *String* | The description of the group. |
+| user_ids *List of Integers* | The users that are part of the group. |
+| workspace_id *Integer* | The id of the workspace. |
 
 
 ## Get group
@@ -43,7 +43,7 @@ Gets a single group object.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the group |
+| id *Integer* | Yes | The id of the group. |
 
 ### Return value
 
@@ -68,7 +68,7 @@ Gets all groups in a workspace.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| workspace_id *Integer* | Yes | The id of the workspace |
+| workspace_id *Integer* | Yes | The id of the workspace. |
 
 
 ### Return value
@@ -95,9 +95,9 @@ Adds a new group to a workspace.
 ### Parameters
 | Name | Required | Description |
 | --- | --- | --- |
-| workspace_id *Integer* | Yes | The id of the workspace |
-| name *String* | Yes | The name of the new group |
-| user_ids *List of Integers* | No | The users that will comprise the group |
+| workspace_id *Integer* | Yes | The id of the workspace. |
+| name *String* | Yes | The name of the new group. |
+| user_ids *List of Integers* | No | The users that will comprise the group. |
 
 ### Return value
 
@@ -123,8 +123,8 @@ Updates an existing group.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the group |
-| name *String* | Yes | The name of the group |
+| id *Integer* | Yes | The id of the group. |
+| name *String* | Yes | The name of the group. |
 
 ### Return value
 
@@ -157,7 +157,7 @@ Removes a group.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the group |
+| id *Integer* | Yes | The id of the group. |
 
 
 ## Add user
@@ -187,8 +187,8 @@ Adds a person to a group.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the group |
-| user_id *Integer* | Yes | The user's id |
+| id *Integer* | Yes | The id of the group. |
+| user_id *Integer* | Yes | The user's id. |
 
 
 ## Add users
@@ -218,8 +218,8 @@ Adds several persons to a group.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the group |
-| user_ids *List of Integers* | Yes | The ids of the users |
+| id *Integer* | Yes | The id of the group. |
+| user_ids *List of Integers* | Yes | The ids of the users. |
 
 
 ## Remove user
@@ -249,8 +249,8 @@ Removes a person from a group.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the group |
-| user_id *Integer* | Yes | The user's id |
+| id *Integer* | Yes | The id of the group. |
+| user_id *Integer* | Yes | The user's id. |
 
 
 ## Remove users
@@ -280,5 +280,5 @@ Removes several persons from a group.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the group |
-| user_ids *List of Integers* | Yes | The ids of the users |
+| id *Integer* | Yes | The id of the group. |
+| user_ids *List of Integers* | Yes | The ids of the users. |

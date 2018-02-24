@@ -34,29 +34,29 @@ A user represents a real person who collaborates with other users.
 
 | Name | Description |
 | --- | --- |
-| id *Integer* | The id of the user |
-| token *String* | The user's API token |
-| email *String* | The user's email |
-| name *String* | The user's full name |
-| short_name *String* | The user's short name |
-| avatar_id *String* | The user's avatar id |
-| default_workspace *Integer* | The user's default workspace |
-| profession *String* | The user's profession |
-| contact_info *String* | The user's contact info |
-| timezone *String* | The user's timezone |
-| snooze_until *Integer* | Snooze notifications for the specified number of seconds |
-| snooze_dnd_start *String* | Start time of do-not-disturb snooze for notifications |
-| snooze_dnd_stop *String* | Stop time of do-not-disturb snooze for notifications |
-| is_snoozed *Boolean* | Whether notifications are snoozed |
-| away_mode *Object* | No | Away mode sets the user as away until some future date |
-| away_mode\#type *String* | The reason of being in away mode may be `parental`, `vacation`, `sickleave`, or `other` |
-| away_mode\#date_from *String* | The start date of the away mode in a `%Y-%m-%d` format. The `date_from` parameter is inclusive. *optional* |
-| away_mode\#date_to *String* | The end date of the away mode in a `%Y-%m-%d` format. The `date_to` parameter is exclusive, which means the user will start receiving notifications on this date |
-| off_days *List of integers* | Sets the user's off days (where they will get no notifications). It should be an array of integers representing ISO weekdays, e.g. 1 is Monday and 7 is Sunday. E.g. `[6, 7]` |
-| setup_pending *Integer/Boolean* | Whether setup is pending |
-| is_bot *Boolean* | Whether user is a bot |
-| comet_server *String* | The comet server |
-| comet_channel *String* | The comet channel |
+| id *Integer* | The id of the user. |
+| token *String* | The user's API token. |
+| email *String* | The user's email. |
+| name *String* | The user's full name. |
+| short_name *String* | The user's short name. |
+| avatar_id *String* | The user's avatar id. |
+| default_workspace *Integer* | The user's default workspace. |
+| profession *String* | The user's profession. |
+| contact_info *String* | The user's contact info. |
+| timezone *String* | The user's timezone. |
+| snooze_until *Integer* | Snooze notifications for the specified number of seconds. |
+| snooze_dnd_start *String* | Start time of do-not-disturb snooze for notifications. |
+| snooze_dnd_stop *String* | Stop time of do-not-disturb snooze for notifications. |
+| is_snoozed *Boolean* | Whether notifications are snoozed. |
+| away_mode *Object* | No | Away mode sets the user as away until some future date. |
+| away_mode\#type *String* | The reason of being in away mode may be `parental`, `vacation`, `sickleave`, or `other`. |
+| away_mode\#date_from *String* | The start date of the away mode in a `%Y-%m-%d` format. The `date_from` parameter is inclusive. *optional*. |
+| away_mode\#date_to *String* | The end date of the away mode in a `%Y-%m-%d` format. The `date_to` parameter is exclusive, which means the user will start receiving notifications on this date. |
+| off_days *List of integers* | Sets the user's off days (where they will get no notifications). It should be an array of integers representing ISO weekdays, e.g. 1 is Monday and 7 is Sunday. E.g. `[6, 7]`. |
+| setup_pending *Integer/Boolean* | Whether setup is pending. |
+| is_bot *Boolean* | Whether user is a bot. |
+| comet_server *String* | The comet server. |
+| comet_channel *String* | The comet channel. |
 
 
 ## Get one
@@ -80,7 +80,7 @@ the information for the current user.
 ### Parameters
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | No | The id of the user |
+| id *Integer* | No | The id of the user. |
 
 ### Return value
 
@@ -105,9 +105,9 @@ Logs in existing user.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| email *String* | Yes | The user's email |
-| password *String* | Yes | The user's password |
-| set_session_cookie *Boolean* | No | By default, a session cookie is set for the user |
+| email *String* | Yes | The user's email. |
+| password *String* | Yes | The user's password. |
+| set_session_cookie *Boolean* | No | By default, a session cookie is set for the user. |
 
 ### Return value
 
@@ -153,9 +153,9 @@ Register a new user.
 ### Parameters
 | Name | Required | Description |
 | --- | --- | --- |
-| name *String* | Yes | The user's full name |
-| email *String* | Yes | The user's email |
-| password *String* | Yes | The user's password |
+| name *String* | Yes | The user's full name. |
+| email *String* | Yes | The user's email. |
+| password *String* | Yes | The user's password. |
 
 ### Return value
 
@@ -180,20 +180,20 @@ Updates user's details.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| name *String* | No | The user's full name |
-| email *String* | No | The user's email |
-| password *String* | No | The user's password |
-| default_workspace *Integer* | No | The user's default workspace |
-| profession *String* | No | The user's profession |
-| contact_info *String* | No | The user's contact info |
-| timezone *String* | No | The user's timezone |
-| snooze_until *Integer* | No | Snooze notifications for the specified number of seconds |
-| snooze_dnd_start *String* | No | Start time of do-not-disturb snooze for notifications |
-| snooze_dnd_stop *String* | No | Stop time of do-not-disturb snooze for notifications |
-| away_mode *Object* | No | Away mode sets the user as away until some future date |
-| away_mode\#type *String* | No | The reason of being in away mode may be `parental`, `vacation`, `sickleave`, or `other` |
+| name *String* | No | The user's full name. |
+| email *String* | No | The user's email. |
+| password *String* | No | The user's password. |
+| default_workspace *Integer* | No | The user's default workspace. |
+| profession *String* | No | The user's profession. |
+| contact_info *String* | No | The user's contact info. |
+| timezone *String* | No | The user's timezone. |
+| snooze_until *Integer* | No | Snooze notifications for the specified number of seconds. |
+| snooze_dnd_start *String* | No | Start time of do-not-disturb snooze for notifications. |
+| snooze_dnd_stop *String* | No | Stop time of do-not-disturb snooze for notifications. |
+| away_mode *Object* | No | Away mode sets the user as away until some future date. |
+| away_mode\#type *String* | No | The reason of being in away mode may be `parental`, `vacation`, `sickleave`, or `other`. |
 | away_mode\#date_from *String* | No | The start date of the away mode in a `%Y-%m-%d` format. The `date_from` parameter is inclusive. *optional* |
-| away_mode\#date_to *String* | No | The end date of the away mode in a `%Y-%m-%d` format. The `date_to` parameter is exclusive, which means the user will start receiving notifications on this date |
+| away_mode\#date_to *String* | No | The end date of the away mode in a `%Y-%m-%d` format. The `date_to` parameter is exclusive, which means the user will start receiving notifications on this date. |
 | off_days *List of integers* | No | Sets the user's off days (where they will get no notifications). It should be an array of integers representing ISO weekdays, e.g. 1 is Monday and 7 is Sunday. E.g. `[6, 7]` |
 
 ### Return value
@@ -219,7 +219,7 @@ Updates user's password.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| new_password *String* | Yes | The user's new password |
+| new_password *String* | Yes | The user's new password. |
 
 ### Return value
 
@@ -253,7 +253,7 @@ Updates user's avatar. It currently supports the following formats:
 
 | Name | Required | Description |
 | --- | --- | --- |
-| image *String* | Yes | avatar image uploaded as `multipart/form-data` |
+| image *String* | Yes | Avatar image uploaded as `multipart/form-data`. |
 
 ### Return value
 
@@ -327,8 +327,8 @@ Marks user as active on workspace.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| workspace_id *Integer* | Yes | The id of the workspace |
-| platform *String* | Yes | The platform can be one of `mobile`, `desktop` or `api` |
+| workspace_id *Integer* | Yes | The id of the workspace. |
+| platform *String* | Yes | The platform can be one of `mobile`, `desktop` or `api`. |
 
 
 ## Reset presence
@@ -357,7 +357,7 @@ Marks user as inactive on workspace.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| workspace_id *Integer* | Yes | The id of the workspace |
+| workspace_id *Integer* | Yes | The id of the workspace. |
 
 
 ## Reset password
@@ -385,7 +385,7 @@ Sends an email to reset the user's password.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| email *String* | Yes | The user's email |
+| email *String* | Yes | The user's email. |
 
 
 ## Set password based on reset code
@@ -406,8 +406,8 @@ Sets the user password based on a reset code.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| reset_code *String* | Yes | The reset code sent via email |
-| new_password *String* | Yes | The user's new password |
+| reset_code *String* | Yes | The reset code sent via email. |
+| new_password *String* | Yes | The user's new password. |
 
 ### Return value
 

@@ -36,6 +36,6 @@ you and the HTTP connection will be closed.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| requests *List of Objects* | Yes | The requests to send |
-| requests["method"] *String* | Yes | The HTTP method like `GET` or `POST` |
-| requests["url"] *String* | Yes | The completed URL with any arguments needed |
+| requests *List of Objects* | Yes | The requests to send. |
+| requests["method"] *String* | Yes | The HTTP method like `GET` or `POST`. |
+| requests["url"] *String* | Yes | The completed URL with any arguments needed. |

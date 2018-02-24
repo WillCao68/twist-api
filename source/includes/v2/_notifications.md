@@ -26,15 +26,15 @@ The user's last notifications.
 
 | Name | Description |
 | ---  | ----------- |
-| id *Integer* | The id of the notification |
-| type_id *Integer* | The notification type: `1` when added to a comment, `2` when added to a thread, `3` when added to a workspace, `4` when removed from a worksapce, `5` when added to a channel, and `6` when removed from a channel. |
-| workspace_id *Integer* | The id of the workspace |
-| channel_id *Integer* | The id of the channel |
-| thread_id *Integer* | The id of the thread |
-| comment_id *Integer* | The id of the comment |
-| by_user_id *Integer* | The id of the user that triggered the notification (notified the receiving user) |
-| posted_ts *Integer* | The Unix time when the notification took place |
-| last_read *Integer* | The id of the last read notification |
+| id *Integer* | The id of the notification. |
+| type_id *Integer* | The notification type: `1` when added to a comment, `2` when added to a thread, `3` when added to a workspace, `4` when removed from a workspace, `5` when added to a channel, and `6` when removed from a channel. |
+| workspace_id *Integer* | The id of the workspace. |
+| channel_id *Integer* | The id of the channel. |
+| thread_id *Integer* | The id of the thread. |
+| comment_id *Integer* | The id of the comment. |
+| by_user_id *Integer* | The id of the user that triggered the notification (notified the receiving user). |
+| posted_ts *Integer* | The Unix time when the notification took place. |
+| last_read *Integer* | The id of the last read notification. |
 
 
 ## Get last notifications
@@ -54,7 +54,7 @@ Gets the last notifications of the user.
 
 | Name | Required | Description |
 | ---- | -------- | ----------- |
-| limit *Integer* | No | Limits the number of threads returned |
+| limit *Integer* | No | Limits the number of threads returned. |
 
 
 ### Return value
@@ -80,7 +80,7 @@ Marks everything after specified notification as read.
 
 | Name | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| notification_id *Integer* | Yes | The last read notification id |
+| notification_id *Integer* | Yes | The last read notification id. |
 
 > Return value:
 

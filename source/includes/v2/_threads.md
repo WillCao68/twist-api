@@ -40,29 +40,29 @@ A thread is a discussion.
 
 | Name | Description |
 | ---- | --- |
-| id *Integer* | The id of the thread |
-| title *String* | The title of the thread |
-| content *String* | The content of the thread |
-| is_starred *Integer* | Whether the thread is starred |
-| creator *Integer* | The user that created the thread |
-| channel_id *Integer* | The id of the channel |
-| workspace_id *Integer* | The id of the workspace |
-| attachments *List of [Attachments](#attachments)* | Files attached to the comment |
-| actions *List of [Action buttons](#action-buttons)* | Action buttons attached to the comment |
-| recipients *List of Integers or String* | The users that were initially attached to the the thread, or `EVERYONE` |
-| participants *List of Integers* | The users that were at some point attached to the thread or one of its comments |
-| groups *List of Integers* | The groups that will be notified |
-| reactions *Object* | Reactions to the thread, where keys are the reactions and values the users that had that reaction |
-| comment_count *Integer* | The number of comments |
-| last_obj_index *Integer* | The last comment's index |
-| snippet *String* | A part of the last comment |
-| snippet_creator *Integer* | The user of the last comment |
-| last_updated *String* | The date and time when the thread was last updated |
-| last_updated_ts *Integer* | The Unix time when the thread was last updated |
-| muted_until *Integer* | The Unix time until when the thread is muted |
-| system_message *String* | A system message |
-| posted_ts *Integer* | The Unix time when the thread was created |
-| last_edited_ts *Integer* | The Unix time when the thread was last edited or `null` if it hasn't |
+| id *Integer* | The id of the thread. |
+| title *String* | The title of the thread. |
+| content *String* | The content of the thread. |
+| is_starred *Integer* | Whether the thread is starred. |
+| creator *Integer* | The user that created the thread. |
+| channel_id *Integer* | The id of the channel. |
+| workspace_id *Integer* | The id of the workspace. |
+| attachments *List of [Attachments](#attachments)* | Files attached to the comment. |
+| actions *List of [Action buttons](#action-buttons)* | Action buttons attached to the comment. |
+| recipients *List of Integers or String* | The users that were initially attached to the the thread, or `EVERYONE`. |
+| participants *List of Integers* | The users that were at some point attached to the thread or one of its comments. |
+| groups *List of Integers* | The groups that will be notified. |
+| reactions *Object* | Reactions to the thread, where keys are the reactions and values the users that had that reaction. |
+| comment_count *Integer* | The number of comments. |
+| last_obj_index *Integer* | The last comment's index. |
+| snippet *String* | A part of the last comment. |
+| snippet_creator *Integer* | The user of the last comment. |
+| last_updated *String* | The date and time when the thread was last updated. |
+| last_updated_ts *Integer* | The Unix time when the thread was last updated. |
+| muted_until *Integer* | The Unix time until when the thread is muted. |
+| system_message *String* | A system message. |
+| posted_ts *Integer* | The Unix time when the thread was created. |
+| last_edited_ts *Integer* | The Unix time when the thread was last edited or `null` if it hasn't. |
 
 
 ## Get thread
@@ -83,7 +83,7 @@ Gets a thread object by id.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the thread |
+| id *Integer* | Yes | The id of the thread. |
 
 ### Return value
 
@@ -108,13 +108,13 @@ Gets all threads in a channel.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| channel_id *Integer* | Yes | The id of the channel |
-| workspace_id *Integer* | No | The id of the workspace |
-| filter_by *String* | No | A filter can be one of `attached_to_me`, `everyone` and `is_starred` |
-| newer_than_ts *Integer* | No | Limits threads to those newer whan the specified Unix time |
-| older_than_ts *Integer* | No | Limits threads to those older whan the specified Unix time |
-| limit *Integer* | No | Limits the number of threads returned |
-| as_ids *Boolean* | No | If enabled, only the ids of the threads are returned |
+| channel_id *Integer* | Yes | The id of the channel. |
+| workspace_id *Integer* | No | The id of the workspace. |
+| filter_by *String* | No | A filter can be one of `attached_to_me`, `everyone` and `is_starred`. |
+| newer_than_ts *Integer* | No | Limits threads to those newer when the specified Unix time. |
+| older_than_ts *Integer* | No | Limits threads to those older when the specified Unix time. |
+| limit *Integer* | No | Limits the number of threads returned. |
+| as_ids *Boolean* | No | If enabled, only the ids of the threads are returned. |
 
 ### Return value
 
@@ -147,15 +147,15 @@ Adds a new thread to a channel.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| channel_id *Integer* | Yes | The id of the channel |
-| title *String* | Yes | The title of the new thread |
-| content *String* | Yes | The content of the new thread |
-| attachments *List of [Attachments](#attachments)* | No | List of attachments to the new thread. It must follow the JSON format returned by [attachment#upload](#upload-an-attachment) |
-| actions *List of [Action Buttons](#action-buttons)* | No | List of action to the new thread. More information about the format of the object available at the [add an action button submenu](#add-an-action-button) |
-| recipients *List of Integers or String* | No | The users that will be attached to the thread, or `EVERYONE` |
-| groups *List of Integers* | No | The groups that will be notified |
-| temp_id *Integer* | No | The temporary id of the thread |
-| send_as_integration *Boolean* | No | Displays the integration as the thread creator |
+| channel_id *Integer* | Yes | The id of the channel. |
+| title *String* | Yes | The title of the new thread. |
+| content *String* | Yes | The content of the new thread. |
+| attachments *List of [Attachments](#attachments)* | No | List of attachments to the new thread. It must follow the JSON format returned by [attachment#upload](#upload-an-attachment). |
+| actions *List of [Action Buttons](#action-buttons)* | No | List of action to the new thread. More information about the format of the object available at the [add an action button submenu](#add-an-action-button). |
+| recipients *List of Integers or String* | No | The users that will be attached to the thread, or `EVERYONE`. |
+| groups *List of Integers* | No | The groups that will be notified. |
+| temp_id *Integer* | No | The temporary id of the thread. |
+| send_as_integration *Boolean* | No | Displays the integration as the thread creator. |
 
 ### Return value
 
@@ -188,11 +188,11 @@ Updates an existing thread.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the thread |
-| title *String* | No | The title of the thread |
-| content *String* | No | The content of the thread |
-| attachments *List of [Attachments](#attachments)* | No | List of attachments to the thread. It must follow the JSON format returned by [attachment#upload](#upload-an-attachment) |
-| actions *List of [Action Buttons](#action-buttons)* | No | List of action to the thread. More information about the format of the object available at the [add an action button submenu](#add-an-action-button) |
+| id *Integer* | Yes | The id of the thread. |
+| title *String* | No | The title of the thread. |
+| content *String* | No | The content of the thread. |
+| attachments *List of [Attachments](#attachments)* | No | List of attachments to the thread. It must follow the JSON format returned by [attachment#upload](#upload-an-attachment). |
+| actions *List of [Action Buttons](#action-buttons)* | No | List of action to the thread. More information about the format of the object available at the [add an action button submenu](#add-an-action-button). |
 
 ### Return value
 
@@ -217,7 +217,7 @@ Removes a thread.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the thread |
+| id *Integer* | Yes | The id of the thread. |
 
 ### Return value
 
@@ -246,7 +246,7 @@ Stars a thread.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the thread |
+| id *Integer* | Yes | The id of the thread. |
 
 > Return value:
 
@@ -275,7 +275,7 @@ Unstars a thread.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the thread |
+| id *Integer* | Yes | The id of the thread. |
 
 > Return value:
 
@@ -305,8 +305,8 @@ Moves thread to a different channel.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the thread |
-| to_channel *Integer* | Yes | The target channel's id |
+| id *Integer* | Yes | The id of the thread. |
+| to_channel *Integer* | Yes | The target channel's id. |
 
 > Return value:
 
@@ -335,7 +335,7 @@ Follows thread.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the thread |
+| id *Integer* | Yes | The id of the thread. |
 
 > Return value:
 
@@ -364,7 +364,7 @@ Unfollows thread.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the thread |
+| id *Integer* | Yes | The id of the thread. |
 
 > Return value:
 
@@ -393,7 +393,7 @@ Gets unread threads in a workspace.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| workspace_id *Integer* | Yes | The id of the workspace |
+| workspace_id *Integer* | Yes | The id of the workspace. |
 
 > Return value:
 
@@ -432,8 +432,8 @@ Marks thread as read.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the thread |
-| obj_index *Integer* | Yes | The index of the last known read message |
+| id *Integer* | Yes | The id of the thread. |
+| obj_index *Integer* | Yes | The index of the last known read message. |
 
 > Return value:
 
@@ -463,8 +463,8 @@ Marks thread as unread.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the thread |
-| obj_index *Integer* | Yes | The index of the last unread message |
+| id *Integer* | Yes | The id of the thread. |
+| obj_index *Integer* | Yes | The index of the last unread message. |
 
 > Return value:
 
@@ -493,8 +493,8 @@ Marks all thread in workspace or channel as read.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| workspace_id *Integer* | Yes, this or `channel_id` | The id of the workspace |
-| channel_id *Integer* | Yes, this or `workspace_id` | The id of the channel |
+| workspace_id *Integer* | Yes, this or `channel_id`. | The id of the workspace. |
+| channel_id *Integer* | Yes, this or `workspace_id`. | The id of the channel. |
 
 > Return value:
 
@@ -523,7 +523,7 @@ Clears unread threads in workspace.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| workspace_id *Integer* | Yes | The id of the workspace |
+| workspace_id *Integer* | Yes | The id of the workspace. |
 
 > Return value:
 
@@ -553,8 +553,8 @@ Mutes a thread for a number of minutes.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the thread |
-| minutes *Integer* | Yes | The number of minutes to mute the thread |
+| id *Integer* | Yes | The id of the thread. |
+| minutes *Integer* | Yes | The number of minutes to mute the thread. |
 
 ### Return value
 
@@ -579,7 +579,7 @@ Unmutes a thread.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the thread |
+| id *Integer* | Yes | The id of the thread. |
 
 ### Return value
 

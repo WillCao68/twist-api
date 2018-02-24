@@ -22,8 +22,8 @@ The reaction object is either `null` or has one or more key-value pairs.
 
 | Name | Description |
 | ---- | ----------- |
-| key *String* | The reaction added by one or more users |
-| value *List of Integers* | The users that added that specific reaction |
+| key *String* | The reaction added by one or more users. |
+| value *List of Integers* | The users that added that specific reaction. |
 
 
 ## Get reactions
@@ -44,9 +44,9 @@ Gets reactions of a thread, comment or conversation message.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| thread_id *Integer* | Yes, this or `comment_id` or `message_id` | The id of the thread |
-| comment_id *Integer* | Yes, this or `thread_id` or `message_id` | The id of the comment |
-| message_id *Integer* | Yes, this or `thread_id` or `comment_id` | The id of the conversation message |
+| thread_id *Integer* | Yes, this or `comment_id` or `message_id`. | The id of the thread. |
+| comment_id *Integer* | Yes, this or `thread_id` or `message_id`. | The id of the comment. |
+| message_id *Integer* | Yes, this or `thread_id` or `comment_id`. | The id of the conversation message. |
 
 ### Return value
 
@@ -72,10 +72,10 @@ Adds a reaction to a thread, comment or conversation message.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| reaction *String* | Yes | The reaction to add |
-| thread_id *Integer* | Yes, this or `comment_id` or `message_id` | The id of the thread |
-| comment_id *Integer* | Yes, this or `thread_id` or `message_id` | The id of the comment |
-| message_id *Integer* | Yes, this or `thread_id` or `comment_id` | The id of the conversation message |
+| reaction *String* | Yes | The reaction to add. |
+| thread_id *Integer* | Yes, this or `comment_id` or `message_id`. | The id of the thread. |
+| comment_id *Integer* | Yes, this or `thread_id` or `message_id`. | The id of the comment. |
+| message_id *Integer* | Yes, this or `thread_id` or `comment_id`. | The id of the conversation message. |
 
 > Return value:
 
@@ -105,10 +105,10 @@ Removes a reaction from thread, comment or conversation message.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| reaction *String* | Yes | The reaction to remove |
-| thread_id *Integer* | Yes, this or `comment_id` or `message_id` | The id of the thread |
-| comment_id *Integer* | Yes, this or `thread_id` or `message_id` | The id of the comment |
-| message_id *Integer* | Yes, this or `thread_id` or `comment_id` | The id of the conversation message |
+| reaction *String* | Yes | The reaction to remove. |
+| thread_id *Integer* | Yes, this or `comment_id` or `message_id`. | The id of the thread. |
+| comment_id *Integer* | Yes, this or `thread_id` or `message_id`. | The id of the comment. |
+| message_id *Integer* | Yes, this or `thread_id` or `comment_id`. | The id of the conversation message. |
 
 > Return value:
 

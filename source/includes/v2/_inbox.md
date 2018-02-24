@@ -32,10 +32,10 @@ curl --get https://api.twistapp.com/api/v2/inbox/get \
 
 | Name | Required | Description |
 | --- | --- | --- |
-| workspace_id *Integer* | Yes | The id of the workspace |
-| limit *Integer* | No | Limits the number of threads returned, by default to `30` |
-| newer_than_ts *Integer* | No | Limits threads to those newer whan the specified Unix time |
-| older_than_ts *Integer* | No | Limits threads to those older whan the specified Unix time |
+| workspace_id *Integer* | Yes | The id of the workspace. |
+| limit *Integer* | No | Limits the number of threads returned, by default to `30`. |
+| newer_than_ts *Integer* | No | Limits threads to those newer when the specified Unix time. |
+| older_than_ts *Integer* | No | Limits threads to those older when the specified Unix time. |
 
 ### Return value
 

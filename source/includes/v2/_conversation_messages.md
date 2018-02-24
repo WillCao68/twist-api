@@ -27,19 +27,19 @@ conversation.
 
 | Name | Description |
 | ---- | --- |
-| id *Integer* | The id of the message |
-| content *String* | The content of the message |
-| creator *Integer* | The user that added the message |
-| conversation_id *Integer* | The id of the conversation |
-| workspace_id *Integer* | The id of the workspace |
-| obj_index *Integer* | The index of the message in regards to all other messages in the conversation |
-| attachments *List of [Attachments](#attachments)* | Files attached to the comment |
-| actions *List of [Action buttons](#action-buttons)* | Action buttons attached to the comment |
-| reactions *Object* | Reactions to the thread, where keys are the reactions and values the users that had that reaction |
-| is_deleted *Integer* | Whether the message is deleted |
-| system_message *String* | A system message |
-| posted_ts *Integer* | The Unix time when the message was created |
-| last_edited_ts *Integer* | The Unix time when the message was last edited or `null` if it hasn't |
+| id *Integer* | The id of the message. |
+| content *String* | The content of the message. |
+| creator *Integer* | The user that added the message. |
+| conversation_id *Integer* | The id of the conversation. |
+| workspace_id *Integer* | The id of the workspace. |
+| obj_index *Integer* | The index of the message in regards to all other messages in the conversation. |
+| attachments *List of [Attachments](#attachments)* | Files attached to the comment. |
+| actions *List of [Action buttons](#action-buttons)* | Action buttons attached to the comment. |
+| reactions *Object* | Reactions to the thread, where keys are the reactions and values the users that had that reaction. |
+| is_deleted *Integer* | Whether the message is deleted. |
+| system_message *String* | A system message. |
+| posted_ts *Integer* | The Unix time when the message was created. |
+| last_edited_ts *Integer* | The Unix time when the message was last edited or `null` if it hasn't. |
 
 
 ## Get message
@@ -60,7 +60,7 @@ Gets a single conversation message.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the conversation message |
+| id *Integer* | Yes | The id of the conversation message. |
 
 ### Return value
 
@@ -85,12 +85,12 @@ Gets messages from a conversation.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| conversation_id *Integer* | Yes | The id of the conversation |
-| limit *Integer* | No | Limits the number of messages returned |
-| from_obj_index *Integer* | No | Limit messages starting at the specified object index |
-| to_obj_index *String* | No | Limit messages ending at the specified object index |
-| order_by *String* | No | The order of the conversations returned one of `DESC` or `ASC` |
-| as_ids *Boolean* | No | If enabled, only the ids of the messages are returned |
+| conversation_id *Integer* | Yes | The id of the conversation. |
+| limit *Integer* | No | Limits the number of messages returned. |
+| from_obj_index *Integer* | No | Limit messages starting at the specified object index. |
+| to_obj_index *String* | No | Limit messages ending at the specified object index. |
+| order_by *String* | No | The order of the conversations returned one of `DESC` or `ASC`. |
+| as_ids *Boolean* | No | If enabled, only the ids of the messages are returned. |
 
 ### Return value
 
@@ -123,10 +123,10 @@ Adds a message to an existing conversation.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| conversation_id *Integer* | Yes | The id of the conversation |
-| content *String* | Yes | The content of the new message |
-| attachments *List of [Attachments](#attachments)* | No | List of attachments to the message. It must follow the JSON format returned by [attachment#upload](#upload-an-attachment) |
-| actions *List of [Action Buttons](#action-buttons)* | No | List of action to the new message. More information about the format of the object available at the [add an action button submenu](#add-an-action-button) |
+| conversation_id *Integer* | Yes | The id of the conversation. |
+| content *String* | Yes | The content of the new message. |
+| attachments *List of [Attachments](#attachments)* | No | List of attachments to the message. It must follow the JSON format returned by [attachment#upload](#upload-an-attachment). |
+| actions *List of [Action Buttons](#action-buttons)* | No | List of action to the new message. More information about the format of the object available at the [add an action button submenu](#add-an-action-button). |
 
 
 ### Return value
@@ -160,10 +160,10 @@ Updates a message in conversation.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the message |
-| content *String* | No | The content of the new message |
-| attachments *List of [Attachments](#attachments)* | No | List of attachments to the message. It must follow the JSON format returned by [attachment#upload](#upload-an-attachment) |
-| actions *List of [Action Buttons](#action-buttons)* | No | List of action to the message. More information about the format of the object available at the [add an action button submenu](#add-an-action-button) |
+| id *Integer* | Yes | The id of the message. |
+| content *String* | No | The content of the new message. |
+| attachments *List of [Attachments](#attachments)* | No | List of attachments to the message. It must follow the JSON format returned by [attachment#upload](#upload-an-attachment). |
+| actions *List of [Action Buttons](#action-buttons)* | No | List of action to the message. More information about the format of the object available at the [add an action button submenu](#add-an-action-button). |
 
 ### Return value
 
@@ -188,7 +188,7 @@ Removes a message from conversation.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the message |
+| id *Integer* | Yes | The id of the message. |
 
 > Return value:
 

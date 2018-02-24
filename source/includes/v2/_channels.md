@@ -27,16 +27,16 @@ A channel is a topic of discussion between a number of users.
 
 | Name | Description |
 | ---- | --- |
-| id *Integer* | The id of the channel |
-| name *String* | The name of the channel |
-| description *String* | The description of the channel |
-| creator *Integer* | The user that created the channel |
-| user_ids *List of Integers* | The users that will participate in the channel |
-| color *Integer* | The color of the channel |
-| public *Boolean* | If enabled, the channel will be marked as public |
-| workspace_id *Integer* | The id of the workspace |
-| archived *Boolean* | Whether the channel is archived |
-| created_ts *Integer* | The Unix time when the channel was created |
+| id *Integer* | The id of the channel. |
+| name *String* | The name of the channel. |
+| description *String* | The description of the channel. |
+| creator *Integer* | The user that created the channel. |
+| user_ids *List of Integers* | The users that will participate in the channel. |
+| color *Integer* | The color of the channel. |
+| public *Boolean* | If enabled, the channel will be marked as public. |
+| workspace_id *Integer* | The id of the workspace. |
+| archived *Boolean* | Whether the channel is archived. |
+| created_ts *Integer* | The Unix time when the channel was created. |
 
 
 ## Get channel
@@ -57,7 +57,7 @@ Gets a single channel object by id.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the channel |
+| id *Integer* | Yes | The id of the channel. |
 
 ### Return value
 
@@ -82,8 +82,8 @@ Gets all channels in a workspace.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| workspace_id *Integer* | Yes | The id of the workspace |
-| archived *Boolean* | No | If enabled, only archived converations are returned. By default it's off. |
+| workspace_id *Integer* | Yes | The id of the workspace. |
+| archived *Boolean* | No | If enabled, only archived conversations are returned. By default this is disabled. |
 
 ### Return value
 
@@ -108,13 +108,13 @@ Adds a new channel.
 ### Parameters
 | Name | Required | Description |
 | --- | --- | --- |
-| workspace_id *Integer* | Yes | The id of the workspace |
-| name *String* | Yes | The name of the new channel |
-| temp_id *Integer* | No | The temporary id of the channel |
-| user_ids *List of Integers* | No | The users that will participate in the channel |
-| color *Integer* | No | The color of the channel |
-| public *Boolean* | No | If enabled, the channel will be marked as public |
-| description *String* | No | The description of the channel |
+| workspace_id *Integer* | Yes | The id of the workspace. |
+| name *String* | Yes | The name of the new channel. |
+| temp_id *Integer* | No | The temporary id of the channel. |
+| user_ids *List of Integers* | No | The users that will participate in the channel. |
+| color *Integer* | No | The color of the channel. |
+| public *Boolean* | No | If enabled, the channel will be marked as public. |
+| description *String* | No | The description of the channel. |
 
 ### Return value
 
@@ -139,11 +139,11 @@ Updates an existing channel.
 
 | Name  | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the channel |
-| name *String* | Yes | The name of the new channel |
-| color *Integer* | No | The color of the channel |
-| public *Boolean* | No | If enabled, the channel will be marked as public |
-| description *String* | No | The description of the channel |
+| id *Integer* | Yes | The id of the channel. |
+| name *String* | Yes | The name of the new channel. |
+| color *Integer* | No | The color of the channel. |
+| public *Boolean* | No | If enabled, the channel will be marked as public. |
+| description *String* | No | The description of the channel. |
 
 ### Return value
 
@@ -167,7 +167,7 @@ Removes a channel. Requires for the channel to be archived first.
 ### Parameters
 | Name  | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the channel |
+| id *Integer* | Yes | The id of the channel. |
 
 ### Return value
 
@@ -204,7 +204,7 @@ Archives a channel.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the channel |
+| id *Integer* | Yes | The id of the channel. |
 
 
 ## Unarchive channel
@@ -233,7 +233,7 @@ Unarchives a channel.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the channel |
+| id *Integer* | Yes | The id of the channel. |
 
 
 ## Add user
@@ -263,8 +263,8 @@ Adds a person to a channel.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the channel |
-| user_id *Integer* | Yes | The user's id |
+| id *Integer* | Yes | The id of the channel. |
+| user_id *Integer* | Yes | The user's id. |
 
 
 ## Add users
@@ -294,8 +294,8 @@ Adds several persons to a channel.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the channel |
-| user_ids *List of Integers* | Yes | The ids of the users |
+| id *Integer* | Yes | The id of the channel. |
+| user_ids *List of Integers* | Yes | The ids of the users. |
 
 
 ## Remove user
@@ -324,8 +324,8 @@ Removes a person from a channel.
 ### Parameters
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the channel |
-| user_id *Integer* | Yes | The user's id |
+| id *Integer* | Yes | The id of the channel. |
+| user_id *Integer* | Yes | The user's id. |
 
 
 
@@ -356,5 +356,5 @@ Removes several persons from a channel.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the channel |
-| user_ids *List of Integers* | Yes | The ids of the users |
+| id *Integer* | Yes | The id of the channel. |
+| user_ids *List of Integers* | Yes | The ids of the users. |

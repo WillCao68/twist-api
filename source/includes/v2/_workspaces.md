@@ -65,14 +65,14 @@ usually called teams.
 
 | Name | Description |
 | --- | --- |
-| id *Integer* | The id of the workspace |
-| name *String* | The name of the new workspace |
-| color *Integer* | The color of the workspace |
-| default_channel *Integer* | The id of the default channel |
-| default_conversation *Integer* | The id of the default conversation |
-| creator *Integer* | The id of the user that created the workspace |
-| created_ts *Integer* | The Unix time when the workspace was created |
-| users *List of Objects* | The users that belong to the workspace |
+| id *Integer* | The id of the workspace. |
+| name *String* | The name of the new workspace. |
+| color *Integer* | The color of the workspace. |
+| default_channel *Integer* | The id of the default channel. |
+| default_conversation *Integer* | The id of the default conversation. |
+| creator *Integer* | The id of the user that created the workspace. |
+| created_ts *Integer* | The Unix time when the workspace was created. |
+| users *List of Objects* | The users that belong to the workspace. |
 
 
 > Workspace user object:
@@ -105,9 +105,9 @@ usually called teams.
 
 | Name | Description |
 | --- | --- |
-| user_type *String* | The user type, one of `ADMIN`, `USER` or `GUEST` |
-| is_removed *Boolean* | Whether the user has been removed |
-| is_doist_employee *Boolean* | Whether the user is a Doist employee |
+| user_type *String* | The user type, one of `ADMIN`, `USER` or `GUEST`. |
+| is_removed *Boolean* | Whether the user has been removed. |
+| is_doist_employee *Boolean* | Whether the user is a Doist employee. |
 
 
 > Workspace user activity object:
@@ -134,17 +134,17 @@ usually called teams.
 
 | Name | Description |
 | --- | --- |
-| is_active *Boolean* | Whether the user is active at the moment |
-| latest_activity *Multi-value List* | The user's last activity |
-| latest_activity[0] *String* | The user's last activity platform |
-| latest_activity *Integer* | The user's last activity Unix timestamp |
-| activity *Object* | The Unix timestamp of last activity for each platform |
-| activity["mobile"] *Integer* | The last activity on the mobile platform |
-| activity["email"] *Integer* | The last activity on the email platform |
-| activity["api"] *Integer* | The last activity on the api platform |
-| activity["desktop"] *Integer* | The last activity on the desktop platform |
-| local_time *String* | The user's current time in UTC |
-| user *Object* | The workspace user object (see above) |
+| is_active *Boolean* | Whether the user is active at the moment. |
+| latest_activity *Multi-value List* | The user's last activity. |
+| latest_activity[0] *String* | The user's last activity platform. |
+| latest_activity *Integer* | The user's last activity Unix timestamp. |
+| activity *Object* | The Unix timestamp of last activity for each platform. |
+| activity["mobile"] *Integer* | The last activity on the mobile platform. |
+| activity["email"] *Integer* | The last activity on the email platform. |
+| activity["api"] *Integer* | The last activity on the api platform. |
+| activity["desktop"] *Integer* | The last activity on the desktop platform. |
+| local_time *String* | The user's current time in UTC. |
+| user *Object* | The workspace user object (see above). |
 
 
 ## Get workspace
@@ -165,7 +165,7 @@ Gets a single workspace object by id.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the workspace |
+| id *Integer* | Yes | The id of the workspace. |
 
 ### Return value
 
@@ -226,9 +226,9 @@ Creates a new workspace.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| name *String* | Yes | The name of the new workspace |
-| temp_id *Integer* | No | The temporary id of the workspace |
-| color *Integer* | No | The color of the workspace |
+| name *String* | Yes | The name of the new workspace. |
+| temp_id *Integer* | No | The temporary id of the workspace. |
+| color *Integer* | No | The color of the workspace. |
 
 ### Return value
 
@@ -253,9 +253,9 @@ Updates an existing workspace.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the workspace |
-| name *String* | No | The name of the workspace |
-| color *Integer* | No | The color of the workspace |
+| id *Integer* | Yes | The id of the workspace. |
+| name *String* | No | The name of the workspace. |
+| color *Integer* | No | The color of the workspace. |
 
 ### Return value
 
@@ -289,8 +289,8 @@ Removes a workspace and all its data \(not recoverable\).
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the workspace |
-| current_password *String* | Yes | The user's current password |
+| id *Integer* | Yes | The id of the workspace. |
+| current_password *String* | Yes | The user's current password. |
 
 
 ## Add user
@@ -312,8 +312,8 @@ Adds a person to a workspace.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the workspace |
-| email *String* | Yes | The user's email |
+| id *Integer* | Yes | The id of the workspace. |
+| email *String* | Yes | The user's email. |
 
 ### Return value
 
@@ -345,8 +345,8 @@ Adds a person to a workspace.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the workspace |
-| email *String* | Yes | The user's email |
+| id *Integer* | Yes | The id of the workspace. |
+| email *String* | Yes | The user's email. |
 
 
 ## Update user
@@ -369,9 +369,9 @@ Updates a person in a workspace.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the workspace |
-| email *String* | Yes | The user's email |
-| user_type *String* | Yes | The user's type one of `USER`, `ADMIN` or `GUEST` |
+| id *Integer* | Yes | The id of the workspace. |
+| email *String* | Yes | The user's email. |
+| user_type *String* | Yes | The user's type one of `USER`, `ADMIN` or `GUEST`. |
 
 ### Return value
 
@@ -405,8 +405,8 @@ Removes a person from a workspace.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the workspace |
-| email *String* | Yes | The user's email |
+| id *Integer* | Yes | The id of the workspace. |
+| email *String* | Yes | The user's email. |
 
 
 ## Get user by email
@@ -428,8 +428,8 @@ Gets user by email.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the workspace |
-| email *String* | Yes | The user's email |
+| id *Integer* | Yes | The id of the workspace. |
+| email *String* | Yes | The user's email. |
 
 ### Return value
 
@@ -455,8 +455,8 @@ Gets user by id.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the workspace |
-| user_id *Integer* | Yes | The user's id |
+| id *Integer* | Yes | The id of the workspace. |
+| user_id *Integer* | Yes | The user's id. |
 
 ### Return value
 
@@ -482,8 +482,8 @@ Gets user's info in the context of the workspace.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the workspace |
-| user_id *Integer* | Yes | The user's id |
+| id *Integer* | Yes | The id of the workspace. |
+| user_id *Integer* | Yes | The user's id. |
 
 
 ## Get local time of user
@@ -511,8 +511,8 @@ Gets user's local time.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the workspace |
-| user_id *Integer* | Yes | The user's id |
+| id *Integer* | Yes | The id of the workspace. |
+| user_id *Integer* | Yes | The user's id. |
 
 
 ## Get public channels
@@ -532,7 +532,7 @@ Gets public channels of workspace.
 ### Parameters
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the workspace |
+| id *Integer* | Yes | The id of the workspace. |
 
 ### Return value
 
