@@ -12,7 +12,7 @@ of data.
 basis to the same channel
 
 
-## Channel Incoming webhook
+## Incoming webhook
 
 Sometimes a developer just wants an **incoming webhook** URL to post
 via manually via `curl` (for example) or to include in the Continuous
@@ -24,6 +24,83 @@ it. After the installation, Twist will provide the URL for manual posting.
 
 Please follow the subsection on
 [How to post data from a channel integration](#how-to-post-data-from-a-channel-integration).
+
+
+## Outgoing webhook
+
+**Note**: Outgoing webhook for channels is really different from [the
+one provided by OAuth](#outgoing-webhook). 😉
+
+Outgoing webhooks send data when an activity happens (e.g. a new
+comment is added to the thread or an uninstall happens).
+
+Its sends an HTTPS POST request to your specified URL and your webhook
+handler can respond to add data back to Twist. The payload depends on
+the integration type.
+
+The outgoing hooks can work with any language or framework — as long as they
+support HTTPS and JSON.
+
+
+### POST Parameters when users add new objects
+
+When a new message, thread or a new comment is added, you can expect following
+parameters.
+
+| Name | Optional | Description |
+| --- | --- | --- |
+| event_type *String* | No | Can be `message`, `thread` or `comment` — depending where the slash command was used |
+| workspace_id *Integer* | No | The workspace the object was posted in |
+| content *String* | No | The content of object, e.g. thread or message content |
+| user_id *Integer* | No | The id of the poster |
+| user_name *String* | No | The name of the poster |
+| conversation_id *Integer* | Yes | Will be set if `event_type` is `message` |
+| conversation_title *String* | Yes | Will be set if `event_type` is `message` |
+| thread_id *Integer* | Yes | Will be set if `event_type` is `thread` or `comment` |
+| thread_title *String* | Yes | Will be set if `event_type` is `thread` or `comment` |
+| channel_id *Integer* | Yes | Will be set if `event_type` is `thread` or `comment` |
+| comment_id *Integer* | Yes | Will be set if `event_type` is `comment` |
+| command *String* | Yes | If the integration type is a slash command we'll include the command, e.g. `/hello` |
+| command_argument *String* | Yes | If the integration type is a slash command we'll include the command argument, e.g. for `/hello world` it would be `world` |
+
+
+### POST Parameters when an uninstall happens
+
+When a team uninstalls your integration, you can expect following
+parameters. You can use this to clean up any state you may have on your end.
+
+| Name | Optional | Description |
+| --- | --- | --- |
+| event_type *String* | No | Will be `uninstall` |
+| install_id *Integer* | No | The unique id of the installation |
+| workspace_id *Integer* | No | The workspace the installation belonged to |
+| user_id *Integer* | No | The id of the uninstaller |
+| user_name *String* | No | The full name of the uninstaller |
+
+
+### POST Parameters when a ping happens
+
+For debugging purposes, you might get a `ping` payload. You should respond back
+with a JSON `{"content": "pong"}`.
+
+| Name | Optional | Description |
+| --- | --- | --- |
+| event_type *String* | No | Will be `ping` |
+| user_id *Integer* | No | The id of the pinger |
+| user_name *String* | No | The full name of the pinger |
+
+
+### Adding content back
+
+If your handler wishes to post a response back, use the following JSON
+response:
+
+`{"content": "42 is the answer to everything."}`
+
+
+### Error handling
+
+Non-200 responses will be retried 10 times in the span of 12 hours.
 
 
 ## Configure URL
