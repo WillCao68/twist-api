@@ -34,21 +34,21 @@ A comment is a message in a thread.
 
 | Name | Description |
 | ---- | --- |
-| id *Integer* | The id of the comment |
-| content *String* | The content of the new comment |
-| creator *Integer* | The user that added the comment |
-| thread_id *Integer* | The id of the thread |
-| channel_id *Integer* | The id of the channel |
-| workspace_id *Integer* | The id of the workspace |
-| attachments *List of [Attachments](#attachments)* | Files attached to the comment |
-| actions *List of [Action buttons](#action-buttons)* | Action buttons attached to the comment |
-| recipients *List of Integers or String* | The users that will be notified, or `EVERYONE` or `EVERYONE_IN_THREAD` |
-| groups *List of Integers* | The groups that will be notified |
-| reactions *Object* | Reactions to the thread, where keys are the reactions and values the users that had that reaction |
-| is_deleted *Integer* | Whether the thread is deleted |
-| system_message *String* | A system message |
-| posted_ts *Integer* | The Unix time when the thread was created |
-| last_edited_ts *Integer* | The Unix time when the comment was last edited or `null` if it hasn't |
+| id *Integer* | The id of the comment. |
+| content *String* | The content of the new comment. |
+| creator *Integer* | The user that added the comment. |
+| thread_id *Integer* | The id of the thread. |
+| channel_id *Integer* | The id of the channel. |
+| workspace_id *Integer* | The id of the workspace. |
+| attachments *List of [Attachments](#attachments)* | Files attached to the comment. |
+| actions *List of [Action buttons](#action-buttons)* | Action buttons attached to the comment. |
+| recipients *List of Integers or String* | The users that will be notified, or `EVERYONE` or `EVERYONE_IN_THREAD`. |
+| groups *List of Integers* | The groups that will be notified. |
+| reactions *Object* | Reactions to the thread, where keys are the reactions and values the users that had that reaction. |
+| is_deleted *Integer* | Whether the thread is deleted. |
+| system_message *String* | A system message. |
+| posted_ts *Integer* | The Unix time when the thread was created. |
+| last_edited_ts *Integer* | The Unix time when the comment was last edited or `null` if it hasn't. |
 
 
 ## Get comment
@@ -69,7 +69,7 @@ Gets a single comment object by id.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the comment |
+| id *Integer* | Yes | The id of the comment. |
 
 ### Return value
 
@@ -94,14 +94,14 @@ Gets all comments in a thread.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| thread_id *Integer* | Yes | The id of the thread |
-| newer_than_ts *String* | No | Limit comments to those newer than the specified Unix timestamp |
-| older_than_ts *String* | No | Limit comments to those older than the specified Unix timestamp |
-| from_obj_index *Integer* | No | Limit comments starting at the specified object index |
-| to_obj_index *String* | No | Limit comments ending at the specified object index |
-| limit *Integer* | No | Limits the number of comments returned, by default `20` |
-| order_by *String* | No | The order of the comments returned one of `DESC` or `ASC` |
-| as_ids *Boolean* | No | If enabled, only the ids of the comments are returned |
+| thread_id *Integer* | Yes | The id of the thread. |
+| newer_than_ts *String* | No | Limit comments to those newer than the specified Unix timestamp. |
+| older_than_ts *String* | No | Limit comments to those older than the specified Unix timestamp. |
+| from_obj_index *Integer* | No | Limit comments starting at the specified object index. |
+| to_obj_index *String* | No | Limit comments ending at the specified object index. |
+| limit *Integer* | No | Limits the number of comments returned, by default `20`. |
+| order_by *String* | No | The order of the comments returned one of `DESC` or `ASC`. |
+| as_ids *Boolean* | No | If enabled, only the ids of the comments are returned. |
 
 ### Return value
 
@@ -134,15 +134,15 @@ Adds a new comment to a thread.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| thread_id *Integer* | Yes | The id of the thread |
-| content *String* | Yes | The content of the new comment |
-| attachments *List of [Attachments](#attachments)* | No | List of attachments to the new comment. It must follow the JSON format returned by [attachment#upload](#upload-an-attachment) |
-| actions *List of [Action Buttons](#action-buttons)* | No | List of action to the new comment. More information about the format of the object available at the [add an action button submenu](#add-an-action-button) |
-| recipients *List of Integers or String* | No | The users that will be notified, or `EVERYONE` or `EVERYONE_IN_THREAD` |
-| groups *List of Integers* | No | The groups that will be notified |
-| temp_id *Integer* | No | The temporary id of the comment |
-| mark_thread_position *Boolean* | No | By default, the position of the thread is marked |
-| send_as_integration *Boolean* | No | Displays the integration as the comment creator |
+| thread_id *Integer* | Yes | The id of the thread. |
+| content *String* | Yes | The content of the new comment. |
+| attachments *List of [Attachments](#attachments)* | No | List of attachments to the new comment. It must follow the JSON format returned by [attachment#upload](#upload-an-attachment). |
+| actions *List of [Action Buttons](#action-buttons)* | No | List of action to the new comment. More information about the format of the object available at the [add an action button submenu](#add-an-action-button). |
+| recipients *List of Integers or String* | No | The users that will be notified, or `EVERYONE` or `EVERYONE_IN_THREAD`. |
+| groups *List of Integers* | No | The groups that will be notified. |
+| temp_id *Integer* | No | The temporary id of the comment. |
+| mark_thread_position *Boolean* | No | By default, the position of the thread is marked. |
+| send_as_integration *Boolean* | No | Displays the integration as the comment creator. |
 
 ### Return value
 
@@ -175,10 +175,10 @@ Updates an existing comment.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the comment |
-| content *String* | No | The content of the comment |
-| attachments *List of [Attachments](#attachments)* | No | List of attachments to the new comment. It must follow the JSON format returned by [attachment#upload](#upload-an-attachment) |
-| actions *List of [Action Buttons](#action-buttons)* | No | List of action to the new comment. More information about the format of the object available at the [add an action button submenu](#add-an-action-button) |
+| id *Integer* | Yes | The id of the comment. |
+| content *String* | No | The content of the comment. |
+| attachments *List of [Attachments](#attachments)* | No | List of attachments to the new comment. It must follow the JSON format returned by [attachment#upload](#upload-an-attachment). |
+| actions *List of [Action Buttons](#action-buttons)* | No | List of action to the new comment. More information about the format of the object available at the [add an action button submenu](#add-an-action-button). |
 
 
 ### Return value
@@ -204,7 +204,7 @@ Removes a comment \(only user's own comments can be removed\).
 
 | Name | Required | Description |
 | --- | --- | --- |
-| id *Integer* | Yes | The id of the comment |
+| id *Integer* | Yes | The id of the comment. |
 
 > Return value:
 
@@ -233,8 +233,8 @@ Marks the position of a thread.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| thread_id *Integer* | Yes | The id of the thread |
-| comment_id *Integer* | Yes | The id of the comment |
+| thread_id *Integer* | Yes | The id of the thread. |
+| comment_id *Integer* | Yes | The id of the comment. |
 
 > Return value:
 

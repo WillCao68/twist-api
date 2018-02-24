@@ -17,7 +17,7 @@ to conversation by sending them to an email address.
 
 | Name | Description |
 | ---- | --- |
-| email *String* | The email address to use to add threads/comments/messages |
+| email *String* | The email address to use to add threads/comments/messages. |
 
 ## Get or create a loop in email
 
@@ -38,8 +38,8 @@ Gets or creates a loop in email.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| obj_type *String* | Yes | The type of the object, one of `CHANNEL`, `THREAD` or `CONVERSATION` |
-| obj_id *Integer* | Yes | The id of the object |
+| obj_type *String* | Yes | The type of the object, one of `CHANNEL`, `THREAD` or `CONVERSATION`. |
+| obj_id *Integer* | Yes | The id of the object. |
 
 > Return value:
 
@@ -69,8 +69,8 @@ Disables a loop in email.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| obj_type *String* | Yes | The type of the object, one of `CHANNEL`, `THREAD` or `CONVERSATION` |
-| obj_id *Integer* | Yes | The id of the object |
+| obj_type *String* | Yes | The type of the object, one of `CHANNEL`, `THREAD` or `CONVERSATION`. |
+| obj_id *Integer* | Yes | The id of the object. |
 
 > Return value:
 

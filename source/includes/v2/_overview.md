@@ -30,8 +30,8 @@ for more details.
 
 A response is always a JSON object which can be the following:
 
-- On successful return: JSON data
-- On an error return, HTTP error code followed by: `{“error”: [error_code, error_string], **kwargs}`
+- On successful return: JSON data.
+- On an error return, HTTP error code followed by: `{“error”: [error_code, error_string], **kwargs}`.
 
 
 ## Dates
@@ -39,9 +39,9 @@ A response is always a JSON object which can be the following:
 For dates we use [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). The
 formatting we can have inside the system:
 
-- Date time: `%Y-%m-%d %H:%M:%S`
-- Date only: `%Y-%m-%d`
-- With timezone info: `%Y-%m-%d %H:%M:%S +00:00`
+- Date time: `%Y-%m-%d %H:%M:%S`.
+- Date only: `%Y-%m-%d`.
+- With timezone info: `%Y-%m-%d %H:%M:%S +00:00`.
 
 The current API should only return `%Y-%m-%d %H:%M:%S`, where the time zone is
 implicit set to `UTC`.

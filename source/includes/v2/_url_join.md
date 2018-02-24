@@ -14,7 +14,7 @@ This allows one to join a workspace using a special URL invite link.
 
 | Name | Description |
 | ---- | --- |
-| url *String* | The URL to be used to join a workspace |
+| url *String* | The URL to be used to join a workspace. |
 
 
 ## Get or create URL join link
@@ -35,7 +35,7 @@ Gets or creates a URL join link to a workspace.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| workspace_id *Integer* | Yes | The id of the workspace |
+| workspace_id *Integer* | Yes | The id of the workspace. |
 
 > Return value:
 
@@ -63,7 +63,7 @@ Disables a URL join link to a workspace.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| workspace_id *Integer* | Yes | The id of the workspace |
+| workspace_id *Integer* | Yes | The id of the workspace. |
 
 > Return value:
 
@@ -91,7 +91,7 @@ Joins user to invited workspace using the URL link.
 
 | Name | Required | Description |
 | --- | --- | --- |
-| url_invite_code *Integer* | Yes | The URL join link |
+| url_invite_code *Integer* | Yes | The URL join link. |
 
 ### Return value
 
