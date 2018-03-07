@@ -10,8 +10,12 @@ schedule video meetings (`/appearin meeting-room`). Both integrations
 are available on
 our [integrations page](https://twistapp.com/integrations).
 
+As slash commands can be used in different contexts (i.e. inside of a thread or conversation), the return may be different depending on where it is used. You can see the differences in the below example.
+
 
 ### Example implementation
+
+> Thread
 
 ```text
 # formstring data
@@ -29,6 +33,25 @@ comment_id: 6402000
 channel_name: General
 channel_id: 6000
 user_id: 9000
+
+```
+
+> Conversation
+
+```text
+# formstring data
+
+user_id: 9000,
+event_type: message,
+conversation_title: conversation_title,
+verify_token: 200_abcdefghijklmnopqrstuvwx,
+content: /appear username,
+command: /appear,
+conversation_id: 296779,
+command_argument: username,
+user_name: John D.,
+message_id: 3456789,
+workspace_id: 1234
 ```
 
 ```json
