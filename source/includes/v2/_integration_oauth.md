@@ -2,7 +2,7 @@
 
 The OAuth integration is the most powerful way to use the Twist API
 but it's also the one that needs more work for a full setup. The
-steps needed to setup are described in our [OAuth2](#oauth2) section.
+steps needed to setup are described in our [OAuth2](#oauth) section.
 
 **Example usage**: Integrate an application with Twist, creating new
 workspaces, channels, threads, and/or messages.
@@ -14,7 +14,7 @@ endpoints of the API for personal purposes or create a proof of
 concept. For these cases, when the OAuth integration is created we
 provide a **test token**.
 
-The test token is a result of the [OAuth2](#oauth2) process for the
+The test token is a result of the [OAuth2](#oauth) process for the
 current logged user and will have the full scope access. 
 
 ```shell

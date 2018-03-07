@@ -5,7 +5,7 @@ your type based on how your integration will be used. Here are links
 with the full explanation of each one with a small summary of what they
 can do:
 
-* [oAuth 2 applications](#oauth) - Requires more setup but is more powerful.
+* [OAuth 2 applications](#oauth) - Requires more setup but is more powerful.
 * [Channel integration](#channel) - Has access to one channel only, has schedule powers.
 * [Thread integration](#thread) - Has access to one thread or create new threads.
 * [Slash command integration](#slash-command) - Receives a request when called via slash command.
