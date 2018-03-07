@@ -265,11 +265,11 @@ parameters, and examples.</p>
 
 <p>Login and signup are done via <a href="#login">/api/v2/users/login</a>
 and <a href="#register">/api/v2/users/register</a>. For public integration, you must
-use our <a href="#oauth-2">oAuth 2 authentication</a>.</p>
+use our <a href="#oauth">OAuth 2 authentication</a>.</p>
 
 <p>If you just want a token to try the API, we provide a test token when you create
 an application following what we describe in
-the <a href="#oauth-2">oAuth 2 authentication</a> guide.</p>
+the <a href="#oauth">OAuth 2 authentication</a> guide.</p>
 
 <h2 id="temporary-ids">Temporary ids</h2>
 
@@ -7188,7 +7188,7 @@ with the full explanation of each one with a small summary of what they
 can do:</p>
 
 <ul>
-<li><a href="#oauth">oAuth 2 applications</a> - Requires more setup but is more powerful.</li>
+<li><a href="#oauth">OAuth 2 applications</a> - Requires more setup but is more powerful.</li>
 <li><a href="#channel">Channel integration</a> - Has access to one channel only, has schedule powers.</li>
 <li><a href="#thread">Thread integration</a> - Has access to one thread or create new threads.</li>
 <li><a href="#slash-command">Slash command integration</a> - Receives a request when called via slash command.</li>
@@ -7209,7 +7209,7 @@ also enforce
 
 <p>The OAuth integration is the most powerful way to use the Twist API
 but it&rsquo;s also the one that needs more work for a full setup. The
-steps needed to setup are described in our <a href="#oauth2">OAuth2</a> section.</p>
+steps needed to setup are described in our <a href="#oauth">OAuth2</a> section.</p>
 
 <p><strong>Example usage</strong>: Integrate an application with Twist, creating new
 workspaces, channels, threads, and/or messages.</p>
@@ -7221,7 +7221,7 @@ endpoints of the API for personal purposes or create a proof of
 concept. For these cases, when the OAuth integration is created we
 provide a <strong>test token</strong>.</p>
 
-<p>The test token is a result of the <a href="#oauth2">OAuth2</a> process for the
+<p>The test token is a result of the <a href="#oauth">OAuth2</a> process for the
 current logged user and will have the full scope access. </p>
 <pre class="highlight shell tab-shell"><code>curl -X POST https://api.twistapp.com/api/v2/your_endpoint <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer Gen3rated_t3st_t0k3n"</span> <span class="se">\</span>
