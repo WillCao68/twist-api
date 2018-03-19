@@ -9,7 +9,7 @@ A conversation is a direct message exchange between one or more users.
    "id" : 13037,
    "name" : "User2",
    "title" : null,
-   "is_private" : 1
+   "is_private" : 1,
    "creator" : 10076,
    "workspace_id" : 5517,
    "user_ids" : [
