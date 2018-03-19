@@ -27,7 +27,7 @@ curl --get https://api.twistapp.com/api/v2/search/query \
       "obj_type": "thread",
       "title": "Far far away",
       "snippet": "It is a paradisematic country, in which roasted parts of sentences fly into your mouth.",
-      "details_link": "/api/v2/search/comments?query=texts&workspace_id=201&thread_id=401"
+      "details_link": "/api/v2/search/comments?query=texts&workspace_id=201&thread_id=401",
       "id": 501,
       "thread_id": 401,
       "channel_id": 301,
@@ -40,10 +40,10 @@ curl --get https://api.twistapp.com/api/v2/search/query \
       "obj_type": "conversation",
       "title": "Chat",
       "snippet": "Even the all-powerful Pointing has no control about the blind texts..."
-      "details_link": "/api/v2/search/messages?query=texts&workspace_id=201&aggregate_id=123-345-678-9"
+      "details_link": "/api/v2/search/messages?query=texts&workspace_id=201&aggregate_id=123-345-678-9",
       "id": 703,
       "conversation_id": 601,
-      "last_author": 101
+      "last_author": 101,
       "chunk_start_ts": 1486727013,
       "chunk_end_ts": 1486727132,
       "last_posted_ts": 1486727120,
@@ -178,7 +178,7 @@ curl --get https://api.twistapp.com/api/v2/search/expand_comment_range \
   "items": [
    {
      "type" : "comment",
-     "expanded" : false
+     "expanded" : false,
      "obj" : {
        "id" : 164313,
        "obj_index" : 0,
@@ -233,16 +233,16 @@ curl --get https://api.twistapp.com/api/v2/search/messages \
       "type" : "conversation_message_range",
       "idx_start" : 0,
       "idx_end" : 5,
-      "expand_link" : "/api/v2/search/expand_conversation_message_range?conversation_id=601&idx_end=5&workspace_id=201&idx_start=0"
+      "expand_link" : "/api/v2/search/expand_conversation_message_range?conversation_id=601&idx_end=5&workspace_id=201&idx_start=0",
       "top_expand_link" : "/api/v2/search/expand_conversation_message_range?conversation_id=601&idx_end=5&workspace_id=201&idx_start=0&direction=top",
       "bottom_expand_link" : "/api/v2/search/expand_conversation_message_range?conversation_id=601&idx_end=5&workspace_id=201&idx_start=0&direction=bottom",
     },
     {
-      "type" : "conversation_message"
+      "type" : "conversation_message",
       "expanded" : false,
       "obj" : {
         "obj_index" : 6,
-        "content" : "Pityful a rethoric question ran over her cheek, then she continued her way. On her way she met a copy.",
+        "content" : "Pityful a rethoric question ran over her cheek, then she continued her way. On her way she met a copy",
         "id" : 702,
         "conversation_id" : 601,
         "workspace_id" : 201,
@@ -251,20 +251,20 @@ curl --get https://api.twistapp.com/api/v2/search/messages \
         "reactions" : {},
         "attachments" : [],
         "actions" : [],
-        "system_message" : null
+        "system_message" : null,
         "is_deleted" : false,
       },
     },
     {
       "type" : "conversation_message",
-      "expanded" : true
+      "expanded" : true,
       "obj" : {
         "obj_index" : 7,
         "content" : "Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life.",
         "id" : 703,
         "conversation_id" : 601,
         "workspace_id" : 201,
-        "creator" : 101
+        "creator" : 101,
         "posted_ts" : 1486545169,
         "reactions" : {
           "👍" : [
@@ -283,7 +283,7 @@ curl --get https://api.twistapp.com/api/v2/search/messages \
       "obj" : {
         "obj_index" : 8,
         "content" : "One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.",
-        "id" : ,
+        "id" : 704,
         "conversation_id" : 601,
         "workspace_id" : 201,
         "creator" : 105,
@@ -295,7 +295,7 @@ curl --get https://api.twistapp.com/api/v2/search/messages \
         },
         "attachments" : [],
         "actions" : [],
-        "system_message" : null
+        "system_message" : null,
         "is_deleted" : false,
       },
     }

@@ -7,7 +7,7 @@ A group is a number of users grouped together under some name, a team.
 ```json
 {
    "id" : 498,
-   "name" : "Group1"
+   "name" : "Group1",
    "description" : null,
    "user_ids" : [],
    "workspace_id" : 5517,

@@ -9,7 +9,7 @@ usually called teams.
 {
    "id" : 5517,
    "name" : "Workspace1",
-   "color" : 1
+   "color" : 1,
    "default_channel" : 6984,
    "default_conversation" : 13030,
    "creator" : 10073,
@@ -79,7 +79,7 @@ usually called teams.
 
 ```json
 "user" : {
-   "id" : 10073
+   "id" : 10073,
    "email" : "user1@example.com",
    "name" : "User1",
    "short_name" : "User1",
@@ -118,7 +118,7 @@ usually called teams.
    "latest_activity" : [
       "api",
       1494333950
-   ]
+   ],
    "activity" : {
       "mobile" : -1,
       "email" : -1,

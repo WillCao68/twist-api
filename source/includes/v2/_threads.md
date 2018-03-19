@@ -9,11 +9,11 @@ A thread is a discussion.
 	 "id" : 32038,
 	 "title" : "Thread1",
 	 "content" : "Let's discuss the Twist API...",
-	 "is_starred" : 0
+	 "is_starred" : 0,
 	 "creator" : 10073,
 	 "channel_id" : 6984,
 	 "workspace_id" : 5517,
-	 "attachments" : []
+	 "attachments" : [],
 	 "participants" : [
 			10073,
 			10076

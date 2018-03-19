@@ -13,7 +13,7 @@ The user's last notifications.
          "workspace_id" : 5517,
          "channel_id" : 6984,
          "thread_id" : 32038,
-         "comment_id" : 206113
+         "comment_id" : 206113,
          "by_user_id" : 10076,
          "posted_ts" : 1494489787,
       }

@@ -11,7 +11,7 @@ A comment is a message in a thread.
    "creator" : 10076,
    "thread_id" : 32038,
    "channel_id" : 6984,
-   "workspace_id" : 5517
+   "workspace_id" : 5517,
    "obj_index" : 2,
    "attachments" : [],
    "recipients" : [

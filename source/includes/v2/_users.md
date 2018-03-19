@@ -20,7 +20,7 @@ A user represents a real person who collaborates with other users.
    "snooze_dnd_start" : null,
    "snooze_dnd_end" : null,
    "is_snoozed" : false,
-   "away_mode" : null
+   "away_mode" : null,
    "off_days" : [],
    "setup_pending" : 0,
    "is_bot" : false,

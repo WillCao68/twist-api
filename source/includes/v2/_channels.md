@@ -18,7 +18,7 @@ A channel is a topic of discussion between a number of users.
 	 "color" : 1,
 	 "public" : true,
 	 "workspace_id" : 5517,
-	 "archived" : false
+	 "archived" : false,
 	 "created_ts" : 1494323074,
 }
 ```

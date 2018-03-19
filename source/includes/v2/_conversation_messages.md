@@ -11,7 +11,7 @@ conversation.
    "content" : "Hi!",
    "creator" : 10073,
    "conversation_id" : 13037,
-   "workspace_id" : 5517
+   "workspace_id" : 5517,
    "obj_index" : 0,
    "attachments" : [],
    "actions" : [],
