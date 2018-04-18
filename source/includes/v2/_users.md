@@ -174,7 +174,7 @@ curl -X POST https://api.twistapp.com/api/v2/users/update \
 
 `POST /api/v2/users/update`
 
-Updates user's details.
+Update the logged-in user's details
 
 ### Parameters
 

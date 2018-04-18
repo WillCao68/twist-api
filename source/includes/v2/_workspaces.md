@@ -370,7 +370,7 @@ Updates a person in a workspace.
 | Name | Required | Description |
 | --- | --- | --- |
 | id *Integer* | Yes | The id of the workspace. |
-| email *String* | Yes | The user's email. |
+| email *String* | Yes | The email of the user to be updated. |
 | user_type *String* | Yes | The user's type one of `USER`, `ADMIN` or `GUEST`. |
 
 ### Return value
