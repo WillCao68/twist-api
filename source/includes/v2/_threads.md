@@ -420,7 +420,7 @@ the channel id, the thread id and the index of the last unread comment.
 ```shell
 curl -X POST https://api.twistapp.com/api/v2/threads/mark_read \
   -H "Authorization: Bearer 9b1bf97783c1ad5593dee12f3019079dbd3042cf" \
-  -d id=32038 \
+  -d thread_id=32038 \
   -d obj_index=2
 ```
 
